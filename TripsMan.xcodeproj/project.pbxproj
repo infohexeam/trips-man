@@ -1,0 +1,800 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C15E31B128C5F13100E209EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31B028C5F13100E209EB /* AppDelegate.swift */; };
+		C15E31B328C5F13100E209EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31B228C5F13100E209EB /* SceneDelegate.swift */; };
+		C15E31B828C5F13100E209EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15E31B628C5F13100E209EB /* Main.storyboard */; };
+		C15E31BB28C5F13100E209EB /* TripsMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C15E31B928C5F13100E209EB /* TripsMan.xcdatamodeld */; };
+		C15E31BD28C5F13300E209EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15E31BC28C5F13300E209EB /* Assets.xcassets */; };
+		C15E31C028C5F13300E209EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15E31BE28C5F13300E209EB /* LaunchScreen.storyboard */; };
+		C15E31CB28C5F13400E209EB /* TripsManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31CA28C5F13400E209EB /* TripsManTests.swift */; };
+		C15E31D528C5F13400E209EB /* TripsManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31D428C5F13400E209EB /* TripsManUITests.swift */; };
+		C15E31D728C5F13400E209EB /* TripsManUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31D628C5F13400E209EB /* TripsManUITestsLaunchTests.swift */; };
+		C15E31E828C6D44B00E209EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31E728C6D44B00E209EB /* MainViewController.swift */; };
+		C15E31EC28C6D4BC00E209EB /* LoginModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15E31EB28C6D4BC00E209EB /* LoginModule.storyboard */; };
+		C15E31EE28C6D4E600E209EB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31ED28C6D4E600E209EB /* LoginViewController.swift */; };
+		C15E31F028C6DD0000E209EB /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C15E31EF28C6DD0000E209EB /* Color.xcassets */; };
+		C15E31F428C6DFA200E209EB /* roboto.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C15E31F328C6DF8D00E209EB /* roboto.bold.ttf */; };
+		C15E31F528C6DFA200E209EB /* roboto.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C15E31F228C6DF8D00E209EB /* roboto.regular.ttf */; };
+		C15E31F828C6FA0500E209EB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31F728C6FA0500E209EB /* CustomTextField.swift */; };
+		C15E31FA28C701BA00E209EB /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31F928C701BA00E209EB /* CustomView.swift */; };
+		C15E31FC28C7020000E209EB /* DisableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31FB28C7020000E209EB /* DisableButton.swift */; };
+		C15E320028C74F9F00E209EB /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31FF28C74F9F00E209EB /* UIViewController+Extension.swift */; };
+		C15E320328C8187300E209EB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320228C8187300E209EB /* ForgotPasswordViewController.swift */; };
+		C15E320828C81DD100E209EB /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320728C81DD100E209EB /* ResetPasswordViewController.swift */; };
+		C15E320A28C8267700E209EB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320928C8267700E209EB /* RegisterViewController.swift */; };
+		C15E320E28C82BD600E209EB /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320D28C82BD600E209EB /* OtpViewController.swift */; };
+		C1DDD11128CAEBA30032FA12 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDD11028CAEBA30032FA12 /* Validator.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C15E31C728C5F13400E209EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C15E31A528C5F13100E209EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C15E31AC28C5F13100E209EB;
+			remoteInfo = TripsMan;
+		};
+		C15E31D128C5F13400E209EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C15E31A528C5F13100E209EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C15E31AC28C5F13100E209EB;
+			remoteInfo = TripsMan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C15E31AD28C5F13100E209EB /* TripsMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripsMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15E31B028C5F13100E209EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C15E31B228C5F13100E209EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C15E31B728C5F13100E209EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C15E31BA28C5F13100E209EB /* TripsMan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TripsMan.xcdatamodel; sourceTree = "<group>"; };
+		C15E31BC28C5F13300E209EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C15E31BF28C5F13300E209EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C15E31C128C5F13300E209EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C15E31C628C5F13400E209EB /* TripsManTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripsManTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15E31CA28C5F13400E209EB /* TripsManTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsManTests.swift; sourceTree = "<group>"; };
+		C15E31D028C5F13400E209EB /* TripsManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripsManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C15E31D428C5F13400E209EB /* TripsManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsManUITests.swift; sourceTree = "<group>"; };
+		C15E31D628C5F13400E209EB /* TripsManUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsManUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C15E31E728C6D44B00E209EB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C15E31EB28C6D4BC00E209EB /* LoginModule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginModule.storyboard; sourceTree = "<group>"; };
+		C15E31ED28C6D4E600E209EB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C15E31EF28C6DD0000E209EB /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		C15E31F228C6DF8D00E209EB /* roboto.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.regular.ttf; sourceTree = "<group>"; };
+		C15E31F328C6DF8D00E209EB /* roboto.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.bold.ttf; sourceTree = "<group>"; };
+		C15E31F728C6FA0500E209EB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C15E31F928C701BA00E209EB /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		C15E31FB28C7020000E209EB /* DisableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableButton.swift; sourceTree = "<group>"; };
+		C15E31FF28C74F9F00E209EB /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C15E320228C8187300E209EB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		C15E320728C81DD100E209EB /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		C15E320928C8267700E209EB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C15E320D28C82BD600E209EB /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
+		C1DDD11028CAEBA30032FA12 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C15E31AA28C5F13100E209EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E31C328C5F13400E209EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E31CD28C5F13400E209EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C15E31A428C5F13100E209EB = {
+			isa = PBXGroup;
+			children = (
+				C15E31AF28C5F13100E209EB /* TripsMan */,
+				C15E31C928C5F13400E209EB /* TripsManTests */,
+				C15E31D328C5F13400E209EB /* TripsManUITests */,
+				C15E31AE28C5F13100E209EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C15E31AE28C5F13100E209EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31AD28C5F13100E209EB /* TripsMan.app */,
+				C15E31C628C5F13400E209EB /* TripsManTests.xctest */,
+				C15E31D028C5F13400E209EB /* TripsManUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C15E31AF28C5F13100E209EB /* TripsMan */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31B028C5F13100E209EB /* AppDelegate.swift */,
+				C15E31B228C5F13100E209EB /* SceneDelegate.swift */,
+				C15E31E928C6D47900E209EB /* View */,
+				C15E31E328C6D33C00E209EB /* Controller */,
+				C15E31F628C6F9DB00E209EB /* Resources */,
+				C15E31BC28C5F13300E209EB /* Assets.xcassets */,
+				C15E31EF28C6DD0000E209EB /* Color.xcassets */,
+				C15E31BE28C5F13300E209EB /* LaunchScreen.storyboard */,
+				C15E31F128C6DF1900E209EB /* CustomFonts */,
+				C15E31C128C5F13300E209EB /* Info.plist */,
+				C15E31B928C5F13100E209EB /* TripsMan.xcdatamodeld */,
+			);
+			path = TripsMan;
+			sourceTree = "<group>";
+		};
+		C15E31C928C5F13400E209EB /* TripsManTests */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31CA28C5F13400E209EB /* TripsManTests.swift */,
+			);
+			path = TripsManTests;
+			sourceTree = "<group>";
+		};
+		C15E31D328C5F13400E209EB /* TripsManUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31D428C5F13400E209EB /* TripsManUITests.swift */,
+				C15E31D628C5F13400E209EB /* TripsManUITestsLaunchTests.swift */,
+			);
+			path = TripsManUITests;
+			sourceTree = "<group>";
+		};
+		C15E31E328C6D33C00E209EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31E528C6D36F00E209EB /* Main */,
+				C15E31E428C6D34A00E209EB /* Login Module */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C15E31E428C6D34A00E209EB /* Login Module */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31E628C6D37E00E209EB /* Login */,
+				C15E320528C81D8300E209EB /* Register */,
+				C15E320628C81D9300E209EB /* Otp Verification */,
+				C15E320128C8185800E209EB /* Forgot Password */,
+				C15E320428C81D7900E209EB /* Reset Password */,
+			);
+			path = "Login Module";
+			sourceTree = "<group>";
+		};
+		C15E31E528C6D36F00E209EB /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31E728C6D44B00E209EB /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C15E31E628C6D37E00E209EB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31ED28C6D4E600E209EB /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C15E31E928C6D47900E209EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31EA28C6D48300E209EB /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C15E31EA28C6D48300E209EB /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31B628C5F13100E209EB /* Main.storyboard */,
+				C15E31EB28C6D4BC00E209EB /* LoginModule.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C15E31F128C6DF1900E209EB /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31F328C6DF8D00E209EB /* roboto.bold.ttf */,
+				C15E31F228C6DF8D00E209EB /* roboto.regular.ttf */,
+			);
+			path = CustomFonts;
+			sourceTree = "<group>";
+		};
+		C15E31F628C6F9DB00E209EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1DDD10F28CAEB790032FA12 /* Validator */,
+				C15E31FD28C74F4C00E209EB /* Designables */,
+				C15E31FE28C74F5E00E209EB /* Extentions */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C15E31FD28C74F4C00E209EB /* Designables */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31F728C6FA0500E209EB /* CustomTextField.swift */,
+				C15E31F928C701BA00E209EB /* CustomView.swift */,
+				C15E31FB28C7020000E209EB /* DisableButton.swift */,
+			);
+			path = Designables;
+			sourceTree = "<group>";
+		};
+		C15E31FE28C74F5E00E209EB /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				C15E31FF28C74F9F00E209EB /* UIViewController+Extension.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		C15E320128C8185800E209EB /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				C15E320228C8187300E209EB /* ForgotPasswordViewController.swift */,
+			);
+			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		C15E320428C81D7900E209EB /* Reset Password */ = {
+			isa = PBXGroup;
+			children = (
+				C15E320728C81DD100E209EB /* ResetPasswordViewController.swift */,
+			);
+			path = "Reset Password";
+			sourceTree = "<group>";
+		};
+		C15E320528C81D8300E209EB /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				C15E320928C8267700E209EB /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		C15E320628C81D9300E209EB /* Otp Verification */ = {
+			isa = PBXGroup;
+			children = (
+				C15E320D28C82BD600E209EB /* OtpViewController.swift */,
+			);
+			path = "Otp Verification";
+			sourceTree = "<group>";
+		};
+		C1DDD10F28CAEB790032FA12 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				C1DDD11028CAEBA30032FA12 /* Validator.swift */,
+			);
+			path = Validator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C15E31AC28C5F13100E209EB /* TripsMan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C15E31DA28C5F13400E209EB /* Build configuration list for PBXNativeTarget "TripsMan" */;
+			buildPhases = (
+				C15E31A928C5F13100E209EB /* Sources */,
+				C15E31AA28C5F13100E209EB /* Frameworks */,
+				C15E31AB28C5F13100E209EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TripsMan;
+			productName = TripsMan;
+			productReference = C15E31AD28C5F13100E209EB /* TripsMan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C15E31C528C5F13400E209EB /* TripsManTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C15E31DD28C5F13400E209EB /* Build configuration list for PBXNativeTarget "TripsManTests" */;
+			buildPhases = (
+				C15E31C228C5F13400E209EB /* Sources */,
+				C15E31C328C5F13400E209EB /* Frameworks */,
+				C15E31C428C5F13400E209EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C15E31C828C5F13400E209EB /* PBXTargetDependency */,
+			);
+			name = TripsManTests;
+			productName = TripsManTests;
+			productReference = C15E31C628C5F13400E209EB /* TripsManTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C15E31CF28C5F13400E209EB /* TripsManUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C15E31E028C5F13400E209EB /* Build configuration list for PBXNativeTarget "TripsManUITests" */;
+			buildPhases = (
+				C15E31CC28C5F13400E209EB /* Sources */,
+				C15E31CD28C5F13400E209EB /* Frameworks */,
+				C15E31CE28C5F13400E209EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C15E31D228C5F13400E209EB /* PBXTargetDependency */,
+			);
+			name = TripsManUITests;
+			productName = TripsManUITests;
+			productReference = C15E31D028C5F13400E209EB /* TripsManUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C15E31A528C5F13100E209EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					C15E31AC28C5F13100E209EB = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					C15E31C528C5F13400E209EB = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = C15E31AC28C5F13100E209EB;
+					};
+					C15E31CF28C5F13400E209EB = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = C15E31AC28C5F13100E209EB;
+					};
+				};
+			};
+			buildConfigurationList = C15E31A828C5F13100E209EB /* Build configuration list for PBXProject "TripsMan" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C15E31A428C5F13100E209EB;
+			productRefGroup = C15E31AE28C5F13100E209EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C15E31AC28C5F13100E209EB /* TripsMan */,
+				C15E31C528C5F13400E209EB /* TripsManTests */,
+				C15E31CF28C5F13400E209EB /* TripsManUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C15E31AB28C5F13100E209EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15E31EC28C6D4BC00E209EB /* LoginModule.storyboard in Resources */,
+				C15E31C028C5F13300E209EB /* LaunchScreen.storyboard in Resources */,
+				C15E31F028C6DD0000E209EB /* Color.xcassets in Resources */,
+				C15E31BD28C5F13300E209EB /* Assets.xcassets in Resources */,
+				C15E31B828C5F13100E209EB /* Main.storyboard in Resources */,
+				C15E31F428C6DFA200E209EB /* roboto.bold.ttf in Resources */,
+				C15E31F528C6DFA200E209EB /* roboto.regular.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E31C428C5F13400E209EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E31CE28C5F13400E209EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C15E31A928C5F13100E209EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15E31EE28C6D4E600E209EB /* LoginViewController.swift in Sources */,
+				C15E31B128C5F13100E209EB /* AppDelegate.swift in Sources */,
+				C15E31F828C6FA0500E209EB /* CustomTextField.swift in Sources */,
+				C15E320A28C8267700E209EB /* RegisterViewController.swift in Sources */,
+				C15E320828C81DD100E209EB /* ResetPasswordViewController.swift in Sources */,
+				C15E31FA28C701BA00E209EB /* CustomView.swift in Sources */,
+				C15E31FC28C7020000E209EB /* DisableButton.swift in Sources */,
+				C15E31B328C5F13100E209EB /* SceneDelegate.swift in Sources */,
+				C15E320328C8187300E209EB /* ForgotPasswordViewController.swift in Sources */,
+				C1DDD11128CAEBA30032FA12 /* Validator.swift in Sources */,
+				C15E320028C74F9F00E209EB /* UIViewController+Extension.swift in Sources */,
+				C15E31BB28C5F13100E209EB /* TripsMan.xcdatamodeld in Sources */,
+				C15E31E828C6D44B00E209EB /* MainViewController.swift in Sources */,
+				C15E320E28C82BD600E209EB /* OtpViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E31C228C5F13400E209EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15E31CB28C5F13400E209EB /* TripsManTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C15E31CC28C5F13400E209EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15E31D728C5F13400E209EB /* TripsManUITestsLaunchTests.swift in Sources */,
+				C15E31D528C5F13400E209EB /* TripsManUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C15E31C828C5F13400E209EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C15E31AC28C5F13100E209EB /* TripsMan */;
+			targetProxy = C15E31C728C5F13400E209EB /* PBXContainerItemProxy */;
+		};
+		C15E31D228C5F13400E209EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C15E31AC28C5F13100E209EB /* TripsMan */;
+			targetProxy = C15E31D128C5F13400E209EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C15E31B628C5F13100E209EB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C15E31B728C5F13100E209EB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C15E31BE28C5F13300E209EB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C15E31BF28C5F13300E209EB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C15E31D828C5F13400E209EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C15E31D928C5F13400E209EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C15E31DB28C5F13400E209EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CW3SH8TNJ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TripsMan/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexeam.TripsMan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C15E31DC28C5F13400E209EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CW3SH8TNJ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TripsMan/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexeam.TripsMan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C15E31DE28C5F13400E209EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CW3SH8TNJ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexeam.TripsManTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TripsMan.app/TripsMan";
+			};
+			name = Debug;
+		};
+		C15E31DF28C5F13400E209EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CW3SH8TNJ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexeam.TripsManTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TripsMan.app/TripsMan";
+			};
+			name = Release;
+		};
+		C15E31E128C5F13400E209EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CW3SH8TNJ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexeam.TripsManUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TripsMan;
+			};
+			name = Debug;
+		};
+		C15E31E228C5F13400E209EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CW3SH8TNJ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexeam.TripsManUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TripsMan;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C15E31A828C5F13100E209EB /* Build configuration list for PBXProject "TripsMan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15E31D828C5F13400E209EB /* Debug */,
+				C15E31D928C5F13400E209EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C15E31DA28C5F13400E209EB /* Build configuration list for PBXNativeTarget "TripsMan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15E31DB28C5F13400E209EB /* Debug */,
+				C15E31DC28C5F13400E209EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C15E31DD28C5F13400E209EB /* Build configuration list for PBXNativeTarget "TripsManTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15E31DE28C5F13400E209EB /* Debug */,
+				C15E31DF28C5F13400E209EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C15E31E028C5F13400E209EB /* Build configuration list for PBXNativeTarget "TripsManUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C15E31E128C5F13400E209EB /* Debug */,
+				C15E31E228C5F13400E209EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C15E31B928C5F13100E209EB /* TripsMan.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C15E31BA28C5F13100E209EB /* TripsMan.xcdatamodel */,
+			);
+			currentVersion = C15E31BA28C5F13100E209EB /* TripsMan.xcdatamodel */;
+			path = TripsMan.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C15E31A528C5F13100E209EB /* Project object */;
+}

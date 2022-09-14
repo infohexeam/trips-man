@@ -1,0 +1,71 @@
+//
+//  CustomTextField.swift
+//  TripsMan
+//
+//  Created by Hexeam Software Solutions on 06/09/22.
+//
+
+import Foundation
+import UIKit
+
+@IBDesignable
+class CustomTextField: UITextField {
+    
+    override var isEnabled: Bool {
+        didSet {
+            if !isEnabled {
+                backgroundColor = UIColor(named: "Disabled Field")
+            }
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        didSet {
+            layer.borderColor = borderColor?.cgColor
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    @IBInspectable var placeHolderColor: UIColor? {
+        get {
+            return self.placeHolderColor
+        }
+        set {
+            self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSAttributedString.Key.foregroundColor: newValue!])
+        }
+    }
+    
+    //PrepareForInterfaceBuilder
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+//        layer.borderColor = borderColor?.cgColor
+//        layer.borderWidth = borderWidth
+//        layer.cornerRadius = cornerRadius
+    }
+    
+    //EdgeInsets
+    let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+}
