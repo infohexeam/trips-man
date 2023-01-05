@@ -15,11 +15,19 @@ class OtpViewController: UIViewController {
     
     @IBOutlet weak var verifyButton: DisableButton!
     
+    var email = ""
+    var mobile = ""
+    var isMobile = true
+    let parser = Parser()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
+        hideKeyboardOnTap()
+        generateOTP()
         
         otpField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
     }
@@ -34,11 +42,56 @@ class OtpViewController: UIViewController {
     
     //MARK: UIButton Actions
     @IBAction func verifyTapped(_ sender: UIButton) {
-        
+        verifyOTP()
     }
     
     @IBAction func resendTapped(_ sender: UIButton) {
+        generateOTP()
+    }
+}
+
+//MARK: - APICalls
+extension OtpViewController {
+    func generateOTP() {
+        showIndicator()
+        let params: [String: Any] = ["Email": email]
         
+        parser.sendRequest(url: "api/account/Generateotp", http: .post, parameters: params) { (result: LoginData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
+    func verifyOTP() {
+        showIndicator()
+        let params: [String: Any] = ["Email": email,
+                                     "otp": otpField.text!]
+        
+        parser.sendRequest(url: "api/account/Verifyotp", http: .post, parameters: params) { (result: LoginData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.navigationController?.view.makeToast(result!.message)
+                        self.navigationController?.popToRootViewController(animated: true)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
     }
 }
 

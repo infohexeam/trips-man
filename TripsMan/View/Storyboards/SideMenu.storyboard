@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NQT-BL-5fh">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="roboto.regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="glc-mJ-lej">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NQT-BL-5fh" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MTk-At-wCW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="Apk-iG-WPg" kind="relationship" relationship="rootViewController" id="x1F-Jb-UBY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAA-Bv-Bvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64.615384615384613" y="-17.061611374407583"/>
+        </scene>
+        <!--Side Menu Table View Controller-->
+        <scene sceneID="4F1-u3-oLM">
+            <objects>
+                <tableViewController storyboardIdentifier="SideMenu" id="Apk-iG-WPg" customClass="SideMenuTableViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="RXD-qi-iB7">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="SE8-jt-ndO">
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="6"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sideMenuCell" rowHeight="84" id="KgC-tf-Emd" customClass="SideMenuTableViewCell" customModule="TripsMan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="390" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KgC-tf-Emd" id="Raj-O5-NQb">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="84"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="v0u-zU-gWB">
+                                            <rect key="frame" x="8" y="8" width="374" height="68"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nWG-FY-fSw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle.lefthalf.inset.filled.arrow.left" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rLK-Nl-ceY">
+                                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="30" height="27.000000000000004"/>
+                                                            <color key="tintColor" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="rLK-Nl-ceY" secondAttribute="height" id="J51-5c-vod"/>
+                                                                <constraint firstAttribute="width" constant="30" id="KPQ-HX-SzI"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login / Sign Up Now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jsL-ji-37U">
+                                                            <rect key="frame" x="38" y="0.0" width="336" height="30"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                            <color key="textColor" name="secondaryColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="taG-yH-4lq">
+                                                    <rect key="frame" x="0.0" y="30" width="374" height="38"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvh-Aa-dXA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="38"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login for best deals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdW-Fj-tam">
+                                                            <rect key="frame" x="38" y="0.0" width="336" height="38"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tvh-Aa-dXA" firstAttribute="width" secondItem="rLK-Nl-ceY" secondAttribute="width" id="IhA-dl-XCh"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="v0u-zU-gWB" firstAttribute="leading" secondItem="Raj-O5-NQb" secondAttribute="leading" constant="8" id="4DX-Or-fef"/>
+                                        <constraint firstAttribute="trailing" secondItem="v0u-zU-gWB" secondAttribute="trailing" constant="8" id="IQw-l7-8cK"/>
+                                        <constraint firstItem="v0u-zU-gWB" firstAttribute="top" secondItem="Raj-O5-NQb" secondAttribute="top" constant="8" id="Oru-L1-TXV"/>
+                                        <constraint firstAttribute="bottom" secondItem="v0u-zU-gWB" secondAttribute="bottom" constant="8" id="iLM-M8-vSp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="menuImage" destination="rLK-Nl-ceY" id="eO6-5o-AUG"/>
+                                    <outlet property="menuSubText" destination="bdW-Fj-tam" id="iOC-Zi-QoE"/>
+                                    <outlet property="menuTitle" destination="jsL-ji-37U" id="ji0-CR-xEb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Apk-iG-WPg" id="fx5-dm-MtZ"/>
+                            <outlet property="delegate" destination="Apk-iG-WPg" id="duW-dL-S4k"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5kj-Sa-hNR"/>
+                    <connections>
+                        <outlet property="sideMenuTable" destination="RXD-qi-iB7" id="PcS-IW-dJQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1B-fp-BLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924.61538461538453" y="-17.061611374407583"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rectangle.lefthalf.inset.filled.arrow.left" catalog="system" width="128" height="93"/>
+        <namedColor name="secondaryColor">
+            <color red="0.015686274509803921" green="0.4823529411764706" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

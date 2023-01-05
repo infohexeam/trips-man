@@ -16,6 +16,24 @@ struct EmailValidator {
     }
 }
 
+struct UserNameValidator {
+    func validate(_ userName: String) -> (Bool, String) {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let digitsCharacters = CharacterSet.decimalDigits
+
+        
+        var isValid = false
+        if emailPred.evaluate(with: userName) {
+            isValid = true
+        } else if CharacterSet(charactersIn: userName).isSubset(of: digitsCharacters) && userName.count >= 10 {
+            isValid = true
+        }
+        
+        return (isValid, "Invalid email / mobile number")
+    }
+}
+
 struct PasswordValidator {
     func validate(_ password: String) -> (Bool, String) {
         return (password.count >= 6, "Your password is too short")
@@ -41,7 +59,7 @@ struct MobileValidator {
 
 struct OTPValidator {
     func validate(_ otp: String) -> (Bool, String) {
-        return (otp.count >= 4, "Invalid otp")
+        return (otp.count >= 3, "Invalid otp")
     }
 }
 

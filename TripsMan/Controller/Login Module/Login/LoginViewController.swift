@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var emailField: CustomTextField!
+    @IBOutlet weak var userNameField: CustomTextField!
     @IBOutlet weak var passwordField: CustomTextField!
     @IBOutlet var textFields: [CustomTextField]!
     
-    @IBOutlet weak var emailValidationLabel: UILabel!
+    @IBOutlet weak var userNameValidationLabel: UILabel!
     @IBOutlet weak var passwordValidationLabel: UILabel!
     
     @IBOutlet weak var loginButton: DisableButton!
@@ -21,22 +22,22 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signupAppleButton: UIButton!
     @IBOutlet weak var signupAccountButton: UIButton!
     
-    
+    let parser = Parser()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
+        hideKeyboardOnTap()
         
         for each in textFields {
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         }
-        hideKeyboardOnTap()
     }
     
     func setupView() {
         //Hide Validation Labels
-        emailValidationLabel.isHidden = true
+        userNameValidationLabel.isHidden = true
         passwordValidationLabel.isHidden = true
         
         //Disable Login Button
@@ -51,13 +52,57 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
-        
+        login()
     }
     
     @IBAction func signupTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toRegister", sender: nil)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? OtpViewController {
+            if let userName = sender as? String {
+                if userName == "email" {
+                    vc.email = userNameField.text!
+                    vc.isMobile = false
+                } else {
+                    vc.mobile = userNameField.text!
+                    vc.isMobile = true
+                }
+            }
+        }
+    }
+}
+
+//MARK: - APICalls
+extension LoginViewController {
+    func login() {
+        showIndicator()
+        let params: [String: Any] = ["UserName": userNameField.text!,
+                                     "Password": passwordField.text!]
+        
+        parser.sendRequest(url: "api/account/login", http: .post, parameters: params) { (result: LoginData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        SessionManager.shared.saveLoginDetails(result!)
+                        sideMenuDelegate?.updateSideMenu()
+                        self.dismiss(animated: true)
+                    } else if result!.status == 3 { //email not verified
+                        self.performSegue(withIdentifier: "toOtp", sender: "email")
+                    } else if result!.status == 4 {
+                        self.performSegue(withIdentifier: "toOtp", sender: "mobile")
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
 }
 
 //MARK: UITextField
@@ -71,8 +116,8 @@ extension LoginViewController {
             return (false, "This field cannot be empty.")
         }
         
-        if textField == emailField {
-            return EmailValidator().validate(text)
+        if textField == userNameField {
+            return UserNameValidator().validate(text)
         } else if textField == passwordField {
             return PasswordValidator().validate(text)
         }
@@ -82,10 +127,10 @@ extension LoginViewController {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         let (valid, message) = validate(textField)
-        if textField == emailField {
-            emailValidationLabel.text = message
+        if textField == userNameField {
+            userNameValidationLabel.text = message
             UIView.animate(withDuration: 0.25, animations: {
-                self.emailValidationLabel.isHidden = valid
+                self.userNameValidationLabel.isHidden = valid
                 
             })
         } else if textField == passwordField {
@@ -100,14 +145,14 @@ extension LoginViewController {
         var isFormValid = true
         for each in textFields {
             let (valid, message) = validate(each)
-            if each == emailField {
+            if each == userNameField {
                 if valid {
                     UIView.animate(withDuration: 0.25, animations: {
-                        self.emailValidationLabel.isHidden = true
+                        self.userNameValidationLabel.isHidden = true
                     })
                 } else {
                     isFormValid = false
-                    emailValidationLabel.text = message
+                    userNameValidationLabel.text = message
                 }
             } else if each == passwordField {
                 if valid {

@@ -25,15 +25,22 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var registerButton: DisableButton!
     
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    let parser = Parser()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupView()
+        hideKeyboardOnTap()
         
         for each in textFields {
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         }
+        
+//        containerView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
     }
     
     func setupView() {
@@ -54,11 +61,46 @@ class RegisterViewController: UIViewController {
     
     //MARK: UIButton Actions
     @IBAction func registerTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toOtpVerification", sender: nil)
+        register()
     }
     
     @IBAction func clearTapped(_ sender: UIButton) {
         setupView()
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? OtpViewController {
+            vc.email = emailField.text!
+        }
+    }
+}
+
+//MARK: - APICalls
+extension RegisterViewController {
+    func register() {
+        showIndicator()
+        let params: [String: Any] = ["Email": emailField.text!,
+                                     "PhoneNumber": mobileField.text!,
+                                     "Password": passwordField.text!,
+                                     "ConfirmPassword": retypePasswordField.text!,
+                                     "UserTypeId": 1,
+                                     "FullName": nameField.text!]
+        
+        parser.sendRequest(url: "api/account/Register", http: .post, parameters: params) { (result: RegisterData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.performSegue(withIdentifier: "toOtpVerification", sender: nil)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
     }
 }
 
@@ -151,6 +193,20 @@ extension RegisterViewController {
         }
         
         registerButton.isEnabled = isFormValid
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == nameField {
+            let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+            let typedCharacterSet = CharacterSet(charactersIn: string)
+            let alphabet = allowedCharacterSet.isSuperset(of: typedCharacterSet)
+            return alphabet
+            
+            
+        } else {
+            return true
+        }
     }
 }
 
