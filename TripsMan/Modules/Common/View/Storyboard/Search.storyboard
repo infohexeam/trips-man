@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="roboto.bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="roboto.regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="SearchViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search hotels.." translatesAutoresizingMaskIntoConstraints="NO" id="HWh-vJ-wj1">
+                                <rect key="frame" x="0.0" y="59" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="maF-Pg-4Rh"/>
+                                </connections>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="stv-EJ-WYC">
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jan-Wy-fLX">
+                                    <size key="itemSize" width="384" height="102"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchCell" id="8uk-Fs-GG9" customClass="SearchListCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="4.666666666666667" y="0.0" width="384" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="m78-xM-UHQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9M0-FT-Ic2">
+                                                    <rect key="frame" x="4" y="8" width="376" height="86"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="I am very pleased to announce that our team is growing. We have a new joiner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exn-AO-ILg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="318.66666666666669" height="86"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                            <color key="textColor" name="primaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-0i-wQ8">
+                                                            <rect key="frame" x="322.66666666666669" y="0.0" width="53.333333333333314" height="86"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" name="primaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TF-lu-uby">
+                                                    <rect key="frame" x="0.0" y="101" width="384" height="1"/>
+                                                    <color key="backgroundColor" name="seperatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="OJ1-RX-SoP"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9M0-FT-Ic2" firstAttribute="leading" secondItem="m78-xM-UHQ" secondAttribute="leading" constant="4" id="TOa-aH-Aha"/>
+                                                <constraint firstAttribute="trailing" secondItem="9M0-FT-Ic2" secondAttribute="trailing" constant="4" id="XiE-so-OES"/>
+                                                <constraint firstAttribute="trailing" secondItem="4TF-lu-uby" secondAttribute="trailing" id="hML-Fg-dZ5"/>
+                                                <constraint firstItem="9M0-FT-Ic2" firstAttribute="top" secondItem="m78-xM-UHQ" secondAttribute="top" constant="8" id="j1i-F2-JcW"/>
+                                                <constraint firstItem="4TF-lu-uby" firstAttribute="leading" secondItem="m78-xM-UHQ" secondAttribute="leading" id="knk-2p-kck"/>
+                                                <constraint firstAttribute="bottom" secondItem="9M0-FT-Ic2" secondAttribute="bottom" constant="8" id="uHX-NI-Ybv"/>
+                                                <constraint firstAttribute="bottom" secondItem="4TF-lu-uby" secondAttribute="bottom" id="xML-hT-9He"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="384" height="102"/>
+                                        <connections>
+                                            <outlet property="hotelName" destination="Exn-AO-ILg" id="dVc-QZ-7s1"/>
+                                            <outlet property="hotelType" destination="FnW-0i-wQ8" id="cKH-Jf-WPg"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="stv-EJ-WYC" secondAttribute="trailing" id="FQ9-LR-QvW"/>
+                            <constraint firstItem="HWh-vJ-wj1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="HWc-6c-Vtu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="stv-EJ-WYC" secondAttribute="bottom" id="TDQ-7J-cQw"/>
+                            <constraint firstItem="stv-EJ-WYC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YUo-Je-CLy"/>
+                            <constraint firstItem="HWh-vJ-wj1" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="e8k-UU-64K"/>
+                            <constraint firstItem="stv-EJ-WYC" firstAttribute="top" secondItem="HWh-vJ-wj1" secondAttribute="bottom" id="vx4-sz-fVO"/>
+                            <constraint firstItem="HWh-vJ-wj1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yNd-mj-Hm0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="HWh-vJ-wj1" id="gPG-05-A47"/>
+                        <outlet property="searchCollectionView" destination="stv-EJ-WYC" id="hX5-zr-ddt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-112.21374045801527" y="-17.605633802816904"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="primaryLabel">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="seperatorColor">
+            <color red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

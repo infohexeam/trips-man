@@ -36,7 +36,25 @@ struct UserNameValidator {
 
 struct PasswordValidator {
     func validate(_ password: String) -> (Bool, String) {
-        return (password.count >= 6, "Your password is too short")
+        
+        let capitalLetterRegEx  = ".*[A-Z]+.*"
+        let capitalPred = NSPredicate(format: "SELF MATCHES %@", capitalLetterRegEx)
+        
+        let smallLetterRegEx  = ".*[a-z]+.*"
+        let smallPred = NSPredicate(format: "SELF MATCHES %@", smallLetterRegEx)
+        
+        let numberRegEx  = ".*[0-9]+.*"
+        let numberPred = NSPredicate(format: "SELF MATCHES %@", numberRegEx)
+        
+        let specialCharacterRegEx = ".*[!&^%$#@()/]+.*"
+        let specialPred = NSPredicate(format: "SELF MATCHES %@", specialCharacterRegEx)
+        
+         
+        var isValid = false
+        if password.count >= 7 && capitalPred.evaluate(with: password) && smallPred.evaluate(with: password) && numberPred.evaluate(with: password) && specialPred.evaluate(with: password) {
+            isValid = true
+        }
+        return (isValid, "Password must contain a lowercase letter, an uppercase letter, a number and minimum 8 characters")
     }
     
     func retypeValidate(_ password: String, _ retype: String) -> (Bool, String) {
@@ -59,7 +77,31 @@ struct MobileValidator {
 
 struct OTPValidator {
     func validate(_ otp: String) -> (Bool, String) {
-        return (otp.count >= 3, "Invalid otp")
+        return (otp.count >= 4, "Invalid otp")
+    }
+}
+
+struct AddressValidator {
+    func validate(_ address: String) -> (Bool, String) {
+        return (address.count >= 3, "Your address is too short")
+    }
+}
+
+struct CityValidator {
+    func validate(_ city: String) -> (Bool, String) {
+        return (city.count >= 3, "Your city name is too short")
+    }
+}
+
+struct StateValidator {
+    func validate(_ state: String) -> (Bool, String) {
+        return (state.count >= 2, "Your state name is too short")
+    }
+}
+
+struct PinCodeValidator {
+    func validate(_ pin: String) -> (Bool, String) {
+        return (pin.count == 6, "Invalid pin code")
     }
 }
 

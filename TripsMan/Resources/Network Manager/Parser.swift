@@ -51,5 +51,28 @@ struct Parser {
     }
     
     
+    func sendRequestWithStaticKey<T: Decodable>(url: String, http: Alamofire.HTTPMethod, parameters: [String: Any]?, comp: @escaping (T?, AFError?) -> Void) {
+        
+        if NetworkReachabilityManager()!.isReachable  {
+            let fullUrl = baseURL + url
+            let header: HTTPHeaders = ["SecretKey": "xecretKeywqejane"]
+            AF.request(fullUrl,
+                       method: http,
+                       parameters: parameters, encoding: JSONEncoding.default, headers: header).responseDecodable(of: T.self) { (response) in
+                DispatchQueue.main.async {
+                    print(fullUrl)
+                    print(parameters)
+                    debugPrint(response)
+                    guard let data = response.value else {
+                        comp(nil, response.error)
+                        return
+                    }
+                    comp(data, nil)
+                }
+            }
+        }
+    }
+    
+    
     
 }

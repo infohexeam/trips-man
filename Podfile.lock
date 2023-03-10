@@ -1,8 +1,12 @@
 PODS:
-  - Alamofire (5.6.2)
+  - Alamofire (5.6.4)
   - Cosmos (23.0.0)
   - GooglePlaces (7.1.0)
   - "Keyboard+LayoutGuide (1.6.0)"
+  - RangeSeekSlider (1.8.0)
+  - SDWebImage (5.15.0):
+    - SDWebImage/Core (= 5.15.0)
+  - SDWebImage/Core (5.15.0)
   - SideMenu (6.5.0)
   - Toast-Swift (5.0.1)
 
@@ -11,6 +15,8 @@ DEPENDENCIES:
   - Cosmos (~> 23.0)
   - GooglePlaces (= 7.1.0)
   - "Keyboard+LayoutGuide"
+  - RangeSeekSlider
+  - SDWebImage
   - SideMenu (~> 6.0)
   - Toast-Swift (~> 5.0.1)
 
@@ -20,17 +26,21 @@ SPEC REPOS:
     - Cosmos
     - GooglePlaces
     - "Keyboard+LayoutGuide"
+    - RangeSeekSlider
+    - SDWebImage
     - SideMenu
     - Toast-Swift
 
 SPEC CHECKSUMS:
-  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   GooglePlaces: 187946335ec3dc624de71c0a9ddcc712f19b0ee1
   "Keyboard+LayoutGuide": db44b1764e2bb5d9824cc9cea9d9006cd4442045
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
+  SDWebImage: 9bec4c5cdd9579e1f57104735ee0c37df274d593
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 7706de065326e58b10cffe70340b1670ef3a1e0e
+PODFILE CHECKSUM: 14acaed8a095adaee5105dad0c6af4c1434f7f7f
 
 COCOAPODS: 1.11.3

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDynamicLinks
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -49,7 +50,66 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
-
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if let incomigURL = userActivity.webpageURL{
+            print("Incoming URL is \(incomigURL)")
+            _ = DynamicLinks.dynamicLinks().handleUniversalLink(incomigURL) { (dynamiclink, error) in
+                if let dynamiclink = dynamiclink, let _ = dynamiclink.url {
+                    self.handleIncomingDynamicLink(dynamiclink)
+                } else {
+                    print("dynamiclink = nil")
+                }
+            }
+            return
+        }
+        print("userActivity = nil")
+//        return false
+    }
+    
+    func handleIncomingDynamicLink(_ dynamicLink: DynamicLink) {
+        guard let url = dynamicLink.url else {
+            print("That's weird. My dynamic link obiect has no url")
+            return
+        }
+        print("dynamic link url: \(url)")
+        
+        if url.lastPathComponent == "resetPassword" {
+            if let token = getQueryStringParameter(url: url.absoluteString, param: "token") {
+                if let email = getQueryStringParameter(url: url.absoluteString, param: "email") {
+                    print("email is \(email) & token is \(token)")
+                    navigateToResetPassword(token, email: email)
+                }
+            }
+        }
+    }
+    
+    func getQueryStringParameter(url: String, param: String) -> String? {
+      guard let url = URLComponents(string: url) else { return nil }
+      return url.queryItems?.first(where: { $0.name == param })?.value
+    }
 }
+
+extension SceneDelegate {
+    func navigateToResetPassword(_ token: String, email: String) {
+        
+        guard let window = UIApplication.shared.keyWindow else { return }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .automatic
+        navController.isNavigationBarHidden = false
+        navController.navigationBar.tintColor = .black
+        window.rootViewController = navController
+        
+        window.makeKeyAndVisible()
+        let resetVC = UIStoryboard(name: "LoginModule", bundle: nil).instantiateViewController(identifier: "resetPassword") as! ResetPasswordViewController
+        resetVC.token = token
+        resetVC.email = email
+        navController.present(resetVC, animated: true)
+    }
+    
+    
+}
+
 

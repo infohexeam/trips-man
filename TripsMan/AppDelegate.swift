@@ -102,26 +102,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    private func application(_ application: UIApplication, continue userActivity: NSUserActivity,
-                             restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        print("this func called")
-        if let incomingURL = userActivity.webpageURL {
-            print ("Incoming URL is \(incomingURL)")
-            let linkHandled = DynamicLinks.dynamicLinks().handleUniversalLink(incomingURL)
-            { (dynamicLink, error) in
-                guard error == nil else {
-                    print("Found an error! \(error!.localizedDescription)")
-                    return
+    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+            if let incomigURL = userActivity.webpageURL{
+                let linkHandle = DynamicLinks.dynamicLinks().handleUniversalLink(incomigURL) { (dynamiclink, error) in
+                    if let dynamiclink = dynamiclink, let _ = dynamiclink.url {
+                        self.handleIncomingDynamicLink(dynamiclink)
+                    } else {
+                        print("dynamiclink = nil")
+                    }
                 }
-                if let dynamicLink = dynamicLink {
-                    self.handleIncomingDynamicLink(dynamicLink)
-                }
-                
+                return linkHandle
             }
-            return linkHandled
+            print("userActivity = nil")
+            return false
         }
-        return false
-    }
     
     @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL,
@@ -144,3 +138,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       return false
     }
 }
+
+

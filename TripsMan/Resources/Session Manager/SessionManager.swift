@@ -40,4 +40,20 @@ class SessionManager {
         }
 
     }
+    
+    
+    func getLanguage() -> String {
+        //EN,AR
+        return "EN"
+    }
+    
+    func getCountry() -> String {
+        //IND.UAE,OTH
+        return "IND"
+    }
+    
+    func getCurrency() -> String {
+        //INR,AED,USD
+        return "INR"
+    }
 }

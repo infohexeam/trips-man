@@ -46,7 +46,7 @@ open class ImagePicker: NSObject {
     
     public func present(from sourceView: UIView) {
         
-        var allowed = false
+        var allowed: Bool? = nil
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -73,6 +73,7 @@ open class ImagePicker: NSObject {
                 } else {
                     //access denied
                     print("denied")
+                    allowed = false
                 }
             })
         }
@@ -95,6 +96,7 @@ open class ImagePicker: NSObject {
                     }
                     else {
                         print("library access denied")
+                        allowed = false
                     }
                 })
         }
@@ -111,23 +113,26 @@ open class ImagePicker: NSObject {
         
         self.sourceView = sourceView
         
-        if allowed {
-            self.presentationController?.present(alertController, animated: true)
-        } else {
-            let deniedAlert = UIAlertController(title: nil, message: "TripsMan does not have access to your camera or library. To enable access, tap Settings", preferredStyle: .alert)
-            deniedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            deniedAlert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) in
+        if allowed != nil {
+            if allowed! {
+                self.presentationController?.present(alertController, animated: true)
+            } else {
+                let deniedAlert = UIAlertController(title: nil, message: "TripsMan does not have access to your camera or library. To enable access, tap Settings", preferredStyle: .alert)
+                deniedAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                deniedAlert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (action) in
+                    
+                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                        return
+                    }
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        UIApplication.shared.open(settingsUrl)
+                    }
+                }))
                 
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    UIApplication.shared.open(settingsUrl)
-                }
-            }))
-            
-            self.presentationController?.present(deniedAlert, animated: true)
+                self.presentationController?.present(deniedAlert, animated: true)
+            }
         }
+        
     }
     
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?, imageName: String) {

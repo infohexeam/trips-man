@@ -33,7 +33,7 @@ extension UIViewController {
         logo.customView = logoView
         let menuButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(menu))
         menuButton.image = UIImage(named: "icon-menu")
-        self.tabBarController?.navigationItem.leftBarButtonItems = [logo, menuButton]
+        self.tabBarController?.navigationItem.leftBarButtonItems = [menuButton, logo]
         self.tabBarController?.navigationItem.title = title
         
         let tabBarAppearance = UITabBarAppearance()
@@ -53,7 +53,7 @@ extension UIViewController {
         logo.customView = logoView
         let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(back))
         backButton.image = UIImage(systemName: "chevron.backward")
-        self.tabBarController?.navigationItem.leftBarButtonItems = [logo, backButton]
+        self.tabBarController?.navigationItem.leftBarButtonItems = [backButton, logo]
         self.tabBarController?.navigationItem.title = title
     }
     
