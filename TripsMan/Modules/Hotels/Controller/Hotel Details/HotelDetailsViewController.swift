@@ -81,7 +81,7 @@ class HotelDetailsViewController: UIViewController {
     
     var hotelID = 0
     
-    var listingFilters = ListingFilters()
+    var hotelFilters = HotelListingFilters()
     
     let parser = Parser()
     var hotelDetails: HotelDetails? {
@@ -151,14 +151,14 @@ class HotelDetailsViewController: UIViewController {
     
     func assignFilterData() {
         locationField.text = hotelDetails?.hotelName
-        checkinField.text = listingFilters.checkin?.stringValue(format: "dd-MM-yyyy")
-        checkoutField.text = listingFilters.checkout?.stringValue(format: "dd-MM-yyyy")
-        roomLabel.text = listingFilters.roomCount?.oneOrMany("Room")
-        roomQty = listingFilters.roomCount!
-        childLabel.text = listingFilters.child?.oneOrMany("Child")
-        childQty = listingFilters.child!
-        adultLabel.text = listingFilters.adult?.oneOrMany("Adult")
-        adultQty = listingFilters.adult!
+        checkinField.text = hotelFilters.checkin?.stringValue(format: "dd-MM-yyyy")
+        checkoutField.text = hotelFilters.checkout?.stringValue(format: "dd-MM-yyyy")
+        roomLabel.text = hotelFilters.roomCount?.oneOrMany("Room")
+        roomQty = hotelFilters.roomCount!
+        childLabel.text = hotelFilters.child?.oneOrMany("Child")
+        childQty = hotelFilters.child!
+        adultLabel.text = hotelFilters.adult?.oneOrMany("Adult")
+        adultQty = hotelFilters.adult!
     }
     
     func loadSection() {
@@ -284,11 +284,11 @@ class HotelDetailsViewController: UIViewController {
             addOrMinusPeople(sender)
             
         case filterSearchButton:
-            listingFilters.adult = adultQty
-            listingFilters.child = childQty
-            listingFilters.roomCount = roomQty
-            listingFilters.checkin = checkinField.text?.date("dd-MM-yyyy")
-            listingFilters.checkout = checkoutField.text?.date("dd-MM-yyyy")
+            hotelFilters.adult = adultQty
+            hotelFilters.child = childQty
+            hotelFilters.roomCount = roomQty
+            hotelFilters.checkin = checkinField.text?.date("dd-MM-yyyy")
+            hotelFilters.checkout = checkoutField.text?.date("dd-MM-yyyy")
             filterContainer.isHidden = true
             getHotelDetails()
             
@@ -307,7 +307,7 @@ class HotelDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? RoomSelectionViewController {
             if let index = sender as? Int {
-                vc.listingFilters = listingFilters
+                vc.hotelFilters = hotelFilters
                 vc.hotelDetails = hotelDetails
                 vc.selectedRoomIndex = index
             }
@@ -331,13 +331,13 @@ extension HotelDetailsViewController {
         showIndicator()
         
         let params: [String: Any] = ["HotelId": hotelID,
-                                     "CheckInDate": listingFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
-                                     "CheckOutDate": listingFilters.checkout!.stringValue(format: "yyyy/MM/dd"),
-                                     "AdultCount": listingFilters.adult!,
-                                     "ChildCount": listingFilters.child!,
-                                     "RoomCount": listingFilters.roomCount!,
-                                     "HotelRateFrom": listingFilters.rate!.from,
-                                     "HotelRateTo": listingFilters.rate!.to,
+                                     "CheckInDate": hotelFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
+                                     "CheckOutDate": hotelFilters.checkout!.stringValue(format: "yyyy/MM/dd"),
+                                     "AdultCount": hotelFilters.adult!,
+                                     "ChildCount": hotelFilters.child!,
+                                     "RoomCount": hotelFilters.roomCount!,
+                                     "HotelRateFrom": hotelFilters.rate!.from,
+                                     "HotelRateTo": hotelFilters.rate!.to,
                                      "Country": SessionManager.shared.getCountry(),
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage()]
@@ -499,12 +499,12 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             if let hotelDetails = hotelDetails {
                 cell.hotelNameLabel.text = hotelDetails.hotelName
                 
-                let dateText = "\(listingFilters.checkin!.stringValue(format: "dd MMM")) - \(listingFilters.checkout!.stringValue(format: "dd MMM"))"
-                var roomText = "\(listingFilters.roomCount!) Rooms"
-                if listingFilters.roomCount == 1 {
-                    roomText = "\(listingFilters.roomCount!) Room"
+                let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
+                var roomText = "\(hotelFilters.roomCount!) Rooms"
+                if hotelFilters.roomCount == 1 {
+                    roomText = "\(hotelFilters.roomCount!) Room"
                 }
-                let guests = listingFilters.adult! + listingFilters.child!
+                let guests = hotelFilters.adult! + hotelFilters.child!
                 var guestText = "\(guests) Guests"
                 if guests == 1 {
                     guestText = "\(guests) Guest"
@@ -663,7 +663,7 @@ extension HotelDetailsViewController: UICollectionViewDelegate {
                 tabBarDelegate?.presentVC("toLogin")
             } else {
                 if hotelDetails!.hotelRooms[indexPath.row].isSoldOut != 1 {
-                    listingFilters.roomDetails = Room(hotelID: hotelID, roomID: hotelDetails!.hotelRooms[indexPath.row].roomID)
+                    hotelFilters.roomDetails = Room(hotelID: hotelID, roomID: hotelDetails!.hotelRooms[indexPath.row].roomID)
                     performSegue(withIdentifier: "toRoomSelect", sender: indexPath.row)
                 }
             }

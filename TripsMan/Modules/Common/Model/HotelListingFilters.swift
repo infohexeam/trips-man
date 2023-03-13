@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ListingFilters: Codable {
+struct HotelListingFilters: Codable {
     var location: Location? = nil
     var checkin: Date? = nil
     var checkout: Date? = nil

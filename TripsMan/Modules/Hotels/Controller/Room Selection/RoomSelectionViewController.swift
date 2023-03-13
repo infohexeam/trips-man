@@ -50,7 +50,7 @@ class RoomSelectionViewController: UIViewController {
     
     var fontSize: CGFloat? = nil
     
-    var listingFilters = ListingFilters()
+    var hotelFilters = HotelListingFilters()
     var hotelDetails: HotelDetails?
     var selectedRoomIndex = 0
     
@@ -101,7 +101,7 @@ extension RoomSelectionViewController {
     
     @IBAction func addGuestTapped(_ sender: UIButton) {
         let guests = sections?.filter { $0.type == .guestFields }
-        let totalGuests = (listingFilters.adult ?? 0) + (listingFilters.child ?? 0)
+        let totalGuests = (hotelFilters.adult ?? 0) + (hotelFilters.child ?? 0)
         if (guests?.count ?? 0) >= totalGuests - 1 {
             if totalGuests == 1 {
                 self.view.makeToast("You have selected only 1 person")
@@ -139,8 +139,8 @@ extension RoomSelectionViewController {
         showIndicator()
         
         var room: [[String: Any]] = [["id": 0,
-                                      "room_id": listingFilters.roomDetails!.roomID,
-                                      "room_count": listingFilters.roomCount!]]
+                                      "room_id": hotelFilters.roomDetails!.roomID,
+                                      "room_count": hotelFilters.roomCount!]]
         var guests = [[String: Any]]()
         let primary = textFieldsTexts.filter { $0.key == [1,0] }
         
@@ -158,9 +158,9 @@ extension RoomSelectionViewController {
         
         var params: [String: Any] = ["bookingType": "create",
                                      "bookingDate": Date().stringValue(format: "yyyy-MM-dd"),
-                                     "hotelId": listingFilters.roomDetails!.hotelID,
-                                     "bookingFrom": listingFilters.checkin!.stringValue(format: "yyyy-MM-dd"),
-                                     "bookingTo": listingFilters.checkout!.stringValue(format: "yyyy-MM-dd"),
+                                     "hotelId": hotelFilters.roomDetails!.hotelID,
+                                     "bookingFrom": hotelFilters.checkin!.stringValue(format: "yyyy-MM-dd"),
+                                     "bookingTo": hotelFilters.checkout!.stringValue(format: "yyyy-MM-dd"),
                                      "status": 0,
                                      "userId": SessionManager.shared.getLoginDetails()!.userid!,
                                      "country": SessionManager.shared.getCountry(),
@@ -168,8 +168,8 @@ extension RoomSelectionViewController {
                                      "language": SessionManager.shared.getLanguage(),
                                      "booking_Guest": guests,
                                      "booked_room": room,
-                                     "adultCount": listingFilters.adult!,
-                                     "childCount": listingFilters.child!]
+                                     "adultCount": hotelFilters.adult!,
+                                     "childCount": hotelFilters.child!]
         
         if createdBookingID != nil {
             params["bookingType"] = "update"
@@ -258,8 +258,8 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
             cell.delegate = self
             cell.cvcDelegate = self
             cell.setupView()
-            cell.checkinField.text = listingFilters.checkin?.stringValue(format: "dd-MM-yyyy")
-            cell.checkoutField.text = listingFilters.checkout?.stringValue(format: "dd-MM-yyyy")
+            cell.checkinField.text = hotelFilters.checkin?.stringValue(format: "dd-MM-yyyy")
+            cell.checkoutField.text = hotelFilters.checkout?.stringValue(format: "dd-MM-yyyy")
             cell.genderButton.tag = indexPath.section
             cell.primayGuestField.text = textFieldsTexts[indexPath]?.name
             cell.contactField.text = textFieldsTexts[indexPath]?.contactNumber

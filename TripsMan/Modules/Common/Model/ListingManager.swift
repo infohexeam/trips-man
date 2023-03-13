@@ -1,5 +1,5 @@
 //
-//  HotelListingManager.swift
+//  ListingManager.swift
 //  TripsMan
 //
 //  Created by Hexeam Software Solutions on 16/02/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HotelListManager {
+struct ListingManager {
     
     
     

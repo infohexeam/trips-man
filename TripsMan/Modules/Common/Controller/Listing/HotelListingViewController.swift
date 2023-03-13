@@ -86,7 +86,7 @@ class HotelListingViewController: UIViewController {
     }
     
     var sections: [HotelListSection]? = nil
-    var listingFilters = ListingFilters()
+    var hotelFilters = HotelListingFilters()
     
     let parser = Parser()
     var filters = [Filte]()
@@ -136,7 +136,7 @@ class HotelListingViewController: UIViewController {
             } else {
                 roomLabel.text = "\(roomQty) Rooms"
             }
-            listingFilters.roomCount = roomQty
+            hotelFilters.roomCount = roomQty
         }
     }
     
@@ -147,7 +147,7 @@ class HotelListingViewController: UIViewController {
             } else {
                 adultLabel.text = "\(adultQty) Adults"
             }
-            listingFilters.adult = adultQty
+            hotelFilters.adult = adultQty
         }
     }
     
@@ -158,7 +158,7 @@ class HotelListingViewController: UIViewController {
             } else {
                 childLabel.text = "\(childQty) Children"
             }
-            listingFilters.child = childQty
+            hotelFilters.child = childQty
         }
     }
     
@@ -204,28 +204,28 @@ class HotelListingViewController: UIViewController {
         
         placesClient = GMSPlacesClient.shared()
         
-        listingFilters.checkin = Date()
-        listingFilters.checkout = Date().adding(minutes: 1440)
-        checkinField.text = listingFilters.checkin!.stringValue(format: "dd-MM-yyyy")
-        checkoutField.text = listingFilters.checkout!.stringValue(format: "dd-MM-yyyy")
+        hotelFilters.checkin = Date()
+        hotelFilters.checkout = Date().adding(minutes: 1440)
+        checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
+        checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
         
-        listingFilters.location = Location(latitude: 11.259698798029197, longitude: 75.82969398017917, name: "Calicut")
-        locationField.text = listingFilters.location?.name
+        hotelFilters.location = Location(latitude: 11.259698798029197, longitude: 75.82969398017917, name: "Calicut")
+        locationField.text = hotelFilters.location?.name
         
-        listingFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
+        hotelFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         
         assignValues()
         
     }
     
     func assignValues() {
-        locationLabel.text = listingFilters.location?.name
-        let dateText = "\(listingFilters.checkin!.stringValue(format: "dd MMM")) - \(listingFilters.checkout!.stringValue(format: "dd MMM"))"
-        var roomText = "\(listingFilters.roomCount!) Rooms"
-        if listingFilters.roomCount == 1 {
-            roomText = "\(listingFilters.roomCount!) Room"
+        locationLabel.text = hotelFilters.location?.name
+        let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
+        var roomText = "\(hotelFilters.roomCount!) Rooms"
+        if hotelFilters.roomCount == 1 {
+            roomText = "\(hotelFilters.roomCount!) Room"
         }
-        let guests = listingFilters.adult! + listingFilters.child!
+        let guests = hotelFilters.adult! + hotelFilters.child!
         var guestText = "\(guests) Guests"
         if guests == 1 {
             guestText = "\(guests) Guest"
@@ -235,7 +235,7 @@ class HotelListingViewController: UIViewController {
     }
     
     func setupMenus() {
-        let tripTypes = tripTypes.map { UIAction(title: "\($0.name)", state: $0.name == listingFilters.tripType?.name ? .on : .off, handler: tripTypeHandler) }
+        let tripTypes = tripTypes.map { UIAction(title: "\($0.name)", state: $0.name == hotelFilters.tripType?.name ? .on : .off, handler: tripTypeHandler) }
         tripTypeButton.menu = UIMenu(title: "", children: tripTypes)
         tripTypeButton.showsMenuAsPrimaryAction = true
         
@@ -245,17 +245,17 @@ class HotelListingViewController: UIViewController {
     }
     
     func tripTypeHandler(action: UIAction) {
-        if listingFilters.tripType?.name == action.title {
-            listingFilters.tripType = nil
+        if hotelFilters.tripType?.name == action.title {
+            hotelFilters.tripType = nil
         } else {
-            listingFilters.tripType = tripTypes.filter { $0.name == action.title }.last
+            hotelFilters.tripType = tripTypes.filter { $0.name == action.title }.last
         }
         setupMenus()
         getHotels()
     }
     
     func sortHandler(action: UIAction) {
-        listingFilters.sort = sorts.filter { $0.name == action.title }.last
+        hotelFilters.sort = sorts.filter { $0.name == action.title }.last
         getHotels()
     }
     
@@ -349,15 +349,15 @@ class HotelListingViewController: UIViewController {
                 vc.filters = filters
                 vc.delegate = self
                 vc.selectedIndexes = selectedFilterIndexes
-                vc.selectedRates = listingFilters.rate
+                vc.selectedRates = hotelFilters.rate
             }
         } else if let vc = segue.destination as? HotelDetailsViewController {
             if let index = sender as? Int {
                 vc.hotelID = hotels[index].hotelID
-                vc.listingFilters = listingFilters
+                vc.hotelFilters = hotelFilters
             } else if let selHotel = sender as? Hotel {
                 vc.hotelID = selHotel.hotelID
-                vc.listingFilters = listingFilters
+                vc.hotelFilters = hotelFilters
             }
         } else if let vc = segue.destination as? SearchViewController {
             vc.delegate = self
@@ -388,15 +388,15 @@ extension HotelListingViewController {
     
     @IBAction func datePickerDoneTapped(_ sender: UIBarButtonItem) {
         if datePicker.tag == 1 {
-            listingFilters.checkin = datePicker.date
-            checkinField.text = listingFilters.checkin!.stringValue(format: "dd-MM-yyyy")
-            if listingFilters.checkin! >= listingFilters.checkout! {
-                listingFilters.checkout = listingFilters.checkin!.adding(minutes: 1440)
-                checkoutField.text = listingFilters.checkout!.stringValue(format: "dd-MM-yyyy")
+            hotelFilters.checkin = datePicker.date
+            checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
+            if hotelFilters.checkin! >= hotelFilters.checkout! {
+                hotelFilters.checkout = hotelFilters.checkin!.adding(minutes: 1440)
+                checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
             }
         } else if datePicker.tag == 2 {
-            listingFilters.checkout = datePicker.date
-            checkoutField.text = listingFilters.checkout!.stringValue(format: "dd-MM-yyyy")
+            hotelFilters.checkout = datePicker.date
+            checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
         }
         pickerContainer.isHidden = true
     }
@@ -544,26 +544,26 @@ extension HotelListingViewController {
     func getHotels() {
         showIndicator()
         
-        var params: [String: Any] = ["CheckInDate": listingFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
-                                     "CheckOutDate": listingFilters.checkout!.stringValue(format: "yyyy/MM/dd"),
-                                     "AdultCount": listingFilters.adult!,
-                                     "ChildCount": listingFilters.child!,
-                                     "RoomCount": listingFilters.roomCount!,
-                                     "latitude": listingFilters.location!.latitude,
-                                     "longitude": listingFilters.location!.longitude,
+        var params: [String: Any] = ["CheckInDate": hotelFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
+                                     "CheckOutDate": hotelFilters.checkout!.stringValue(format: "yyyy/MM/dd"),
+                                     "AdultCount": hotelFilters.adult!,
+                                     "ChildCount": hotelFilters.child!,
+                                     "RoomCount": hotelFilters.roomCount!,
+                                     "latitude": hotelFilters.location!.latitude,
+                                     "longitude": hotelFilters.location!.longitude,
                                      "Country": SessionManager.shared.getCountry(),
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage(),
-                                     "HotelRateFrom": listingFilters.rate!.from,
-                                     "HotelRateTo": listingFilters.rate!.to,
-                                     "HotelFilters": listingFilters.filters ?? [String: [Any]](),
+                                     "HotelRateFrom": hotelFilters.rate!.from,
+                                     "HotelRateTo": hotelFilters.rate!.to,
+                                     "HotelFilters": hotelFilters.filters ?? [String: [Any]](),
                                      "SortBy": ""]
         
-        if let sort = listingFilters.sort {
+        if let sort = hotelFilters.sort {
             params["SortBy"] = sort.name
         }
         
-        if let tripType = listingFilters.tripType {
+        if let tripType = hotelFilters.tripType {
             params["tripType"] = tripType.id
         }
         
@@ -637,9 +637,9 @@ extension HotelListingViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        listingFilters.location = Location(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude, name: place.name ?? "")
+        hotelFilters.location = Location(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude, name: place.name ?? "")
         print("cordinates \(place.coordinate)")
-        print("\n\nlocation2: \(listingFilters.location)")
+        print("\n\nlocation2: \(hotelFilters.location)")
         locationField.text = place.name
         dismiss(animated: true, completion: nil)
     }
@@ -857,7 +857,7 @@ extension HotelListingViewController: UIPickerViewDataSource, UIPickerViewDelega
 
 extension HotelListingViewController: FilterDelegate {
     func filterSearchTapped(minimumPrice: Double, maximumPrice: Double, filterIndexes: [IndexPath]?) {
-        listingFilters.rate = Rate(from: Int(minimumPrice), to: Int(maximumPrice))
+        hotelFilters.rate = Rate(from: Int(minimumPrice), to: Int(maximumPrice))
         var selectedFilters = [String: [Int]]()
         for filter in filters {
             selectedFilters[filter.filterKey] = []
@@ -866,7 +866,7 @@ extension HotelListingViewController: FilterDelegate {
             for index in filterIndexes {
                 selectedFilters[filters[index.section - 1].filterKey]?.append(filters[index.section - 1].values[index.row].id)
             }
-            listingFilters.filters = selectedFilters
+            hotelFilters.filters = selectedFilters
             selectedFilterIndexes = filterIndexes
         }
         
