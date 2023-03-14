@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
         var image: String
         var backgroundImage: String
         var segue: String? = nil
+        var listType: ListType
     }
     
     var sections: [HomeSection]? = nil
@@ -71,10 +72,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        homeTiles = [HomeTiles(title: "Hotels", image: "home-cat-icon-Hotels", backgroundImage: "home-cat-Hotels", segue: "toHotelList"),
-                     HomeTiles(title: "Holiday Packages", image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday"),
-                     HomeTiles(title: "Activities", image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities"),
-                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups")]
+        homeTiles = [HomeTiles(title: "Hotels", image: "home-cat-icon-Hotels", backgroundImage: "home-cat-Hotels", segue: "toHotelList", listType: .hotel),
+                     HomeTiles(title: "Holiday Packages", image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday", segue: "toHotelList", listType: .packages),
+                     HomeTiles(title: "Activities", image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities", listType: .activities),
+                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", listType: .meetups)]
         sections = [HomeSection(type: .banner, count: banners.count),
                     HomeSection(type: .tiles, count: homeTiles.count)]
         
@@ -130,6 +131,14 @@ class MainViewController: UIViewController {
             print("Shorten url is \(url.absoluteString)")
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ListingViewController {
+            if let listType = sender as? ListType {
+                vc.listType = listType
+            }
+        }
     }
     
     
@@ -225,7 +234,7 @@ extension MainViewController: UICollectionViewDelegate {
         
         if thisSection.type == .tiles {
             guard let segue = homeTiles[indexPath.row].segue else { return }
-            performSegue(withIdentifier: segue, sender: nil)
+            performSegue(withIdentifier: segue, sender: homeTiles[indexPath.row].listType)
         }
     }
 }

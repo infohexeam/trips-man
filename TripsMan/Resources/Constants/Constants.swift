@@ -20,4 +20,7 @@ struct K {
     
     static let genders = ["Male", "Female", "Prefer not to say"]
     
+    static let hotelPlaceHolderImage = "hotel-default-img"
+    static let packagePlaceHolderImage = "pack-default-img"
+    
 }

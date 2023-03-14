@@ -9,7 +9,7 @@ import UIKit
 import GooglePlaces
 
 
-class HotelListingViewController: UIViewController {
+class ListingViewController: UIViewController {
     
     //FilterContainer
     @IBOutlet weak var filterContainer: UIView!
@@ -73,19 +73,10 @@ class HotelListingViewController: UIViewController {
         }
     }
     
+   
+    var listType: ListType?
+    var pageTitle: String?
     
-    enum SectionTypes {
-        case hotelList
-        case banner
-        case zeroData
-    }
-    
-    struct HotelListSection {
-        var type: SectionTypes
-        var count: Int
-    }
-    
-    var sections: [HotelListSection]? = nil
     var hotelFilters = HotelListingFilters()
     
     let parser = Parser()
@@ -97,37 +88,7 @@ class HotelListingViewController: UIViewController {
     
     var timer: Timer?
     
-    var hotels = [Hotel]() {
-        didSet {
-            if hotels.count != 0 {
-                if banners.count == 0 {
-                    sections = [HotelListSection(type: .hotelList, count: hotels.count)]
-                } else {
-                    sections = [HotelListSection(type: .hotelList, count: hotels.count > 4 ? 4 : hotels.count),
-                                HotelListSection(type: .banner, count: banners.count),
-                                HotelListSection(type: .hotelList, count: hotels.count > 4 ? (hotels.count - 4) : 0)]
-                }
-            } else {
-                sections = [HotelListSection(type: .zeroData, count: 1)]
-            }
-            hotelCollectionView.reloadData()
-        }
-    }
-    
-    var banners = [Banners]() {
-        didSet {
-            if banners.count != 0 {
-                if hotels.count == 0 {
-                    sections = [HotelListSection(type: .banner, count: banners.count)]
-                } else {
-                    sections = [HotelListSection(type: .hotelList, count: hotels.count > 4 ? 4 : hotels.count),
-                                HotelListSection(type: .banner, count: banners.count),
-                                HotelListSection(type: .hotelList, count: hotels.count > 4 ? (hotels.count - 4) : 0)]
-                }
-                hotelCollectionView.reloadData()
-            }
-        }
-    }
+    var listingManager = ListingManager()
     
     var roomQty = 0 {
         didSet {
@@ -170,7 +131,19 @@ class HotelListingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Hotels")
+        switch listType {
+        case .hotel:
+            pageTitle = "Hotels"
+        case .packages:
+            pageTitle = "Packages"
+        case .meetups:
+            pageTitle = "Meetups"
+        case .activities:
+            pageTitle = "Activities"
+        case .none:
+            pageTitle = ""
+        }
+        addBackButton(with: pageTitle ?? "")
     }
     
     override func viewDidLoad() {
@@ -184,9 +157,13 @@ class HotelListingViewController: UIViewController {
         locationManager.requestLocation()
         //        locationManager.startUpdatingLocation()
         
-        sections = [HotelListSection]()
         
-        getHotels()
+        if listType == .hotel {
+            getHotels()
+        } else if listType == .packages {
+            getPackages()
+        }
+        
     }
     
     func setupView() {
@@ -196,7 +173,6 @@ class HotelListingViewController: UIViewController {
         
         filterContainer.isHidden = true
         pickerContainer.isHidden = true
-        sections = [HotelListSection]()
         
         roomQty = 1
         adultQty = 2
@@ -353,7 +329,7 @@ class HotelListingViewController: UIViewController {
             }
         } else if let vc = segue.destination as? HotelDetailsViewController {
             if let index = sender as? Int {
-                vc.hotelID = hotels[index].hotelID
+                vc.hotelID = listingManager.getListingData()?[index].id ?? 0
                 vc.hotelFilters = hotelFilters
             } else if let selHotel = sender as? Hotel {
                 vc.hotelID = selHotel.hotelID
@@ -364,27 +340,17 @@ class HotelListingViewController: UIViewController {
         }
     }
     
-    func getSection(_ type: SectionTypes) -> Int? {
-        if sections != nil {
-            for i in 0..<sections!.count {
-                if sections![i].type == type {
-                    return i
-                }
-            }
-        }
-        return nil
-    }
     
 }
 
-extension HotelListingViewController: SearchDelegate {
+extension ListingViewController: SearchDelegate {
     func searchItemDidPressed(_ item: Hotel) {
         performSegue(withIdentifier: "toHotelDetails", sender: item)
     }
 }
 
 //MARK: - IBActions
-extension HotelListingViewController {
+extension ListingViewController {
     
     @IBAction func datePickerDoneTapped(_ sender: UIBarButtonItem) {
         if datePicker.tag == 1 {
@@ -517,7 +483,7 @@ extension HotelListingViewController {
 }
 
 //MARK: - APICalls
-extension HotelListingViewController {
+extension ListingViewController {
     func getFilters() {
         showIndicator()
         parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHoteFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
@@ -574,7 +540,8 @@ extension HotelListingViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.hotels = result!.data
+                        self.listingManager.assignHotels(hotels: result!.data)
+                        self.hotelCollectionView.reloadData()
                         if self.filters.count == 0 {
                             self.getFilters()
                         }
@@ -589,6 +556,51 @@ extension HotelListingViewController {
         }
     }
     
+    
+    func getPackages() {
+        showIndicator()
+        
+        var params: [String: Any] = ["package_types": [],
+                                     "sortBy": "",
+                                     "offset": 0,
+                                     "recordCount": 0,
+                                     "Country": SessionManager.shared.getCountry(),
+                                     "Currency": SessionManager.shared.getCurrency(),
+                                     "Language": SessionManager.shared.getLanguage(),
+                                     "SortBy": ""]
+        
+//        if let sort = hotelFilters.sort {
+//            params["SortBy"] = sort.name
+//        }
+//
+//        if let tripType = hotelFilters.tripType {
+//            params["tripType"] = tripType.id
+//        }
+        
+        
+        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayPackageList", http: .post, parameters: params) { (result: PackageListingData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.listingManager.assignPackages(packages: result!.data)
+                        self.hotelCollectionView.reloadData()
+//                        if self.filters.count == 0 {
+//                            self.getFilters()
+//                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    
+    
     func getBanners() {
         showIndicator()
         
@@ -597,7 +609,8 @@ extension HotelListingViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.banners = result!.data
+                        self.listingManager.assignBanners(banners: result!.data)
+                        self.hotelCollectionView.reloadData()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -610,7 +623,7 @@ extension HotelListingViewController {
 }
 
 //MARK: - Location
-extension HotelListingViewController : CLLocationManagerDelegate {
+extension ListingViewController : CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if manager.authorizationStatus == .authorizedWhenInUse {
             DispatchQueue.main.async {
@@ -633,7 +646,7 @@ extension HotelListingViewController : CLLocationManagerDelegate {
     }
 }
 
-extension HotelListingViewController: GMSAutocompleteViewControllerDelegate {
+extension ListingViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
@@ -669,89 +682,55 @@ extension HotelListingViewController: GMSAutocompleteViewControllerDelegate {
 
 
 //MARK: - UICollectionView
-extension HotelListingViewController: UICollectionViewDataSource {
+extension ListingViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections?.count ?? 0
+        return listingManager.getSections()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let thisSection = self.sections?[section] else { return 0 }
+        guard let thisSection = self.listingManager.getSections()?[section] else { return 0 }
         
         return thisSection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let thisSection = self.sections?[indexPath.section] else { return UICollectionViewCell()  }
+        guard let thisSection = self.listingManager.getSections()?[indexPath.section] else { return UICollectionViewCell()  }
         
-        if thisSection.type == .hotelList {
+        if thisSection.type == .list {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotelListCell", for: indexPath) as! HotelListCollectionViewCell
             
+            let index = indexPath.section == 0 ? indexPath.row : indexPath.row + 4
             
-            var data = hotels[indexPath.row]
-            print("section: \(indexPath.section)")
-            if indexPath.section != 0 {
-                print("index: \(indexPath.section)")
-                data = hotels[indexPath.row + 4]
-            }
-            
-            cell.hotelName.text = data.hotelName
-            cell.hotelImage.sd_setImage(with: URL(string: data.imageUrl ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
-            cell.hotelAddress.text = data.hotelAddress
-            
-            var starRating = ""
-            for _ in 0..<data.hotelStar {
-                starRating += "⭑"
-            }
-            
-            cell.starRating.text = "\(starRating) \(data.hotelType)"
-            
-            if data.isSponsored == 0 {
-                cell.sponsoredView.isHidden = true
-            } else {
-                cell.sponsoredView.isHidden = false
-            }
-            
-            if data.userRatingCount == 0 {
+            if let data = listingManager.getListingData()?[index] {
+                cell.listImage.sd_setImage(with: URL(string: data.listImage ?? ""), placeholderImage: UIImage(named: data.placeHolderImage))
+                cell.sponsoredView.isHidden = data.isSponsored == 0
                 
-                cell.ratingLabelView.isHidden = true
-                cell.rightRatingLabel.text = ""
-            } else {
-                cell.ratingLabelView.isHidden = false
+                cell.ratingMainView.isHidden = data.type != .hotel
+                cell.starRating.text = data.starRatingText
                 
-                cell.rating.rating = data.userRating
-                cell.ratingLabel.text = "\(data.userRating.rounded)/5"
+                cell.userRatingView.isHidden = data.userRating?.ratingCount == 0
+                cell.userRatingLabel.text = data.userRating?.rating
+                cell.userRatingText.text = data.userRating?.ratingText
                 
-                var ratingText = ""
-                if data.userRating >= 4.5 {
-                    ratingText = "Excellent\n"
-                } else if data.userRating >= 4 {
-                    ratingText = "Very Good\n"
-                } else if data.userRating >= 3 {
-                    ratingText = "Good\n"
+                cell.nameLabel.text = data.listName
+                cell.secondLabel.text = data.secondText
+                
+                if fontSize == nil {
+                    fontSize = cell.priceLabel.font.pointSize
                 }
-                cell.rightRatingLabel.text = "\(ratingText)(\(data.userRatingCount.oneOrMany("rating")))"
+                cell.priceLabel.addPriceString(data.actualPrice, data.offerPrice, fontSize: fontSize!)
+                cell.taxLabel.text = data.taxLabelText
                 
             }
-            
-            
-            
-            if fontSize == nil {
-                fontSize = cell.priceLabel.font.pointSize
-            }
-            cell.priceLabel.addPriceString(data.actualPrice, data.offerPrice, fontSize: fontSize!)
-            //            if indexPath.row == 0 {
-            //                cell.priceLabel.addPriceString(data.actualPrice, 1200, fontSize: fontSize!)
-            //            }
-            cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(data.serviceChargeValue)\ntaxes & fee per night"
-            
             
             return cell
         } else if thisSection.type == .banner {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hotelAdCell", for: indexPath) as! HotelListAdCollectionViewCell
             
-            let banner = banners[indexPath.row]
-            cell.bannerImage.sd_setImage(with: URL(string: banner.url))
+            if let banner = listingManager.getBanners()?[indexPath.row] {
+                cell.bannerImage.sd_setImage(with: URL(string: banner.url))
+            }
             
             return cell
         } else if thisSection.type == .zeroData {
@@ -764,10 +743,10 @@ extension HotelListingViewController: UICollectionViewDataSource {
     }
 }
 
-extension HotelListingViewController: UICollectionViewDelegate {
+extension ListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let thisSection = sections?[indexPath.section] else { return }
-        if thisSection.type == .hotelList {
+        guard let thisSection = listingManager.getSections()?[indexPath.section] else { return }
+        if thisSection.type == .list {
             var index = indexPath.row
             if indexPath.section != 0 {
                 index = indexPath.row + 4
@@ -777,18 +756,18 @@ extension HotelListingViewController: UICollectionViewDelegate {
     }
 }
 
-extension HotelListingViewController {
+extension ListingViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
             let containerWidth = layoutEnvironment.container.effectiveContentSize.width
             
-            guard let thisSection = self.sections?[sectionIndex] else { return nil }
+            guard let thisSection = self.listingManager.getSections()?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
             
             
-            if thisSection.type == .hotelList {
+            if thisSection.type == .list {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(10))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -840,7 +819,7 @@ extension HotelListingViewController {
 }
 
 //PickerView
-extension HotelListingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension ListingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -855,7 +834,7 @@ extension HotelListingViewController: UIPickerViewDataSource, UIPickerViewDelega
     
 }
 
-extension HotelListingViewController: FilterDelegate {
+extension ListingViewController: FilterDelegate {
     func filterSearchTapped(minimumPrice: Double, maximumPrice: Double, filterIndexes: [IndexPath]?) {
         hotelFilters.rate = Rate(from: Int(minimumPrice), to: Int(maximumPrice))
         var selectedFilters = [String: [Int]]()
