@@ -23,4 +23,7 @@ struct K {
     static let hotelPlaceHolderImage = "hotel-default-img"
     static let packagePlaceHolderImage = "pack-default-img"
     
+    static let defaultRoomCount = 1
+    static let defaultAdultCount = 2
+    static let defaultChildCount = 0
 }

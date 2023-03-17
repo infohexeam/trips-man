@@ -11,41 +11,6 @@ import GooglePlaces
 
 class ListingViewController: UIViewController {
     
-    //FilterContainer
-    @IBOutlet weak var filterContainer: UIView!
-    @IBOutlet weak var filterInnerView: UIView!
-    
-    @IBOutlet weak var locationField: CustomTextField!
-    @IBOutlet weak var checkinField: CustomTextField!
-    @IBOutlet weak var checkoutField: CustomTextField!
-    
-    @IBOutlet weak var roomLabel: UILabel!
-    @IBOutlet weak var adultLabel: UILabel!
-    @IBOutlet weak var childLabel: UILabel!
-    
-    @IBOutlet weak var hotelTypeField: CustomTextField!
-    @IBOutlet weak var rateFromField: CustomTextField!
-    @IBOutlet weak var rateToField: CustomTextField!
-    
-    @IBOutlet weak var locationButton: UIButton!
-    @IBOutlet weak var checkInButton: UIButton!
-    @IBOutlet weak var checkOutButton: UIButton!
-    @IBOutlet weak var roomAddButton: UIButton!
-    @IBOutlet weak var roomMinusButton: UIButton!
-    @IBOutlet weak var adultAddButton: UIButton!
-    @IBOutlet weak var adultMinusButton: UIButton!
-    @IBOutlet weak var childAddButton: UIButton!
-    @IBOutlet weak var childMinusButton: UIButton!
-    
-    @IBOutlet weak var filterSearchButton: UIButton!
-    @IBOutlet weak var filterClearButton: UIButton!
-    
-    //PickerContainer
-    @IBOutlet weak var pickerContainer: UIView!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var listPicker: UIPickerView!
-    @IBOutlet weak var datePickerContainer: UIView!
-    @IBOutlet weak var listPickerContainer: UIView!
     
     
     //MainView
@@ -90,40 +55,8 @@ class ListingViewController: UIViewController {
     
     var listingManager = ListingManager()
     
-    var roomQty = 0 {
-        didSet {
-            if roomQty == 1 {
-                roomLabel.text = "\(roomQty) Room"
-            } else {
-                roomLabel.text = "\(roomQty) Rooms"
-            }
-            hotelFilters.roomCount = roomQty
-        }
-    }
-    
-    var adultQty = 0 {
-        didSet {
-            if adultQty == 1 {
-                adultLabel.text = "\(adultQty) Adult"
-            } else {
-                adultLabel.text = "\(adultQty) Adults"
-            }
-            hotelFilters.adult = adultQty
-        }
-    }
-    
-    var childQty = 0 {
-        didSet {
-            if childQty == 1 {
-                childLabel.text = "\(childQty) Child"
-            } else {
-                childLabel.text = "\(childQty) Children"
-            }
-            hotelFilters.child = childQty
-        }
-    }
-    
     private var placesClient: GMSPlacesClient!
+    
     let locationManager = CLLocationManager()
     
     var fontSize: CGFloat? = nil
@@ -166,30 +99,33 @@ class ListingViewController: UIViewController {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        if self.isMovingFromParent {
+            
+            
+//            self.presentedViewController?.dismiss(animated: true)
+//            self.presentedViewController?.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func setupView() {
         
-        listPicker.delegate = self
-        listPicker.dataSource = self
-        
-        filterContainer.isHidden = true
-        pickerContainer.isHidden = true
-        
-        roomQty = 1
-        adultQty = 2
-        childQty = 0
         
         placesClient = GMSPlacesClient.shared()
         
-        hotelFilters.checkin = Date()
         hotelFilters.checkout = Date().adding(minutes: 1440)
-        checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
-        checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
+        hotelFilters.checkin = Date()
+        
+        
+        hotelFilters.roomCount = K.defaultRoomCount
+        hotelFilters.adult = K.defaultAdultCount
+        hotelFilters.child = K.defaultChildCount
         
         hotelFilters.location = Location(latitude: 11.259698798029197, longitude: 75.82969398017917, name: "Calicut")
-        locationField.text = hotelFilters.location?.name
         
         hotelFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
-        
         assignValues()
         
     }
@@ -235,22 +171,6 @@ class ListingViewController: UIViewController {
         getHotels()
     }
     
-    func clearFields() {
-        filterContainer.isHidden = true
-        //        let slideUpViewHeight: CGFloat = 200
-        //        let screenSize = UIScreen.main.bounds.size
-        //
-        //        UIView.animate(withDuration: 0.5,
-        //                         delay: 0, usingSpringWithDamping: 1.0,
-        //                         initialSpringVelocity: 1.0,
-        //                         options: .curveEaseInOut, animations: {
-        //            self.filterInnerView.frame = CGRect(x: 0, y: slideUpViewHeight, width: screenSize.width, height: 0)
-        ////            self.filterContainer.isHidden = true
-        //            self.filterContainer.isHidden = true
-        //
-        //          }, completion: nil)
-    }
-    
     func getCurrentLocation() {
         let placeFields: GMSPlaceField = [.name, .formattedAddress]
         placesClient.findPlaceLikelihoodsFromCurrentLocation(withPlaceFields: placeFields) { [weak self] (placeLikelihoods, error) in
@@ -269,56 +189,15 @@ class ListingViewController: UIViewController {
                     return
                 }
                 
-                strongSelf.locationField.text = (place.name ?? "")
+//                strongSelf.locationField.text = (place.name ?? "")
                 strongSelf.locationLabel.text = (place.name ?? "")
             }
         }
     }
     
-    func addOrMinusPeople(_ sender: UIButton) {
-        if sender == roomAddButton {
-            roomQty += 1
-            if adultQty < roomQty {
-                adultQty = roomQty
-            }
-        } else if sender == roomMinusButton {
-            if roomQty > 1 {
-                roomQty -= 1
-            }
-        } else if sender == adultAddButton {
-            adultQty += 1
-        } else if sender == adultMinusButton {
-            if adultQty > 1 && adultQty > roomQty {
-                adultQty -= 1
-            }
-        } else if sender == childAddButton {
-            childQty += 1
-        } else if sender == childMinusButton {
-            if childQty > 0 {
-                childQty -= 1
-            }
-        }
-    }
     
-    func presentGMSAutoCompleteVC() {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        // Specify the place data types to return.
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-                                                  UInt(GMSPlaceField.placeID.rawValue) |
-                                                  UInt(GMSPlaceField.coordinate.rawValue))
-        autocompleteController.placeFields = fields
-        
-        // Specify a filter.
-        let filter = GMSAutocompleteFilter()
-        filter.countries = ["IND"]
-        autocompleteController.autocompleteFilter = filter
-        
-        // Display the autocomplete view controller.
-        present(autocompleteController, animated: true, completion: nil)
-    }
     
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? FilterViewController {
@@ -337,6 +216,10 @@ class ListingViewController: UIViewController {
             }
         } else if let vc = segue.destination as? SearchViewController {
             vc.delegate = self
+        } else if let vc = segue.destination  as? DefaultFilterViewController {
+            vc.hotelFilters = hotelFilters
+            vc.listType = listType
+            vc.delegate = self
         }
     }
     
@@ -349,61 +232,43 @@ extension ListingViewController: SearchDelegate {
     }
 }
 
+extension ListingViewController: DefaultFilterDelegate {
+    func searchDidTapped(_ filters: HotelListingFilters?) {
+        if let filters = filters {
+            self.hotelFilters = filters
+            assignValues()
+            getHotels()
+        }
+    }
+    
+    
+}
+
 //MARK: - IBActions
 extension ListingViewController {
-    
-    @IBAction func datePickerDoneTapped(_ sender: UIBarButtonItem) {
-        if datePicker.tag == 1 {
-            hotelFilters.checkin = datePicker.date
-            checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
-            if hotelFilters.checkin! >= hotelFilters.checkout! {
-                hotelFilters.checkout = hotelFilters.checkin!.adding(minutes: 1440)
-                checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
-            }
-        } else if datePicker.tag == 2 {
-            hotelFilters.checkout = datePicker.date
-            checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
-        }
-        pickerContainer.isHidden = true
-    }
-    
-    @IBAction func listPickerDoneTapped(_ sender: UIBarButtonItem) {
-        pickerContainer.isHidden = true
-    }
-    
-    @IBAction func outSideFilterClicked(_ sender: UIButton) {
-        clearFields()
-    }
-    
-    @IBAction func outSidePickerClicked(_ sender: UIButton) {
-        pickerContainer.isHidden = true
-    }
     
     @IBAction func listingActionsClicked(_ sender: UIButton) {
         
         switch sender {
         case editFilterButton:
             
-            let slideUpViewHeight: CGFloat = 200
-            let screenSize = UIScreen.main.bounds.size
+            performSegue(withIdentifier: "toDefaultFilter", sender: nil)
             
-            UIView.animate(withDuration: 0.5,
-                           delay: 0, usingSpringWithDamping: 1.0,
-                           initialSpringVelocity: 1.0,
-                           options: .curveEaseInOut, animations: {
-                self.filterInnerView.frame = CGRect(x: 0, y: screenSize.height - slideUpViewHeight, width: screenSize.width, height: slideUpViewHeight)
-                self.filterContainer.isHidden = false
-                
-            }, completion: nil)
+//            let slideUpViewHeight: CGFloat = 200
+//            let screenSize = UIScreen.main.bounds.size
+//
+//            UIView.animate(withDuration: 0.5,
+//                           delay: 0, usingSpringWithDamping: 1.0,
+//                           initialSpringVelocity: 1.0,
+//                           options: .curveEaseInOut, animations: {
+//                self.filterInnerView.frame = CGRect(x: 0, y: screenSize.height - slideUpViewHeight, width: screenSize.width, height: slideUpViewHeight)
+//                self.filterContainer.isHidden = false
+//
+//            }, completion: nil)
             
             
         case searchButton:
             performSegue(withIdentifier: "toSearch", sender: nil)
-            
-        case tripTypeButton:
-            pickerContainer.isHidden = false
-            datePickerContainer.isHidden = true
-            listPickerContainer.isHidden = false
             
         case filterByButton:
             if filters.count != 0 {
@@ -413,41 +278,9 @@ extension ListingViewController {
             }
             return
             
-        case sortByButton:
-            pickerContainer.isHidden = false
-            datePickerContainer.isHidden = true
-            listPickerContainer.isHidden = false
+    
             
-            
-        case locationButton:
-            presentGMSAutoCompleteVC()
-            
-        case checkInButton:
-            datePicker.tag = 1
-            datePicker.minimumDate = Date()
-            pickerContainer.isHidden = false
-            datePickerContainer.isHidden = false
-            listPickerContainer.isHidden = true
-            
-        case checkOutButton:
-            datePicker.tag = 2
-            datePicker.minimumDate = checkinField.text?.date("dd-MM-yyyy")?.adding(minutes: 1440)
-            pickerContainer.isHidden = false
-            datePickerContainer.isHidden = false
-            listPickerContainer.isHidden = true
-            
-        case roomAddButton, roomMinusButton, childAddButton, childMinusButton, adultAddButton, adultMinusButton:
-            addOrMinusPeople(sender)
-            
-        case filterSearchButton:
-            self.view.endEditing(true)
-            filterContainer.isHidden = true
-            assignValues()
-            getHotels()
-            
-        case filterClearButton:
-            clearFields()
-            
+        
         default:
             return
         }
@@ -646,38 +479,6 @@ extension ListingViewController : CLLocationManagerDelegate {
     }
 }
 
-extension ListingViewController: GMSAutocompleteViewControllerDelegate {
-    
-    // Handle the user's selection.
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        hotelFilters.location = Location(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude, name: place.name ?? "")
-        print("cordinates \(place.coordinate)")
-        print("\n\nlocation2: \(hotelFilters.location)")
-        locationField.text = place.name
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
-    }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        
-        //    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        //    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
-}
 
 
 
@@ -710,6 +511,7 @@ extension ListingViewController: UICollectionViewDataSource {
                 cell.starRating.text = data.starRatingText
                 
                 cell.userRatingView.isHidden = data.userRating?.ratingCount == 0
+                cell.userRatingText.isHidden = data.userRating?.ratingCount == 0
                 cell.userRatingLabel.text = data.userRating?.rating
                 cell.userRatingText.text = data.userRating?.ratingText
                 

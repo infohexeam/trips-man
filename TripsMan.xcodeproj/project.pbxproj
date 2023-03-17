@@ -38,6 +38,9 @@
 		C158276F295D53F800516FD6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C158276E295D53F800516FD6 /* SideMenu.storyboard */; };
 		C1582774295D54DE00516FD6 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1582773295D54DE00516FD6 /* SideMenuTableViewController.swift */; };
 		C1582776295D626200516FD6 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */; };
+		C15CDDE429C18C0400E15E9F /* DefaultFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CDDE329C18C0400E15E9F /* DefaultFilterViewController.swift */; };
+		C15CDDE629C1913E00E15E9F /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CDDE529C1913E00E15E9F /* FilterManager.swift */; };
+		C15CDDE929C1BB5600E15E9F /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CDDE829C1BB5600E15E9F /* DatePickerViewController.swift */; };
 		C15E31B128C5F13100E209EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31B028C5F13100E209EB /* AppDelegate.swift */; };
 		C15E31B328C5F13100E209EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E31B228C5F13100E209EB /* SceneDelegate.swift */; };
 		C15E31B828C5F13100E209EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15E31B628C5F13100E209EB /* Main.storyboard */; };
@@ -69,7 +72,7 @@
 		C17AF1F1299CA8AD002C20B1 /* CouponCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17AF1F0299CA8AD002C20B1 /* CouponCells.swift */; };
 		C189620529C04A540070243F /* ListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189620429C04A540070243F /* ListingData.swift */; };
 		C18FFEC7295BF96A00F29EC9 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FFEC6295BF96A00F29EC9 /* KeyboardLayout.swift */; };
-		C18FFECA295C15BA00F29EC9 /* HotelListingFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FFEC9295C15BA00F29EC9 /* HotelListingFilters.swift */; };
+		C18FFECA295C15BA00F29EC9 /* ListingFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FFEC9295C15BA00F29EC9 /* ListingFilters.swift */; };
 		C18FFECD295C442600F29EC9 /* MyTripsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FFECC295C442600F29EC9 /* MyTripsCells.swift */; };
 		C19335E328DBF241001A037F /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19335E228DBF241001A037F /* ListingViewController.swift */; };
 		C19335E628DC340A001A037F /* HotelListCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19335E528DC340A001A037F /* HotelListCells.swift */; };
@@ -163,6 +166,9 @@
 		C158276E295D53F800516FD6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		C1582773295D54DE00516FD6 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		C15CDDE329C18C0400E15E9F /* DefaultFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFilterViewController.swift; sourceTree = "<group>"; };
+		C15CDDE529C1913E00E15E9F /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		C15CDDE829C1BB5600E15E9F /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C15E31AD28C5F13100E209EB /* TripsMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TripsMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15E31B028C5F13100E209EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15E31B228C5F13100E209EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +204,7 @@
 		C17AF1F0299CA8AD002C20B1 /* CouponCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCells.swift; sourceTree = "<group>"; };
 		C189620429C04A540070243F /* ListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingData.swift; sourceTree = "<group>"; };
 		C18FFEC6295BF96A00F29EC9 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
-		C18FFEC9295C15BA00F29EC9 /* HotelListingFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelListingFilters.swift; sourceTree = "<group>"; };
+		C18FFEC9295C15BA00F29EC9 /* ListingFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFilters.swift; sourceTree = "<group>"; };
 		C18FFECC295C442600F29EC9 /* MyTripsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsCells.swift; sourceTree = "<group>"; };
 		C19335E228DBF241001A037F /* ListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		C19335E528DC340A001A037F /* HotelListCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelListCells.swift; sourceTree = "<group>"; };
@@ -319,6 +325,22 @@
 				C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */,
 			);
 			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		C15CDDE229C18BEA00E15E9F /* Default Filter */ = {
+			isa = PBXGroup;
+			children = (
+				C15CDDE329C18C0400E15E9F /* DefaultFilterViewController.swift */,
+			);
+			path = "Default Filter";
+			sourceTree = "<group>";
+		};
+		C15CDDE729C1BB4400E15E9F /* Date Picker */ = {
+			isa = PBXGroup;
+			children = (
+				C15CDDE829C1BB5600E15E9F /* DatePickerViewController.swift */,
+			);
+			path = "Date Picker";
 			sourceTree = "<group>";
 		};
 		C15E31A428C5F13100E209EB = {
@@ -666,6 +688,8 @@
 		C1CA18FD29B9AB7C00CFD04A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C15CDDE729C1BB4400E15E9F /* Date Picker */,
+				C15CDDE229C18BEA00E15E9F /* Default Filter */,
 				C1CA190429B9ABF400CFD04A /* Listing */,
 				C1CA190529B9AC0800CFD04A /* Filter */,
 				C1CA190629B9AC3400CFD04A /* Search */,
@@ -688,8 +712,9 @@
 			isa = PBXGroup;
 			children = (
 				C147E6FD299DF2EE00ED4428 /* ListingManager.swift */,
-				C18FFEC9295C15BA00F29EC9 /* HotelListingFilters.swift */,
+				C18FFEC9295C15BA00F29EC9 /* ListingFilters.swift */,
 				C189620429C04A540070243F /* ListingData.swift */,
+				C15CDDE529C1913E00E15E9F /* FilterManager.swift */,
 				C1CA190029B9AB9300CFD04A /* Data Model */,
 			);
 			path = Model;
@@ -1393,6 +1418,7 @@
 				C1D7C6B429939E4600410C7A /* WalletCells.swift in Sources */,
 				C15E31B128C5F13100E209EB /* AppDelegate.swift in Sources */,
 				C15E31F828C6FA0500E209EB /* CustomTextField.swift in Sources */,
+				C15CDDE429C18C0400E15E9F /* DefaultFilterViewController.swift in Sources */,
 				C13DAD07295D6F7200DAF734 /* TabBarController.swift in Sources */,
 				C15E320A28C8267700E209EB /* RegisterViewController.swift in Sources */,
 				C12D83FC294999A70091B311 /* MyTripsViewController.swift in Sources */,
@@ -1420,6 +1446,7 @@
 				C17736662966DBE900845EF7 /* BannerData.swift in Sources */,
 				C15E320828C81DD100E209EB /* ResetPasswordViewController.swift in Sources */,
 				C1DF2D7E29BF2A40000732B7 /* PackageListingData.swift in Sources */,
+				C15CDDE929C1BB5600E15E9F /* DatePickerViewController.swift in Sources */,
 				C19F813D296BF6A00057119F /* String+Extension.swift in Sources */,
 				C1CA2C452977B21C00648A45 /* NotificationData.swift in Sources */,
 				C10D2BC12900C7EA00029F51 /* ProfileViewController.swift in Sources */,
@@ -1449,9 +1476,10 @@
 				C18FFECD295C442600F29EC9 /* MyTripsCells.swift in Sources */,
 				C15E320028C74F9F00E209EB /* UIViewController+Extension.swift in Sources */,
 				C15E31BB28C5F13100E209EB /* TripsMan.xcdatamodeld in Sources */,
-				C18FFECA295C15BA00F29EC9 /* HotelListingFilters.swift in Sources */,
+				C18FFECA295C15BA00F29EC9 /* ListingFilters.swift in Sources */,
 				C15E31E828C6D44B00E209EB /* MainViewController.swift in Sources */,
 				C17738742975690C009A7477 /* FilterViewController.swift in Sources */,
+				C15CDDE629C1913E00E15E9F /* FilterManager.swift in Sources */,
 				C1FFA5A628E5559F00E13D75 /* RoomSelectionSummaryCells.swift in Sources */,
 				C17161CD2988E3440098A6C0 /* BookingData.swift in Sources */,
 				C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */,
