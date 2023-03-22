@@ -10,21 +10,34 @@ import GooglePlaces
 
 class DefaultFilterViewController: UIViewController {
     
+    
+    @IBOutlet weak var locationView: UIView!
     @IBOutlet weak var locationField: CustomTextField!
-    @IBOutlet weak var checkinField: CustomTextField!
-    @IBOutlet weak var checkoutField: CustomTextField!
-    
-    @IBOutlet weak var roomLabel: UILabel!
-    @IBOutlet weak var adultLabel: UILabel!
-    @IBOutlet weak var childLabel: UILabel!
-    
     @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var countryView: UIView!
+    @IBOutlet weak var countryField: CustomTextField!
+    @IBOutlet weak var countryButton: UIButton!
+    
+    @IBOutlet weak var checkinView: UIView!
+    @IBOutlet weak var checkinField: CustomTextField!
     @IBOutlet weak var checkInButton: UIButton!
+    @IBOutlet weak var checkoutView: UIView!
+    @IBOutlet weak var checkoutField: CustomTextField!
     @IBOutlet weak var checkOutButton: UIButton!
+    @IBOutlet weak var startDateView: UIView!
+    @IBOutlet weak var startDateField: CustomTextField!
+    @IBOutlet weak var startDateButton: UIButton!
+    
+    @IBOutlet weak var roomView: UIView!
+    @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var roomAddButton: UIButton!
     @IBOutlet weak var roomMinusButton: UIButton!
+    @IBOutlet weak var adultView: UIView!
+    @IBOutlet weak var adultLabel: UILabel!
     @IBOutlet weak var adultAddButton: UIButton!
     @IBOutlet weak var adultMinusButton: UIButton!
+    @IBOutlet weak var childView: UIView!
+    @IBOutlet weak var childLabel: UILabel!
     @IBOutlet weak var childAddButton: UIButton!
     @IBOutlet weak var childMinusButton: UIButton!
     
@@ -32,6 +45,7 @@ class DefaultFilterViewController: UIViewController {
     @IBOutlet weak var filterClearButton: UIButton!
     
     var hotelFilters = HotelListingFilters()
+    var packageFilters = PackageFilters()
     var delegate: DefaultFilterDelegate?
     var listType: ListType!
     
@@ -53,6 +67,7 @@ class DefaultFilterViewController: UIViewController {
             } else {
                 adultLabel.text = "\(adultQty) Adults"
             }
+            packageFilters.adult = adultQty
             hotelFilters.adult = adultQty
         }
     }
@@ -64,6 +79,7 @@ class DefaultFilterViewController: UIViewController {
             } else {
                 childLabel.text = "\(childQty) Children"
             }
+            packageFilters.child = childQty
             hotelFilters.child = childQty
         }
     }
@@ -82,14 +98,29 @@ class DefaultFilterViewController: UIViewController {
         
         placesClient = GMSPlacesClient.shared()
         
-        roomQty = K.defaultRoomCount
-        adultQty = K.defaultAdultCount
-        childQty = K.defaultChildCount
-        
-        checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
-        checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
-        locationField.text = hotelFilters.location?.name
-
+        if listType == .hotel {
+            countryView.isHidden = true
+            startDateView.isHidden = true
+            
+            roomQty = K.defaultRoomCount
+            adultQty = K.defaultAdultCount
+            childQty = K.defaultChildCount
+            
+            checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
+            checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
+            locationField.text = hotelFilters.location?.name
+            
+        } else if listType == .packages {
+            locationView.isHidden = true
+            checkinView.isHidden = true
+            checkoutView.isHidden = true
+            roomView.isHidden = true
+            
+            adultQty = K.defaultAdultCount
+            childQty = K.defaultChildCount
+            startDateField.text = packageFilters.startDate?.stringValue(format: "dd-MM-yyyy")
+            countryField.text = packageFilters.country?.name
+        }
     }
     
     func presentGMSAutoCompleteVC() {
@@ -116,11 +147,15 @@ class DefaultFilterViewController: UIViewController {
 
         datePickerViewController.pickerTag = tag
         datePickerViewController.delegate = self
-        datePickerViewController.hotelFilters = hotelFilters
+
         if tag == 1 {
             datePickerViewController.minDate = Date()
-        } else {
+            datePickerViewController.hotelFilters = hotelFilters
+        } else if tag == 2 {
             datePickerViewController.minDate = checkinField.text?.date("dd-MM-yyyy")?.adding(minutes: 1440)
+            datePickerViewController.hotelFilters = hotelFilters
+        } else if tag == 3 {
+            datePickerViewController.minDate = Date().adding(minutes: 1440)
         }
         datePickerViewController.modalPresentationStyle = .pageSheet
         
@@ -132,6 +167,14 @@ class DefaultFilterViewController: UIViewController {
         present(datePickerViewController, animated: true)
 
     }
+    
+    func presentCountryPicker() {
+        let countryPickerVC = UIStoryboard(name: "Common", bundle: nil).instantiateViewController(withIdentifier: "CountryListingViewController") as! CountryListingViewController
+        countryPickerVC.delegate = self
+        
+        present(countryPickerVC, animated: true)
+    }
+    
     
     func addOrMinusPeople(_ sender: UIButton) {
         if sender == roomAddButton {
@@ -169,18 +212,28 @@ class DefaultFilterViewController: UIViewController {
         case locationButton:
             presentGMSAutoCompleteVC()
             
+        case countryButton:
+            presentCountryPicker()
+            
         case checkInButton:
             presentDatePicker(1)
             
         case checkOutButton:
             presentDatePicker(2)
             
+        case startDateButton:
+            presentDatePicker(3)
+            
         case roomAddButton, roomMinusButton, childAddButton, childMinusButton, adultAddButton, adultMinusButton:
             addOrMinusPeople(sender)
             
         case filterSearchButton:
             self.view.endEditing(true)
-            delegate?.searchDidTapped(hotelFilters)
+            if listType == .hotel {
+                delegate?.searchDidTapped(hotelFilters)
+            } else if listType == .packages {
+                delegate?.searchDidTapped(packageFilters)
+            }
             self.dismiss(animated: false)
             
         case filterClearButton:
@@ -192,6 +245,13 @@ class DefaultFilterViewController: UIViewController {
         
     }
 
+}
+
+extension DefaultFilterViewController: CountryPickerDelegate {
+    func countryDidSelected(_ country: Country) {
+        packageFilters.country = country
+        countryField.text = country.name
+    }
 }
 
 
@@ -234,13 +294,17 @@ extension DefaultFilterViewController: DatePickerDelegate {
                 hotelFilters.checkout = hotelFilters.checkin!.adding(minutes: 1440)
                 checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
             }
-        } else {
+        } else if tag == 2 {
             checkoutField.text = date.stringValue(format: "dd-MM-yyyy")
             hotelFilters.checkout = date
+        } else if tag == 3 {
+            startDateField.text = date.stringValue(format: "dd-MM-yyyy")
+            packageFilters.startDate = date
         }
     }
 }
 
 protocol DefaultFilterDelegate {
-    func searchDidTapped(_ filters: HotelListingFilters?)
+    func searchDidTapped(_ hotelFilters: HotelListingFilters?)
+    func searchDidTapped(_ packageFilters: PackageFilters?)
 }

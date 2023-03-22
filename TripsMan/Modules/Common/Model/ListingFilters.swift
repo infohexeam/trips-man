@@ -21,6 +21,16 @@ struct HotelListingFilters: Codable {
     var roomDetails: Room? = nil
 }
 
+struct PackageFilters: Codable {
+    var country: Country? = nil
+    var startDate: Date? = nil
+    var adult: Int? = nil
+    var child: Int? = nil
+    var rate: Rate? = nil
+    var filters: [String: [Int]]? = nil
+    var sort: Sortby? = nil
+}
+
 struct Rate: Codable {
     var from: Int
     var to: Int

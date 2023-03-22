@@ -12,6 +12,7 @@ class DatePickerViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var hotelFilters = HotelListingFilters()
+    var packageFilters = PackageFilters()
     var pickerTag = 0
     var minDate: Date?
     var maxDate: Date?

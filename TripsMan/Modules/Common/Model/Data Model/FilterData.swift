@@ -16,16 +16,18 @@ struct FilterResp: Codable {
 
 // MARK: - DataClass
 struct FilterData: Codable {
-    let filtes: [Filte]
+    let filtes: [Filter]?
+    let filters: [Filter]?
     let sortby: [Sortby]
-    let tripTypes: [TripType]
+    let tripTypes: [TripType]?
 }
 
 // MARK: - Filte
-struct Filte: Codable {
+struct Filter: Codable {
     let title, type, filterKey: String
     let values: [FilterValue]
 }
+
 
 //MARK: - FilterValue
 struct FilterValue: Codable {

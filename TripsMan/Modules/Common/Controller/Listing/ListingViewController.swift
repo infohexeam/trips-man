@@ -43,9 +43,10 @@ class ListingViewController: UIViewController {
     var pageTitle: String?
     
     var hotelFilters = HotelListingFilters()
+    var packageFilter = PackageFilters()
     
     let parser = Parser()
-    var filters = [Filte]()
+    var filters = [Filter]()
     var sorts = [Sortby]()
     var tripTypes = [TripType]()
     
@@ -115,35 +116,67 @@ class ListingViewController: UIViewController {
         
         placesClient = GMSPlacesClient.shared()
         
-        hotelFilters.checkout = Date().adding(minutes: 1440)
-        hotelFilters.checkin = Date()
+        if listType == .hotel {
+            hotelFilters.checkout = Date().adding(minutes: 1440)
+            hotelFilters.checkin = Date()
+            
+            
+            hotelFilters.roomCount = K.defaultRoomCount
+            hotelFilters.adult = K.defaultAdultCount
+            hotelFilters.child = K.defaultChildCount
+            
+            hotelFilters.location = Location(latitude: 11.259698798029197, longitude: 75.82969398017917, name: "Calicut")
+            
+            hotelFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
+        } else if listType == .packages {
+            packageFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
+            packageFilter.adult = K.defaultAdultCount
+            packageFilter.child = K.defaultChildCount
+            packageFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
+        }
         
         
-        hotelFilters.roomCount = K.defaultRoomCount
-        hotelFilters.adult = K.defaultAdultCount
-        hotelFilters.child = K.defaultChildCount
-        
-        hotelFilters.location = Location(latitude: 11.259698798029197, longitude: 75.82969398017917, name: "Calicut")
-        
-        hotelFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         assignValues()
         
     }
     
     func assignValues() {
-        locationLabel.text = hotelFilters.location?.name
-        let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
-        var roomText = "\(hotelFilters.roomCount!) Rooms"
-        if hotelFilters.roomCount == 1 {
-            roomText = "\(hotelFilters.roomCount!) Room"
-        }
-        let guests = hotelFilters.adult! + hotelFilters.child!
-        var guestText = "\(guests) Guests"
-        if guests == 1 {
-            guestText = "\(guests) Guest"
+        
+        if listType == .hotel {
+            locationLabel.text = hotelFilters.location?.name
+            let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
+            var roomText = "\(hotelFilters.roomCount!) Rooms"
+            if hotelFilters.roomCount == 1 {
+                roomText = "\(hotelFilters.roomCount!) Room"
+            }
+            let guests = hotelFilters.adult! + hotelFilters.child!
+            var guestText = "\(guests) Guests"
+            if guests == 1 {
+                guestText = "\(guests) Guest"
+            }
+            dateAndGuestLabel.text = dateText + " | " + roomText + " | " + guestText
+        } else if listType == .packages {
+            locationLabel.text = packageFilter.country?.name
+            var dateText = packageFilter.startDate?.stringValue(format: "dd MMM")
+            if dateText == nil {
+                dateText = "Add start date"
+                
+            }
+            var adultText = packageFilter.adult?.oneOrMany("Adult")
+            
+            var secondText = dateText! + " | " + adultText!
+            
+            if packageFilter.child != nil && packageFilter.child != 0 {
+                var childText = "\(packageFilter.child!) Child"
+                if packageFilter.child! > 1 {
+                    childText = "\(packageFilter.child!) Children"
+                }
+                secondText = secondText + childText
+            }
+            dateAndGuestLabel.text = secondText
         }
         
-        dateAndGuestLabel.text = dateText + " | " + roomText + " | " + guestText
+        
     }
     
     func setupMenus() {
@@ -218,6 +251,7 @@ class ListingViewController: UIViewController {
             vc.delegate = self
         } else if let vc = segue.destination  as? DefaultFilterViewController {
             vc.hotelFilters = hotelFilters
+            vc.packageFilters = packageFilter
             vc.listType = listType
             vc.delegate = self
         }
@@ -233,14 +267,22 @@ extension ListingViewController: SearchDelegate {
 }
 
 extension ListingViewController: DefaultFilterDelegate {
-    func searchDidTapped(_ filters: HotelListingFilters?) {
-        if let filters = filters {
+    func searchDidTapped(_ packageFilters: PackageFilters?) {
+        if let filters = packageFilters {
+           self.packageFilter = filters
+           assignValues()
+           getPackages()
+       }
+
+    }
+    
+    func searchDidTapped(_ hotelFilters: HotelListingFilters?) {
+        if let filters = hotelFilters {
             self.hotelFilters = filters
             assignValues()
             getHotels()
         }
     }
-    
     
 }
 
@@ -274,7 +316,11 @@ extension ListingViewController {
             if filters.count != 0 {
                 performSegue(withIdentifier: "toFilter", sender: nil)
             } else {
-                getFilters()
+                if listType == .hotel {
+                    getFilters()
+                } else if listType == .packages {
+                    getPackageFilters()
+                }
             }
             return
             
@@ -324,11 +370,32 @@ extension ListingViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.filters = result!.data.filtes
+                        self.filters = result!.data.filtes!
                         self.sorts = result!.data.sortby
-                        self.tripTypes = result!.data.tripTypes
+                        self.tripTypes = result!.data.tripTypes!
                         self.setupMenus()
                         self.getBanners()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    func getPackageFilters() {
+        showIndicator()
+        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.filters = result!.data.filters!
+                        self.sorts = result!.data.sortby
+                        self.setupMenus()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -393,18 +460,24 @@ extension ListingViewController {
     func getPackages() {
         showIndicator()
         
-        var params: [String: Any] = ["package_types": [],
+        var params: [String: Any] = [
                                      "sortBy": "",
                                      "offset": 0,
-                                     "recordCount": 0,
+                                     "recordCount": 20,
                                      "Country": SessionManager.shared.getCountry(),
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage(),
-                                     "SortBy": ""]
+                                     "minimumBudget": packageFilter.rate!.from,
+                                     "maximumBudget": packageFilter.rate!.to,
+                                     "package_types": []]
         
-//        if let sort = hotelFilters.sort {
-//            params["SortBy"] = sort.name
-//        }
+        if let sort = packageFilter.sort {
+            params["sortBy"] = sort.name
+        }
+        
+        if let startDate = packageFilter.startDate {
+            params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
+        }
 //
 //        if let tripType = hotelFilters.tripType {
 //            params["tripType"] = tripType.id
@@ -418,9 +491,9 @@ extension ListingViewController {
                     if result!.status == 1 {
                         self.listingManager.assignPackages(packages: result!.data)
                         self.hotelCollectionView.reloadData()
-//                        if self.filters.count == 0 {
-//                            self.getFilters()
-//                        }
+                        if self.filters.count == 0 {
+                            self.getPackageFilters()
+                        }
                     } else {
                         self.view.makeToast(result!.message)
                     }

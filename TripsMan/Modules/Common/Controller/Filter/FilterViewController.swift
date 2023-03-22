@@ -35,7 +35,7 @@ class FilterViewController: UIViewController {
     
     var sections: [FilterListSection]? = nil
     
-    var filters = [Filte]()
+    var filters = [Filter]()
     
     var sliderLowerValue = K.minimumPrice
     var sliderUpperValue = K.maximumPrice
