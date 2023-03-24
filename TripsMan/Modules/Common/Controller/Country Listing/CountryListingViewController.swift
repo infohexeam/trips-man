@@ -46,7 +46,7 @@ class CountryListingViewController: UIViewController {
 extension CountryListingViewController {
     func getCountries() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/GetCustomerHolidayCountryList", http: .get, parameters: nil) { (result: CountryData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayCountryList", http: .get, parameters: nil) { (result: CountryData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

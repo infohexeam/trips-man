@@ -922,6 +922,7 @@
                         <segue destination="h3T-eS-EWG" kind="presentation" identifier="toSearch" id="1gq-7q-87a"/>
                         <segue destination="Jkv-C2-KHD" kind="show" identifier="toHotelDetails" id="cqp-Sl-Qf5"/>
                         <segue destination="vNf-y9-esa" kind="presentation" identifier="toDefaultFilter" animates="NO" id="PQc-bp-Ns8"/>
+                        <segue destination="gBg-HW-Lfw" kind="show" identifier="toPackageDetails" id="SAc-Pz-rpr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb4-RH-Kzz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -939,6 +940,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gD-w9-gNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1546" y="1055"/>
+        </scene>
+        <!--Packages-->
+        <scene sceneID="5gu-cN-Vzj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Packages" id="gBg-HW-Lfw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1RR-p6-Ezq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jL-dv-xri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1497" y="1142"/>
         </scene>
         <!--Default Filter View Controller-->
         <scene sceneID="gXB-di-gNh">

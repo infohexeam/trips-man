@@ -90,6 +90,13 @@
 		C1CA2C452977B21C00648A45 /* NotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA2C442977B21C00648A45 /* NotificationData.swift */; };
 		C1CA2C482977B60600648A45 /* NotificationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA2C472977B60600648A45 /* NotificationsCollectionViewCell.swift */; };
 		C1CA2C4A2977B92000648A45 /* HotelListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA2C492977B92000648A45 /* HotelListingData.swift */; };
+		C1D0DACB29CAAF4200641491 /* Packages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D0DACA29CAAF4200641491 /* Packages.storyboard */; };
+		C1D0DACD29CAB00D00641491 /* PackageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */; };
+		C1D0DACF29CAC30B00641491 /* PackageDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DACE29CAC30B00641491 /* PackageDetailsData.swift */; };
+		C1D0DAD229CACAD900641491 /* PackageDetailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */; };
+		C1D0DAD529CACE7300641491 /* PackageImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DAD429CACE7300641491 /* PackageImageCollectionViewCell.swift */; };
+		C1D0DAD729CAF6FD00641491 /* PackageDetailsFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DAD629CAF6FD00641491 /* PackageDetailsFooterCollectionReusableView.swift */; };
+		C1D0DAD929CB0AC400641491 /* PackageDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DAD829CB0AC400641491 /* PackageDetailsCollectionViewCell.swift */; };
 		C1D1BA0229920DB6009AFABD /* TripDetailsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D1BA0129920DB6009AFABD /* TripDetailsCells.swift */; };
 		C1D64B4F29C982BC00E91F06 /* CountryListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D64B4E29C982BC00E91F06 /* CountryListingViewController.swift */; };
 		C1D64B5129C9842700E91F06 /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D64B5029C9842700E91F06 /* CountryManager.swift */; };
@@ -97,6 +104,9 @@
 		C1D7C6B12993985B00410C7A /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7C6B02993985B00410C7A /* Wallet.swift */; };
 		C1D7C6B429939E4600410C7A /* WalletCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D7C6B329939E4600410C7A /* WalletCells.swift */; };
 		C1D8F6C02907725700C6CBBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8F6BF2907725700C6CBBA /* Constants.swift */; };
+		C1DA276929CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DA276829CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift */; };
+		C1DA276B29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DA276A29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift */; };
+		C1DA276D29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DA276C29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift */; };
 		C1DC9DB7299F79D6004AA17E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DC9DB6299F79D6004AA17E /* SearchViewController.swift */; };
 		C1DC9DB9299F7A29004AA17E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DC9DB8299F7A29004AA17E /* Search.storyboard */; };
 		C1DDD11128CAEBA30032FA12 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDD11028CAEBA30032FA12 /* Validator.swift */; };
@@ -225,6 +235,13 @@
 		C1CA2C442977B21C00648A45 /* NotificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationData.swift; sourceTree = "<group>"; };
 		C1CA2C472977B60600648A45 /* NotificationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1CA2C492977B92000648A45 /* HotelListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelListingData.swift; sourceTree = "<group>"; };
+		C1D0DACA29CAAF4200641491 /* Packages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Packages.storyboard; sourceTree = "<group>"; };
+		C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsViewController.swift; sourceTree = "<group>"; };
+		C1D0DACE29CAC30B00641491 /* PackageDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsData.swift; sourceTree = "<group>"; };
+		C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsManager.swift; sourceTree = "<group>"; };
+		C1D0DAD429CACE7300641491 /* PackageImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1D0DAD629CAF6FD00641491 /* PackageDetailsFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		C1D0DAD829CB0AC400641491 /* PackageDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1D1BA0129920DB6009AFABD /* TripDetailsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsCells.swift; sourceTree = "<group>"; };
 		C1D64B4E29C982BC00E91F06 /* CountryListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListingViewController.swift; sourceTree = "<group>"; };
 		C1D64B5029C9842700E91F06 /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
@@ -232,6 +249,9 @@
 		C1D7C6B02993985B00410C7A /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		C1D7C6B329939E4600410C7A /* WalletCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCells.swift; sourceTree = "<group>"; };
 		C1D8F6BF2907725700C6CBBA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C1DA276829CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1DA276A29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsHeaderView.swift; sourceTree = "<group>"; };
+		C1DA276C29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageItineraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1DC9DB6299F79D6004AA17E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C1DC9DB8299F7A29004AA17E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C1DDD11028CAEBA30032FA12 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -522,6 +542,19 @@
 			path = "Image Picker";
 			sourceTree = "<group>";
 		};
+		C1BE3D4229CD615F00812226 /* Package Details */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0DAD429CACE7300641491 /* PackageImageCollectionViewCell.swift */,
+				C1D0DAD629CAF6FD00641491 /* PackageDetailsFooterCollectionReusableView.swift */,
+				C1D0DAD829CB0AC400641491 /* PackageDetailsCollectionViewCell.swift */,
+				C1DA276829CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift */,
+				C1DA276A29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift */,
+				C1DA276C29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift */,
+			);
+			path = "Package Details";
+			sourceTree = "<group>";
+		};
 		C1CA18EB29B9A3AF00CFD04A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +635,9 @@
 		C1CA18F329B9A58A00CFD04A /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				C1D0DAC829CAAE6800641491 /* Model */,
+				C1D0DAC729CAAE6200641491 /* View */,
+				C1D0DAC629CAAE5400641491 /* Controller */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -1080,6 +1116,56 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		C1D0DAC629CAAE5400641491 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C1D0DAC729CAAE6200641491 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0DAD329CACE4B00641491 /* Cells */,
+				C1D0DAC929CAAF2400641491 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C1D0DAC829CAAE6800641491 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0DAD029CAC30F00641491 /* Data Model */,
+				C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1D0DAC929CAAF2400641491 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0DACA29CAAF4200641491 /* Packages.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C1D0DAD029CAC30F00641491 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				C1D0DACE29CAC30B00641491 /* PackageDetailsData.swift */,
+			);
+			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		C1D0DAD329CACE4B00641491 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C1BE3D4229CD615F00812226 /* Package Details */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C1D64B4D29C982A600E91F06 /* Country Listing */ = {
 			isa = PBXGroup;
 			children = (
@@ -1263,6 +1349,7 @@
 				C15E31C028C5F13300E209EB /* LaunchScreen.storyboard in Resources */,
 				C19EF46029659B5F008EDD66 /* GoogleService-Info.plist in Resources */,
 				C14A983528E15424000C52AA /* TestAssets.xcassets in Resources */,
+				C1D0DACB29CAAF4200641491 /* Packages.storyboard in Resources */,
 				C15E31F028C6DD0000E209EB /* Color.xcassets in Resources */,
 				C1CA192929B9D65F00CFD04A /* Wallet.storyboard in Resources */,
 				C15E31BD28C5F13300E209EB /* Assets.xcassets in Resources */,
@@ -1442,6 +1529,7 @@
 				C19EF45E29658775008EDD66 /* ImageUploadData.swift in Sources */,
 				C13E75D6298A391E00FBE80B /* CouponData.swift in Sources */,
 				C1D7C6B429939E4600410C7A /* WalletCells.swift in Sources */,
+				C1D0DAD929CB0AC400641491 /* PackageDetailsCollectionViewCell.swift in Sources */,
 				C15E31B128C5F13100E209EB /* AppDelegate.swift in Sources */,
 				C15E31F828C6FA0500E209EB /* CustomTextField.swift in Sources */,
 				C15CDDE429C18C0400E15E9F /* DefaultFilterViewController.swift in Sources */,
@@ -1449,14 +1537,18 @@
 				C15E320A28C8267700E209EB /* RegisterViewController.swift in Sources */,
 				C12D83FC294999A70091B311 /* MyTripsViewController.swift in Sources */,
 				C132E48828DC55BD00D980D1 /* Gradient.swift in Sources */,
+				C1D0DAD229CACAD900641491 /* PackageDetailsManager.swift in Sources */,
 				C1FFA59F28E3FB5900E13D75 /* RoomSelectionViewController.swift in Sources */,
+				C1D0DAD529CACE7300641491 /* PackageImageCollectionViewCell.swift in Sources */,
 				C1A2C1BE29793DEF00F34ACF /* Double+Extension.swift in Sources */,
 				C18FFEC7295BF96A00F29EC9 /* KeyboardLayout.swift in Sources */,
 				C101CA21298BDB970051A94F /* TripDetails.swift in Sources */,
 				C1E97DD229A796EE0025B03F /* SearchCells.swift in Sources */,
 				C1FB4FCC294C7947001302A0 /* TripDetailsViewController.swift in Sources */,
+				C1D0DACF29CAC30B00641491 /* PackageDetailsData.swift in Sources */,
 				C1CA2C4A2977B92000648A45 /* HotelListingData.swift in Sources */,
 				C1582776295D626200516FD6 /* SideMenuTableViewCell.swift in Sources */,
+				C1DA276D29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift in Sources */,
 				C14CAC0A29B0B8C300183597 /* AddReviewViewController.swift in Sources */,
 				C12D83F4294836570091B311 /* WalletViewController.swift in Sources */,
 				C1F77ED029B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift in Sources */,
@@ -1481,6 +1573,7 @@
 				C1D1BA0229920DB6009AFABD /* TripDetailsCells.swift in Sources */,
 				C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */,
 				C13DAD0A295D8E5900DAF734 /* SessionManager.swift in Sources */,
+				C1DA276B29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift in Sources */,
 				C13E75D8298A723F00FBE80B /* CouponsViewController.swift in Sources */,
 				C1582774295D54DE00516FD6 /* SideMenuTableViewController.swift in Sources */,
 				C1D64B5129C9842700E91F06 /* CountryManager.swift in Sources */,
@@ -1500,7 +1593,9 @@
 				C19335E328DBF241001A037F /* ListingViewController.swift in Sources */,
 				C19335E628DC340A001A037F /* HotelListCells.swift in Sources */,
 				C1DDD11128CAEBA30032FA12 /* Validator.swift in Sources */,
+				C1D0DAD729CAF6FD00641491 /* PackageDetailsFooterCollectionReusableView.swift in Sources */,
 				C1D64B4F29C982BC00E91F06 /* CountryListingViewController.swift in Sources */,
+				C1DA276929CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift in Sources */,
 				C18FFECD295C442600F29EC9 /* MyTripsCells.swift in Sources */,
 				C15E320028C74F9F00E209EB /* UIViewController+Extension.swift in Sources */,
 				C15E31BB28C5F13100E209EB /* TripsMan.xcdatamodeld in Sources */,
@@ -1509,6 +1604,7 @@
 				C17738742975690C009A7477 /* FilterViewController.swift in Sources */,
 				C15CDDE629C1913E00E15E9F /* FilterManager.swift in Sources */,
 				C1FFA5A628E5559F00E13D75 /* RoomSelectionSummaryCells.swift in Sources */,
+				C1D0DACD29CAB00D00641491 /* PackageDetailsViewController.swift in Sources */,
 				C17161CD2988E3440098A6C0 /* BookingData.swift in Sources */,
 				C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */,
 				C19EF45C29657321008EDD66 /* ImagePicker.swift in Sources */,

@@ -38,11 +38,18 @@ class SearchViewController: UIViewController {
         }
     }
     
+    var module = ""
+    
     var delegate: SearchDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if module == "HTL" {
+            self.searchBar.placeholder = "Search hotels.."
+        } else if module == "HDY" {
+            self.searchBar.placeholder = "Search packages.."
+        }
     }
 }
 
@@ -63,7 +70,7 @@ extension SearchViewController {
         showIndicator()
         
         let params: [String: Any] = ["Search": searchBar.text!,
-                                     "Module": "HTL",
+                                     "Module": module,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]

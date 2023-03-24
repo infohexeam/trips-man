@@ -249,11 +249,20 @@ class ListingViewController: UIViewController {
             }
         } else if let vc = segue.destination as? SearchViewController {
             vc.delegate = self
+            if listType == .hotel {
+                vc.module = "HTL"
+            } else if listType == .packages {
+                vc.module = "HDY"
+            }
         } else if let vc = segue.destination  as? DefaultFilterViewController {
             vc.hotelFilters = hotelFilters
             vc.packageFilters = packageFilter
             vc.listType = listType
             vc.delegate = self
+        } else if let vc = segue.destination as? PackageDetailsViewController {
+            if let index = sender as? Int {
+                vc.packageID = listingManager.getListingData()?[index].id ?? 0
+            }
         }
     }
     
@@ -469,7 +478,7 @@ extension ListingViewController {
                                      "Language": SessionManager.shared.getLanguage(),
                                      "minimumBudget": packageFilter.rate!.from,
                                      "maximumBudget": packageFilter.rate!.to,
-                                     "package_types": []]
+                                     "holidayFilters": [String: [Any]]()]
         
         if let sort = packageFilter.sort {
             params["sortBy"] = sort.name
@@ -622,11 +631,16 @@ extension ListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let thisSection = listingManager.getSections()?[indexPath.section] else { return }
         if thisSection.type == .list {
-            var index = indexPath.row
-            if indexPath.section != 0 {
-                index = indexPath.row + 4
+            if listType == .hotel {
+                var index = indexPath.row
+                if indexPath.section != 0 {
+                    index = indexPath.row + 4
+                }
+                performSegue(withIdentifier: "toHotelDetails", sender: index)
+            } else if listType == .packages {
+                performSegue(withIdentifier: "toPackageDetails", sender: indexPath.row)
             }
-            performSegue(withIdentifier: "toHotelDetails", sender: index)
+            
         }
     }
 }
