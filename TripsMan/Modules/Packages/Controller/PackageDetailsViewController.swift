@@ -47,6 +47,12 @@ class PackageDetailsViewController: UIViewController {
             performSegue(withIdentifier: "toPackageBooking", sender: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PackageBookingViewController {
+            vc.packageDetails = packageManager?.getPackageDetails()
+        }
+    }
 
 }
 

@@ -84,6 +84,9 @@
 		C1A2C1BE29793DEF00F34ACF /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2C1BD29793DEF00F34ACF /* Double+Extension.swift */; };
 		C1A2C1C12979499500F34ACF /* HotelDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2C1C02979499500F34ACF /* HotelDetailsData.swift */; };
 		C1BE352D2976654D004EB983 /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE352C2976654D004EB983 /* FilterData.swift */; };
+		C1BE3D4529CD621800812226 /* PackageBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE3D4429CD621800812226 /* PackageBookingViewController.swift */; };
+		C1BE3D4729CD62F100812226 /* PackageSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE3D4629CD62F100812226 /* PackageSummaryCollectionViewCell.swift */; };
+		C1BE3D4929CD68EE00812226 /* PackageBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE3D4829CD68EE00812226 /* PackageBookingManager.swift */; };
 		C1CA192929B9D65F00CFD04A /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA192829B9D65F00CFD04A /* Wallet.storyboard */; };
 		C1CA192B29B9D66D00CFD04A /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA192A29B9D66D00CFD04A /* Notifications.storyboard */; };
 		C1CA192E29B9FE1B00CFD04A /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA192D29B9FE1B00CFD04A /* Common.storyboard */; };
@@ -229,6 +232,9 @@
 		C1A2C1BD29793DEF00F34ACF /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C1A2C1C02979499500F34ACF /* HotelDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailsData.swift; sourceTree = "<group>"; };
 		C1BE352C2976654D004EB983 /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
+		C1BE3D4429CD621800812226 /* PackageBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageBookingViewController.swift; sourceTree = "<group>"; };
+		C1BE3D4629CD62F100812226 /* PackageSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1BE3D4829CD68EE00812226 /* PackageBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageBookingManager.swift; sourceTree = "<group>"; };
 		C1CA192829B9D65F00CFD04A /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
 		C1CA192A29B9D66D00CFD04A /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		C1CA192D29B9FE1B00CFD04A /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
@@ -553,6 +559,14 @@
 				C1DA276C29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift */,
 			);
 			path = "Package Details";
+			sourceTree = "<group>";
+		};
+		C1BE3D4329CD61EB00812226 /* Package Booking */ = {
+			isa = PBXGroup;
+			children = (
+				C1BE3D4629CD62F100812226 /* PackageSummaryCollectionViewCell.swift */,
+			);
+			path = "Package Booking";
 			sourceTree = "<group>";
 		};
 		C1CA18EB29B9A3AF00CFD04A /* Modules */ = {
@@ -1120,6 +1134,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */,
+				C1BE3D4429CD621800812226 /* PackageBookingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1138,6 +1153,7 @@
 			children = (
 				C1D0DAD029CAC30F00641491 /* Data Model */,
 				C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */,
+				C1BE3D4829CD68EE00812226 /* PackageBookingManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1162,6 +1178,7 @@
 			isa = PBXGroup;
 			children = (
 				C1BE3D4229CD615F00812226 /* Package Details */,
+				C1BE3D4329CD61EB00812226 /* Package Booking */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1556,6 +1573,7 @@
 				C14D783428FE57800065BA63 /* UITextField+Extension.swift in Sources */,
 				C1BE352D2976654D004EB983 /* FilterData.swift in Sources */,
 				C1FFA5A128E3FDF400E13D75 /* RoomSelectionCells.swift in Sources */,
+				C1BE3D4529CD621800812226 /* PackageBookingViewController.swift in Sources */,
 				C177387629756A8F009A7477 /* FilterCells.swift in Sources */,
 				C14CAC0829B0B89500183597 /* ReviewManager.swift in Sources */,
 				C13DAD02295D673600DAF734 /* SideMenuModel.swift in Sources */,
@@ -1572,6 +1590,7 @@
 				C1D7C6B12993985B00410C7A /* Wallet.swift in Sources */,
 				C1D1BA0229920DB6009AFABD /* TripDetailsCells.swift in Sources */,
 				C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */,
+				C1BE3D4929CD68EE00812226 /* PackageBookingManager.swift in Sources */,
 				C13DAD0A295D8E5900DAF734 /* SessionManager.swift in Sources */,
 				C1DA276B29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift in Sources */,
 				C13E75D8298A723F00FBE80B /* CouponsViewController.swift in Sources */,
@@ -1597,6 +1616,7 @@
 				C1D64B4F29C982BC00E91F06 /* CountryListingViewController.swift in Sources */,
 				C1DA276929CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift in Sources */,
 				C18FFECD295C442600F29EC9 /* MyTripsCells.swift in Sources */,
+				C1BE3D4729CD62F100812226 /* PackageSummaryCollectionViewCell.swift in Sources */,
 				C15E320028C74F9F00E209EB /* UIViewController+Extension.swift in Sources */,
 				C15E31BB28C5F13100E209EB /* TripsMan.xcdatamodeld in Sources */,
 				C18FFECA295C15BA00F29EC9 /* ListingFilters.swift in Sources */,
