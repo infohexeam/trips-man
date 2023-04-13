@@ -918,6 +918,7 @@
                         <outlet property="sortByField" destination="LEA-Xo-Gm1" id="UvK-X1-GYH"/>
                         <outlet property="tripTypeButton" destination="I1a-OB-Ywt" id="Rd3-R7-suK"/>
                         <outlet property="tripTypeField" destination="5EU-Lt-ZKv" id="ZW4-ds-o3v"/>
+                        <outlet property="tripTypeMainView" destination="HpG-4U-Jlx" id="CJu-eW-ERf"/>
                         <segue destination="fa5-ou-Jim" kind="presentation" identifier="toFilter" id="BRA-6o-rif"/>
                         <segue destination="h3T-eS-EWG" kind="presentation" identifier="toSearch" id="1gq-7q-87a"/>
                         <segue destination="Jkv-C2-KHD" kind="show" identifier="toHotelDetails" id="cqp-Sl-Qf5"/>

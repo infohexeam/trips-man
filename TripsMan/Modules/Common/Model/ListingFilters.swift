@@ -29,6 +29,7 @@ struct PackageFilters: Codable {
     var rate: Rate? = nil
     var filters: [String: [Int]]? = nil
     var sort: Sortby? = nil
+    var packageDetails: PackageDetails? = nil
 }
 
 struct Rate: Codable {

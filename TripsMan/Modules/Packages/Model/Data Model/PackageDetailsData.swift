@@ -26,7 +26,7 @@ struct PackageDetails: Codable {
     let packageType, isSponsored, ratingCount: Int
     let userRating: Int
     let offerPrice, costPerPerson, seviceCharge: Double
-    let holidayVendor: [HolidayVendor]
+    let holidayVendor: HolidayVendor
     let holidayItinerary: [HolidayItinerary]
     let holidayImage: [HolidayImage]
 

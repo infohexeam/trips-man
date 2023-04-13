@@ -84,6 +84,13 @@ extension UIViewController {
             self.view.isUserInteractionEnabled = true
         }
     }
+    
+    func getDateRange(from: Date, to: Date) -> String {
+        let intervalFormatter = DateIntervalFormatter()
+        intervalFormatter.timeStyle = .none
+        intervalFormatter.dateStyle = .medium
+        return intervalFormatter.string(from: from, to: to)
+    }
 }
 
 extension UIViewController: UITextFieldDelegate {

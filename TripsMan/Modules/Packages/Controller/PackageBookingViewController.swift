@@ -7,6 +7,9 @@
 
 import UIKit
 
+fileprivate var packageFieldTexts = [IndexPath:GuestFds]()
+fileprivate var createdPackageBookingID: Int?
+
 class PackageBookingViewController: UIViewController {
     
     @IBOutlet weak var packageCollectionView: UICollectionView! {
@@ -20,18 +23,123 @@ class PackageBookingViewController: UIViewController {
     
     var packageManager: PackageBookingManager?
     var parser = Parser()
+    var packageFilter = PackageFilters()
     
-    var packageDetails: PackageDetails?
+    var bookedData: PackageBooking?
+    
     var fontSize: CGFloat? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let packageDetails = packageDetails {
+        if let packageDetails = packageFilter.packageDetails {
             packageManager = PackageBookingManager(packageDetails: packageDetails)
         }
-        
     }
+    
+    func presentDatePicker() {
+        let datePickerViewController = UIStoryboard(name: "Common", bundle: nil).instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
 
+        datePickerViewController.pickerTag = 1
+        datePickerViewController.delegate = self
+        datePickerViewController.minDate = Date().adding(minutes: 1440)
+        datePickerViewController.viewController = self
+        
+        datePickerViewController.modalPresentationStyle = .pageSheet
+        
+        if let sheet = datePickerViewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        present(datePickerViewController, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PackBookingSummaryViewController {
+            vc.packBookingData = bookedData
+        }
+    }
+    
+    @IBAction func startDateTapped(_ sender: UIButton) {
+        presentDatePicker()
+    }
+    
+    @IBAction func continueButtonTapped(_ sender: UIButton) {
+//        performSegue(withIdentifier: "toPackBookingSummary", sender: nil)
+        if (packageFilter.startDate != nil) {
+            
+            createBooking()
+        } else {
+            self.view.makeToast("Select start date")
+        }
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+//MARK: - APICalls
+extension PackageBookingViewController {
+    func createBooking() {
+        showIndicator()
+        
+        var guests = [[String: Any]]()
+        print(packageFieldTexts)
+        let primary = packageFieldTexts.filter { $0.key == [2,0] }
+        
+        let duration = packageFilter.packageDetails?.duration.intValue()
+        
+        let bookingTo = packageFilter.startDate?.adding(minutes: 1440 * (duration ?? 0))
+        
+        
+        for each in packageFieldTexts {
+            guests.append(["id": 0,
+                           "contactNo": each.value.contactNumber,
+                           "guestName": each.value.name,
+                           "emailId": each.value.emailID,
+                           "gender": each.value.gender,
+                           "isPrimary": each.value == primary.first?.value ? 1 : 0,
+                           "age": each.value.age.intValue()])
+        }
+        
+        var params: [String: Any] = ["bookingType": "create",
+                                     "bookingDate": Date().stringValue(format: "yyyy-MM-dd"),
+                                     "packageId": packageFilter.packageDetails?.packageID ?? 0,
+                                     "bookingFrom": packageFilter.startDate!.stringValue(format: "yyyy-MM-dd"),
+                                     "bookingTo": bookingTo!.stringValue(format: "yyyy-MM-dd"),
+                                     "userId": SessionManager.shared.getLoginDetails()!.userid!,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage(),
+                                     "booking_Guest": guests,
+                                     "adultCount": packageFilter.adult!,
+                                     "childCount": packageFilter.child!]
+        
+        if createdPackageBookingID != nil {
+            params["bookingType"] = "update"
+            params["bookingId"] = createdPackageBookingID
+        }
+        
+        print("\n\n params: \(params)")
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/CreateCustomerHolidayBooking", http: .post, parameters: params) { (result: PackageBookingData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.bookedData = result!.data
+                        createdPackageBookingID = result!.data.bookingID
+                        self.performSegue(withIdentifier: "toPackBookingSummary", sender: nil)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
 }
 
 //MARK: - CollectionView
@@ -51,30 +159,107 @@ extension PackageBookingViewController: UICollectionViewDataSource {
         if thisSection.type == .packageSummary {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageSummaryCell", for: indexPath) as! PackageSummaryCollectionViewCell
             
-            print("ggkbjlkk")
             if let packageDetails = packageManager?.getPackageDetails() {
                 let featuredImage = packageDetails.holidayImage.filter { $0.isFeatured == 1}
                 if featuredImage.count != 0 {
                     cell.packageImage.sd_setImage(with: URL(string: featuredImage[0].imageURL ?? ""), placeholderImage: UIImage(systemName: K.packagePlaceHolderImage))
                 }
                 cell.packageName.text = packageDetails.packageName
+                cell.locationLabel.text = packageDetails.countryName
                 if fontSize == nil {
                     fontSize = cell.packagePrice.font.pointSize
                 }
                 cell.packagePrice.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.seviceCharge) taxes and fee per person"
-//                cell.dateLabel.text
                 
+                cell.startDate.text = packageFilter.startDate?.stringValue(format: "dd-MM-yyyy")
             }
             
             
             return cell
-        }  else {
+        } else if thisSection.type == .header {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageHeaderCell", for: indexPath) as! PackageHeaderCollectionViewCell
+            
+            
+            return cell
+        } else if thisSection.type == .primaryTraveller {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "primaryTravellerCell", for: indexPath) as! PrimaryTravellerCollectionViewCell
+            
+            cell.setupView()
+            cell.delegate = self
+            cell.cvcDelegate = self
+            cell.genderButton.tag = indexPath.section
+            cell.primayTravellerField.text = packageFieldTexts[indexPath]?.name
+            cell.contactField.text = packageFieldTexts[indexPath]?.contactNumber
+            cell.emailField.text = packageFieldTexts[indexPath]?.emailID
+            cell.genderField.text = packageFieldTexts[indexPath]?.gender
+            cell.ageField.text = packageFieldTexts[indexPath]?.age
+            
+            
+            return cell
+        } else if thisSection.type == .buttons {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageActionCell", for: indexPath) as! PackageActionCollectionViewCell
+            
+            
+            
+            
+            return cell
+        } else {
             return UICollectionViewCell()
         }
     }
     
+}
+
+
+//MARK: - CollectionViewCellDelegate
+extension PackageBookingViewController: CollectionViewCellDelegate {
+    func collectionViewCell(valueChangedIn textField: UITextField, delegatedFrom cell: UICollectionViewCell) {
+        if let indexPath = packageCollectionView.indexPath(for: cell), let text = textField.text {
+            if textField.tag == 1 {
+                packageFieldTexts[indexPath] = GuestFds(name: text, contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+            } else if textField.tag == 2 {
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: text, age: packageFieldTexts[indexPath]?.age ?? "")
+            } else if textField.tag == 3 {
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: text)
+            } else if textField.tag == 4 {
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: text, emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+            } else if textField.tag == 5 {
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: text, gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+            }
+            print("\n text changed: \(packageFieldTexts[indexPath])")
+        }
+    }
     
+    func collectionViewCell(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String, delegatedFrom cell: UICollectionViewCell) -> Bool {
+        return true
+    }
+    
+    func collectionViewCell(deleteTappedFrom cell: UICollectionViewCell) {
+        
+    }
+    
+    
+}
+
+
+//MARK: - DynamicCellDelegate
+extension PackageBookingViewController: DynamicCellHeightDelegate {
+    func updateHeight() {
+        packageCollectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+}
+
+//MARK: - DatePickerDelegate
+extension PackageBookingViewController: DatePickerDelegate {
+    func datePickerDoneTapped(_ viewController: UIViewController?, date: Date, tag: Int) {
+        if viewController == self {
+            packageFilter.startDate = date
+            packageCollectionView.reloadSections(IndexSet(integer: packageManager?.getSection(.packageSummary) ?? 0))
+            print("selected date: \(packageFilter.startDate)")
+        }
+    }
 }
     
 
@@ -88,6 +273,51 @@ extension PackageBookingViewController {
             let section: NSCollectionLayoutSection
             
             if thisSection.type == .packageSummary {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(30))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(30))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                
+                return section
+                
+            } else if thisSection.type == .header {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(30))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(30))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                
+                return section
+                
+            } else if thisSection.type == .primaryTraveller {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(30))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(30))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                
+                return section
+                
+            } else if thisSection.type == .buttons {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(30))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)

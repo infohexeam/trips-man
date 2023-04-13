@@ -12,6 +12,7 @@ class PackageSummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var packageName: UILabel!
     @IBOutlet weak var packagePrice: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var startDate: UITextField!
 }

@@ -27,6 +27,8 @@ class ListingViewController: UIViewController {
     @IBOutlet weak var filterByButton: UIButton!
     @IBOutlet weak var sortByButton: UIButton!
     
+    @IBOutlet weak var tripTypeMainView: UIView!
+    
     
     
     @IBOutlet weak var hotelCollectionView: UICollectionView! {
@@ -100,20 +102,7 @@ class ListingViewController: UIViewController {
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if self.isMovingFromParent {
-            
-            
-//            self.presentedViewController?.dismiss(animated: true)
-//            self.presentedViewController?.navigationController?.popViewController(animated: true)
-        }
-    }
-    
     func setupView() {
-        
-        
         placesClient = GMSPlacesClient.shared()
         
         if listType == .hotel {
@@ -133,6 +122,7 @@ class ListingViewController: UIViewController {
             packageFilter.adult = K.defaultAdultCount
             packageFilter.child = K.defaultChildCount
             packageFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
+            tripTypeMainView.isHidden = true
         }
         
         
@@ -262,6 +252,7 @@ class ListingViewController: UIViewController {
         } else if let vc = segue.destination as? PackageDetailsViewController {
             if let index = sender as? Int {
                 vc.packageID = listingManager.getListingData()?[index].id ?? 0
+                vc.packageFilters = packageFilter
             }
         }
     }
@@ -304,19 +295,6 @@ extension ListingViewController {
         case editFilterButton:
             
             performSegue(withIdentifier: "toDefaultFilter", sender: nil)
-            
-//            let slideUpViewHeight: CGFloat = 200
-//            let screenSize = UIScreen.main.bounds.size
-//
-//            UIView.animate(withDuration: 0.5,
-//                           delay: 0, usingSpringWithDamping: 1.0,
-//                           initialSpringVelocity: 1.0,
-//                           options: .curveEaseInOut, animations: {
-//                self.filterInnerView.frame = CGRect(x: 0, y: screenSize.height - slideUpViewHeight, width: screenSize.width, height: slideUpViewHeight)
-//                self.filterContainer.isHidden = false
-//
-//            }, completion: nil)
-            
             
         case searchButton:
             performSegue(withIdentifier: "toSearch", sender: nil)

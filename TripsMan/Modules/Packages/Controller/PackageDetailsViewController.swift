@@ -22,6 +22,7 @@ class PackageDetailsViewController: UIViewController {
     var packageManager: PackageDetailsManager?
     var parser = Parser()
     var packageID = 0
+    var packageFilters = PackageFilters()
     
     var fontSize: CGFloat? = nil
     
@@ -50,7 +51,8 @@ class PackageDetailsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PackageBookingViewController {
-            vc.packageDetails = packageManager?.getPackageDetails()
+            packageFilters.packageDetails = packageManager?.getPackageDetails()
+            vc.packageFilter = packageFilters
         }
     }
 
@@ -62,7 +64,7 @@ extension PackageDetailsViewController {
     func getPackageDetails() {
         showIndicator()
         
-        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayPackageById?packageId=\(packageID)", http: .get, parameters: nil) { (result: PackageDetailsData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayPackageById?packageId=\(packageID)&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: PackageDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -111,7 +113,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                 }
                 
                 cell.packageName.text = packageDetails.packageName
-                cell.priceLabel.addPriceString(packageDetails.offerPrice, packageDetails.costPerPerson, fontSize: fontSize!)
+                cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.seviceCharge) taxes and fee per person"
             }
             
@@ -123,7 +125,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
         } else if thisSection.type == .vendorDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "vendorDetailsCell", for: indexPath) as! VendorDetailsCollectionViewCell
             
-            if let vendorDetails = packageManager?.getPackageDetails()?.holidayVendor[indexPath.row] {
+            if let vendorDetails = packageManager?.getPackageDetails()?.holidayVendor {
                 cell.vendorName.text = vendorDetails.vendorName
                 cell.vendorEmail.text = vendorDetails.vendorEmail
                 cell.vendorMobile.text = vendorDetails.vendorMobile
@@ -135,7 +137,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
             if let itinerary = packageManager?.getPackageDetails()?.holidayItinerary[indexPath.row] {
                 cell.itineraryImage.sd_setImage(with: URL(string: itinerary.image), placeholderImage: UIImage(systemName: K.packagePlaceHolderImage))
                 cell.itineraryName.text = itinerary.itineryName
-                cell.itineraryDescription.text = "itinerary.itineryDescription"
+                cell.itineraryDescription.text = itinerary.itineryDescription
             }
             
             return cell

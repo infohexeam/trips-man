@@ -112,7 +112,7 @@ struct ListingManager {
             
         case .packages:
             for package in packages! {
-                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: package.holidayImage.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", actualPrice: package.amount, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.seviceCharge)\ntaxes & fee per person"))
+                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: package.holidayImage.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.seviceCharge)\ntaxes & fee per person"))
             }
         case .activities:
             break

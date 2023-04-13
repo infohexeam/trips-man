@@ -13,6 +13,8 @@
 		C101CA21298BDB970051A94F /* TripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101CA20298BDB970051A94F /* TripDetails.swift */; };
 		C109360F29BADE5800C5E8BD /* Hotel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C109360E29BADE5800C5E8BD /* Hotel.storyboard */; };
 		C10D2BC12900C7EA00029F51 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2BC02900C7EA00029F51 /* ProfileViewController.swift */; };
+		C118651F29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C118651E29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift */; };
+		C118652129D2E26200EED029 /* PrimaryTravellerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C118652029D2E26200EED029 /* PrimaryTravellerCollectionViewCell.swift */; };
 		C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCAA82907672F005359A7 /* UILabel+Extension.swift */; };
 		C12D83F4294836570091B311 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D83F3294836570091B311 /* WalletViewController.swift */; };
 		C12D83F72949808F0091B311 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D83F62949808F0091B311 /* NotificationViewController.swift */; };
@@ -32,9 +34,14 @@
 		C14B4898290A7EE300D8FFBA /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14B4897290A7EE300D8FFBA /* LoginData.swift */; };
 		C14B489A290FC21000D8FFBA /* ProfileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14B4899290FC21000D8FFBA /* ProfileData.swift */; };
 		C14B489F2911187C00D8FFBA /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = C14B489E2911187C00D8FFBA /* FirebaseDynamicLinks */; };
+		C14BDE2729DE8DC20081F34C /* PackBookingSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BDE2629DE8DC20081F34C /* PackBookingSummaryCollectionViewCell.swift */; };
+		C14BDE2929DEC1710081F34C /* PackageSummaryHeadereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14BDE2829DEC1710081F34C /* PackageSummaryHeadereView.swift */; };
 		C14CAC0829B0B89500183597 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14CAC0729B0B89500183597 /* ReviewManager.swift */; };
 		C14CAC0A29B0B8C300183597 /* AddReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14CAC0929B0B8C300183597 /* AddReviewViewController.swift */; };
 		C14D783428FE57800065BA63 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14D783328FE57800065BA63 /* UITextField+Extension.swift */; };
+		C150766229DD3739008DAFE2 /* PackageBookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150766129DD3739008DAFE2 /* PackageBookingData.swift */; };
+		C150766429DD8032008DAFE2 /* PackBookingSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150766329DD8032008DAFE2 /* PackBookingSummaryViewController.swift */; };
+		C150766629DD8B0B008DAFE2 /* PackageSummaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150766529DD8B0B008DAFE2 /* PackageSummaryManager.swift */; };
 		C158276F295D53F800516FD6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C158276E295D53F800516FD6 /* SideMenu.storyboard */; };
 		C1582774295D54DE00516FD6 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1582773295D54DE00516FD6 /* SideMenuTableViewController.swift */; };
 		C1582776295D626200516FD6 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */; };
@@ -118,6 +125,7 @@
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
 		C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */; };
 		C1F77ED029B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECF29B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift */; };
+		C1F788E029DBF7980019B148 /* PackageActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F788DF29DBF7980019B148 /* PackageActionCollectionViewCell.swift */; };
 		C1FB4FCC294C7947001302A0 /* TripDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB4FCB294C7947001302A0 /* TripDetailsViewController.swift */; };
 		C1FFA59C28E3E08100E13D75 /* HomeCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA59B28E3E08100E13D75 /* HomeCells.swift */; };
 		C1FFA59F28E3FB5900E13D75 /* RoomSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA59E28E3FB5900E13D75 /* RoomSelectionViewController.swift */; };
@@ -156,6 +164,8 @@
 		C101CA20298BDB970051A94F /* TripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetails.swift; sourceTree = "<group>"; };
 		C109360E29BADE5800C5E8BD /* Hotel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hotel.storyboard; sourceTree = "<group>"; };
 		C10D2BC02900C7EA00029F51 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C118651E29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		C118652029D2E26200EED029 /* PrimaryTravellerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTravellerCollectionViewCell.swift; sourceTree = "<group>"; };
 		C12CCAA82907672F005359A7 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C12D83F3294836570091B311 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		C12D83F62949808F0091B311 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -176,9 +186,14 @@
 		C14B4897290A7EE300D8FFBA /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		C14B4899290FC21000D8FFBA /* ProfileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileData.swift; sourceTree = "<group>"; };
 		C14B48A2291227D200D8FFBA /* TripsMan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TripsMan.entitlements; sourceTree = "<group>"; };
+		C14BDE2629DE8DC20081F34C /* PackBookingSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackBookingSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C14BDE2829DEC1710081F34C /* PackageSummaryHeadereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSummaryHeadereView.swift; sourceTree = "<group>"; };
 		C14CAC0729B0B89500183597 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		C14CAC0929B0B8C300183597 /* AddReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewViewController.swift; sourceTree = "<group>"; };
 		C14D783328FE57800065BA63 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		C150766129DD3739008DAFE2 /* PackageBookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageBookingData.swift; sourceTree = "<group>"; };
+		C150766329DD8032008DAFE2 /* PackBookingSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackBookingSummaryViewController.swift; sourceTree = "<group>"; };
+		C150766529DD8B0B008DAFE2 /* PackageSummaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSummaryManager.swift; sourceTree = "<group>"; };
 		C158276E295D53F800516FD6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		C1582773295D54DE00516FD6 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -266,6 +281,7 @@
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
 		C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllReviewsViewController.swift; sourceTree = "<group>"; };
 		C1F77ECF29B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1F788DF29DBF7980019B148 /* PackageActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageActionCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1FB4FCB294C7947001302A0 /* TripDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsViewController.swift; sourceTree = "<group>"; };
 		C1FFA59B28E3E08100E13D75 /* HomeCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCells.swift; sourceTree = "<group>"; };
 		C1FFA59E28E3FB5900E13D75 /* RoomSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +364,14 @@
 				C14B4893290A7ACC00D8FFBA /* Parser.swift */,
 			);
 			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		C14BDE2529DE8D620081F34C /* Package Booking Summary */ = {
+			isa = PBXGroup;
+			children = (
+				C14BDE2629DE8DC20081F34C /* PackBookingSummaryCollectionViewCell.swift */,
+			);
+			path = "Package Booking Summary";
 			sourceTree = "<group>";
 		};
 		C1582770295D540300516FD6 /* SideMenu */ = {
@@ -557,6 +581,7 @@
 				C1DA276829CC27A9006C1A60 /* VendorDetailsCollectionViewCell.swift */,
 				C1DA276A29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift */,
 				C1DA276C29CC3113006C1A60 /* PackageItineraryCollectionViewCell.swift */,
+				C14BDE2829DEC1710081F34C /* PackageSummaryHeadereView.swift */,
 			);
 			path = "Package Details";
 			sourceTree = "<group>";
@@ -565,6 +590,9 @@
 			isa = PBXGroup;
 			children = (
 				C1BE3D4629CD62F100812226 /* PackageSummaryCollectionViewCell.swift */,
+				C118651E29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift */,
+				C118652029D2E26200EED029 /* PrimaryTravellerCollectionViewCell.swift */,
+				C1F788DF29DBF7980019B148 /* PackageActionCollectionViewCell.swift */,
 			);
 			path = "Package Booking";
 			sourceTree = "<group>";
@@ -1135,6 +1163,7 @@
 			children = (
 				C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */,
 				C1BE3D4429CD621800812226 /* PackageBookingViewController.swift */,
+				C150766329DD8032008DAFE2 /* PackBookingSummaryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1154,6 +1183,7 @@
 				C1D0DAD029CAC30F00641491 /* Data Model */,
 				C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */,
 				C1BE3D4829CD68EE00812226 /* PackageBookingManager.swift */,
+				C150766529DD8B0B008DAFE2 /* PackageSummaryManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1170,6 +1200,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D0DACE29CAC30B00641491 /* PackageDetailsData.swift */,
+				C150766129DD3739008DAFE2 /* PackageBookingData.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -1179,6 +1210,7 @@
 			children = (
 				C1BE3D4229CD615F00812226 /* Package Details */,
 				C1BE3D4329CD61EB00812226 /* Package Booking */,
+				C14BDE2529DE8D620081F34C /* Package Booking Summary */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1541,6 +1573,7 @@
 				C15E31EE28C6D4E600E209EB /* LoginViewController.swift in Sources */,
 				C1D64B5429C9891700E91F06 /* CountryCollectionViewCell.swift in Sources */,
 				C1A2C1C12979499500F34ACF /* HotelDetailsData.swift in Sources */,
+				C14BDE2929DEC1710081F34C /* PackageSummaryHeadereView.swift in Sources */,
 				C14A983728E1565E000C52AA /* HotelDetailCells.swift in Sources */,
 				C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */,
 				C19EF45E29658775008EDD66 /* ImageUploadData.swift in Sources */,
@@ -1578,23 +1611,29 @@
 				C14CAC0829B0B89500183597 /* ReviewManager.swift in Sources */,
 				C13DAD02295D673600DAF734 /* SideMenuModel.swift in Sources */,
 				C1FFA5A428E54A5300E13D75 /* RoomSelectionSummaryViewController.swift in Sources */,
+				C118651F29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift in Sources */,
 				C12D83F72949808F0091B311 /* NotificationViewController.swift in Sources */,
 				C17736662966DBE900845EF7 /* BannerData.swift in Sources */,
 				C15E320828C81DD100E209EB /* ResetPasswordViewController.swift in Sources */,
+				C1F788E029DBF7980019B148 /* PackageActionCollectionViewCell.swift in Sources */,
 				C1DF2D7E29BF2A40000732B7 /* PackageListingData.swift in Sources */,
+				C150766429DD8032008DAFE2 /* PackBookingSummaryViewController.swift in Sources */,
 				C15CDDE929C1BB5600E15E9F /* DatePickerViewController.swift in Sources */,
 				C19F813D296BF6A00057119F /* String+Extension.swift in Sources */,
 				C1CA2C452977B21C00648A45 /* NotificationData.swift in Sources */,
 				C10D2BC12900C7EA00029F51 /* ProfileViewController.swift in Sources */,
 				C15E31FA28C701BA00E209EB /* CustomView.swift in Sources */,
 				C1D7C6B12993985B00410C7A /* Wallet.swift in Sources */,
+				C150766629DD8B0B008DAFE2 /* PackageSummaryManager.swift in Sources */,
 				C1D1BA0229920DB6009AFABD /* TripDetailsCells.swift in Sources */,
 				C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */,
 				C1BE3D4929CD68EE00812226 /* PackageBookingManager.swift in Sources */,
 				C13DAD0A295D8E5900DAF734 /* SessionManager.swift in Sources */,
 				C1DA276B29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift in Sources */,
 				C13E75D8298A723F00FBE80B /* CouponsViewController.swift in Sources */,
+				C150766229DD3739008DAFE2 /* PackageBookingData.swift in Sources */,
 				C1582774295D54DE00516FD6 /* SideMenuTableViewController.swift in Sources */,
+				C14BDE2729DE8DC20081F34C /* PackBookingSummaryCollectionViewCell.swift in Sources */,
 				C1D64B5129C9842700E91F06 /* CountryManager.swift in Sources */,
 				C1CA2C482977B60600648A45 /* NotificationsCollectionViewCell.swift in Sources */,
 				C17AF1F1299CA8AD002C20B1 /* CouponCells.swift in Sources */,
@@ -1630,6 +1669,7 @@
 				C19EF45C29657321008EDD66 /* ImagePicker.swift in Sources */,
 				C15E320E28C82BD600E209EB /* OtpViewController.swift in Sources */,
 				C14B4898290A7EE300D8FFBA /* LoginData.swift in Sources */,
+				C118652129D2E26200EED029 /* PrimaryTravellerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1812,12 +1852,16 @@
 				DEVELOPMENT_TEAM = CW3SH8TNJ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TripsMan/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "TripsMan would like to access your camera to upload profile picture.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TripsMan need your location to show hotels near you";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "TripsMan would like to access your photos to upload profile picture.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1848,12 +1892,16 @@
 				DEVELOPMENT_TEAM = CW3SH8TNJ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TripsMan/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "TripsMan would like to access your camera to upload profile picture.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "TripsMan need your location to show hotels near you";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "TripsMan would like to access your photos to upload profile picture.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

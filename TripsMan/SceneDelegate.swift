@@ -93,7 +93,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
     func navigateToResetPassword(_ token: String, email: String) {
         
-        guard let window = UIApplication.shared.keyWindow else { return }
+        guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
         let navController = UINavigationController(rootViewController: vc)

@@ -195,7 +195,6 @@ extension RoomSelectionViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-
             }
         }
     }
