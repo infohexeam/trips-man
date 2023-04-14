@@ -13,6 +13,7 @@ struct PackageSummaryManager {
         case primaryTraveller
         case otherTravellers
         case coupon
+        case rewardPoints
         case seperator
         case bottomView
     }
@@ -32,20 +33,25 @@ struct PackageSummaryManager {
     var bookingData: PackageBooking?
     var packageDetails: SummaryPackageDetails?
     var coupons: [Coupon]?
+    var couponsToShow: [Coupon]?
     var rewardPoint = 0.0
-    var selectedCoupon = ""
+    var selectedCoupon: String?
+    var amountDetails: [AmountDetail]?
     
     init(packagbooking: PackageBooking?) {
         self.bookingData = packagbooking
         self.packageDetails = packagbooking?.packageDetails
+        self.amountDetails = packagbooking?.amountDetails
         setSections()
     }
     
     init(packageBooking: PackageBooking?, coupons: [Coupon]?, rewardPoints: Double) {
         self.bookingData = packageBooking
         self.packageDetails = packageBooking?.packageDetails
+        self.amountDetails = packageBooking?.amountDetails
         self.coupons = coupons
         self.rewardPoint = rewardPoints
+        setCouponsTOShow()
         setSections()
     }
     
@@ -54,42 +60,52 @@ struct PackageSummaryManager {
     }
     
     mutating func setSections() {
-        print("booking data is \(bookingData)")
         if bookingData != nil {
-            if coupons == nil {
-                if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
-                    print("\n\n----------------1")
-                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-                                PackageSummarySection(type: .primaryTraveller, count: 1),
-                                PackageSummarySection(type: .otherTravellers, count: others.count),
-                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-                } else {
-                    print("\n\n----------------2")
-                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-                                PackageSummarySection(type: .primaryTraveller, count: 1),
-                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
+            
+            sections = [PackageSummarySection(type: .packageSummary, count: 1),
+                        PackageSummarySection(type: .primaryTraveller, count: 1)]
+            if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
+                if others.count != 0 {
+                    sections?.append(PackageSummarySection(type: .otherTravellers, count: others.count))
                 }
-                
-            } else {
-                print("\n\n----------------3")
-                if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
-                    print("\n\n----------------1")
-                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-                                PackageSummarySection(type: .primaryTraveller, count: 1),
-                                PackageSummarySection(type: .otherTravellers, count: others.count),
-                                PackageSummarySection(type: .seperator, count: 1),
-                                PackageSummarySection(type: .coupon, count: coupons!.count),
-                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-                } else {
-                    print("\n\n----------------2")
-                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-                                PackageSummarySection(type: .primaryTraveller, count: 1),
-                                PackageSummarySection(type: .seperator, count: 1),
-                                PackageSummarySection(type: .coupon, count: coupons!.count),
-                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-                }
-                
             }
+            sections?.append(PackageSummarySection(type: .seperator, count: 1))
+            if coupons != nil {
+                sections?.append(PackageSummarySection(type: .coupon, count: couponsToShow!.count))
+            }
+            if rewardPoint > 0 {
+                sections?.append(PackageSummarySection(type: .rewardPoints, count: 1))
+            }
+            sections?.append(PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count))
+//            if coupons == nil {
+//                if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
+//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
+//                                PackageSummarySection(type: .primaryTraveller, count: 1),
+//                                PackageSummarySection(type: .otherTravellers, count: others.count),
+//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
+//                } else {
+//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
+//                                PackageSummarySection(type: .primaryTraveller, count: 1),
+//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
+//                }
+//
+//            } else {
+//                if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
+//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
+//                                PackageSummarySection(type: .primaryTraveller, count: 1),
+//                                PackageSummarySection(type: .otherTravellers, count: others.count),
+//                                PackageSummarySection(type: .seperator, count: 1),
+//                                PackageSummarySection(type: .coupon, count: coupons!.count),
+//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
+//                } else {
+//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
+//                                PackageSummarySection(type: .primaryTraveller, count: 1),
+//                                PackageSummarySection(type: .seperator, count: 1),
+//                                PackageSummarySection(type: .coupon, count: coupons!.count),
+//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
+//                }
+//
+//            }
         }
     }
     
@@ -113,17 +129,36 @@ struct PackageSummaryManager {
     }
     
     func getCouponsToShow() -> [Coupon]? {
-        if let coupons = coupons {
-            if coupons.count > K.couponToShow {
-                return Array(coupons[...(K.couponToShow-1)])
-            } else {
-                return coupons
-            }
-        }
-        return nil
+        return couponsToShow
     }
     
-    func getSelectedCoupon() -> String {
+    func getAllCoupons() -> [Coupon]? {
+        return coupons
+    }
+    
+    mutating func setCouponsTOShow() {
+        if let coupons = coupons {
+            if coupons.count > K.couponToShow {
+                couponsToShow = Array(coupons[...(K.couponToShow-1)])
+            } else {
+                couponsToShow = coupons
+            }
+        }
+    }
+    
+    mutating func setSelectedCoupon(_ coupon: Coupon?, amountDetails: [AmountDetail], showSingleCoupon: Bool = false) {
+        self.selectedCoupon = coupon?.couponCode
+        self.amountDetails = amountDetails
+        if coupon != nil {
+            if showSingleCoupon {
+                couponsToShow = [coupon!]
+            }
+        } else {
+            setCouponsTOShow()
+        }
+    }
+    
+    func getSelectedCoupon() -> String? {
         return selectedCoupon
     }
     

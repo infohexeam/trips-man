@@ -31,7 +31,7 @@ struct PackageBooking: Codable {
     let packageDetails: SummaryPackageDetails?
     let holidayGuests: [HolidayGuest]
     let amountDetails: [AmountDetail]
-    let vendorDetails: [VendorDetails]
+    let vendorDetails: VendorDetails
 
     enum CodingKeys: String, CodingKey {
         case bookingDate, totalAmount, bookingFrom, bookingTo, customerCode

@@ -36,6 +36,12 @@ class CouponsViewController: UIViewController {
     var selectedCoupon: String?
     var bookingID: Int?
     var delegate: CouponDelegate?
+    var couponModule: CouponModule!
+    
+    enum CouponModule {
+        case hotel
+        case holiday
+    }
     
     let parser = Parser()
 
@@ -65,13 +71,20 @@ extension CouponsViewController {
     func applyCoupon(with couponCode: String) {
         showIndicator()
         
-        let params: [String: Any] = ["bookingId": bookingID!,
+        var params: [String: Any] = ["bookingId": bookingID!,
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/ApplyCustomerHotelCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
+        var url = "api/CustomerCoupon/ApplyCustomerHotelCoupen"
+        
+        if couponModule == .holiday {
+            url = "api/CustomerHolidayCoupon/ApplyCustomerHolidayCoupen"
+            params["module"] = "HDY"
+        }
+        
+        parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

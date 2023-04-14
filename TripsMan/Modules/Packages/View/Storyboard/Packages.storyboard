@@ -1615,6 +1615,89 @@ Overnight stay in Goa.</string>
                                             <outlet property="valueLabel" destination="x4i-Ht-eXE" id="uLp-FZ-idH"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rewardPointCell" id="1ux-KU-V8c" customClass="RewardPointCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="729" width="393" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OFY-op-aI0">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-4q-8Zz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-Bq-QlL">
+                                                            <rect key="frame" x="8" y="8" width="377" height="134"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Reward points available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-eA-mis">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="jeO-fe-2MP"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                    <color key="textColor" name="primaryLabel"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKf-hH-dPk">
+                                                                    <rect key="frame" x="0.0" y="40" width="377" height="94"/>
+                                                                    <subviews>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter reward points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8J-uY-5ue" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="221.66666666666666" height="94"/>
+                                                                            <color key="textColor" name="fieldTextColor"/>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                                                                        </textField>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-ru-1If" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
+                                                                            <rect key="frame" x="221.66666666666663" y="0.0" width="155.33333333333337" height="94"/>
+                                                                            <color key="backgroundColor" name="buttonBackgroundColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="40" id="XJV-Qo-mqI"/>
+                                                                            </constraints>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" title="Redeem">
+                                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                                <color key="baseForegroundColor" name="buttonTextColor"/>
+                                                                            </buttonConfiguration>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                                                                    <color key="value" name="disabledButtonColor"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                                                    <color key="value" name="primaryColor"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="applyrewardButtonTappedWith_sender:" destination="nxT-CC-jZ3" eventType="touchUpInside" id="k4W-Pe-hqQ"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="SVd-ru-1If" firstAttribute="width" secondItem="L8J-uY-5ue" secondAttribute="width" multiplier="0.7" id="uXK-lk-Sdr"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="seperatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="SfE-Bq-QlL" secondAttribute="bottom" constant="8" id="Laz-cz-ec8"/>
+                                                        <constraint firstItem="SfE-Bq-QlL" firstAttribute="leading" secondItem="oKe-4q-8Zz" secondAttribute="leading" constant="8" id="Lgu-6i-8c6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SfE-Bq-QlL" secondAttribute="trailing" constant="8" id="dAU-uc-D0M"/>
+                                                        <constraint firstItem="SfE-Bq-QlL" firstAttribute="top" secondItem="oKe-4q-8Zz" secondAttribute="top" constant="8" id="jFs-Sx-HsH"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="oKe-4q-8Zz" secondAttribute="trailing" id="1vk-mP-ixv"/>
+                                                <constraint firstItem="oKe-4q-8Zz" firstAttribute="top" secondItem="OFY-op-aI0" secondAttribute="top" id="Z1C-VQ-ZRN"/>
+                                                <constraint firstAttribute="bottom" secondItem="oKe-4q-8Zz" secondAttribute="bottom" id="hrQ-jq-aYY"/>
+                                                <constraint firstItem="oKe-4q-8Zz" firstAttribute="leading" secondItem="OFY-op-aI0" secondAttribute="leading" id="tmJ-2N-5Zv"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="150"/>
+                                        <connections>
+                                            <outlet property="rewardLabel" destination="upB-eA-mis" id="Pfn-jk-e23"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionHeader" id="5Qz-PN-A9T" customClass="PackageSummaryHeadereView" customModule="TripsMan" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -1644,7 +1727,7 @@ Overnight stay in Goa.</string>
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionFooter" id="Lwt-68-B94" customClass="CouponFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="719" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="879" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-PS-Xiv">
@@ -1657,6 +1740,9 @@ Overnight stay in Goa.</string>
                                                     <buttonConfiguration key="configuration" style="plain" title="Have a coupon code?">
                                                         <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="10"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="seeAllCouponsTapped:" destination="nxT-CC-jZ3" eventType="touchUpInside" id="IrW-wK-pgD"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1753,17 +1839,33 @@ Overnight stay in Goa.</string>
                             <constraint firstItem="xDk-2h-1lN" firstAttribute="leading" secondItem="YHX-Jx-gmK" secondAttribute="leading" id="QS1-aS-t8f"/>
                             <constraint firstItem="YHX-Jx-gmK" firstAttribute="trailing" secondItem="xDk-2h-1lN" secondAttribute="trailing" id="y55-5D-CAo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="eok-e1-QpY"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="D5q-P2-My8"/>
                     <connections>
                         <outlet property="successLabel" destination="hDY-Yf-4T4" id="hbM-J9-aTF"/>
                         <outlet property="successView" destination="eok-e1-QpY" id="S7U-EX-GQz"/>
                         <outlet property="summaryCollectionView" destination="xDk-2h-1lN" id="GRO-fC-nfQ"/>
+                        <segue destination="BbC-e3-P4K" kind="presentation" identifier="toCoupons" id="8Ng-AC-PDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSW-gc-5Yc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1655.7251908396945" y="-18.30985915492958"/>
+        </scene>
+        <!--CouponsViewController-->
+        <scene sceneID="N3b-Vl-Dbe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Common" referencedIdentifier="CouponsViewController" id="BbC-e3-P4K" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="JP8-vW-VTp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1j5-nH-b6W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2375" y="-18"/>
         </scene>
     </scenes>
     <designables>
@@ -1772,6 +1874,12 @@ Overnight stay in Goa.</string>
         </designable>
         <designable name="FuB-f4-pfc">
             <size key="intrinsicContentSize" width="28" height="34"/>
+        </designable>
+        <designable name="L8J-uY-5ue">
+            <size key="intrinsicContentSize" width="153.66666666666666" height="34"/>
+        </designable>
+        <designable name="SVd-ru-1If">
+            <size key="intrinsicContentSize" width="79.666666666666671" height="31.666666666666668"/>
         </designable>
         <designable name="WWY-xF-Hy0">
             <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>

@@ -123,13 +123,13 @@
                                                     <rect key="frame" x="8" y="8" width="386" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQC-kZ-ltm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="4"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="52"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sgZ-6o-hg6">
-                                                            <rect key="frame" x="0.0" y="12" width="386" height="40"/>
+                                                            <rect key="frame" x="0.0" y="60" width="386" height="40"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YzH-Nx-dYM" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="210" height="40"/>
@@ -168,23 +168,6 @@
                                                                 <constraint firstItem="LuT-BN-FcK" firstAttribute="width" secondItem="YzH-Nx-dYM" secondAttribute="width" multiplier="0.8" id="om8-33-qvS"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DW7-qK-i35">
-                                                            <rect key="frame" x="0.0" y="60" width="386" height="40"/>
-                                                            <color key="backgroundColor" name="primaryColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="fZS-pT-Awy"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="Redeem Reward Points 120">
-                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                                <color key="baseForegroundColor" name="buttonTextColor"/>
-                                                            </buttonConfiguration>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="10"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>

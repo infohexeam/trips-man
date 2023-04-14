@@ -52,6 +52,7 @@ class PriceDetailsCollectionViewCell: UICollectionViewCell {
 
 class RewardPointCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rewardButton: UIButton!
+    @IBOutlet weak var rewardLabel: UILabel!
 }
 
 
