@@ -46,6 +46,7 @@ class ListingViewController: UIViewController {
     
     var hotelFilters = HotelListingFilters()
     var packageFilter = PackageFilters()
+    var activityFilter = ActivityFilters()
     
     let parser = Parser()
     var filters = [Filter]()
@@ -98,6 +99,8 @@ class ListingViewController: UIViewController {
             getHotels()
         } else if listType == .packages {
             getPackages()
+        } else if listType == .activities {
+            getActivities()
         }
         
     }
@@ -123,6 +126,10 @@ class ListingViewController: UIViewController {
             packageFilter.child = K.defaultChildCount
             packageFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
             tripTypeMainView.isHidden = true
+        } else if listType == .activities {
+            tripTypeMainView.isHidden = true
+            activityFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
+            activityFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         }
         
         
@@ -152,7 +159,7 @@ class ListingViewController: UIViewController {
                 dateText = "Add start date"
                 
             }
-            var adultText = packageFilter.adult?.oneOrMany("Adult")
+            let adultText = packageFilter.adult?.oneOrMany("Adult")
             
             var secondText = dateText! + " | " + adultText!
             
@@ -164,6 +171,13 @@ class ListingViewController: UIViewController {
                 secondText = secondText + childText
             }
             dateAndGuestLabel.text = secondText
+        } else if listType == .activities {
+            locationLabel.text = activityFilter.country?.name
+            var dateText = activityFilter.activityDate?.stringValue(format: "dd MMM")
+            if dateText == nil {
+                dateText = "Select date"
+            }
+            dateAndGuestLabel.text = dateText
         }
         
         
@@ -247,6 +261,7 @@ class ListingViewController: UIViewController {
         } else if let vc = segue.destination  as? DefaultFilterViewController {
             vc.hotelFilters = hotelFilters
             vc.packageFilters = packageFilter
+            vc.activityFilters = activityFilter
             vc.listType = listType
             vc.delegate = self
         } else if let vc = segue.destination as? PackageDetailsViewController {
@@ -267,6 +282,14 @@ extension ListingViewController: SearchDelegate {
 }
 
 extension ListingViewController: DefaultFilterDelegate {
+    func searchDidTapped(_ activityFilters: ActivityFilters?) {
+        if let filters = activityFilters {
+            self.activityFilter = filters
+            assignValues()
+            getActivities()
+        }
+    }
+    
     func searchDidTapped(_ packageFilters: PackageFilters?) {
         if let filters = packageFilters {
            self.packageFilter = filters
@@ -394,6 +417,27 @@ extension ListingViewController {
         }
     }
     
+    func getActivityFilters() {
+        showIndicator()
+        parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.filters = result!.data.filters!
+                        self.sorts = result!.data.sortby
+                        self.setupMenus()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
     func getHotels() {
         showIndicator()
         
@@ -456,7 +500,7 @@ extension ListingViewController {
                                      "Language": SessionManager.shared.getLanguage(),
                                      "minimumBudget": packageFilter.rate!.from,
                                      "maximumBudget": packageFilter.rate!.to,
-                                     "holidayFilters": [String: [Any]]()]
+                                     "holidayFilters": packageFilter.filters ?? [String: [Any]]()]
         
         if let sort = packageFilter.sort {
             params["sortBy"] = sort.name
@@ -492,6 +536,54 @@ extension ListingViewController {
         }
     }
     
+    func getActivities() {
+        showIndicator()
+        
+        var params: [String: Any] = [
+                                     "sortBy": "",
+                                     "offset": 0,
+                                     "recordCount": 20,
+                                     "activityCountry": activityFilter.country?.countryID ?? 0,
+                                     "Country": SessionManager.shared.getCountry(),
+                                     "Currency": SessionManager.shared.getCurrency(),
+                                     "Language": SessionManager.shared.getLanguage(),
+                                     "budgetFrom": activityFilter.rate!.from,
+                                     "budgetTo": activityFilter.rate!.to,
+                                     "activityFilters": activityFilter.filters ?? [String: [Any]]()]
+        
+        if let sort = packageFilter.sort {
+            params["sortBy"] = sort.name
+        }
+        
+        if let startDate = packageFilter.startDate {
+            params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
+        }
+//
+//        if let tripType = hotelFilters.tripType {
+//            params["tripType"] = tripType.id
+//        }
+        
+        
+        parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityList", http: .post, parameters: params) { (result: ActivityListingData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.listingManager.assignActivities(activities: result!.data)
+                        self.hotelCollectionView.reloadData()
+                        if self.filters.count == 0 {
+                            self.getActivityFilters()
+                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
     
     
     func getBanners() {

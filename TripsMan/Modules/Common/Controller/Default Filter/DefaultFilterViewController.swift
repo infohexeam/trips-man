@@ -28,6 +28,7 @@ class DefaultFilterViewController: UIViewController {
     @IBOutlet weak var startDateField: CustomTextField!
     @IBOutlet weak var startDateButton: UIButton!
     
+    @IBOutlet weak var counterMainView: UIView!
     @IBOutlet weak var roomView: UIView!
     @IBOutlet weak var roomLabel: UILabel!
     @IBOutlet weak var roomAddButton: UIButton!
@@ -46,6 +47,7 @@ class DefaultFilterViewController: UIViewController {
     
     var hotelFilters = HotelListingFilters()
     var packageFilters = PackageFilters()
+    var activityFilters = ActivityFilters()
     var delegate: DefaultFilterDelegate?
     var listType: ListType!
     
@@ -120,6 +122,14 @@ class DefaultFilterViewController: UIViewController {
             childQty = K.defaultChildCount
             startDateField.text = packageFilters.startDate?.stringValue(format: "dd-MM-yyyy")
             countryField.text = packageFilters.country?.name
+        } else if listType == .activities {
+            locationView.isHidden = true
+            checkinView.isHidden = true
+            checkoutView.isHidden = true
+            counterMainView.isHidden = true
+            
+            startDateField.text = activityFilters.activityDate?.stringValue(format: "dd-MM-yyyy")
+            countryField.text = activityFilters.country?.name
         }
     }
     
@@ -157,7 +167,10 @@ class DefaultFilterViewController: UIViewController {
             datePickerViewController.hotelFilters = hotelFilters
         } else if tag == 3 {
             datePickerViewController.minDate = Date().adding(minutes: 1440)
+        } else if tag == 4 {
+            datePickerViewController.minDate = Date()
         }
+                    
         datePickerViewController.modalPresentationStyle = .pageSheet
         
         if let sheet = datePickerViewController.sheetPresentationController {
@@ -172,6 +185,7 @@ class DefaultFilterViewController: UIViewController {
     func presentCountryPicker() {
         let countryPickerVC = UIStoryboard(name: "Common", bundle: nil).instantiateViewController(withIdentifier: "CountryListingViewController") as! CountryListingViewController
         countryPickerVC.delegate = self
+        countryPickerVC.listType = listType
         
         present(countryPickerVC, animated: true)
     }
@@ -223,7 +237,11 @@ class DefaultFilterViewController: UIViewController {
             presentDatePicker(2)
             
         case startDateButton:
-            presentDatePicker(3)
+            if listType == .packages {
+                presentDatePicker(3)
+            } else if listType == .activities {
+                presentDatePicker(4)
+            }
             
         case roomAddButton, roomMinusButton, childAddButton, childMinusButton, adultAddButton, adultMinusButton:
             addOrMinusPeople(sender)
@@ -234,6 +252,8 @@ class DefaultFilterViewController: UIViewController {
                 delegate?.searchDidTapped(hotelFilters)
             } else if listType == .packages {
                 delegate?.searchDidTapped(packageFilters)
+            } else if listType == .activities {
+                delegate?.searchDidTapped(activityFilters)
             }
             self.dismiss(animated: false)
             
@@ -251,6 +271,7 @@ class DefaultFilterViewController: UIViewController {
 extension DefaultFilterViewController: CountryPickerDelegate {
     func countryDidSelected(_ country: Country) {
         packageFilters.country = country
+        activityFilters.country = country
         countryField.text = country.name
     }
 }
@@ -302,6 +323,9 @@ extension DefaultFilterViewController: DatePickerDelegate {
             } else if tag == 3 {
                 startDateField.text = date.stringValue(format: "dd-MM-yyyy")
                 packageFilters.startDate = date
+            } else if tag == 4 {
+                startDateField.text = date.stringValue(format: "dd-MM-yyyy")
+                activityFilters.activityDate = date
             }
         }
     }
@@ -310,4 +334,5 @@ extension DefaultFilterViewController: DatePickerDelegate {
 protocol DefaultFilterDelegate {
     func searchDidTapped(_ hotelFilters: HotelListingFilters?)
     func searchDidTapped(_ packageFilters: PackageFilters?)
+    func searchDidTapped(_ activityFilters: ActivityFilters?)
 }

@@ -31,22 +31,47 @@ class CountryListingViewController: UIViewController {
     }
     
     var delegate: CountryPickerDelegate?
+    var listType: ListType?
     
     let parser = Parser()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if listType == .packages {
+            getPackageCountries()
+        } else if listType == .activities {
+            getActivityCountries()
+        }
 
-        getCountries()
     }
 
 }
 
 //MARK: - APICalls
 extension CountryListingViewController {
-    func getCountries() {
+    func getPackageCountries() {
         showIndicator()
         parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayCountryList", http: .get, parameters: nil) { (result: CountryData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.countries = result!.data
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                    
+            }
+        }
+    }
+    
+    func getActivityCountries() {
+        showIndicator()
+        parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityCountryList", http: .get, parameters: nil) { (result: CountryData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -101,6 +126,7 @@ extension CountryListingViewController: UICollectionViewDataSource {
 extension CountryListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.countryDidSelected((countryManager?.getCountries(searchBar.text ?? "")![indexPath.row])!)
+        self.dismiss(animated: true)
     }
 }
 

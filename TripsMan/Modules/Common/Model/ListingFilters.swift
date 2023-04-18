@@ -32,6 +32,15 @@ struct PackageFilters: Codable {
     var packageDetails: PackageDetails? = nil
 }
 
+
+struct ActivityFilters: Codable {
+    var country: Country? = nil
+    var activityDate: Date? = nil
+    var rate: Rate? = nil
+    var filters: [String: [Int]]? = nil
+    var sort: Sortby? = nil
+}
+
 struct Rate: Codable {
     var from: Int
     var to: Int

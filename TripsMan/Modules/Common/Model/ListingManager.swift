@@ -24,6 +24,7 @@ struct ListingManager {
     var hotels: [Hotel]?
     var banners: [Banners]?
     var packages: [HolidayPackage]?
+    var activities: [Activity]?
     
     var listingData: [ListingData]?
     
@@ -52,6 +53,8 @@ struct ListingManager {
             } else {
                 sections = [ListingSection(type: .list, count: packages.count)]
             }
+        } else if let activities = activities, activities.count != 0 {
+            sections = [ListingSection(type: .list, count: activities.count)]
         } else {
             sections = [ListingSection(type: .zeroData, count: 1)]
         }
@@ -75,6 +78,12 @@ struct ListingManager {
     mutating func assignPackages(packages: [HolidayPackage]?) {
         self.packages = packages
         setListingData(.packages)
+        setSections()
+    }
+    
+    mutating func assignActivities(activities: [Activity]?) {
+        self.activities = activities
+        setListingData(.activities)
         setSections()
     }
     
@@ -115,7 +124,9 @@ struct ListingManager {
                 listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: package.holidayImage.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.seviceCharge)\ntaxes & fee per person"))
             }
         case .activities:
-            break
+            for activity in activities! {
+                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activity.activityImages.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\ntaxes & fee per person"))
+            }
         case .meetups:
             break
         }

@@ -1618,17 +1618,17 @@ Overnight stay in Goa.</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rewardPointCell" id="1ux-KU-V8c" customClass="RewardPointCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="729" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OFY-op-aI0">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="OFY-op-aI0">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-4q-8Zz">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-4q-8Zz">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-Bq-QlL">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-Bq-QlL">
                                                             <rect key="frame" x="8" y="8" width="377" height="134"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Reward points available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-eA-mis">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="50 Reward points available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-eA-mis">
                                                                     <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="jeO-fe-2MP"/>
@@ -1637,16 +1637,16 @@ Overnight stay in Goa.</string>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKf-hH-dPk">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKf-hH-dPk">
                                                                     <rect key="frame" x="0.0" y="40" width="377" height="94"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter reward points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8J-uY-5ue" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter reward points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8J-uY-5ue" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="221.66666666666666" height="94"/>
                                                                             <color key="textColor" name="fieldTextColor"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                                                                         </textField>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-ru-1If" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
+                                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-ru-1If" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="221.66666666666663" y="0.0" width="155.33333333333337" height="94"/>
                                                                             <color key="backgroundColor" name="buttonBackgroundColor"/>
                                                                             <constraints>
@@ -1730,10 +1730,10 @@ Overnight stay in Goa.</string>
                                     <rect key="frame" x="0.0" y="879" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-PS-Xiv">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-PS-Xiv">
                                             <rect key="frame" x="8" y="4" width="377" height="42"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3M-l2-bFf">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3M-l2-bFf">
                                                     <rect key="frame" x="8" y="0.0" width="120" height="38"/>
                                                     <color key="tintColor" name="secondaryColor"/>
                                                     <state key="normal" title="Button"/>
@@ -1839,11 +1839,6 @@ Overnight stay in Goa.</string>
                             <constraint firstItem="xDk-2h-1lN" firstAttribute="leading" secondItem="YHX-Jx-gmK" secondAttribute="leading" id="QS1-aS-t8f"/>
                             <constraint firstItem="YHX-Jx-gmK" firstAttribute="trailing" secondItem="xDk-2h-1lN" secondAttribute="trailing" id="y55-5D-CAo"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="eok-e1-QpY"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="D5q-P2-My8"/>
                     <connections>
