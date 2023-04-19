@@ -269,6 +269,11 @@ class ListingViewController: UIViewController {
                 vc.packageID = listingManager.getListingData()?[index].id ?? 0
                 vc.packageFilters = packageFilter
             }
+        } else if let vc = segue.destination as? ActivityDetailsViewController {
+            if let index = sender as? Int {
+                vc.activityID = listingManager.getListingData()?[index].id ?? 0
+                vc.activityFilters = activityFilter
+            }
         }
     }
     
@@ -709,6 +714,8 @@ extension ListingViewController: UICollectionViewDelegate {
                 performSegue(withIdentifier: "toHotelDetails", sender: index)
             } else if listType == .packages {
                 performSegue(withIdentifier: "toPackageDetails", sender: indexPath.row)
+            } else if listType == .activities {
+                performSegue(withIdentifier: "toActivityDetails", sender: indexPath.row)
             }
             
         }

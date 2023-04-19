@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -907,6 +907,7 @@
                         <segue destination="Jkv-C2-KHD" kind="show" identifier="toHotelDetails" id="cqp-Sl-Qf5"/>
                         <segue destination="vNf-y9-esa" kind="presentation" identifier="toDefaultFilter" animates="NO" id="PQc-bp-Ns8"/>
                         <segue destination="gBg-HW-Lfw" kind="show" identifier="toPackageDetails" id="SAc-Pz-rpr"/>
+                        <segue destination="bbl-uC-HS0" kind="show" identifier="toActivityDetails" id="nnv-K6-ioG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb4-RH-Kzz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -914,6 +915,16 @@
                 <tapGestureRecognizer id="m6L-TK-Xj7"/>
             </objects>
             <point key="canvasLocation" x="924" y="882"/>
+        </scene>
+        <!--Activities-->
+        <scene sceneID="2Bq-et-VP8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Activities" id="bbl-uC-HS0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zlo-Bm-Bpq"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tyD-rC-KNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1587" y="980"/>
         </scene>
         <!--Hotel-->
         <scene sceneID="n2t-0Z-UTN">
@@ -944,7 +955,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fof-dc-uUg">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JS-IO-HnO">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="347"/>
@@ -1645,7 +1656,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbc-Fr-vTh">
-                                        <rect key="frame" x="0.0" y="347" width="393" height="446"/>
+                                        <rect key="frame" x="0.0" y="347" width="393" height="505"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -1885,14 +1896,14 @@
             <objects>
                 <viewController id="MiT-ss-DYw" customClass="FilterViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PjJ-fJ-DfO">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6Y-44-C8A">
-                                <rect key="frame" x="0.0" y="56" width="393" height="727"/>
+                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-sQ-nzw">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="727"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="786"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oR1-OK-TQ2">
                                             <size key="itemSize" width="404" height="63"/>
@@ -2095,7 +2106,7 @@
                                         </collectionReusableView>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKK-Cq-HYu">
-                                        <rect key="frame" x="8" y="679" width="377" height="40"/>
+                                        <rect key="frame" x="8" y="738" width="377" height="40"/>
                                         <color key="backgroundColor" red="0.96470588239999999" green="0.63137254899999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="L57-4u-cCc"/>
@@ -2172,37 +2183,37 @@
     </scenes>
     <designables>
         <designable name="1T9-G6-MSm">
-            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
-        </designable>
-        <designable name="5EU-Lt-ZKv">
             <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
+        <designable name="5EU-Lt-ZKv">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="34"/>
+        </designable>
         <designable name="B4F-Iy-xaU">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="LEA-Xo-Gm1">
-            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
         </designable>
         <designable name="LuT-BN-FcK">
             <size key="intrinsicContentSize" width="62.333333333333336" height="31.666666666666668"/>
         </designable>
         <designable name="YzH-Nx-dYM">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="eEh-RU-GRp">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="iiq-H7-Bcr">
             <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="mFS-kl-EN0">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="qtj-cd-Kxh">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="yA4-vh-mec">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
     </designables>
     <resources>
