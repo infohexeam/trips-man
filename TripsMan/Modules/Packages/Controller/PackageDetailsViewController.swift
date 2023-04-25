@@ -163,7 +163,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
             
             
         case UICollectionView.elementKindSectionFooter:
-            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "hotelDetailsFooter", for: indexPath) as! PackageDetailsFooterView
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "packageDetailsFooter", for: indexPath) as! PackageDetailsFooterView
             
             footerView.configure(with: packageManager?.getPackageDetails()?.holidayImage.count ?? 0)
             
@@ -202,9 +202,16 @@ extension PackageDetailsViewController {
                                                        heightDimension: .fractionalWidth(0.6))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
+                let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .absolute(20))
+                let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+                
                 section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.boundarySupplementaryItems = [sectionFooter]
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: -30, trailing: 8)
+                
                 
                 section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
                     guard let self = self else { return }

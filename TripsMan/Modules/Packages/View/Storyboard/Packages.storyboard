@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -71,20 +71,20 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="383" height="177"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTf-kM-FOo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="4"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-zj-QrL">
-                                                            <rect key="frame" x="0.0" y="45" width="383" height="10"/>
+                                                            <rect key="frame" x="0.0" y="12" width="383" height="10"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="jvv-JI-EFh"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-jP-jTG">
-                                                            <rect key="frame" x="0.0" y="63" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="30" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="X8H-LR-gGZ"/>
                                                             </constraints>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imo-kE-lJT">
-                                                            <rect key="frame" x="0.0" y="91" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="58" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="y1u-H8-Noe"/>
                                                             </constraints>
@@ -101,6 +101,28 @@
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPs-67-5m2">
+                                                            <rect key="frame" x="0.0" y="86" width="383" height="25"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZX-Ix-XMb">
+                                                                    <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="iWH-ap-0Mw"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Read more">
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                        <color key="baseForegroundColor" name="secondaryColor"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="TZX-Ix-XMb" firstAttribute="leading" secondItem="VPs-67-5m2" secondAttribute="leading" constant="-8" id="4lG-ul-GWK"/>
+                                                                <constraint firstAttribute="bottom" secondItem="TZX-Ix-XMb" secondAttribute="bottom" id="Mf0-Qc-5QJ"/>
+                                                                <constraint firstItem="TZX-Ix-XMb" firstAttribute="top" secondItem="VPs-67-5m2" secondAttribute="top" id="yzS-sv-WTl"/>
+                                                            </constraints>
+                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFS-dc-Ib8">
                                                             <rect key="frame" x="0.0" y="119" width="383" height="10"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -383,7 +405,7 @@ Overnight stay in Goa.</string>
                                         <outlet property="titleLabel" destination="85l-Y6-Imh" id="ptF-9H-0AC"/>
                                     </connections>
                                 </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gUq-q7-YDn" customClass="PackageDetailsFooterView" customModule="TripsMan" customModuleProvider="target">
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="packageDetailsFooter" id="gUq-q7-YDn" customClass="PackageDetailsFooterView" customModule="TripsMan" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="790" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -428,11 +450,11 @@ Overnight stay in Goa.</string>
             <objects>
                 <viewController id="dWR-sJ-cFF" customClass="PackageBookingViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S38-xx-qs3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SIt-5e-0yM">
-                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xU5-sN-wu2">
                                     <size key="itemSize" width="128" height="128"/>
@@ -1111,11 +1133,11 @@ Overnight stay in Goa.</string>
             <objects>
                 <viewController id="nxT-CC-jZ3" customClass="PackBookingSummaryViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zqZ-RZ-OKo">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xDk-2h-1lN">
-                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7xM-Fa-LFe">
                                     <size key="itemSize" width="393" height="197"/>
@@ -1618,17 +1640,17 @@ Overnight stay in Goa.</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rewardPointCell" id="1ux-KU-V8c" customClass="RewardPointCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="729" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="OFY-op-aI0">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OFY-op-aI0">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-4q-8Zz">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-4q-8Zz">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-Bq-QlL">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SfE-Bq-QlL">
                                                             <rect key="frame" x="8" y="8" width="377" height="134"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="50 Reward points available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-eA-mis">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Reward points available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upB-eA-mis">
                                                                     <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="40" id="jeO-fe-2MP"/>
@@ -1637,16 +1659,16 @@ Overnight stay in Goa.</string>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nKf-hH-dPk">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKf-hH-dPk">
                                                                     <rect key="frame" x="0.0" y="40" width="377" height="94"/>
                                                                     <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter reward points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8J-uY-5ue" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter reward points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L8J-uY-5ue" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="221.66666666666666" height="94"/>
                                                                             <color key="textColor" name="fieldTextColor"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                                                                         </textField>
-                                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-ru-1If" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-ru-1If" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="221.66666666666663" y="0.0" width="155.33333333333337" height="94"/>
                                                                             <color key="backgroundColor" name="buttonBackgroundColor"/>
                                                                             <constraints>
@@ -1766,10 +1788,10 @@ Overnight stay in Goa.</string>
                                 </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eok-e1-QpY">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acw-cX-WhX">
-                                        <rect key="frame" x="20" y="293.66666666666669" width="353" height="195.66666666666669"/>
+                                        <rect key="frame" x="20" y="323.33333333333331" width="353" height="195.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QXs-wv-sjS">
                                                 <rect key="frame" x="8" y="8" width="337" height="179.66666666666666"/>
@@ -1788,7 +1810,7 @@ Overnight stay in Goa.</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQL-Hs-dCV">
-                                                        <rect key="frame" x="0.0" y="139.66666666666663" width="337" height="40"/>
+                                                        <rect key="frame" x="0.0" y="139.66666666666669" width="337" height="40"/>
                                                         <color key="backgroundColor" name="primaryColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="jVF-va-5bz"/>

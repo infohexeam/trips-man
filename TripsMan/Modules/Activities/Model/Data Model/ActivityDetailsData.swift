@@ -22,7 +22,7 @@ struct ActivityDetails: Codable {
     let contactPerson, contactName, shortDescription, contactNumber: String
     let contactEmail, overview, features, termsAndConditions: String
     let activityLocation, highlights, activityDuration: String
-    let costPerPerson, offerPrice, serviceChargeValue: Int
+    let costPerPerson, offerPrice, serviceChargeValue: Double
     let activityAmount, activityStatus: String
     let isSponsored: Int
     let activityImages: [ActivityImage]

@@ -13,6 +13,7 @@ class ReadMoreViewController: UIViewController {
     
     var type: ReadMoreTypes?
     var hotelDetails: HotelDetails?
+    var readMoreContent: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,10 @@ class ReadMoreViewController: UIViewController {
             } else if type == .terms {
                 content = hotelDetails.termsAndCondition
                 pageTitle = "Terms and Conditions"
+            }
+            
+            if let readMoreContent = readMoreContent {
+                content = readMoreContent
             }
             
             readMoreLabel.setAttributedHtmlText(content)
@@ -48,4 +53,5 @@ enum ReadMoreTypes {
     case details
     case rules
     case terms
+    case activityDescription
 }

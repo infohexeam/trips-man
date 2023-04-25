@@ -12,9 +12,13 @@ struct ActivityDetailsManager {
         case image
         case activityDetails
         case seperator
-        case overview
+        case description
         case inclusions
         case termsAndConditions
+    }
+    
+    struct ActivityDescription {
+        var title, description: String
     }
     
     struct ActivityDetailsSection {
@@ -36,8 +40,20 @@ struct ActivityDetailsManager {
     
     mutating func setSections() {
         if let activityDetails = activityDetails {
-            sections = [ActivityDetailsSection(type: .image, count: activityDetails.activityImages.count)]
+            sections = [ActivityDetailsSection(type: .image, count: activityDetails.activityImages.count),
+                        ActivityDetailsSection(type: .activityDetails, count: 1),
+                        ActivityDetailsSection(type: .description, count: 3)]
         }
+    }
+    
+    func getDescription() -> [ActivityDescription]? {
+        if let activityDetails = activityDetails {
+            return [ActivityDescription(title: "Overview", description: activityDetails.overview),
+                    ActivityDescription(title: "Features", description: activityDetails.features),
+                    ActivityDescription(title: "Highlights", description: activityDetails.highlights)]
+
+        }
+        return nil
     }
     
     func getActivityDetails() -> ActivityDetails? {

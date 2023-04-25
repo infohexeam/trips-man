@@ -34,6 +34,15 @@ class ActivityDetailsViewController: UIViewController {
         getActivityDetails()
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ReadMoreViewController {
+            if let content = sender as? String {
+                vc.readMoreContent = content
+//                vc.type
+            }
+        }
+    }
 }
 
 
@@ -83,7 +92,32 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             }
             
             return cell
-        }  else {
+        } else if thisSection.type == .activityDetails {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityDetailsCell", for: indexPath) as! ActivityDetailsCollectionViewCell
+            
+            if let details = activityManager?.getActivityDetails() {
+                if fontSize == nil {
+                    fontSize = cell.priceLabel.font.pointSize
+                }
+                
+                cell.activityName.text = details.activityName
+                cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) taxes and fee per person"
+                cell.detailsLabel.text = details.shortDescription
+            }
+            
+            return cell
+        } else if thisSection.type == .description {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ActivityDescriptionCollectionViewCell
+            
+            if let description = activityManager?.getDescription() {
+                cell.descTitle.text = description[indexPath.row].title
+                cell.descDetails.attributedText = description[indexPath.row].description.attributedHtmlString
+                cell.delegate = self
+            }
+            
+            return cell
+        } else {
             return UICollectionViewCell()
         }
     }
@@ -117,6 +151,15 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
 }
 
 
+//MARK: ReadMoreDelegate
+extension ActivityDetailsViewController: ReadMoreDelegate {
+    func showReadMore(for type: ReadMoreTypes) {
+        performSegue(withIdentifier: "toReadMore", sender: type)
+    }
+}
+
+
+
 //MARK: - Layout
 extension ActivityDetailsViewController {
     func createLayout() -> UICollectionViewLayout {
@@ -135,8 +178,14 @@ extension ActivityDetailsViewController {
                                                        heightDimension: .fractionalWidth(0.6))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
+                let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .absolute(20))
+                let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
+                
                 section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 10
                 section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.boundarySupplementaryItems = [sectionFooter]
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: -30, trailing: 8)
                 
                 section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
@@ -149,7 +198,33 @@ extension ActivityDetailsViewController {
                 
                 return section
                 
-            }  else {
+            } else if thisSection.type == .activityDetails {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
+                
+            }  else if thisSection.type == .description {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 30
+                section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
+                
+            } else {
                 fatalError("Unknown section!")
             }
             

@@ -2183,37 +2183,37 @@
     </scenes>
     <designables>
         <designable name="1T9-G6-MSm">
-            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
         </designable>
         <designable name="5EU-Lt-ZKv">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
         <designable name="B4F-Iy-xaU">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="LEA-Xo-Gm1">
-            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
         </designable>
         <designable name="LuT-BN-FcK">
             <size key="intrinsicContentSize" width="62.333333333333336" height="31.666666666666668"/>
         </designable>
         <designable name="YzH-Nx-dYM">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="eEh-RU-GRp">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="iiq-H7-Bcr">
             <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="mFS-kl-EN0">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="qtj-cd-Kxh">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="yA4-vh-mec">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
     </designables>
     <resources>
