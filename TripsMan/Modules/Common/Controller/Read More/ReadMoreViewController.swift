@@ -14,9 +14,12 @@ class ReadMoreViewController: UIViewController {
     var type: ReadMoreTypes?
     var hotelDetails: HotelDetails?
     var readMoreContent: String?
+    var pageTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("\n\n-----\(readMoreContent)")
         
         if let hotelDetails = hotelDetails {
             var content = ""
@@ -39,14 +42,19 @@ class ReadMoreViewController: UIViewController {
             readMoreLabel.setAttributedHtmlText(content)
             self.title = pageTitle
             
+        } else  if let readMoreContent = readMoreContent {
+            let  content = readMoreContent
+            readMoreLabel.setAttributedHtmlText(content)
+            self.title = pageTitle
         }
+        
         
     }
 
 }
 
 protocol ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes)
+    func showReadMore(for type: ReadMoreTypes, content: String?)
 }
 
 enum ReadMoreTypes {

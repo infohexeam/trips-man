@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,13 +33,13 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YJg-am-hVd">
                                     <size key="itemSize" width="393" height="219"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="activityImageCell" id="BCW-jm-W8D" customClass="ActivityDetailsImageCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="249"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="249"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nib-ir-MpN">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="249"/>
@@ -61,7 +62,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="activityDetailsCell" id="Og5-s0-ZgK" customClass="ActivityDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="259" width="383" height="321"/>
+                                        <rect key="frame" x="5" y="309" width="383" height="321"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b3B-ah-6ZZ">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="321"/>
@@ -313,7 +314,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="descriptionCell" id="Upo-mm-N3p" customClass="ActivityDescriptionCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="4.666666666666667" y="590" width="384" height="132"/>
+                                        <rect key="frame" x="4.666666666666667" y="640" width="384" height="132"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GJ5-7C-db6">
                                             <rect key="frame" x="0.0" y="0.0" width="384" height="132"/>
@@ -328,7 +329,7 @@
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zm-dm-lP9">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Zm-dm-lP9">
                                                             <rect key="frame" x="0.0" y="25.666666666666664" width="384" height="73.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
@@ -375,9 +376,166 @@
                                             <outlet property="descTitle" destination="5Rd-vN-qvI" id="vK3-rJ-rh8"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mapCell" id="crI-M1-bO0" customClass="ActivityMapCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="782" width="393" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bJu-4e-VCD">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="etQ-ah-JzR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="J2c-wX-sGW"/>
+                                                    </constraints>
+                                                    <standardMapConfiguration key="preferredConfiguration"/>
+                                                </mapView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="etQ-ah-JzR" firstAttribute="leading" secondItem="bJu-4e-VCD" secondAttribute="leading" id="NYI-Ob-z5y"/>
+                                                <constraint firstAttribute="bottom" secondItem="etQ-ah-JzR" secondAttribute="bottom" id="ONA-YP-r9A"/>
+                                                <constraint firstAttribute="trailing" secondItem="etQ-ah-JzR" secondAttribute="trailing" id="chu-Oq-ehw"/>
+                                                <constraint firstItem="etQ-ah-JzR" firstAttribute="top" secondItem="bJu-4e-VCD" secondAttribute="top" id="i0j-t4-k8u"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="mapView" destination="etQ-ah-JzR" id="G0S-Eo-TjW"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="termsCell" id="srr-Qa-d6w" customClass="TermsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="992" width="393" height="219"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vqf-oV-6yw">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="219"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="hoN-Ix-amM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="219"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzB-BI-tfW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="1"/>
+                                                            <color key="backgroundColor" name="seperatorColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="f7P-aj-nuN"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06f-6R-vh0">
+                                                            <rect key="frame" x="0.0" y="5" width="393" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="OAA-Wf-FfR"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SaF-oq-R6b">
+                                                            <rect key="frame" x="0.0" y="29" width="393" height="161"/>
+                                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo</string>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZ5-kC-gDh">
+                                                            <rect key="frame" x="0.0" y="194" width="393" height="25"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="off-jN-3Fp">
+                                                                    <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="Phq-0r-cwu"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Read more">
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                        <color key="baseForegroundColor" name="secondaryColor"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="readMoreDidTapped:" destination="srr-Qa-d6w" eventType="touchUpInside" id="x0E-Nt-UXC"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="off-jN-3Fp" secondAttribute="bottom" id="CnZ-oH-EMZ"/>
+                                                                <constraint firstItem="off-jN-3Fp" firstAttribute="top" secondItem="cZ5-kC-gDh" secondAttribute="top" id="mbW-bH-MLQ"/>
+                                                                <constraint firstItem="off-jN-3Fp" firstAttribute="leading" secondItem="cZ5-kC-gDh" secondAttribute="leading" constant="-8" id="vD2-Ow-i0B"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hoN-Ix-amM" firstAttribute="top" secondItem="vqf-oV-6yw" secondAttribute="top" id="eAq-lv-7mM"/>
+                                                <constraint firstAttribute="trailing" secondItem="hoN-Ix-amM" secondAttribute="trailing" id="p6R-Xu-WWO"/>
+                                                <constraint firstAttribute="bottom" secondItem="hoN-Ix-amM" secondAttribute="bottom" id="wWN-hF-nTi"/>
+                                                <constraint firstItem="hoN-Ix-amM" firstAttribute="leading" secondItem="vqf-oV-6yw" secondAttribute="leading" id="x43-ab-zn3"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="termsLabel" destination="SaF-oq-R6b" id="1d3-dZ-DG6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="inclusionsCell" id="Ba1-lY-V7v" customClass="InclusionsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1221" width="393" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e3n-5k-nZw">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-bm-Ncc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="13"/>
+                                                    <color key="textColor" name="primaryLabel"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VXl-bm-Ncc" firstAttribute="leading" secondItem="e3n-5k-nZw" secondAttribute="leading" id="4eX-Xg-THW"/>
+                                                <constraint firstAttribute="trailing" secondItem="VXl-bm-Ncc" secondAttribute="trailing" id="LRP-nt-CIr"/>
+                                                <constraint firstAttribute="bottom" secondItem="VXl-bm-Ncc" secondAttribute="bottom" id="bKu-fK-jPA"/>
+                                                <constraint firstItem="VXl-bm-Ncc" firstAttribute="top" secondItem="e3n-5k-nZw" secondAttribute="top" id="kph-Mi-bo2"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="50"/>
+                                        <connections>
+                                            <outlet property="inclusionLabel" destination="VXl-bm-Ncc" id="aUz-fn-ZYR"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="activityHeader" id="l5s-md-Pdm" customClass="ActivityHeaderView" customModule="TripsMan" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTS-Vi-5in">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tpB-lS-foe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                    <color key="textColor" name="primaryLabel"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstItem="tpB-lS-foe" firstAttribute="leading" secondItem="vTS-Vi-5in" secondAttribute="leading" id="cOP-9N-Qsw"/>
+                                                <constraint firstAttribute="trailing" secondItem="tpB-lS-foe" secondAttribute="trailing" id="oEB-M3-rUV"/>
+                                                <constraint firstItem="tpB-lS-foe" firstAttribute="top" secondItem="vTS-Vi-5in" secondAttribute="top" id="t9E-qw-wGK"/>
+                                                <constraint firstAttribute="bottom" secondItem="tpB-lS-foe" secondAttribute="bottom" id="xGc-pd-JvL"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vTS-Vi-5in" firstAttribute="top" secondItem="l5s-md-Pdm" secondAttribute="top" id="Aun-zv-67Q"/>
+                                        <constraint firstAttribute="bottom" secondItem="vTS-Vi-5in" secondAttribute="bottom" id="PUD-WO-rCD"/>
+                                        <constraint firstItem="vTS-Vi-5in" firstAttribute="leading" secondItem="l5s-md-Pdm" secondAttribute="leading" id="b9V-lp-Pki"/>
+                                        <constraint firstAttribute="trailing" secondItem="vTS-Vi-5in" secondAttribute="trailing" id="wqN-Ie-VgC"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="headerLabel" destination="tpB-lS-foe" id="Kzn-aW-S62"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="activityFooter" id="OC8-wh-TH8" customClass="ActivityDetailsFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="722" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="1271" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="NzV-my-JMy">
@@ -443,6 +601,9 @@
         </namedColor>
         <namedColor name="secondaryColor">
             <color red="0.015686274509803921" green="0.4823529411764706" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="seperatorColor">
+            <color red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tertiaryLabel">
             <color red="0.30196078431372547" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

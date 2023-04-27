@@ -13,6 +13,7 @@ struct ActivityDetailsManager {
         case activityDetails
         case seperator
         case description
+        case map
         case inclusions
         case termsAndConditions
     }
@@ -42,7 +43,10 @@ struct ActivityDetailsManager {
         if let activityDetails = activityDetails {
             sections = [ActivityDetailsSection(type: .image, count: activityDetails.activityImages.count),
                         ActivityDetailsSection(type: .activityDetails, count: 1),
-                        ActivityDetailsSection(type: .description, count: 3)]
+                        ActivityDetailsSection(type: .description, count: 3),
+                        ActivityDetailsSection(type: .map, count: 1),
+                        ActivityDetailsSection(type: .inclusions, count: activityDetails.activityInclusion.count),
+                        ActivityDetailsSection(type: .termsAndConditions, count: 1)]
         }
     }
     

@@ -36,11 +36,16 @@ class ActivityDetailsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? ReadMoreViewController {
-            if let content = sender as? String {
-                vc.readMoreContent = content
-//                vc.type
+        print("\n\nprepare: ")
+        if let nav = segue.destination as? UINavigationController {
+            if let vc = nav.topViewController as? ReadMoreViewController {
+                print("\n\nprepare: \(sender)")
+                if let content = sender as? String {
+                    print("\n\nprepare: \(content)")
+                    vc.readMoreContent = content
+                }
             }
+            
         }
     }
 }
@@ -117,6 +122,25 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             }
             
             return cell
+        } else if thisSection.type == .map {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapCell", for: indexPath) as! ActivityMapCollectionViewCell
+            
+            
+            return cell
+        } else if thisSection.type == .inclusions {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "inclusionsCell", for: indexPath) as! InclusionsCollectionViewCell
+            
+            if let inclusions = activityManager?.getActivityDetails()?.activityInclusion {
+                cell.inclusionLabel.text = "• " + inclusions[indexPath.row].inclusionName
+            }
+            
+            
+            return cell
+        } else if thisSection.type == .termsAndConditions {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "termsCell", for: indexPath) as! TermsCollectionViewCell
+            
+            
+            return cell
         } else {
             return UICollectionViewCell()
         }
@@ -125,13 +149,15 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
-//        case UICollectionView.elementKindSectionHeader:
-//            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "detailsHeader", for: indexPath) as! PackageDetailsHeaderView
-//
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "activityHeader", for: indexPath) as! ActivityHeaderView
+            
+            headerView.headerLabel.text = "Inclusions"
+
 //            guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return headerView }
-//
-//
-//            return headerView
+
+
+            return headerView
             
             
         case UICollectionView.elementKindSectionFooter:
@@ -153,8 +179,9 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
 
 //MARK: ReadMoreDelegate
 extension ActivityDetailsViewController: ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes) {
-        performSegue(withIdentifier: "toReadMore", sender: type)
+    func showReadMore(for type: ReadMoreTypes, content: String?) {
+        print("\n\n delegate: \(content)")
+        performSegue(withIdentifier: "toReadMore", sender: content)
     }
 }
 
@@ -210,7 +237,7 @@ extension ActivityDetailsViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
                 
-            }  else if thisSection.type == .description {
+            } else if thisSection.type == .description {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(100))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -223,6 +250,50 @@ extension ActivityDetailsViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 30
                 section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
+                
+            } else if thisSection.type == .map {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                
+            } else if thisSection.type == .inclusions {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .absolute(20))
+                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [sectionHeader]
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
+                
+            } else if thisSection.type == .termsAndConditions {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 
             } else {
                 fatalError("Unknown section!")

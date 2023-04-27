@@ -362,7 +362,7 @@ extension HotelDetailsViewController {
 
 //MARK: ReadMoreDelegate
 extension HotelDetailsViewController: ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes) {
+    func showReadMore(for type: ReadMoreTypes, content: String?) {
         performSegue(withIdentifier: "toReadMore", sender: type)
     }
 }

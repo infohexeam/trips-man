@@ -14,7 +14,8 @@ class ActivityDescriptionCollectionViewCell: UICollectionViewCell {
     var delegate: ReadMoreDelegate?
     
     @IBAction func readMoreDidTapped(_ sender: UIButton) {
-        delegate?.showReadMore(for: .activityDescription)
+        print("\n\ndescLabel: \(descDetails.text)")
+        delegate?.showReadMore(for: .activityDescription, content: descDetails.text)
     }
     
 }

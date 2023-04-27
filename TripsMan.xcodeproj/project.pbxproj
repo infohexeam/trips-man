@@ -130,6 +130,9 @@
 		C1DC9DB9299F7A29004AA17E /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1DC9DB8299F7A29004AA17E /* Search.storyboard */; };
 		C1DDD11128CAEBA30032FA12 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DDD11028CAEBA30032FA12 /* Validator.swift */; };
 		C1DF2D7E29BF2A40000732B7 /* PackageListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DF2D7D29BF2A40000732B7 /* PackageListingData.swift */; };
+		C1E3359129F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3359029F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift */; };
+		C1E3359329F909FF007FAF32 /* InclusionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3359229F909FF007FAF32 /* InclusionsCollectionViewCell.swift */; };
+		C1E3359529F931A0007FAF32 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3359429F931A0007FAF32 /* ActivityHeaderView.swift */; };
 		C1E97DD229A796EE0025B03F /* SearchCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD129A796EE0025B03F /* SearchCells.swift */; };
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
 		C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */; };
@@ -295,6 +298,9 @@
 		C1DC9DB8299F7A29004AA17E /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		C1DDD11028CAEBA30032FA12 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		C1DF2D7D29BF2A40000732B7 /* PackageListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListingData.swift; sourceTree = "<group>"; };
+		C1E3359029F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMapCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1E3359229F909FF007FAF32 /* InclusionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InclusionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1E3359429F931A0007FAF32 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
 		C1E97DD129A796EE0025B03F /* SearchCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCells.swift; sourceTree = "<group>"; };
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
 		C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllReviewsViewController.swift; sourceTree = "<group>"; };
@@ -632,6 +638,9 @@
 				C178318D29EFA4C100FAC9B7 /* ActivityDetailsImageCollectionViewCell.swift */,
 				C152B3BF29EFEA9900031516 /* ActivityDetailsCollectionViewCell.swift */,
 				C1AEB61729F79BF400F3A40A /* ActivityDescriptionCollectionViewCell.swift */,
+				C1E3359029F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift */,
+				C1E3359229F909FF007FAF32 /* InclusionsCollectionViewCell.swift */,
+				C1E3359429F931A0007FAF32 /* ActivityHeaderView.swift */,
 			);
 			path = "Activity Details";
 			sourceTree = "<group>";
@@ -1736,6 +1745,7 @@
 				C1CA2C482977B60600648A45 /* NotificationsCollectionViewCell.swift in Sources */,
 				C17AF1F1299CA8AD002C20B1 /* CouponCells.swift in Sources */,
 				C15E31FC28C7020000E209EB /* DisableButton.swift in Sources */,
+				C1E3359529F931A0007FAF32 /* ActivityHeaderView.swift in Sources */,
 				C14B489A290FC21000D8FFBA /* ProfileData.swift in Sources */,
 				C14A983328E15273000C52AA /* HotelDetailsViewController.swift in Sources */,
 				C147E6FE299DF2EE00ED4428 /* ListingManager.swift in Sources */,
@@ -1746,6 +1756,8 @@
 				C14B4894290A7ACC00D8FFBA /* Parser.swift in Sources */,
 				C15E31B328C5F13100E209EB /* SceneDelegate.swift in Sources */,
 				C15E320328C8187300E209EB /* ForgotPasswordViewController.swift in Sources */,
+				C1E3359129F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift in Sources */,
+				C1E3359329F909FF007FAF32 /* InclusionsCollectionViewCell.swift in Sources */,
 				C189620529C04A540070243F /* ListingData.swift in Sources */,
 				C19335E328DBF241001A037F /* ListingViewController.swift in Sources */,
 				C19335E628DC340A001A037F /* HotelListCells.swift in Sources */,
