@@ -133,6 +133,13 @@
 		C1E3359129F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3359029F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift */; };
 		C1E3359329F909FF007FAF32 /* InclusionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3359229F909FF007FAF32 /* InclusionsCollectionViewCell.swift */; };
 		C1E3359529F931A0007FAF32 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E3359429F931A0007FAF32 /* ActivityHeaderView.swift */; };
+		C1E7E99329FA565A00676237 /* ActivityBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99229FA565A00676237 /* ActivityBookingViewController.swift */; };
+		C1E7E99629FA692700676237 /* ActivitySummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99529FA692700676237 /* ActivitySummaryCollectionViewCell.swift */; };
+		C1E7E99829FA7ABA00676237 /* ActivityHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99729FA7ABA00676237 /* ActivityHeaderCell.swift */; };
+		C1E7E99A29FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99929FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift */; };
+		C1E7E99C29FA817700676237 /* ActivityActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99B29FA817700676237 /* ActivityActionCollectionViewCell.swift */; };
+		C1E7E99E29FA824500676237 /* ActivitySummaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99D29FA824500676237 /* ActivitySummaryManager.swift */; };
+		C1E7E9A029FA828F00676237 /* ActivityBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */; };
 		C1E97DD229A796EE0025B03F /* SearchCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD129A796EE0025B03F /* SearchCells.swift */; };
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
 		C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */; };
@@ -301,6 +308,13 @@
 		C1E3359029F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMapCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1E3359229F909FF007FAF32 /* InclusionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InclusionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1E3359429F931A0007FAF32 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
+		C1E7E99229FA565A00676237 /* ActivityBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookingViewController.swift; sourceTree = "<group>"; };
+		C1E7E99529FA692700676237 /* ActivitySummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1E7E99729FA7ABA00676237 /* ActivityHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderCell.swift; sourceTree = "<group>"; };
+		C1E7E99929FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCustomerCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1E7E99B29FA817700676237 /* ActivityActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityActionCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1E7E99D29FA824500676237 /* ActivitySummaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySummaryManager.swift; sourceTree = "<group>"; };
+		C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookingManager.swift; sourceTree = "<group>"; };
 		C1E97DD129A796EE0025B03F /* SearchCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCells.swift; sourceTree = "<group>"; };
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
 		C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllReviewsViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				C153B4B029EEA0E500399C58 /* ActivityDetailsViewController.swift */,
+				C1E7E99229FA565A00676237 /* ActivityBookingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,6 +445,8 @@
 			children = (
 				C153B4B429EEBB8600399C58 /* Data Model */,
 				C153B4B229EEA4B300399C58 /* ActivityDetailsManager.swift */,
+				C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */,
+				C1E7E99D29FA824500676237 /* ActivitySummaryManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -627,6 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				C178318829EFA45200FAC9B7 /* Activity Details */,
+				C1E7E99429FA690400676237 /* Activity Booking */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1347,6 +1365,17 @@
 			path = Validator;
 			sourceTree = "<group>";
 		};
+		C1E7E99429FA690400676237 /* Activity Booking */ = {
+			isa = PBXGroup;
+			children = (
+				C1E7E99529FA692700676237 /* ActivitySummaryCollectionViewCell.swift */,
+				C1E7E99729FA7ABA00676237 /* ActivityHeaderCell.swift */,
+				C1E7E99929FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift */,
+				C1E7E99B29FA817700676237 /* ActivityActionCollectionViewCell.swift */,
+			);
+			path = "Activity Booking";
+			sourceTree = "<group>";
+		};
 		C1FFA59D28E3FB3A00E13D75 /* Room Selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1737,7 @@
 				C14CAC0A29B0B8C300183597 /* AddReviewViewController.swift in Sources */,
 				C12D83F4294836570091B311 /* WalletViewController.swift in Sources */,
 				C1F77ED029B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift in Sources */,
+				C1E7E99A29FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift in Sources */,
 				C1D8F6C02907725700C6CBBA /* Constants.swift in Sources */,
 				C14D783428FE57800065BA63 /* UITextField+Extension.swift in Sources */,
 				C1BE352D2976654D004EB983 /* FilterData.swift in Sources */,
@@ -1723,6 +1753,7 @@
 				C15E320828C81DD100E209EB /* ResetPasswordViewController.swift in Sources */,
 				C1F788E029DBF7980019B148 /* PackageActionCollectionViewCell.swift in Sources */,
 				C1DF2D7E29BF2A40000732B7 /* PackageListingData.swift in Sources */,
+				C1E7E99629FA692700676237 /* ActivitySummaryCollectionViewCell.swift in Sources */,
 				C150766429DD8032008DAFE2 /* PackBookingSummaryViewController.swift in Sources */,
 				C15CDDE929C1BB5600E15E9F /* DatePickerViewController.swift in Sources */,
 				C19F813D296BF6A00057119F /* String+Extension.swift in Sources */,
@@ -1733,9 +1764,11 @@
 				C150766629DD8B0B008DAFE2 /* PackageSummaryManager.swift in Sources */,
 				C1D1BA0229920DB6009AFABD /* TripDetailsCells.swift in Sources */,
 				C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */,
+				C1E7E99829FA7ABA00676237 /* ActivityHeaderCell.swift in Sources */,
 				C1BE3D4929CD68EE00812226 /* PackageBookingManager.swift in Sources */,
 				C13DAD0A295D8E5900DAF734 /* SessionManager.swift in Sources */,
 				C1DA276B29CC2B9D006C1A60 /* PackageDetailsHeaderView.swift in Sources */,
+				C1E7E99E29FA824500676237 /* ActivitySummaryManager.swift in Sources */,
 				C13E75D8298A723F00FBE80B /* CouponsViewController.swift in Sources */,
 				C153B4B129EEA0E500399C58 /* ActivityDetailsViewController.swift in Sources */,
 				C150766229DD3739008DAFE2 /* PackageBookingData.swift in Sources */,
@@ -1750,14 +1783,17 @@
 				C14A983328E15273000C52AA /* HotelDetailsViewController.swift in Sources */,
 				C147E6FE299DF2EE00ED4428 /* ListingManager.swift in Sources */,
 				C1FFA59C28E3E08100E13D75 /* HomeCells.swift in Sources */,
+				C1E7E99329FA565A00676237 /* ActivityBookingViewController.swift in Sources */,
 				C153B4B629EEBB9E00399C58 /* ActivityDetailsData.swift in Sources */,
 				C1DC9DB7299F79D6004AA17E /* SearchViewController.swift in Sources */,
+				C1E7E9A029FA828F00676237 /* ActivityBookingManager.swift in Sources */,
 				C101CA1E298B74700051A94F /* MyTrips.swift in Sources */,
 				C14B4894290A7ACC00D8FFBA /* Parser.swift in Sources */,
 				C15E31B328C5F13100E209EB /* SceneDelegate.swift in Sources */,
 				C15E320328C8187300E209EB /* ForgotPasswordViewController.swift in Sources */,
 				C1E3359129F8FD99007FAF32 /* ActivityMapCollectionViewCell.swift in Sources */,
 				C1E3359329F909FF007FAF32 /* InclusionsCollectionViewCell.swift in Sources */,
+				C1E7E99C29FA817700676237 /* ActivityActionCollectionViewCell.swift in Sources */,
 				C189620529C04A540070243F /* ListingData.swift in Sources */,
 				C19335E328DBF241001A037F /* ListingViewController.swift in Sources */,
 				C19335E628DC340A001A037F /* HotelListCells.swift in Sources */,

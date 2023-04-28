@@ -27,6 +27,12 @@ class ActivityDetailsViewController: UIViewController {
     var fontSize: CGFloat? = nil
     
     private let pagingInfoSubject = PassthroughSubject<PagingInfo, Never>()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addBackButton(with: "Activity Details")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +41,23 @@ class ActivityDetailsViewController: UIViewController {
         
     }
     
+    @IBAction func bookNowTapped(_ sender: UIButton) {
+        if activityFilters.activityDate != nil {
+            performSegue(withIdentifier: "toActivityBooking", sender: nil)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("\n\nprepare: ")
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {
-                print("\n\nprepare: \(sender)")
                 if let content = sender as? String {
-                    print("\n\nprepare: \(content)")
                     vc.readMoreContent = content
                 }
             }
             
+        } else  if let vc = segue.destination as? ActivityBookingViewController {
+            activityFilters.activityDetails = activityManager?.getActivityDetails()
+            vc.activityFilters = activityFilters
         }
     }
 }
@@ -109,6 +121,7 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) taxes and fee per person"
                 cell.detailsLabel.text = details.shortDescription
+                cell.dateLabel.text = activityFilters.activityDate?.stringValue(format: "dd MMM yyyy")
             }
             
             return cell

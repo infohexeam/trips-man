@@ -39,6 +39,8 @@ struct ActivityFilters: Codable {
     var rate: Rate? = nil
     var filters: [String: [Int]]? = nil
     var sort: Sortby? = nil
+    var memberCount: Int = 1
+    var activityDetails: ActivityDetails? = nil
 }
 
 struct Rate: Codable {

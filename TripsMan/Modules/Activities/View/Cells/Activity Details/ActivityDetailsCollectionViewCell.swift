@@ -13,4 +13,5 @@ class ActivityDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var taxLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
+    @IBOutlet weak var dateLabel: UILabel!
 }

@@ -25,7 +25,6 @@ struct PackageBookingManager {
             self.count = count
             self.subItems = subItems
         }
-        
     }
     
     var sections: [PackageBookingSection]? = nil
