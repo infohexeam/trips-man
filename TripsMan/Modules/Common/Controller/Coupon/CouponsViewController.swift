@@ -41,6 +41,7 @@ class CouponsViewController: UIViewController {
     enum CouponModule {
         case hotel
         case holiday
+        case activity
     }
     
     let parser = Parser()

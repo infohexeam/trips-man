@@ -1,13 +1,13 @@
 //
-//  PackBookingSummaryViewController.swift
+//  ActivitySummaryViewController.swift
 //  TripsMan
 //
-//  Created by Hexeam Software Solutions on 05/04/23.
+//  Created by Hexeam Software Solutions on 29/04/23.
 //
 
 import UIKit
 
-class PackBookingSummaryViewController: UIViewController {
+class ActivitySummaryViewController: UIViewController {
     
     @IBOutlet weak var successView: UIView!
     @IBOutlet weak var successLabel: UILabel!
@@ -21,19 +21,16 @@ class PackBookingSummaryViewController: UIViewController {
         }
     }
     
-    var packageManager: PackageSummaryManager?
+    var activityManager: ActivitySummaryManager?
     var parser = Parser()
     
-    var packBookingData: PackageBooking?
-    
+    var activityBookingData: ActivityBooking?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         successView.isHidden = true
-        packageManager = PackageSummaryManager(packagbooking: packBookingData)
+        activityManager = ActivitySummaryManager(activityBooking: activityBookingData)
         getCoupons()
-        
     }
     
     @IBAction func paymentButtonTapped(_ sender: UIButton) {
@@ -56,10 +53,10 @@ class PackBookingSummaryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? CouponsViewController {
-            vc.coupons = (packageManager?.getAllCoupons())!
-            vc.selectedCoupon = packageManager?.getSelectedCoupon()
-            vc.bookingID = packBookingData!.bookingID
-            vc.couponModule = .holiday
+            vc.coupons = (activityManager?.getAllCoupons())!
+            vc.selectedCoupon = activityManager?.getSelectedCoupon()
+            vc.bookingID = activityBookingData!.bookingID
+            vc.couponModule = .activity
             vc.delegate = self
         }
     }
@@ -67,15 +64,15 @@ class PackBookingSummaryViewController: UIViewController {
 }
 
 //MARK: - APICalls
-extension PackBookingSummaryViewController {
+extension ActivitySummaryViewController {
     func getCoupons() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/GetCustomerHolidayCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/GetCustomerActivityCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.packageManager = PackageSummaryManager(packageBooking: self.packBookingData, coupons: result!.data.coupon, rewardPoints: result!.data.rewardPoint)
+                        self.activityManager = ActivitySummaryManager(activityBooking: self.activityBookingData, coupons: result!.data.coupon, rewardPoints: result!.data.rewardPoint)
                         self.summaryCollectionView.reloadData()
                     } else {
                         self.view.makeToast(result!.message)
@@ -91,7 +88,7 @@ extension PackBookingSummaryViewController {
     func applyCoupon(with coupon: Coupon) {
         showIndicator()
         
-        let params: [String: Any] = ["bookingId": packBookingData!.bookingID,
+        let params: [String: Any] = ["bookingId": activityBookingData!.bookingID,
                                      "couponCode": coupon.couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
@@ -102,9 +99,9 @@ extension PackBookingSummaryViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.packageManager?.setSelectedCoupon(coupon, amountDetails: result!.data!.amounts)
+                        self.activityManager?.setSelectedCoupon(coupon, amountDetails: result!.data!.amounts)
                         UIView.performWithoutAnimation {
-                            self.summaryCollectionView.reloadSections(IndexSet([self.packageManager!.getSection(.coupon)!, self.packageManager!.getSection(.bottomView)!]))
+                            self.summaryCollectionView.reloadSections(IndexSet([self.activityManager!.getSection(.coupon)!, self.activityManager!.getSection(.priceDetails)!]))
                         }
                         
                     } else {
@@ -121,20 +118,20 @@ extension PackBookingSummaryViewController {
     func removeCoupon(with couponCode: String) {
         showIndicator()
         
-        let params: [String: Any] = ["bookingId": packBookingData!.bookingID,
+        let params: [String: Any] = ["bookingId": activityBookingData!.bookingID,
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/RemoveCustomerHotelCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/RemoveCustomerActivityCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.packageManager?.setSelectedCoupon(nil, amountDetails: result!.data)
+                        self.activityManager?.setSelectedCoupon(nil, amountDetails: result!.data)
                         UIView.performWithoutAnimation {
-                            self.summaryCollectionView.reloadSections(IndexSet([self.packageManager!.getSection(.coupon)!, self.packageManager!.getSection(.bottomView)!]))
+                            self.summaryCollectionView.reloadSections(IndexSet([self.activityManager!.getSection(.coupon)!, self.activityManager!.getSection(.priceDetails)!]))
                         }
                     } else {
                         self.view.makeToast(result!.message)
@@ -149,7 +146,7 @@ extension PackBookingSummaryViewController {
     
     func confirmBooking() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(packBookingData!.bookingID)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(activityBookingData!.bookingID)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -168,55 +165,40 @@ extension PackBookingSummaryViewController {
     }
 }
 
-
 //MARK: - CollectionView
-extension PackBookingSummaryViewController: UICollectionViewDataSource {
+extension ActivitySummaryViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return packageManager?.getSections()?.count ?? 0
+        return activityManager?.getSections()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let thisSection = packageManager?.getSections()?[section] else { return 0 }
+        guard let thisSection = activityManager?.getSections()?[section] else { return 0 }
         return thisSection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return UICollectionViewCell() }
+        guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return UICollectionViewCell() }
         
-        if thisSection.type == .packageSummary {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "packBookingSummaryCell", for: indexPath) as! PackBookingSummaryCollectionViewCell
-            if let packageDetails = packageManager?.getPackageDetails() {
-                cell.packageName.text = packageDetails.packageName
-                cell.country.text = packageDetails.countryName
+        if thisSection.type == .summary {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityBookSummaryCell", for: indexPath) as! ActivityBookSummaryCollectionViewCell
+            if let booking = activityManager?.getBookingSummary() {
+                cell.activityName.text = booking.activityName
+                //                cell.locationLabel.text = booking.
                 
-                if let booking = packageManager?.getBookingSummary() {
-                    cell.duration.text = "\(getDateRange(from: booking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date(), to: booking.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date())) \(packageDetails.duration)"
-                    
-                    let vendor = booking.vendorDetails
-                    cell.vendorName.text = vendor.vendorName
-                }
+                cell.activityDate.text = booking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
+                
             }
             
             
             
             return cell
-        } else if thisSection.type == .primaryTraveller {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "primaryGuestCell", for: indexPath) as! PrimaryGuestCollectionViewCell
-            if let primaryTraveller = packageManager?.bookingData?.holidayGuests.filter({ $0.isPrimary == 1 }).last {
+        } else if thisSection.type == .customerDetails {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCustomerCell", for: indexPath) as! PrimaryGuestCollectionViewCell
+            if let primaryTraveller = activityManager?.bookingData?.activityGuests.filter({ $0.isPrimary == 1 }).last {
                 cell.nameLabel.text = primaryTraveller.guestName
                 cell.numberLabel.text = primaryTraveller.contactNo
                 cell.ageAndGender.text = primaryTraveller.gender + ", \(primaryTraveller.age)"
                 cell.emailLabel.text = primaryTraveller.email
-            }
-            
-            
-            return cell
-        } else if thisSection.type == .otherTravellers {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "otherGuestCell", for: indexPath) as! OtherGuestCollectionViewCell
-            
-            if let otherGuests = packageManager?.bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
-                cell.nameLabel.text = "\(indexPath.row+1). \(otherGuests[indexPath.row].guestName)"
-                cell.ageAndGender.text = "\(otherGuests[indexPath.row].gender), \(otherGuests[indexPath.row].age)"
             }
             
             
@@ -232,14 +214,14 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
             cell.delegate = self
             cell.removeButton.tag = indexPath.row
             
-            if let coupon = packageManager?.getCouponsToShow()?[indexPath.row] {
+            if let coupon = activityManager?.getCouponsToShow()?[indexPath.row] {
                 cell.couponCode.text = coupon.couponCode
                 cell.couponDesc.text = "\(coupon.description)\nMin. Order Value: \(coupon.minOrderValue), Discount Amount: \(coupon.discountAmount)"
                 
                 cell.radioImage.image = UIImage(systemName: "circle")
                 cell.removeButton.isHidden = true
                 
-                if packageManager?.getSelectedCoupon() == coupon.couponCode {
+                if activityManager?.getSelectedCoupon() == coupon.couponCode {
                     cell.radioImage.image = UIImage(systemName: "circle.fill")
                     cell.removeButton.isHidden = false
                 }
@@ -247,15 +229,15 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
             
             
             return cell
-        } else if thisSection.type == .rewardPoints {
+        } else if thisSection.type == .reward {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardPointCell", for: indexPath) as! RewardPointCollectionViewCell
             
             
             
             return cell
-        } else if thisSection.type == .bottomView {
+        } else if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
-            if let amountDetails = packageManager?.getAmountDetails() {
+            if let amountDetails = activityManager?.getAmountDetails() {
                 cell.paymentButton.isHidden = true
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
@@ -284,12 +266,10 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath) as! PackageSummaryHeadereView
             
-            guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return headerView }
+            guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return headerView }
             
-            if thisSection.type == .primaryTraveller {
-                headerView.headerLabel.text = "Primary Traveller"
-            } else if thisSection.type == .otherTravellers {
-                headerView.headerLabel.text = "Other Travellers"
+            if thisSection.type == .customerDetails {
+                headerView.headerLabel.text = "Customer Details"
             } else if thisSection.type == .coupon {
                 headerView.headerLabel.text = "Coupon Codes"
             }
@@ -299,10 +279,10 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionFooter", for: indexPath) as! CouponFooterView
             
-            guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return footerView }
+            guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return footerView }
             if thisSection.type == .coupon {
-                if packageManager!.coupons!.count > packageManager!.getCouponsToShow()!.count {
-                    footerView.footerButton.setTitle("See all coupons (\(packageManager!.coupons!.count))", for: .normal)
+                if activityManager!.coupons!.count > activityManager!.getCouponsToShow()!.count {
+                    footerView.footerButton.setTitle("See all coupons (\(activityManager!.coupons!.count))", for: .normal)
                 } else {
                     footerView.footerButton.setTitle("Have a coupon code?", for: .normal)
                 }
@@ -319,13 +299,13 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
     
 }
 
-extension PackBookingSummaryViewController: UICollectionViewDelegate {
+extension ActivitySummaryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return }
+        guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return }
         
         if thisSection.type == .coupon {
-            if packageManager?.getSelectedCoupon() != packageManager?.getCouponsToShow()?[indexPath.row].couponCode {
-                applyCoupon(with: (packageManager?.getCouponsToShow()?[indexPath.row])!)
+            if activityManager?.getSelectedCoupon() != activityManager?.getCouponsToShow()?[indexPath.row].couponCode {
+                applyCoupon(with: (activityManager?.getCouponsToShow()?[indexPath.row])!)
             }
             
         }
@@ -334,14 +314,14 @@ extension PackBookingSummaryViewController: UICollectionViewDelegate {
 
 
 //MARK: - CouponDelegate
-extension PackBookingSummaryViewController: CouponDelegate {
+extension ActivitySummaryViewController: CouponDelegate {
     func couponDidSelected(coupon: Coupon, amountDetails: [AmountDetail]) {
-        packageManager?.setSelectedCoupon(coupon, amountDetails: amountDetails, showSingleCoupon: true)
-        self.summaryCollectionView.reloadSections(IndexSet([self.packageManager!.getSection(.coupon)!, self.packageManager!.getSection(.bottomView)!]))
+        activityManager?.setSelectedCoupon(coupon, amountDetails: amountDetails, showSingleCoupon: true)
+        self.summaryCollectionView.reloadSections(IndexSet([self.activityManager!.getSection(.coupon)!, self.activityManager!.getSection(.priceDetails)!]))
     }
     
     func couponRemoved(index: Int) {
-        if let coupon = packageManager?.getCouponsToShow()?[index] {
+        if let coupon = activityManager?.getCouponsToShow()?[index] {
             removeCoupon(with: coupon.couponCode)
         }
     }
@@ -350,14 +330,14 @@ extension PackBookingSummaryViewController: CouponDelegate {
 
 
 //MARK: - Layout
-extension PackBookingSummaryViewController {
+extension ActivitySummaryViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
                         
-            guard let thisSection = self.packageManager?.getSections()?[sectionIndex] else { return nil }
+            guard let thisSection = self.activityManager?.getSections()?[sectionIndex] else { return nil }
             let section: NSCollectionLayoutSection
             
-            if thisSection.type == .packageSummary {
+            if thisSection.type == .summary {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(30))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -371,7 +351,7 @@ extension PackBookingSummaryViewController {
                 
                 return section
                 
-            } else if thisSection.type == .primaryTraveller || thisSection.type == .otherTravellers {
+            } else if thisSection.type == .customerDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(44))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -388,7 +368,7 @@ extension PackBookingSummaryViewController {
                 section.boundarySupplementaryItems = [sectionHeader]
                 section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
-            } else if thisSection.type == .rewardPoints {
+            } else if thisSection.type == .reward {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(44))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -431,7 +411,7 @@ extension PackBookingSummaryViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-            } else if thisSection.type == .bottomView {
+            } else if thisSection.type == .priceDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(44))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -452,3 +432,4 @@ extension PackBookingSummaryViewController {
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
 }
+

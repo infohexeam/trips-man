@@ -75,7 +75,7 @@ class MainViewController: UIViewController {
         homeTiles = [HomeTiles(title: "Hotels", image: "home-cat-icon-Hotels", backgroundImage: "home-cat-Hotels", segue: "toHotelList", listType: .hotel),
                      HomeTiles(title: "Holiday Packages", image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday", segue: "toHotelList", listType: .packages),
                      HomeTiles(title: "Activities", image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities", segue: "toHotelList", listType: .activities),
-                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", listType: .meetups)]
+                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", segue: "toHotelList", listType: .meetups)]
         sections = [HomeSection(type: .banner, count: banners.count),
                     HomeSection(type: .tiles, count: homeTiles.count)]
         

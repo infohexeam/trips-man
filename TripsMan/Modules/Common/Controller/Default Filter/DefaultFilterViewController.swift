@@ -17,6 +17,9 @@ class DefaultFilterViewController: UIViewController {
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var countryField: CustomTextField!
     @IBOutlet weak var countryButton: UIButton!
+    @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var cityField: CustomTextField!
+    @IBOutlet weak var cityButton: UIButton!
     
     @IBOutlet weak var checkinView: UIView!
     @IBOutlet weak var checkinField: CustomTextField!
@@ -48,6 +51,7 @@ class DefaultFilterViewController: UIViewController {
     var hotelFilters = HotelListingFilters()
     var packageFilters = PackageFilters()
     var activityFilters = ActivityFilters()
+    var meetupFilters = MeetupFilters()
     var delegate: DefaultFilterDelegate?
     var listType: ListType!
     
@@ -102,6 +106,7 @@ class DefaultFilterViewController: UIViewController {
         
         if listType == .hotel {
             countryView.isHidden = true
+            cityView.isHidden = true
             startDateView.isHidden = true
             
             roomQty = K.defaultRoomCount
@@ -114,6 +119,7 @@ class DefaultFilterViewController: UIViewController {
             
         } else if listType == .packages {
             locationView.isHidden = true
+            cityView.isHidden = true
             checkinView.isHidden = true
             checkoutView.isHidden = true
             roomView.isHidden = true
@@ -124,12 +130,21 @@ class DefaultFilterViewController: UIViewController {
             countryField.text = packageFilters.country?.name
         } else if listType == .activities {
             locationView.isHidden = true
+            cityView.isHidden = true
             checkinView.isHidden = true
             checkoutView.isHidden = true
             counterMainView.isHidden = true
             
             startDateField.text = activityFilters.activityDate?.stringValue(format: "dd-MM-yyyy")
             countryField.text = activityFilters.country?.name
+        } else if listType == .meetups {
+            locationView.isHidden = true
+            checkinView.isHidden = true
+            checkoutView.isHidden = true
+            startDateView.isHidden = true
+            counterMainView.isHidden = true
+            
+            countryField.text = meetupFilters.country?.name
         }
     }
     
@@ -182,7 +197,7 @@ class DefaultFilterViewController: UIViewController {
 
     }
     
-    func presentCountryPicker() {
+    func presentCountryPicker(_ isCity: Bool = false) {
         let countryPickerVC = UIStoryboard(name: "Common", bundle: nil).instantiateViewController(withIdentifier: "CountryListingViewController") as! CountryListingViewController
         countryPickerVC.delegate = self
         countryPickerVC.listType = listType
@@ -229,6 +244,9 @@ class DefaultFilterViewController: UIViewController {
             
         case countryButton:
             presentCountryPicker()
+            
+        case cityButton:
+            presentCountryPicker(true)
             
         case checkInButton:
             presentDatePicker(1)

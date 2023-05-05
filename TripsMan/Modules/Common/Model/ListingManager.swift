@@ -25,6 +25,7 @@ struct ListingManager {
     var banners: [Banners]?
     var packages: [HolidayPackage]?
     var activities: [Activity]?
+    var meetups: [Meetup]?
     
     var listingData: [ListingData]?
     
@@ -55,6 +56,8 @@ struct ListingManager {
             }
         } else if let activities = activities, activities.count != 0 {
             sections = [ListingSection(type: .list, count: activities.count)]
+        } else if let meetups = meetups, meetups.count != 0 {
+            sections = [ListingSection(type: .list, count: meetups.count)]
         } else {
             sections = [ListingSection(type: .zeroData, count: 1)]
         }
@@ -84,6 +87,12 @@ struct ListingManager {
     mutating func assignActivities(activities: [Activity]?) {
         self.activities = activities
         setListingData(.activities)
+        setSections()
+    }
+    
+    mutating func assignMeetups(meetups: [Meetup]?) {
+        self.meetups = meetups
+        setListingData(.meetups)
         setSections()
     }
     
@@ -128,6 +137,9 @@ struct ListingManager {
                 listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activity.activityImages.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\ntaxes & fee per person"))
             }
         case .meetups:
+            for meetup in meetups! {
+                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetup.meetupImages.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM") ?? "nil")", actualPrice: 1111, offerPrice: 0, taxLabelText: "+ \(SessionManager.shared.getCurrency()) 0\ntaxes & fee per person"))
+            }
             break
         }
     }

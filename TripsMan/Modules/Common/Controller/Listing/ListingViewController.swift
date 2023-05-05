@@ -47,6 +47,7 @@ class ListingViewController: UIViewController {
     var hotelFilters = HotelListingFilters()
     var packageFilter = PackageFilters()
     var activityFilter = ActivityFilters()
+    var meetupFilter = MeetupFilters()
     
     let parser = Parser()
     var filters = [Filter]()
@@ -101,6 +102,8 @@ class ListingViewController: UIViewController {
             getPackages()
         } else if listType == .activities {
             getActivities()
+        } else if listType == .meetups {
+            getMeetups()
         }
         
     }
@@ -130,8 +133,11 @@ class ListingViewController: UIViewController {
             tripTypeMainView.isHidden = true
             activityFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
             activityFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
+        } else if listType == .meetups {
+            tripTypeMainView.isHidden = true
+            meetupFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
+            meetupFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         }
-        
         
         assignValues()
         
@@ -178,6 +184,9 @@ class ListingViewController: UIViewController {
                 dateText = "Select date"
             }
             dateAndGuestLabel.text = dateText
+        } else if listType == .meetups {
+            locationLabel.text = meetupFilter.country?.name
+            dateAndGuestLabel.isHidden = true
         }
         
         
@@ -335,6 +344,8 @@ extension ListingViewController {
                     getFilters()
                 } else if listType == .packages {
                     getPackageFilters()
+                } else if listType == .meetups {
+                    getMeetupFilters()
                 }
             }
             return
@@ -347,32 +358,6 @@ extension ListingViewController {
         }
         
     }
-    
-//    @IBAction func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
-//        print("long")
-//        if let sender = gesture.view as? UIButton {
-//            if gesture.state == .began {
-//                    timer?.invalidate()
-//                    timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { [weak self] timer in
-//                        guard let self = self else {
-//                            timer.invalidate()
-//                            return
-//                        }
-//                        self.addOrMinusPeople(sender)
-//                    }
-//                } else if gesture.state == .ended || gesture.state == .cancelled {
-//                    timer?.invalidate()
-//                }
-//        }
-//    }
-//
-//    @IBAction func handleTap(_ gesture: UITapGestureRecognizer) {
-//        print("tap")
-//        if let sender = gesture.view as? UIButton {
-//            addOrMinusPeople(sender)
-//        }
-//    }
-//
     
 }
 
@@ -425,6 +410,27 @@ extension ListingViewController {
     func getActivityFilters() {
         showIndicator()
         parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.filters = result!.data.filters!
+                        self.sorts = result!.data.sortby
+                        self.setupMenus()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    func getMeetupFilters() {
+        showIndicator()
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup//GetCustomerMeetupFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -578,6 +584,55 @@ extension ListingViewController {
                         self.hotelCollectionView.reloadData()
                         if self.filters.count == 0 {
                             self.getActivityFilters()
+                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    func getMeetups() {
+        showIndicator()
+        
+        var params: [String: Any] = [
+                                     "sortBy": "",
+                                     "offset": 0,
+                                     "recordCount": 20,
+                                     "MeetupCountry": meetupFilter.country?.countryID ?? 0,
+                                     "Country": SessionManager.shared.getCountry(),
+                                     "Currency": SessionManager.shared.getCurrency(),
+                                     "Language": SessionManager.shared.getLanguage(),
+                                     "budgetFrom": meetupFilter.rate!.from,
+                                     "budgetTo": meetupFilter.rate!.to,
+                                     "meetupFilters": meetupFilter.filters ?? [String: [Any]]()]
+        
+        if let sort = packageFilter.sort {
+            params["sortBy"] = sort.name
+        }
+        
+        if let startDate = packageFilter.startDate {
+            params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
+        }
+//
+//        if let tripType = hotelFilters.tripType {
+//            params["tripType"] = tripType.id
+//        }
+        
+        
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupList", http: .post, parameters: params) { (result: MeetupListingData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.listingManager.assignMeetups(meetups: result!.data)
+                        self.hotelCollectionView.reloadData()
+                        if self.filters.count == 0 {
+                            self.getMeetupFilters()
                         }
                     } else {
                         self.view.makeToast(result!.message)

@@ -24,7 +24,7 @@ class ActivityBookingViewController: UIViewController {
     var activityManager: ActivityBookingManager?
     var parser = Parser()
     
-//    var bookedData: ActivityBooking?
+    var bookedData: ActivityBooking?
     
     var fontSize: CGFloat? = nil
     
@@ -40,13 +40,90 @@ class ActivityBookingViewController: UIViewController {
     
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        
+        if isGuestDetailsValid() {
+            createBooking()
+        } else {
+            print("\n\nerrrrror")
+        }
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func isGuestDetailsValid() -> Bool {
+        var isValid = false
+        let primary = activityFieldTexts.filter { $0.key == [2,0] }
+        if primary.count != 0 {
+            isValid = true
+        }
+        return isValid
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ActivitySummaryViewController {
+            vc.activityBookingData = bookedData
+        }
+    }
 }
+
+//MARK: - APICalls
+extension ActivityBookingViewController {
+    func createBooking() {
+        showIndicator()
+        
+        var guests = [[String: Any]]()
+        print(activityFieldTexts)
+        let primary = activityFieldTexts.filter { $0.key == [2,0] }
+        
+        
+        for each in activityFieldTexts {
+            guests.append(["id": 0,
+                           "contactNo": each.value.contactNumber,
+                           "guestName": each.value.name,
+                           "emailId": each.value.emailID,
+                           "gender": each.value.gender,
+                           "isPrimary": each.value == primary.first?.value ? 1 : 0,
+                           "age": each.value.age.intValue()])
+        }
+        
+        var params: [String: Any] = ["bookingType": "create",
+                                     "bookingDate": Date().stringValue(format: "yyyy-MM-dd"),
+                                     "activityId": activityFilters.activityDetails?.activityID ?? 0,
+                                     "bookingFrom": activityFilters.activityDate!.stringValue(format: "yyyy-MM-dd"),
+                                     "userId": SessionManager.shared.getLoginDetails()!.userid!,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage(),
+                                     "booking_Guest": guests]
+        
+        if createdActivityBookingID != nil {
+            params["bookingType"] = "update"
+            params["bookingId"] = createdActivityBookingID
+        }
+        
+        print("\n\n params: \(params)")
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerActivity/CreateCustomerActivityBooking", http: .post, parameters: params) { (result: ActivityBookingData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.bookedData = result!.data
+                        createdActivityBookingID = result!.data.bookingID
+                        self.performSegue(withIdentifier: "toActivitySummary", sender: nil)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
+}
+
 
 //MARK: - CollectionView
 extension ActivityBookingViewController: UICollectionViewDataSource {
