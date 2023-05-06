@@ -1733,7 +1733,7 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="cPq-Qz-5zZ" secondAttribute="trailing" constant="8" id="2PO-Xn-KZE"/>
                                             <constraint firstItem="cPq-Qz-5zZ" firstAttribute="leading" secondItem="1JS-IO-HnO" secondAttribute="leading" constant="8" id="JRy-9l-qDR"/>
@@ -1794,6 +1794,7 @@
                         <outlet property="countryButton" destination="C1U-WW-LsI" id="P7x-23-R1l"/>
                         <outlet property="countryField" destination="eEh-RU-GRp" id="zGW-Ef-c9h"/>
                         <outlet property="countryView" destination="zhS-21-CHy" id="iBI-Xe-Wvq"/>
+                        <outlet property="dateStack" destination="jRI-UI-VrV" id="mM4-vm-oC9"/>
                         <outlet property="filterClearButton" destination="Mda-6w-jXT" id="4MM-GX-tSp"/>
                         <outlet property="filterSearchButton" destination="nmu-6H-t9i" id="GmL-gZ-Zdy"/>
                         <outlet property="locationButton" destination="vMp-Ev-DFX" id="dlG-C0-iok"/>

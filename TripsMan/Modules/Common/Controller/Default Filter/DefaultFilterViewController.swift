@@ -21,6 +21,7 @@ class DefaultFilterViewController: UIViewController {
     @IBOutlet weak var cityField: CustomTextField!
     @IBOutlet weak var cityButton: UIButton!
     
+    @IBOutlet weak var dateStack: UIStackView!
     @IBOutlet weak var checkinView: UIView!
     @IBOutlet weak var checkinField: CustomTextField!
     @IBOutlet weak var checkInButton: UIButton!
@@ -138,10 +139,9 @@ class DefaultFilterViewController: UIViewController {
             startDateField.text = activityFilters.activityDate?.stringValue(format: "dd-MM-yyyy")
             countryField.text = activityFilters.country?.name
         } else if listType == .meetups {
+            
             locationView.isHidden = true
-            checkinView.isHidden = true
-            checkoutView.isHidden = true
-            startDateView.isHidden = true
+            dateStack.isHidden = true
             counterMainView.isHidden = true
             
             countryField.text = meetupFilters.country?.name
@@ -201,6 +201,7 @@ class DefaultFilterViewController: UIViewController {
         let countryPickerVC = UIStoryboard(name: "Common", bundle: nil).instantiateViewController(withIdentifier: "CountryListingViewController") as! CountryListingViewController
         countryPickerVC.delegate = self
         countryPickerVC.listType = listType
+        countryPickerVC.isCity = isCity
         
         present(countryPickerVC, animated: true)
     }
@@ -287,9 +288,15 @@ class DefaultFilterViewController: UIViewController {
 }
 
 extension DefaultFilterViewController: CountryPickerDelegate {
+    func cityDidSelected(_ cityName: String) {
+        meetupFilters.city = cityName
+        cityField.text = cityName
+    }
+    
     func countryDidSelected(_ country: Country) {
         packageFilters.country = country
         activityFilters.country = country
+        meetupFilters.country = country
         countryField.text = country.name
     }
 }
@@ -353,4 +360,5 @@ protocol DefaultFilterDelegate {
     func searchDidTapped(_ hotelFilters: HotelListingFilters?)
     func searchDidTapped(_ packageFilters: PackageFilters?)
     func searchDidTapped(_ activityFilters: ActivityFilters?)
+    func searchDidTapped(_ meetupFilter: MeetupFilters?)
 }

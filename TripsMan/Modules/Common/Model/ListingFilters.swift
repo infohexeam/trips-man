@@ -45,6 +45,7 @@ struct ActivityFilters: Codable {
 
 struct MeetupFilters: Codable {
     var country: Country? = nil
+    var city: String? = nil
     var meetupDate: Date? = nil
     var rate: Rate? = nil
     var filters: [String: [Int]]? = nil

@@ -26,3 +26,16 @@ struct Country: Codable {
         case name, code, icon
     }
 }
+
+
+// MARK: - CityData
+struct CityData: Codable {
+    let data: [City]
+    let status: Int
+    let message: String
+}
+
+// MARK: - Datum
+struct City: Codable {
+    let cityName: String
+}

@@ -30,8 +30,12 @@ class CountryListingViewController: UIViewController {
         }
     }
     
+    var cities: [City]?
+    
     var delegate: CountryPickerDelegate?
     var listType: ListType?
+    var isCity = false
+    var countryId: Int?
     
     let parser = Parser()
 
@@ -42,6 +46,13 @@ class CountryListingViewController: UIViewController {
             getPackageCountries()
         } else if listType == .activities {
             getActivityCountries()
+        } else if listType == .meetups {
+            if isCity {
+                
+            } else {
+                getMeetupCountries()
+            }
+            
         }
 
     }
@@ -77,6 +88,44 @@ extension CountryListingViewController {
                 if error == nil {
                     if result!.status == 1 {
                         self.countries = result!.data
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                    
+            }
+        }
+    }
+    
+    func getMeetupCountries() {
+        showIndicator()
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupCountryList", http: .get, parameters: nil) { (result: CountryData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.countries = result!.data
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                    
+            }
+        }
+    }
+    
+    func getMeetupCities() {
+        showIndicator()
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupCityList", http: .get, parameters: nil) { (result: CityData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.cities = result!.data
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -125,6 +174,11 @@ extension CountryListingViewController: UICollectionViewDataSource {
 
 extension CountryListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isCity {
+            if let cities = cities {
+                delegate?.cityDidSelected(cities[indexPath.row].cityName)
+            }
+        }
         delegate?.countryDidSelected((countryManager?.getCountries(searchBar.text ?? "")![indexPath.row])!)
         self.dismiss(animated: true)
     }
@@ -165,5 +219,6 @@ extension CountryListingViewController {
 
 protocol CountryPickerDelegate {
     func countryDidSelected(_ country: Country)
+    func cityDidSelected(_ cityName: String)
 }
 

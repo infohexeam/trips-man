@@ -296,6 +296,14 @@ extension ListingViewController: SearchDelegate {
 }
 
 extension ListingViewController: DefaultFilterDelegate {
+    func searchDidTapped(_ meetupFilter: MeetupFilters?) {
+        if let filters = meetupFilter {
+            self.meetupFilter = filters
+            assignValues()
+            getMeetups()
+        }
+    }
+    
     func searchDidTapped(_ activityFilters: ActivityFilters?) {
         if let filters = activityFilters {
             self.activityFilter = filters
