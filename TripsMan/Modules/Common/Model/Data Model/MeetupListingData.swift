@@ -21,7 +21,8 @@ struct Meetup: Codable {
     let meetupName, address, meetupCode: String
     let countryID: Int
     let countryName, shortDescription, termsAndConditions, details: String
-    let latitude, longitude, costPerPerson, meetupDate: String
+    let latitude, longitude, meetupDate: String
+    let costPerPerson: Double
     let meetupType, meetupStatus: String
     let meetupImages: [MeetupImage]
 

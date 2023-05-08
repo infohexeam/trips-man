@@ -283,6 +283,11 @@ class ListingViewController: UIViewController {
                 vc.activityID = listingManager.getListingData()?[index].id ?? 0
                 vc.activityFilters = activityFilter
             }
+        } else if let vc = segue.destination as? MeetupDetailsViewController {
+            if let index = sender as? Int {
+                vc.meetupID = listingManager.getListingData()?[index].id ?? 0
+                vc.meetupFilters = meetupFilter
+            }
         }
     }
     
@@ -779,6 +784,8 @@ extension ListingViewController: UICollectionViewDelegate {
                 performSegue(withIdentifier: "toPackageDetails", sender: indexPath.row)
             } else if listType == .activities {
                 performSegue(withIdentifier: "toActivityDetails", sender: indexPath.row)
+            } else if listType == .meetups {
+                performSegue(withIdentifier: "toMeetupDetails", sender: indexPath.row)
             }
             
         }

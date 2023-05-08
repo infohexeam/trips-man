@@ -1757,10 +1757,10 @@ Overnight stay in Goa.</string>
                                     <rect key="frame" x="0.0" y="879" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-PS-Xiv">
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2xa-PS-Xiv">
                                             <rect key="frame" x="8" y="4" width="377" height="42"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3M-l2-bFf">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3M-l2-bFf">
                                                     <rect key="frame" x="8" y="0.0" width="120" height="38"/>
                                                     <color key="tintColor" name="secondaryColor"/>
                                                     <state key="normal" title="Button"/>

@@ -908,6 +908,7 @@
                         <segue destination="vNf-y9-esa" kind="presentation" identifier="toDefaultFilter" animates="NO" id="PQc-bp-Ns8"/>
                         <segue destination="gBg-HW-Lfw" kind="show" identifier="toPackageDetails" id="SAc-Pz-rpr"/>
                         <segue destination="bbl-uC-HS0" kind="show" identifier="toActivityDetails" id="nnv-K6-ioG"/>
+                        <segue destination="MvL-zu-58F" kind="show" identifier="toMeetupDetails" id="MZR-GJ-CRe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb4-RH-Kzz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -915,6 +916,16 @@
                 <tapGestureRecognizer id="m6L-TK-Xj7"/>
             </objects>
             <point key="canvasLocation" x="924" y="882"/>
+        </scene>
+        <!--Meetup-->
+        <scene sceneID="6vN-SA-2fC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Meetup" id="MvL-zu-58F" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0jq-Bs-3Hb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ub-C6-6Df" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="1012"/>
         </scene>
         <!--Activities-->
         <scene sceneID="2Bq-et-VP8">
@@ -924,7 +935,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyD-rC-KNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="980"/>
+            <point key="canvasLocation" x="1515" y="1051"/>
         </scene>
         <!--Hotel-->
         <scene sceneID="n2t-0Z-UTN">
@@ -934,7 +945,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gD-w9-gNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="1055"/>
+            <point key="canvasLocation" x="1497" y="1090"/>
         </scene>
         <!--Packages-->
         <scene sceneID="5gu-cN-Vzj">
@@ -944,7 +955,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jL-dv-xri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497" y="1142"/>
+            <point key="canvasLocation" x="1513" y="1142"/>
         </scene>
         <!--Default Filter View Controller-->
         <scene sceneID="gXB-di-gNh">

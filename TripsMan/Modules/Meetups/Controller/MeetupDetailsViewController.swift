@@ -1,28 +1,29 @@
 //
-//  ActivityDetailsViewController.swift
+//  MeetupDetailsViewController.swift
 //  TripsMan
 //
-//  Created by Hexeam Software Solutions on 18/04/23.
+//  Created by Hexeam Software Solutions on 06/05/23.
 //
 
 import UIKit
 import Combine
+import CoreLocation
+import MapKit
 
-class ActivityDetailsViewController: UIViewController {
+class MeetupDetailsViewController: UIViewController {
     
-    @IBOutlet weak var activityCollectionView: UICollectionView! {
+    @IBOutlet weak var meetupCollectionView: UICollectionView! {
         didSet {
-            activityCollectionView.collectionViewLayout = createLayout()
-            activityCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            activityCollectionView.dataSource = self
-//            activityCollectionView.delegate = self
+            meetupCollectionView.collectionViewLayout = createLayout()
+            meetupCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            meetupCollectionView.dataSource = self
         }
     }
     
-    var activityManager: ActivityDetailsManager?
+    var meetupManager: MeetupDetailsManager?
     var parser = Parser()
-    var activityID = 0
-    var activityFilters = ActivityFilters()
+    var meetupID = 0
+    var meetupFilters = MeetupFilters()
     
     var fontSize: CGFloat? = nil
     
@@ -31,20 +32,18 @@ class ActivityDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Activity Details")
+        addBackButton(with: "Meetup Details")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getActivityDetails()
-        
+        getmeetupDetails()
+
     }
     
     @IBAction func bookNowTapped(_ sender: UIButton) {
-        if activityFilters.activityDate != nil {
-            performSegue(withIdentifier: "toActivityBooking", sender: nil)
-        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,26 +54,26 @@ class ActivityDetailsViewController: UIViewController {
                 }
             }
             
-        } else  if let vc = segue.destination as? ActivityBookingViewController {
-            activityFilters.activityDetails = activityManager?.getActivityDetails()
-            vc.activityFilters = activityFilters
+//        } else  if let vc = segue.destination as? ActivityBookingViewController {
+//            activityFilters.activityDetails = activityManager?.getActivityDetails()
+//            vc.activityFilters = activityFilters
         }
     }
 }
 
 
 //MARK: - APICalls
-extension ActivityDetailsViewController {
-    func getActivityDetails() {
+extension MeetupDetailsViewController {
+    func getmeetupDetails() {
         showIndicator()
         
-        parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityById?ActivityId=\(activityID)&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: ActivityDetailsData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupById?MeetupId=\(meetupID)&Currency=\(SessionManager.shared.getCurrency())&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: MeetupDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.activityManager = ActivityDetailsManager(activityDetails: result!.data)
-                        self.activityCollectionView.reloadData()
+                        self.meetupManager = MeetupDetailsManager(meetupDetails: result!.data)
+                        self.meetupCollectionView.reloadData()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -86,49 +85,48 @@ extension ActivityDetailsViewController {
     }
 }
 
-
 //MARK: - UICollectionView
-extension ActivityDetailsViewController: UICollectionViewDataSource {
+extension MeetupDetailsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return activityManager?.getSections()?.count ?? 0
+        return meetupManager?.getSections()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let thisSection = activityManager?.getSections()?[section] else { return 0 }
+        guard let thisSection = meetupManager?.getSections()?[section] else { return 0 }
         return thisSection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return UICollectionViewCell() }
+        guard let thisSection = meetupManager?.getSections()?[indexPath.section] else { return UICollectionViewCell() }
         
         if thisSection.type == .image {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityImageCell", for: indexPath) as! ActivityDetailsImageCollectionViewCell
-            if let image = activityManager?.getActivityDetails()?.activityImages[indexPath.row] {
-                cell.activityImage.sd_setImage(with: URL(string: image.imageURL), placeholderImage: UIImage(systemName: K.activityPlaceholderImage))
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "meetupImageCell", for: indexPath) as! MeetupImageCollectionViewCell
+            if let image = meetupManager?.getMeetupDetails()?.meetupImages[indexPath.row] {
+                cell.meetupImage.sd_setImage(with: URL(string: image.imageURL), placeholderImage: UIImage(systemName: K.meetupPlaceholderImage))
 
             }
             
             return cell
-        } else if thisSection.type == .activityDetails {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityDetailsCell", for: indexPath) as! ActivityDetailsCollectionViewCell
+        } else if thisSection.type == .meetupDetails {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "meetupDetailsCell", for: indexPath) as! MeetupDetailsCollectionViewCell
             
-            if let details = activityManager?.getActivityDetails() {
+            if let details = meetupManager?.getMeetupDetails() {
                 if fontSize == nil {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 
-                cell.activityName.text = details.activityName
-                cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) taxes and fee per person"
+                cell.meetupName.text = details.meetupName
+                cell.priceLabel.addPriceString(details.costPerPerson, details.offerAmount, fontSize: fontSize!)
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceCharge) taxes and fee per person"
                 cell.detailsLabel.text = details.shortDescription
-                cell.dateLabel.text = activityFilters.activityDate?.stringValue(format: "dd MMM yyyy")
+                cell.dateLabel.text = details.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMMM dd")
             }
             
             return cell
         } else if thisSection.type == .description {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ActivityDescriptionCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! MeetupDescriptionCollectionViewCell
             
-            if let description = activityManager?.getDescription() {
+            if let description = meetupManager?.getDescription() {
                 cell.descTitle.text = description[indexPath.row].title
                 cell.descDetails.attributedText = description[indexPath.row].description.attributedHtmlString
                 cell.delegate = self
@@ -136,15 +134,19 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             
             return cell
         } else if thisSection.type == .map {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapCell", for: indexPath) as! ActivityMapCollectionViewCell
-            
-            
-            return cell
-        } else if thisSection.type == .inclusions {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "inclusionsCell", for: indexPath) as! InclusionsCollectionViewCell
-            
-            if let inclusions = activityManager?.getActivityDetails()?.activityInclusion {
-                cell.inclusionLabel.text = "• " + inclusions[indexPath.row].inclusionName
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mapCell", for: indexPath) as! MeetupMapCollectionViewCell
+            if let details = meetupManager?.getMeetupDetails() {
+                let meetupLocation = CLLocationCoordinate2D(latitude: Double(details.latitude) ?? 0.0, longitude: Double(details.longitude) ?? 0.0)
+                let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+                let region = MKCoordinateRegion(center: meetupLocation, span: span)
+                cell.mapView.setRegion(region, animated: true)
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = meetupLocation
+                annotation.title = details.meetupName
+                cell.mapView.addAnnotation(annotation)
+                
+                cell.addressLabel.text = details.address
             }
             
             
@@ -162,21 +164,10 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
-        case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "activityHeader", for: indexPath) as! ActivityHeaderView
-            
-            headerView.headerLabel.text = "Inclusions"
-
-//            guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return headerView }
-
-
-            return headerView
-            
-            
         case UICollectionView.elementKindSectionFooter:
-            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "activityFooter", for: indexPath) as! ActivityDetailsFooterView
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "meetupFooter", for: indexPath) as! MeetupDetailsFooterView
             
-            footerView.configure(with: activityManager?.getActivityDetails()?.activityImages.count ?? 0)
+            footerView.configure(with: meetupManager?.getMeetupDetails()?.meetupImages.count ?? 0)
             
             footerView.subscribeTo(subject: pagingInfoSubject, for: indexPath.section)
             
@@ -185,12 +176,11 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
     }
-    
 }
 
 
 //MARK: ReadMoreDelegate
-extension ActivityDetailsViewController: ReadMoreDelegate {
+extension MeetupDetailsViewController: ReadMoreDelegate {
     func showReadMore(for type: ReadMoreTypes, content: String?) {
         print("\n\n delegate: \(content)")
         performSegue(withIdentifier: "toReadMore", sender: content)
@@ -198,13 +188,12 @@ extension ActivityDetailsViewController: ReadMoreDelegate {
 }
 
 
-
 //MARK: - Layout
-extension ActivityDetailsViewController {
+extension MeetupDetailsViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
                         
-            guard let thisSection = self.activityManager?.getSections()?[sectionIndex] else { return nil }
+            guard let thisSection = self.meetupManager?.getSections()?[sectionIndex] else { return nil }
             let section: NSCollectionLayoutSection
             
             if thisSection.type == .image {
@@ -237,7 +226,7 @@ extension ActivityDetailsViewController {
                 
                 return section
                 
-            } else if thisSection.type == .activityDetails {
+            } else if thisSection.type == .meetupDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(100))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -276,24 +265,6 @@ extension ActivityDetailsViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 
-            } else if thisSection.type == .inclusions {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(100))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(100))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .absolute(20))
-                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-                
-                
-                section = NSCollectionLayoutSection(group: group)
-                section.boundarySupplementaryItems = [sectionHeader]
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
-                
             } else if thisSection.type == .termsAndConditions {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(100))
@@ -316,6 +287,4 @@ extension ActivityDetailsViewController {
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
 }
-
-
 
