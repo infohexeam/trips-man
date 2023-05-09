@@ -153,7 +153,10 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
             return cell
         } else if thisSection.type == .termsAndConditions {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "termsCell", for: indexPath) as! TermsCollectionViewCell
-            
+            if let details = meetupManager?.getMeetupDetails() {
+                cell.delegate = self
+                cell.termsLabel.setAttributedHtmlText(details.termsAndConditions)
+            }
             
             return cell
         } else {

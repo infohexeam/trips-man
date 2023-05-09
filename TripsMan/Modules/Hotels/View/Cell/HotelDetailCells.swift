@@ -176,7 +176,8 @@ class TermsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate
     var delegate: ReadMoreDelegate?
     
     @IBAction func readMoreDidTapped(_ sender: UIButton) {
-        delegate?.showReadMore(for: .terms, content: nil)
+        print("\n terms clikced")
+        delegate?.showReadMore(for: .terms, content: termsLabel.text)
     }
     
 }
