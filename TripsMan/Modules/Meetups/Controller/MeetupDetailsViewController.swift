@@ -43,7 +43,7 @@ class MeetupDetailsViewController: UIViewController {
     }
     
     @IBAction func bookNowTapped(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: "toActivityBooking", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,9 +54,10 @@ class MeetupDetailsViewController: UIViewController {
                 }
             }
             
-//        } else  if let vc = segue.destination as? ActivityBookingViewController {
-//            activityFilters.activityDetails = activityManager?.getActivityDetails()
-//            vc.activityFilters = activityFilters
+        } else  if let vc = segue.destination as? ActivityBookingViewController {
+            meetupFilters.meetupDetails = meetupManager?.getMeetupDetails()
+            vc.meetupFilters = meetupFilters
+            vc.listType = .meetups
         }
     }
 }

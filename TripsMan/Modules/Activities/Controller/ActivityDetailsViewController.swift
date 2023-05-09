@@ -58,6 +58,7 @@ class ActivityDetailsViewController: UIViewController {
         } else  if let vc = segue.destination as? ActivityBookingViewController {
             activityFilters.activityDetails = activityManager?.getActivityDetails()
             vc.activityFilters = activityFilters
+            vc.listType = .activities
         }
     }
 }

@@ -17,29 +17,15 @@ struct ActivityBookingData: Codable {
 
 // MARK: - ActivityBooking
 struct ActivityBooking: Codable {
-    let bookingNo, bookingDate: String
-    let totalAmount: Int
-    let bookingFrom, bookingTo, customerCode, customerID: String
-    let customerName: String
-    let totalPrice, totalGuest: Int
-    let primaryGuest, contactNo, emailID, gender: String
-    let age, bookingID, activityID, isCancelled: Int
-    let imageURL: String
+    let bookingDate: String
+    let bookingFrom: String
     let activityName: String
-    let adultCount, childCount: Int
+    let bookingId, adultCount, childCount: Int
     let activityGuests: [ActivityGuest]
     let amountDetails: [AmountDetail]
 
     enum CodingKeys: String, CodingKey {
-        case bookingNo, bookingDate, totalAmount, bookingFrom, bookingTo, customerCode
-        case customerID = "customerId"
-        case customerName, totalPrice, totalGuest, primaryGuest, contactNo
-        case emailID = "emailId"
-        case gender, age
-        case bookingID = "bookingId"
-        case activityID = "activityId"
-        case isCancelled
-        case imageURL = "imageUrl"
+        case bookingDate, bookingFrom, bookingId
         case activityName, adultCount, childCount, activityGuests, amountDetails
     }
 }

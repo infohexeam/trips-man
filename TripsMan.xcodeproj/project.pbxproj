@@ -152,6 +152,8 @@
 		C1E7E9A029FA828F00676237 /* ActivityBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */; };
 		C1E97DD229A796EE0025B03F /* SearchCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD129A796EE0025B03F /* SearchCells.swift */; };
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
+		C1F68B622A0A13F2000C0BD7 /* MeetupBookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */; };
+		C1F68B642A0A1D8F000C0BD7 /* MeetupBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */; };
 		C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */; };
 		C1F77ED029B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECF29B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift */; };
 		C1F788E029DBF7980019B148 /* PackageActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F788DF29DBF7980019B148 /* PackageActionCollectionViewCell.swift */; };
@@ -340,6 +342,8 @@
 		C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookingManager.swift; sourceTree = "<group>"; };
 		C1E97DD129A796EE0025B03F /* SearchCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCells.swift; sourceTree = "<group>"; };
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
+		C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupBookingData.swift; sourceTree = "<group>"; };
+		C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupBookingManager.swift; sourceTree = "<group>"; };
 		C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllReviewsViewController.swift; sourceTree = "<group>"; };
 		C1F77ECF29B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1F788DF29DBF7980019B148 /* PackageActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageActionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -453,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E25CF32A08C0C200AC328A /* MeetupDetailsManager.swift */,
+				C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */,
 				C1E25CF52A08C31100AC328A /* Data Model */,
 			);
 			path = Model;
@@ -1464,6 +1469,7 @@
 			isa = PBXGroup;
 			children = (
 				C1E25CF62A08C32500AC328A /* MeetupDetailsData.swift */,
+				C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -1877,9 +1883,11 @@
 				C1F788E029DBF7980019B148 /* PackageActionCollectionViewCell.swift in Sources */,
 				C1DF2D7E29BF2A40000732B7 /* PackageListingData.swift in Sources */,
 				C1E7E99629FA692700676237 /* ActivitySummaryCollectionViewCell.swift in Sources */,
+				C1F68B622A0A13F2000C0BD7 /* MeetupBookingData.swift in Sources */,
 				C150766429DD8032008DAFE2 /* PackBookingSummaryViewController.swift in Sources */,
 				C15CDDE929C1BB5600E15E9F /* DatePickerViewController.swift in Sources */,
 				C19F813D296BF6A00057119F /* String+Extension.swift in Sources */,
+				C1F68B642A0A1D8F000C0BD7 /* MeetupBookingManager.swift in Sources */,
 				C1CA2C452977B21C00648A45 /* NotificationData.swift in Sources */,
 				C10D2BC12900C7EA00029F51 /* ProfileViewController.swift in Sources */,
 				C15E31FA28C701BA00E209EB /* CustomView.swift in Sources */,

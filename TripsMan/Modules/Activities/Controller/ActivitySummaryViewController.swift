@@ -55,7 +55,7 @@ class ActivitySummaryViewController: UIViewController {
         if let vc = segue.destination as? CouponsViewController {
             vc.coupons = (activityManager?.getAllCoupons())!
             vc.selectedCoupon = activityManager?.getSelectedCoupon()
-            vc.bookingID = activityBookingData!.bookingID
+            vc.bookingID = activityBookingData!.bookingId
             vc.couponModule = .activity
             vc.delegate = self
         }
@@ -88,7 +88,7 @@ extension ActivitySummaryViewController {
     func applyCoupon(with coupon: Coupon) {
         showIndicator()
         
-        let params: [String: Any] = ["bookingId": activityBookingData!.bookingID,
+        let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
                                      "couponCode": coupon.couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
@@ -118,7 +118,7 @@ extension ActivitySummaryViewController {
     func removeCoupon(with couponCode: String) {
         showIndicator()
         
-        let params: [String: Any] = ["bookingId": activityBookingData!.bookingID,
+        let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
@@ -146,7 +146,7 @@ extension ActivitySummaryViewController {
     
     func confirmBooking() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(activityBookingData!.bookingID)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(activityBookingData!.bookingId)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

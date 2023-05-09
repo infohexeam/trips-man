@@ -50,7 +50,7 @@ struct MeetupFilters: Codable {
     var rate: Rate? = nil
     var filters: [String: [Int]]? = nil
     var sort: Sortby? = nil
-//    var activityDetails: ActivityDetails? = nil
+    var meetupDetails: MeetupDetails? = nil
 }
 
 struct Rate: Codable {

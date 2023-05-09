@@ -475,11 +475,22 @@
                     <connections>
                         <outlet property="meetupCollectionView" destination="mWN-lD-9Iw" id="OIh-Hq-rH0"/>
                         <segue destination="Bue-Gg-zVi" kind="presentation" identifier="toReadMore" id="AeL-z6-5cr"/>
+                        <segue destination="ad5-Uz-jeI" kind="show" identifier="toActivityBooking" id="yK5-Zk-ZpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-14.503816793893129" y="-17.605633802816904"/>
+        </scene>
+        <!--ActivityBookingViewController-->
+        <scene sceneID="Fij-vD-Axt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Activities" referencedIdentifier="ActivityBookingViewController" id="ad5-Uz-jeI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="rlw-4G-Tzn"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5UO-Jf-ytP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831" y="-18"/>
         </scene>
         <!--ReadMoreViewController-->
         <scene sceneID="M7Z-nb-xLj">

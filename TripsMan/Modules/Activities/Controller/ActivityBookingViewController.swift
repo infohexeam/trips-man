@@ -21,27 +21,38 @@ class ActivityBookingViewController: UIViewController {
         }
     }
     
+    var listType: ListType?
+    
     var activityManager: ActivityBookingManager?
+    var meetupManager: MeetupBookingManager?
     var parser = Parser()
     
-    var bookedData: ActivityBooking?
+    var activityBookedData: ActivityBooking?
+    var meetupBookingData: MeetupBooking?
     
     var fontSize: CGFloat? = nil
     
     var activityFilters = ActivityFilters()
+    var meetupFilters = MeetupFilters()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                                               
         if let activityDetails = activityFilters.activityDetails {
             activityManager = ActivityBookingManager(activityDetails: activityDetails)
+        } else if let meetupDetails = meetupFilters.meetupDetails {
+            meetupManager = MeetupBookingManager(meetupDetails: meetupDetails)
         }
     }
     
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         if isGuestDetailsValid() {
-            createBooking()
+            if listType == .activities {
+                createActivityBooking()
+            } else {
+                createMeetupBooking()
+            }
         } else {
             print("\n\nerrrrror")
         }
@@ -62,14 +73,14 @@ class ActivityBookingViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ActivitySummaryViewController {
-            vc.activityBookingData = bookedData
+            vc.activityBookingData = activityBookedData
         }
     }
 }
 
 //MARK: - APICalls
 extension ActivityBookingViewController {
-    func createBooking() {
+    func createActivityBooking() {
         showIndicator()
         
         var guests = [[String: Any]]()
@@ -109,8 +120,60 @@ extension ActivityBookingViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.bookedData = result!.data
-                        createdActivityBookingID = result!.data.bookingID
+                        self.activityBookedData = result!.data
+                        createdActivityBookingID = result!.data.bookingId
+                        self.performSegue(withIdentifier: "toActivitySummary", sender: nil)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
+    func createMeetupBooking() {
+        showIndicator()
+        
+        var guests = [[String: Any]]()
+        print(activityFieldTexts)
+        let primary = activityFieldTexts.filter { $0.key == [2,0] }
+        
+        
+        for each in activityFieldTexts {
+            guests.append(["id": 0,
+                           "contactNo": each.value.contactNumber,
+                           "guestName": each.value.name,
+                           "emailId": each.value.emailID,
+                           "gender": each.value.gender,
+                           "isPrimary": each.value == primary.first?.value ? 1 : 0,
+                           "age": each.value.age.intValue()])
+        }
+        
+        var params: [String: Any] = ["bookingType": "create",
+                                     "bookingDate": Date().stringValue(format: "yyyy-MM-dd"),
+                                     "meetupId": meetupFilters.meetupDetails?.meetupID ?? 0,
+                                     "userId": SessionManager.shared.getLoginDetails()!.userid!,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage(),
+                                     "booking_Guest": guests]
+        
+        if createdActivityBookingID != nil {
+            params["bookingType"] = "update"
+            params["bookingId"] = createdActivityBookingID
+        }
+        
+        print("\n\n params: \(params)")
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerWebMeetup/Web/CreateCustomerMeetupBooking", http: .post, parameters: params) { (result: MeetupBookingData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.meetupBookingData = result!.data
+                        createdActivityBookingID = result!.data.bookingId
                         self.performSegue(withIdentifier: "toActivitySummary", sender: nil)
                     } else {
                         self.view.makeToast(result!.message)
@@ -128,18 +191,29 @@ extension ActivityBookingViewController {
 //MARK: - CollectionView
 extension ActivityBookingViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return activityManager?.getSections()?.count ?? 0
+        if listType == .activities {
+            return activityManager?.getSections()?.count ?? 0
+        }
+        return meetupManager?.getSections()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let thisSection = activityManager?.getSections()?[section] else { return 0 }
+        if listType == .activities {
+            guard let thisSection = activityManager?.getSections()?[section] else { return 0 }
+            return thisSection.count
+        }
+        guard let thisSection = meetupManager?.getSections()?[section] else { return 0 }
         return thisSection.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return UICollectionViewCell() }
         
-        if thisSection.type == .summary {
+        let activitySection = activityManager?.getSections()?[indexPath.section]
+        let meetupSection = meetupManager?.getSections()?[indexPath.section]
+        
+        
+        if activitySection?.type == .summary || meetupSection?.type == .summary {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activitySummaryCell", for: indexPath) as! ActivitySummaryCollectionViewCell
             
             if let activityDetails = activityManager?.getActivityDetails() {
@@ -158,14 +232,30 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                 cell.dateLabel.text = activityFilters.activityDate!.stringValue(format: "EEEE\ndd-MM-yyyy")
             }
             
+            if let meetupDetails = meetupManager?.getMeetupDetails() {
+                let featuredImage = meetupDetails.meetupImages.filter { $0.isFeatured == 1}
+                if featuredImage.count != 0 {
+                    cell.activityImage.sd_setImage(with: URL(string: featuredImage[0].imageURL), placeholderImage: UIImage(systemName: K.meetupPlaceholderImage))
+                }
+                cell.activityName.text = meetupDetails.meetupName
+                cell.locationLabel.text = meetupDetails.address
+                if fontSize == nil {
+                    fontSize = cell.priceLabel.font.pointSize
+                }
+                cell.priceLabel.addPriceString(meetupDetails.costPerPerson, meetupDetails.offerAmount, fontSize: fontSize!)
+                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(meetupDetails.serviceCharge) taxes and fee per person"
+                
+                cell.dateLabel.text = meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "EEEE\ndd-MM-yyyy")
+            }
+            
             
             return cell
-        } else if thisSection.type == .header {
+        } else if activitySection?.type == .header || meetupSection?.type == .header {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityHeaderCell", for: indexPath) as! ActivityHeaderCell
             
             
             return cell
-        } else if thisSection.type == .customerDetails {
+        } else if activitySection?.type == .customerDetails || meetupSection?.type == .customerDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCustomerCell", for: indexPath) as! ActivityCustomerCollectionViewCell
             
             cell.setupView()
@@ -180,7 +270,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
             
             
             return cell
-        } else if thisSection.type == .action {
+        } else if activitySection?.type == .action || meetupSection?.type == .action {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityActionCell", for: indexPath) as! ActivityActionCollectionViewCell
             
             
@@ -239,11 +329,15 @@ extension ActivityBookingViewController: DynamicCellHeightDelegate {
 extension ActivityBookingViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-                        
-            guard let thisSection = self.activityManager?.getSections()?[sectionIndex] else { return nil }
+            
+            let activitySection = self.activityManager?.getSections()?[sectionIndex]
+            let meetupSection = self.meetupManager?.getSections()?[sectionIndex]
+            
+            
+            
             let section: NSCollectionLayoutSection
             
-            if thisSection.type == .summary {
+            if activitySection?.type == .summary || meetupSection?.type == .summary {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(30))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -258,7 +352,7 @@ extension ActivityBookingViewController {
                 
                 return section
                 
-            } else if thisSection.type == .header {
+            } else if activitySection?.type == .header || meetupSection?.type == .header {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(30))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -273,7 +367,7 @@ extension ActivityBookingViewController {
                 
                 return section
                 
-            } else if thisSection.type == .customerDetails {
+            } else if activitySection?.type == .customerDetails || meetupSection?.type == .customerDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(30))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -288,7 +382,7 @@ extension ActivityBookingViewController {
                 
                 return section
                 
-            } else if thisSection.type == .action {
+            } else if activitySection?.type == .action || meetupSection?.type == .action {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(30))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
