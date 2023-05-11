@@ -24,22 +24,33 @@ struct ActivitySummaryManager {
     }
     
     var sections: [ActivitySummarySection]? = nil
-    var bookingData: ActivityBooking?
+    var activityBookingData: ActivityBooking?
+    var meetupBookingData: MeetupBooking?
     var coupons: [Coupon]?
     var couponsToShow: [Coupon]?
     var rewardPoint = 0.0
     var selectedCoupon: String?
     var amountDetails: [AmountDetail]?
     
-    init(activityBooking: ActivityBooking?) {
-        self.bookingData = activityBooking
-        self.amountDetails = activityBooking?.amountDetails
+    init(activityBooking: ActivityBooking?, meetupBooking: MeetupBooking?) {
+        if activityBooking != nil {
+            self.activityBookingData = activityBooking
+            self.amountDetails = activityBooking?.amountDetails
+        } else if meetupBooking != nil {
+            self.meetupBookingData = meetupBooking
+            self.amountDetails = meetupBooking?.amountDetails
+        }
         setSections()
     }
     
-    init(activityBooking: ActivityBooking?, coupons: [Coupon]?, rewardPoints: Double) {
-        self.bookingData = activityBooking
-        self.amountDetails = activityBooking?.amountDetails
+    init(activityBooking: ActivityBooking?, meetupBooking: MeetupBooking?, coupons: [Coupon]?, rewardPoints: Double) {
+        if activityBooking != nil {
+            self.activityBookingData = activityBooking
+            self.amountDetails = activityBooking?.amountDetails
+        } else if meetupBooking != nil {
+            self.meetupBookingData = meetupBooking
+            self.amountDetails = meetupBooking?.amountDetails
+        }
         self.coupons = coupons
         self.rewardPoint = rewardPoints
         setCouponsTOShow()
@@ -51,7 +62,7 @@ struct ActivitySummaryManager {
     }
     
     mutating func setSections() {
-        if bookingData != nil {
+        if activityBookingData != nil {
             sections = [ActivitySummarySection(type: .summary, count: 1),
                         ActivitySummarySection(type: .customerDetails, count: 1)]
             sections?.append(ActivitySummarySection(type: .seperator, count: 1))
@@ -61,12 +72,27 @@ struct ActivitySummaryManager {
             if rewardPoint > 0 {
                 sections?.append(ActivitySummarySection(type: .reward, count: 1))
             }
-            sections?.append(ActivitySummarySection(type: .priceDetails, count: bookingData!.amountDetails.count))
+            sections?.append(ActivitySummarySection(type: .priceDetails, count: activityBookingData!.amountDetails.count))
+        } else if meetupBookingData != nil {
+            sections = [ActivitySummarySection(type: .summary, count: 1),
+                        ActivitySummarySection(type: .customerDetails, count: 1)]
+            sections?.append(ActivitySummarySection(type: .seperator, count: 1))
+            if coupons != nil {
+                sections?.append(ActivitySummarySection(type: .coupon, count: couponsToShow!.count))
+            }
+            if rewardPoint > 0 {
+                sections?.append(ActivitySummarySection(type: .reward, count: 1))
+            }
+            sections?.append(ActivitySummarySection(type: .priceDetails, count: meetupBookingData!.amountDetails.count))
         }
     }
     
-    func getBookingSummary() -> ActivityBooking? {
-        return self.bookingData
+    func getActivityBookingSummary() -> ActivityBooking? {
+        return self.activityBookingData
+    }
+    
+    func getMeetupBookingSummary() -> MeetupBooking? {
+        return self.meetupBookingData
     }
     
     func getSection(_ type: SectionTypes) -> Int? {
@@ -115,6 +141,11 @@ struct ActivitySummaryManager {
     }
     
     func getAmountDetails() -> [AmountDetail]? {
-        return bookingData?.amountDetails
+        if let activityBookingData = activityBookingData {
+            return activityBookingData.amountDetails
+        } else if let meetupBookingData = meetupBookingData {
+            return meetupBookingData.amountDetails
+        }
+        return nil
     }
 }

@@ -34,6 +34,18 @@ class ActivityBookingViewController: UIViewController {
     
     var activityFilters = ActivityFilters()
     var meetupFilters = MeetupFilters()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var title = ""
+        if listType == .activities {
+            title = "Activity Booking"
+        } else if listType == .meetups {
+            title = "Meetup Booking"
+        }
+        addBackButton(with: title)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +86,8 @@ class ActivityBookingViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ActivitySummaryViewController {
             vc.activityBookingData = activityBookedData
+            vc.meetupBookingData = meetupBookingData
+            vc.listType = listType
         }
     }
 }

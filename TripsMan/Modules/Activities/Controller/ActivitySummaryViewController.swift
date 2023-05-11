@@ -21,21 +21,33 @@ class ActivitySummaryViewController: UIViewController {
         }
     }
     
+    var listType: ListType?
+    
     var activityManager: ActivitySummaryManager?
     var parser = Parser()
     
     var activityBookingData: ActivityBooking?
-
+    var meetupBookingData: MeetupBooking?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         successView.isHidden = true
-        activityManager = ActivitySummaryManager(activityBooking: activityBookingData)
-        getCoupons()
+        activityManager = ActivitySummaryManager(activityBooking: activityBookingData, meetupBooking: meetupBookingData)
+        
+        if listType == .activities {
+            getActivityCoupons()
+        } else if listType == .meetups {
+            getMeetupCoupons()
+        }
     }
     
     @IBAction func paymentButtonTapped(_ sender: UIButton) {
         print("reached here")
-        confirmBooking()
+        if listType == .activities {
+            confirmActivityBooking()
+        } else if listType == .meetups {
+            confirmMeetupBooking()
+        }
     }
     
     @IBAction func returnHomeTapped(_ sender: UIButton) {
@@ -55,24 +67,28 @@ class ActivitySummaryViewController: UIViewController {
         if let vc = segue.destination as? CouponsViewController {
             vc.coupons = (activityManager?.getAllCoupons())!
             vc.selectedCoupon = activityManager?.getSelectedCoupon()
-            vc.bookingID = activityBookingData!.bookingId
-            vc.couponModule = .activity
+            if listType == .activities {
+                vc.bookingID = activityBookingData!.bookingId
+                vc.couponModule = .activity
+            } else if listType == .meetups {
+                vc.bookingID = meetupBookingData!.bookingId
+                vc.couponModule = .meetup
+            }
             vc.delegate = self
         }
     }
-
 }
 
 //MARK: - APICalls
 extension ActivitySummaryViewController {
-    func getCoupons() {
+    func getActivityCoupons() {
         showIndicator()
         parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/GetCustomerActivityCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.activityManager = ActivitySummaryManager(activityBooking: self.activityBookingData, coupons: result!.data.coupon, rewardPoints: result!.data.rewardPoint)
+                        self.activityManager = ActivitySummaryManager(activityBooking: self.activityBookingData, meetupBooking: self.meetupBookingData, coupons: result!.data.coupon, rewardPoints: result!.data.rewardPoint)
                         self.summaryCollectionView.reloadData()
                     } else {
                         self.view.makeToast(result!.message)
@@ -80,15 +96,65 @@ extension ActivitySummaryViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
+                
             }
         }
     }
     
-    func applyCoupon(with coupon: Coupon) {
+    func getMeetupCoupons() {
+        showIndicator()
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/GetCustomerMeetupCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.activityManager = ActivitySummaryManager(activityBooking: self.activityBookingData, meetupBooking: self.meetupBookingData, coupons: result!.data.coupon, rewardPoints: result!.data.rewardPoint)
+                        self.summaryCollectionView.reloadData()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    func applyActivityCoupon(with coupon: Coupon) {
         showIndicator()
         
         let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
+                                     "couponCode": coupon.couponCode,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/ApplyCustomerActivityCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.activityManager?.setSelectedCoupon(coupon, amountDetails: result!.data!.amounts)
+                        UIView.performWithoutAnimation {
+                            self.summaryCollectionView.reloadSections(IndexSet([self.activityManager!.getSection(.coupon)!, self.activityManager!.getSection(.priceDetails)!]))
+                        }
+                        
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    func applyMeetupCoupon(with coupon: Coupon) {
+        showIndicator()
+        
+        let params: [String: Any] = ["bookingId": meetupBookingData!.bookingId,
                                      "couponCode": coupon.couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
@@ -110,12 +176,12 @@ extension ActivitySummaryViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
+                
             }
         }
     }
     
-    func removeCoupon(with couponCode: String) {
+    func removeActivityCoupon(with couponCode: String) {
         showIndicator()
         
         let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
@@ -139,12 +205,41 @@ extension ActivitySummaryViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
+                
             }
         }
     }
     
-    func confirmBooking() {
+    func removeMeetupCoupon(with couponCode: String) {
+        showIndicator()
+        
+        let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
+                                     "couponCode": couponCode,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/RemoveCustomerMeetupCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.activityManager?.setSelectedCoupon(nil, amountDetails: result!.data)
+                        UIView.performWithoutAnimation {
+                            self.summaryCollectionView.reloadSections(IndexSet([self.activityManager!.getSection(.coupon)!, self.activityManager!.getSection(.priceDetails)!]))
+                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
+            }
+        }
+    }
+    
+    func confirmActivityBooking() {
         showIndicator()
         parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(activityBookingData!.bookingId)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
@@ -159,7 +254,27 @@ extension ActivitySummaryViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
+                
+            }
+        }
+    }
+    
+    func confirmMeetupBooking() {
+        showIndicator()
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/ConfirmCustomerMeetupBooking?BookingId=\(meetupBookingData!.bookingId)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.successView.isHidden = false
+                        self.successLabel.text = result!.message
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                
             }
         }
     }
@@ -181,25 +296,32 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
         
         if thisSection.type == .summary {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityBookSummaryCell", for: indexPath) as! ActivityBookSummaryCollectionViewCell
-            if let booking = activityManager?.getBookingSummary() {
-                cell.activityName.text = booking.activityName
+            if let activityBooking = activityManager?.getActivityBookingSummary() {
+                cell.activityName.text = activityBooking.activityName
                 //                cell.locationLabel.text = booking.
-                
-                cell.activityDate.text = booking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
-                
+                cell.activityDate.text = activityBooking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
+            } else if let meetupBooking = activityManager?.getMeetupBookingSummary() {
+                cell.activityName.text = meetupBooking.meetupName
+                //                cell.locationLabel.text = booking.
+                cell.activityDate.text = meetupBooking.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
             }
-            
-            
-            
+                        
             return cell
         } else if thisSection.type == .customerDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityCustomerCell", for: indexPath) as! PrimaryGuestCollectionViewCell
-            if let primaryTraveller = activityManager?.bookingData?.activityGuests.filter({ $0.isPrimary == 1 }).last {
-                cell.nameLabel.text = primaryTraveller.guestName
-                cell.numberLabel.text = primaryTraveller.contactNo
-                cell.ageAndGender.text = primaryTraveller.gender + ", \(primaryTraveller.age)"
-                cell.emailLabel.text = primaryTraveller.email
-            }
+                if let activityCustomer = activityManager?.activityBookingData?.activityGuests.filter({ $0.isPrimary == 1 }).last {
+                    cell.nameLabel.text = activityCustomer.guestName
+                    cell.numberLabel.text = activityCustomer.contactNo
+                    cell.ageAndGender.text = activityCustomer.gender + ", \(activityCustomer.age)"
+                    cell.emailLabel.text = activityCustomer.email
+                } else if let meetupCustomer = activityManager?.meetupBookingData?.meetupGuests.filter({ $0.isPrimary == 1 }).last {
+                    cell.nameLabel.text = meetupCustomer.guestName
+                    cell.numberLabel.text = meetupCustomer.contactNo
+                    cell.ageAndGender.text = meetupCustomer.gender + ", \(meetupCustomer.age)"
+                    cell.emailLabel.text = meetupCustomer.email
+                }
+            
+            
             
             
             return cell
@@ -275,7 +397,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             }
             
             return headerView
-           
+            
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionFooter", for: indexPath) as! CouponFooterView
             
@@ -291,7 +413,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             }
             
             return footerView
-    
+            
         default:
             return UICollectionReusableView()
         }
@@ -305,7 +427,11 @@ extension ActivitySummaryViewController: UICollectionViewDelegate {
         
         if thisSection.type == .coupon {
             if activityManager?.getSelectedCoupon() != activityManager?.getCouponsToShow()?[indexPath.row].couponCode {
-                applyCoupon(with: (activityManager?.getCouponsToShow()?[indexPath.row])!)
+                if listType == .activities {
+                    applyActivityCoupon(with: (activityManager?.getCouponsToShow()?[indexPath.row])!)
+                } else if listType == .meetups {
+                    applyMeetupCoupon(with: (activityManager?.getCouponsToShow()?[indexPath.row])!)
+                }
             }
             
         }
@@ -322,7 +448,11 @@ extension ActivitySummaryViewController: CouponDelegate {
     
     func couponRemoved(index: Int) {
         if let coupon = activityManager?.getCouponsToShow()?[index] {
-            removeCoupon(with: coupon.couponCode)
+            if listType == .activities {
+                removeActivityCoupon(with: coupon.couponCode)
+            } else if listType == .meetups {
+                removeMeetupCoupon(with: coupon.couponCode)
+            }
         }
     }
     
@@ -333,7 +463,7 @@ extension ActivitySummaryViewController: CouponDelegate {
 extension ActivitySummaryViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-                        
+            
             guard let thisSection = self.activityManager?.getSections()?[sectionIndex] else { return nil }
             let section: NSCollectionLayoutSection
             

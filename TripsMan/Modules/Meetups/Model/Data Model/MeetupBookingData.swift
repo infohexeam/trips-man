@@ -17,13 +17,14 @@ struct MeetupBookingData: Codable {
 // MARK: - MeetupBooking
 struct MeetupBooking: Codable {
     let bookingNo, bookingDate: String
-    let bookingFrom: String
+    let meetupName: String
+    let meetupDate: String
     let bookingId, adultCount, childCount: Int
     let meetupGuests: [MeetupGuest]
     let amountDetails: [AmountDetail]
 
     enum CodingKeys: String, CodingKey {
-        case bookingNo, bookingDate, bookingFrom, bookingId
+        case bookingNo, bookingDate, meetupDate, bookingId, meetupName
         case adultCount, childCount, meetupGuests, amountDetails
     }
 }

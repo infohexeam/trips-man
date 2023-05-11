@@ -42,6 +42,7 @@ class CouponsViewController: UIViewController {
         case hotel
         case holiday
         case activity
+        case meetup
     }
     
     let parser = Parser()
@@ -83,7 +84,12 @@ extension CouponsViewController {
         if couponModule == .holiday {
             url = "api/CustomerHolidayCoupon/ApplyCustomerHolidayCoupen"
             params["module"] = "HDY"
+        } else if couponModule == .activity {
+            url = "api/CustomerActivityCoupon/ApplyCustomerActivityCoupen"
+        } else if couponModule == .meetup {
+            url = "api/CustomerMeetupCoupon/ApplyCustomerMeetupCoupen"
         }
+        
         
         parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
