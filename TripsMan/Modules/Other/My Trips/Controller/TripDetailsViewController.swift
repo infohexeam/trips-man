@@ -47,8 +47,7 @@ class TripDetailsViewController: UIViewController {
             tripDetailsCollection.reloadData()
         }
     }
-    var bookingId = ""
-    
+    var bookingId = 0
     
     
     override func viewWillAppear(_ animated: Bool) {

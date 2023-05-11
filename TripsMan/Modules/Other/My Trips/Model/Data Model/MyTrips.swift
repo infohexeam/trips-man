@@ -17,25 +17,34 @@ struct MyTripsData: Codable {
 
 // MARK: - MyTrips
 struct MyTrips: Codable {
-    let bookingID, bookedDate, checkInDate, checkOutDate: String
+    let module: String
+    let bookingID: Int
+    let bookingNo: String?
+    let bookedDate: String
     let totalAmount: Int
-    let customerName, hotelName: String
+    let checkInDate, checkOutDate, checkInTime, checkOutTime: String
+    let customerCode, customerID: String
+    let customerName: String
     let totalGuest: Int
-    let primaryGuest: String
-    let contactNo: String
+    let primaryGuest, contactNo: String
     let gender: String
-    let age, hotelID, isCancelled: Int
+    let age, id, isCancelled, tripStatusValue: Int
+    let tripStatus, name: String
     let imageURL: String?
-    let roomCount, tripStatusValue: Int
-    let tripStatus: String?
+    let adultCount, childCount: Int
+    let tripMessage: String?
+    let bookingMessage: String
+    let bookingStatus: String
+    let roomCount: Int
+    let place: String?
 
     enum CodingKeys: String, CodingKey {
+        case module
         case bookingID = "bookingId"
-        case bookedDate, totalAmount, checkInDate, checkOutDate, hotelName, tripStatusValue
-        case customerName, totalGuest, primaryGuest, contactNo, gender, age
-        case hotelID = "hotelId"
-        case isCancelled, tripStatus
+        case bookingNo, bookedDate, totalAmount, checkInDate, checkOutDate, checkInTime, checkOutTime, customerCode
+        case customerID = "customerId"
+        case customerName, totalGuest, primaryGuest, contactNo, gender, age, id, isCancelled, tripStatusValue, tripStatus, name
         case imageURL = "imageUrl"
-        case roomCount
+        case adultCount, childCount, tripMessage, bookingMessage, bookingStatus, roomCount, place
     }
 }

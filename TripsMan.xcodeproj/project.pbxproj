@@ -83,6 +83,7 @@
 		C15E320A28C8267700E209EB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320928C8267700E209EB /* RegisterViewController.swift */; };
 		C15E320E28C82BD600E209EB /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320D28C82BD600E209EB /* OtpViewController.swift */; };
 		C17161CD2988E3440098A6C0 /* BookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17161CC2988E3440098A6C0 /* BookingData.swift */; };
+		C175F8D62A0CFECF00479052 /* TripListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F8D52A0CFECF00479052 /* TripListManager.swift */; };
 		C17736662966DBE900845EF7 /* BannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17736652966DBE900845EF7 /* BannerData.swift */; };
 		C17738742975690C009A7477 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17738732975690C009A7477 /* FilterViewController.swift */; };
 		C177387629756A8F009A7477 /* FilterCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C177387529756A8F009A7477 /* FilterCells.swift */; };
@@ -273,6 +274,7 @@
 		C15E320928C8267700E209EB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C15E320D28C82BD600E209EB /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
 		C17161CC2988E3440098A6C0 /* BookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingData.swift; sourceTree = "<group>"; };
+		C175F8D52A0CFECF00479052 /* TripListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListManager.swift; sourceTree = "<group>"; };
 		C17736652966DBE900845EF7 /* BannerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerData.swift; sourceTree = "<group>"; };
 		C17738732975690C009A7477 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		C177387529756A8F009A7477 /* FilterCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCells.swift; sourceTree = "<group>"; };
@@ -1124,6 +1126,7 @@
 			isa = PBXGroup;
 			children = (
 				C14CAC0729B0B89500183597 /* ReviewManager.swift */,
+				C175F8D52A0CFECF00479052 /* TripListManager.swift */,
 				C1CA190C29B9B3C700CFD04A /* Data Model */,
 			);
 			path = Model;
@@ -1862,6 +1865,7 @@
 				C14CAC0A29B0B8C300183597 /* AddReviewViewController.swift in Sources */,
 				C12D83F4294836570091B311 /* WalletViewController.swift in Sources */,
 				C1F77ED029B1FD7A00C16E51 /* AllReviewsCollectionViewCell.swift in Sources */,
+				C175F8D62A0CFECF00479052 /* TripListManager.swift in Sources */,
 				C1E7E99A29FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift in Sources */,
 				C1F89CFA29FCD5C300EB370B /* ActivityBookSummaryCollectionViewCell.swift in Sources */,
 				C1D8F6C02907725700C6CBBA /* Constants.swift in Sources */,

@@ -79,7 +79,7 @@ class MyTripsViewController: UIViewController {
         
         segment.addTarget(self, action: #selector(indexChanged(_:)), for: .valueChanged)
         
-        print("-----trips- viewDidLoad")
+        hideKeyboardOnTap()
 
     }
     
@@ -106,7 +106,7 @@ class MyTripsViewController: UIViewController {
 extension MyTripsViewController {
     func getMyTrips() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerHotelBookingList", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -153,8 +153,8 @@ extension MyTripsViewController: UICollectionViewDataSource {
             cell.tripImage.sd_setImage(with: URL(string: data.imageURL ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
             let checkin = data.checkInDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
             let checkout = data.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
-            cell.statusLabel.text = "\(data.tripStatus!) | \(checkin ?? "") - \(checkout ?? "")"
-            cell.hotelName.text = data.hotelName
+            cell.statusLabel.text = "\(data.tripStatus) | \(checkin ?? "") - \(checkout ?? "")"
+            cell.hotelName.text = data.name
             cell.bookedDate.text = data.bookedDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMM dd, yyyy")
             cell.primaryGuest.text = data.primaryGuest
             cell.roomCount.text = "\(data.roomCount) Room(s)"
