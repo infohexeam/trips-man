@@ -170,10 +170,7 @@ class ListingViewController: UIViewController {
             var secondText = dateText! + " | " + adultText!
             
             if packageFilter.child != nil && packageFilter.child != 0 {
-                var childText = "\(packageFilter.child!) Child"
-                if packageFilter.child! > 1 {
-                    childText = "\(packageFilter.child!) Children"
-                }
+                var childText = packageFilter.child!.oneOrMany("Child", suffix: "ren")
                 secondText = secondText + childText
             }
             dateAndGuestLabel.text = secondText

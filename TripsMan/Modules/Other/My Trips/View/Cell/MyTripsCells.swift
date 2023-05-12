@@ -10,10 +10,12 @@ import UIKit
 
 class TripListCell: UICollectionViewCell {
     @IBOutlet weak var tripImage: UIImageView!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var hotelName: UILabel!
-    @IBOutlet weak var bookedDate: UILabel!
-    @IBOutlet weak var primaryGuest: UILabel!
-    @IBOutlet weak var roomCount: UILabel!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var subLabel: UILabel!
+    @IBOutlet weak var bottomIcon1: UIImageView!
+    @IBOutlet weak var bottomLabel1: UILabel!
+    @IBOutlet weak var bottomIcon2: UIImageView!
+    @IBOutlet weak var bottomLabel2: UILabel!
 }
 

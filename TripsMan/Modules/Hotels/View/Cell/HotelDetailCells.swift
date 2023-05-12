@@ -67,31 +67,19 @@ class RoomFilterCollectionViewCell: UICollectionViewCell {
     
     var roomQty = 0 {
         didSet {
-            if roomQty == 1 {
-                roomLabel.text = "\(roomQty) Room"
-            } else {
-                roomLabel.text = "\(roomQty) Rooms"
-            }
+            roomLabel.text = roomQty.oneOrMany("Room")
         }
     }
     
     var adultQty = 0 {
         didSet {
-            if adultQty == 1 {
-                adultLabel.text = "\(adultQty) Adult"
-            } else {
-                adultLabel.text = "\(adultQty) Adults"
-            }
+            adultLabel.text = adultQty.oneOrMany("Adult")
         }
     }
     
     var childQty = 0 {
         didSet {
-            if childQty == 1 {
-                childLabel.text = "\(childQty) Child"
-            } else {
-                childLabel.text = "\(childQty) Children"
-            }
+            childLabel.text = childQty.oneOrMany("Child", suffix: "ren")
         }
     }
     

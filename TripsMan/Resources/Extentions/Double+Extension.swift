@@ -31,20 +31,12 @@ extension Double {
 }
 
 extension Int {
-    func oneOrMany(_ word: String) -> String {
-        if word == "child" || word == "Child" {
+    func oneOrMany(_ word: String, suffix: String = "s") -> String {
             if self == 1 {
                 return "\(self) \(word)"
             } else {
-                return "\(self) \(word)ren"
+                return "\(self) \(word)\(suffix)"
             }
-        } else {
-            if self == 1 {
-                return "\(self) \(word)"
-            } else {
-                return "\(self) \(word)s"
-            }
-        }
     }
     
     func stringValue() -> String {

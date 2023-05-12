@@ -12,12 +12,17 @@ struct TripListManager {
     var myTrips: [MyTrips]?
     var tripsToShow: [TripsToShow]?
     
+    
+    
     struct TripsToShow {
         var bookingID: Int
+        var tripStatus: Int
         var imageUrl: String
+        var defaultImage: String
         var name: String
         var topLabel: String
         var subLabel: String
+        var bottomLabels: [BottomLabel]
     }
     
     struct BottomLabel {
@@ -27,19 +32,69 @@ struct TripListManager {
     
     init(myTrips: [MyTrips]?) {
         self.myTrips = myTrips
+        setTripsToShow()
     }
     
-    mutating func getTripsToShow() -> [TripsToShow]? {
+    mutating func setTripsToShow() {
         tripsToShow = [TripsToShow]()
         if let myTrips = myTrips {
             for trip in myTrips {
                 if trip.module == "HTL" {
-                    let topLabel = ""
+                    let checkin = trip.checkInDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let checkout = trip.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let topLabel = "\(trip.tripStatus) | \(checkin ?? "") - \(checkout ?? "")"
+                    
+                    let subLabel = trip.bookedDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMM dd, yyyy") ?? ""
+                    
+                    let bottomLabels = [BottomLabel(icon: "person.fill", text: trip.primaryGuest),
+                                        BottomLabel(icon: "bed.double.fill", text: trip.roomCount.oneOrMany("Room"))]
+                    
+                    tripsToShow?.append(TripsToShow(bookingID: trip.bookingID, tripStatus: trip.tripStatusValue, imageUrl: trip.imageURL ?? "", defaultImage: K.hotelPlaceHolderImage, name: trip.name, topLabel: topLabel, subLabel: subLabel, bottomLabels: bottomLabels))
+                } else if trip.module == "HDY" {
+                    let fromDate = trip.checkInDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let toDate = trip.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let topLabel = "\(trip.tripStatus) | \(fromDate ?? "") - \(toDate ?? "")"
+                    
+                    let subLabel = "Vendor name"  //TODO: change with vendor field
+                    
+                    var countText = "\(trip.adultCount.oneOrMany("Adult"))"
+                    if trip.childCount > 0 {
+                        countText += " & \(trip.childCount.oneOrMany("Child", suffix: "ren"))"
+                    }
+                    
+                    let bottomLabels = [BottomLabel(icon: "person.fill", text: trip.primaryGuest),
+                                        BottomLabel(icon: "person.2.fill", text: countText)]
+                    
+                    tripsToShow?.append(TripsToShow(bookingID: trip.bookingID, tripStatus: trip.tripStatusValue, imageUrl: trip.imageURL ?? "", defaultImage: K.packagePlaceHolderImage, name: trip.name, topLabel: topLabel, subLabel: subLabel, bottomLabels: bottomLabels))
+                    
+                } else if trip.module == "ACT" {
+                    let fromDate = trip.checkInDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let toDate = trip.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let topLabel = "\(trip.tripStatus) | \(fromDate ?? "") - \(toDate ?? "")"
+                    
+                    let subLabel = trip.bookedDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMM dd, yyyy") ?? ""
+                                        
+                    let bottomLabels = [BottomLabel(icon: "person.fill", text: trip.primaryGuest),
+                                        BottomLabel(icon: "person.2.fill", text: trip.adultCount.oneOrMany("Member"))]
+                    
+                    tripsToShow?.append(TripsToShow(bookingID: trip.bookingID, tripStatus: trip.tripStatusValue, imageUrl: trip.imageURL ?? "", defaultImage: K.activityPlaceholderImage, name: trip.name, topLabel: topLabel, subLabel: subLabel, bottomLabels: bottomLabels))
+                    
+                } else if trip.module == "MTP" {
+                    let meetupDate = trip.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let topLabel = "\(trip.tripStatus) | \(meetupDate ?? "")"
+                    
+                    let subLabel = trip.bookedDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMM dd, yyyy") ?? ""
+                                        
+                    let bottomLabels = [BottomLabel(icon: "person.fill", text: trip.primaryGuest),
+                                        BottomLabel(icon: "person.2.fill", text: trip.adultCount.oneOrMany("Member"))]
+                    
+                    tripsToShow?.append(TripsToShow(bookingID: trip.bookingID, tripStatus: trip.tripStatusValue, imageUrl: trip.imageURL ?? "", defaultImage: K.meetupPlaceholderImage, name: trip.name, topLabel: topLabel, subLabel: subLabel, bottomLabels: bottomLabels))
                 }
             }
         }
-        
-        return nil
     }
     
+    func getTripsToShow() -> [TripsToShow]? {
+        return tripsToShow
+    }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class MyTripsViewController: UIViewController {
-
+    
     @IBOutlet weak var segment: UISegmentedControl!
     
     @IBOutlet weak var myTripsCollection: UICollectionView! {
@@ -20,44 +20,36 @@ class MyTripsViewController: UIViewController {
         }
     }
     
-    enum SectionTypes {
-        case myTrips
-    }
-    
-    struct MyTripsSection {
-        var type: SectionTypes
-        var count: Int
-    }
-    
-    var sections: [MyTripsSection]? = nil
-    
     var selectedIndex = 0 {
         didSet {
-            if selectedIndex == 0 {
-                tripsToShow = myTrips
-            } else if selectedIndex == 1 {
-                tripsToShow = myTrips.filter { $0.tripStatusValue == 0 }
-            } else if selectedIndex == 2 {
-                tripsToShow = myTrips.filter { $0.tripStatusValue == 1}
-            } else if selectedIndex == 3 {
-                tripsToShow = myTrips.filter { $0.tripStatusValue == 3}
-            }
+            //            if selectedIndex == 0 {
+            //                tripsToShow = myTrips
+            //            } else if selectedIndex == 1 {
+            //                tripsToShow = myTrips.filter { $0.tripStatusValue == 0 }
+            //            } else if selectedIndex == 2 {
+            //                tripsToShow = myTrips.filter { $0.tripStatusValue == 1}
+            //            } else if selectedIndex == 3 {
+            //                tripsToShow = myTrips.filter { $0.tripStatusValue == 3}
+            //            }
         }
     }
+    
+    var tripsManager: TripListManager?
     
     let parser = Parser()
     var myTrips = [MyTrips]() {
         didSet {
-            tripsToShow = myTrips
-        }
-    }
-    
-    var tripsToShow = [MyTrips]() {
-        didSet {
-            sections = [MyTripsSection(type: .myTrips, count: tripsToShow.count)]
+            tripsManager = TripListManager(myTrips: myTrips)
             myTripsCollection.reloadData()
         }
     }
+    
+    //    var tripsToShow = [MyTrips]() {
+    //        didSet {
+    //            sections = [MyTripsSection(type: .myTrips, count: tripsToShow.count)]
+    //            myTripsCollection.reloadData()
+    //        }
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,7 +72,7 @@ class MyTripsViewController: UIViewController {
         segment.addTarget(self, action: #selector(indexChanged(_:)), for: .valueChanged)
         
         hideKeyboardOnTap()
-
+        
     }
     
     //IBACtions
@@ -93,12 +85,12 @@ class MyTripsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? TripDetailsViewController {
             if let index = sender as? Int {
-                vc.bookingId = tripsToShow[index].bookingID
+                //                vc.bookingId = tripsToShow[index].bookingID
                 vc.delegate = self
             }
         }
     }
-
+    
 }
 
 //MARK: - APICalls
@@ -118,7 +110,7 @@ extension MyTripsViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
+                
             }
         }
     }
@@ -133,37 +125,29 @@ extension MyTripsViewController: TripsRefreshDelegate {
 
 extension MyTripsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections?.count ?? 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let thisSection = self.sections?[section] else { return 0 }
-        return thisSection.count
+        return tripsManager?.getTripsToShow()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myTripsCell", for: indexPath) as! TripListCell
         
-        guard let thisSection = self.sections?[indexPath.section] else { return UICollectionViewCell()  }
-        
-        if thisSection.type == .myTrips {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myTripsCell", for: indexPath) as! TripListCell
+        if let trip = tripsManager?.getTripsToShow()?[indexPath.row] {
+            cell.tripImage.sd_setImage(with: URL(string: trip.imageUrl), placeholderImage: UIImage(named: trip.defaultImage))
             
-            let data = tripsToShow[indexPath.row]
-            
-            cell.tripImage.sd_setImage(with: URL(string: data.imageURL ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
-            let checkin = data.checkInDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
-            let checkout = data.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
-            cell.statusLabel.text = "\(data.tripStatus) | \(checkin ?? "") - \(checkout ?? "")"
-            cell.hotelName.text = data.name
-            cell.bookedDate.text = data.bookedDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMM dd, yyyy")
-            cell.primaryGuest.text = data.primaryGuest
-            cell.roomCount.text = "\(data.roomCount) Room(s)"
-            
-            return cell
+            cell.topLabel.text = trip.topLabel
+            cell.nameLabel.text = trip.name
+            cell.subLabel.text = trip.subLabel
+            cell.bottomIcon1.image = UIImage(systemName: trip.bottomLabels[0].icon)
+            cell.bottomLabel1.text = trip.bottomLabels[0].text
+            cell.bottomIcon2.image = UIImage(systemName: trip.bottomLabels[1].icon)
+            cell.bottomLabel2.text = trip.bottomLabels[1].text
         }
         
-        return UICollectionViewCell()
-        
+        return cell
     }
     
     
@@ -180,33 +164,20 @@ extension MyTripsViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
-            guard let thisSection = self.sections?[sectionIndex] else { return nil }
-            
             let section: NSCollectionLayoutSection
             
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .estimated(10))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
             
-            if thisSection.type == .myTrips {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(10))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(10))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                return section
-                
-                
-            }  else {
-                fatalError("Unknown section!")
-            }
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                   heightDimension: .estimated(10))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
+            section = NSCollectionLayoutSection(group: group)
+            //                section.interGroupSpacing = 10
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
             return section
         }
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)

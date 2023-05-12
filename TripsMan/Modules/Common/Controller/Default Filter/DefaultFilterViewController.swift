@@ -58,22 +58,14 @@ class DefaultFilterViewController: UIViewController {
     
     var roomQty = 0 {
         didSet {
-            if roomQty == 1 {
-                roomLabel.text = "\(roomQty) Room"
-            } else {
-                roomLabel.text = "\(roomQty) Rooms"
-            }
+            roomLabel.text = roomQty.oneOrMany("Room")
             hotelFilters.roomCount = roomQty
         }
     }
     
     var adultQty = 0 {
         didSet {
-            if adultQty == 1 {
-                adultLabel.text = "\(adultQty) Adult"
-            } else {
-                adultLabel.text = "\(adultQty) Adults"
-            }
+            adultLabel.text = adultQty.oneOrMany("Adult")
             packageFilters.adult = adultQty
             hotelFilters.adult = adultQty
         }
@@ -81,11 +73,7 @@ class DefaultFilterViewController: UIViewController {
     
     var childQty = 0 {
         didSet {
-            if childQty == 1 {
-                childLabel.text = "\(childQty) Child"
-            } else {
-                childLabel.text = "\(childQty) Children"
-            }
+            childLabel.text = childQty.oneOrMany("Child", suffix: "ren")
             packageFilters.child = childQty
             hotelFilters.child = childQty
         }
