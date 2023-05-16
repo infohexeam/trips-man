@@ -10,6 +10,8 @@ import UIKit
 class MyTripsViewController: UIViewController {
     
     @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var sortByButton: UIButton!
+    @IBOutlet weak var filterByButton: UIButton!
     
     @IBOutlet weak var myTripsCollection: UICollectionView! {
         didSet {
@@ -33,6 +35,10 @@ class MyTripsViewController: UIViewController {
             //            }
         }
     }
+    
+    var tripFilters = TripsFilters()
+    var sorts = [Sortby]()
+    var filters = [String]()
     
     var tripsManager: TripListManager?
     
@@ -73,10 +79,57 @@ class MyTripsViewController: UIViewController {
         
         hideKeyboardOnTap()
         
+        assignValues()
+        setupMenus()
+    }
+    
+    func assignValues() {
+        sorts = [Sortby(name: "Latest first", id: 0),
+                 Sortby(name: "Oldest first", id: 1)]
+        
+        filters = ["Hotel", "Holiday Package", "Activities", "Meetups"]
+    }
+    
+    func setupMenus() {
+        
+        let sorts = sorts.map { UIAction(title: "\($0.name)", handler: sortHandler) }
+        sortByButton.menu = UIMenu(title: "", children: sorts)
+        sortByButton.showsMenuAsPrimaryAction = true
+        
+        let filters = filters.map { UIAction(title: "\($0)", handler: filterHandler) }
+        filterByButton.menu = UIMenu(title: "", children: filters)
+        filterByButton.showsMenuAsPrimaryAction = true
+    }
+    
+    func sortHandler(action: UIAction) {
+        
+        let sortBy = sorts.filter { $0.name == action.title }.last
+        if sortBy?.id == 0 {
+            tripFilters.sortBy = Sortby(name: "ASCDATE", id: 0)
+        } else if sortBy?.id == 1 {
+            tripFilters.sortBy = Sortby(name: "DESCDATE", id: 1)
+        }
+        
+        getMyTrips()
+    }
+    
+    func filterHandler(action: UIAction) {
+        
+        let filter = filters.filter { $0 == action.title }.last
+        if filter == "Hotel" {
+            tripFilters.moduleCode = "HTL"
+        } else if filter == "Holiday Package" {
+            tripFilters.moduleCode = "HDY"
+        } else if filter == "Activities" {
+            tripFilters.moduleCode = "ACT"
+        } else if filter == "Meetups" {
+            tripFilters.moduleCode = "MTP"
+        }
+        
+        getMyTrips()
     }
     
     //IBACtions
-    
     @objc func indexChanged(_ sender: UISegmentedControl) {
         selectedIndex = sender.selectedSegmentIndex
         
@@ -85,10 +138,22 @@ class MyTripsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? TripDetailsViewController {
             if let index = sender as? Int {
-                //                vc.bookingId = tripsToShow[index].bookingID
+                vc.bookingId = tripsManager?.getTripsToShow()?[index].bookingID ?? 0
                 vc.delegate = self
             }
         }
+    }
+    
+}
+
+extension MyTripsViewController {
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        tripFilters.searchText = textField.text
+        getMyTrips()
+        return true
     }
     
 }
@@ -98,7 +163,7 @@ class MyTripsViewController: UIViewController {
 extension MyTripsViewController {
     func getMyTrips() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

@@ -14,7 +14,7 @@ class AddReviewViewController: UIViewController {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var reviewText: UITextView!
     
-    var tripDetails: TripDetails?
+    var tripDetails: HotelTripDetails?
     var reviewDelegate: AddReviewDelegate?
     
     let parser = Parser()

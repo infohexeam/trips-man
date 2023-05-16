@@ -32,7 +32,7 @@ struct ReviewManager {
         return (isValid, message)
     }
     
-    func isEdit(_ tripDetails: TripDetails?) -> Bool {
+    func isEdit(_ tripDetails: HotelTripDetails?) -> Bool {
         if tripDetails?.review != nil {
             return true
         }

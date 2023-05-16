@@ -8,23 +8,21 @@
 import Foundation
 
 // MARK: - TripDetailsData
-struct TripDetailsData: Codable {
+struct HotelTripDetailsData: Codable {
     let totalRecords: Int
-    let data: TripDetails
+    let data: HotelTripDetails
     let status: Int
     let message: String
 }
 
 // MARK: - TripDetails
-struct TripDetails: Codable {
+struct HotelTripDetails: Codable {
     let bookingDate: String
     let totalAmount: Int
-    let bookingFrom, bookingTo, customerCode, customerID: String
-    let customerName: String
+    let bookingFrom, bookingTo: String
     let totalCharge, tax, serviceCharge, discount: Int
     let totalPrice, totalGuest: Int
-    let primaryGuest, contactNo, emailID, gender: String
-    let age, bookingID: Int
+    let bookingID: Int
     let reviewId: Int?
     let rating: Double?
     let review, reviewTitle, reviewDate: String?
@@ -41,11 +39,8 @@ struct TripDetails: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case bookingNo, bookingDate, totalAmount, bookingFrom, bookingTo, customerCode, reviewId, review, rating, reviewTitle
-        case customerID = "customerId"
-        case customerName, totalCharge, tax, serviceCharge, discount, totalPrice, totalGuest, primaryGuest, contactNo, reviewDate
-        case emailID = "emailId"
-        case gender, age
+        case bookingNo, bookingDate, totalAmount, bookingFrom, bookingTo, reviewId, review, rating, reviewTitle
+        case totalCharge, tax, serviceCharge, discount, totalPrice, totalGuest, reviewDate
         case bookingID = "bookingId"
 //        case rating, review
         case hotelID = "hotelId"

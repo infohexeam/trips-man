@@ -33,9 +33,12 @@ class TripDetailsViewController: UIViewController {
     var sections: [TripDetailsSection]? = nil
     var delegate: TripsRefreshDelegate?
     
+    var tripManager: TripDetailsManager?
+    
     let parser = Parser()
-    var tripDetails: TripDetails? {
+    var tripDetails: HotelTripDetails? {
         didSet {
+            tripManager = TripDetailsManager(hotelTripDetails: tripDetails)
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
                         TripDetailsSection(type: .priceDetails, count: tripDetails!.amountDetails.count)]
             if tripDetails!.tripStatusValue == 1 {
@@ -47,6 +50,7 @@ class TripDetailsViewController: UIViewController {
             tripDetailsCollection.reloadData()
         }
     }
+    
     var bookingId = 0
     
     
@@ -101,7 +105,7 @@ class TripDetailsViewController: UIViewController {
 extension TripDetailsViewController {
     func getTripDetails(_ isRefresh: Bool = false) {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerHotelBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: TripDetailsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerHotelBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: HotelTripDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -172,26 +176,55 @@ extension TripDetailsViewController: UICollectionViewDataSource {
         if thisSection.type == .tripDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tripDetailsCell", for: indexPath) as! TripDetailsCollectionViewCell
             
-            if let tripDetails = tripDetails {
-                cell.tripStatus.text = tripDetails.tripStatus
-                cell.bookingID.text = "BOOKING ID - \(tripDetails.bookingNo ?? "")"
-                cell.tripMessage.text = tripDetails.tripMessage
-                
-                cell.hotelName.text = tripDetails.hotelName
-                cell.hotelImage.sd_setImage(with: URL(string: tripDetails.imageURL ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
-                cell.hotelAddress.text = tripDetails.hotelDetails.address
-                
-                cell.checkinDate.text = tripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy")
-                cell.checkinTime.text = tripDetails.hotelDetails.checkInTime?.date("HH:mm a")?.stringValue(format: "HH:mm:ss")
-                cell.checkoutDate.text = tripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy")
-                cell.checkoutTime.text = tripDetails.hotelDetails.checkOutTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm a")
-                cell.countLabel.text = "\(tripDetails.roomCount) Room(s) for \(tripDetails.adultCount) Adult(s), \(tripDetails.childCount) Child(s)"
-                cell.primaryGuest.text = "Primary Guest: \(tripDetails.primaryGuest)"
-                cell.tripSpec.text = ""
-                cell.roomType.text = tripDetails.roomDetails[0].roomType
-                
+            
+            if let topBox = tripManager?.getDetailsData()?.topBox {
+                cell.tripStatus.text = topBox.tripStatus
+                cell.bookingID.text = topBox.bookingNo
+                cell.bookedDate.text = topBox.bookedDate
+                cell.tripMessage.text = topBox.tripMessage
             }
             
+            if let secondBox = tripManager?.getDetailsData()?.secondBox {
+                cell.name.text = secondBox.name
+                cell.image.sd_setImage(with: URL(string: secondBox.image), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
+                cell.address.text = secondBox.address
+            }
+            
+            if let thirdBox = tripManager?.getDetailsData()?.thirdBox {
+                cell.fromDateLabel.text = thirdBox.fromDate.label
+                cell.fromDateText.text = thirdBox.fromDate.date
+                cell.fromDateTime.text = thirdBox.fromDate.time
+                
+                cell.toDateView.isHidden = true
+                if let toDate = thirdBox.toDate {
+                    cell.toDateView.isHidden = false
+                    cell.toDateLabel.text = toDate.label
+                    cell.toDateText.text = toDate.date
+                    cell.toDateTime.text = toDate.time
+                }
+                
+                cell.roomAndGuestLabel.isHidden = true
+                if let roomAndGuest = thirdBox.roomAndGuestCount {
+                    cell.roomAndGuestLabel.isHidden = false
+                    cell.roomAndGuestLabel.text = roomAndGuest
+                }
+                cell.roomTypeLabel.isHidden = true
+                if let roomType = thirdBox.roomType {
+                    cell.roomTypeLabel.isHidden = false
+                    cell.roomTypeLabel.text = roomType
+                }
+                
+                cell.primaryGuestLabel.text = thirdBox.primaryGuest.label
+                cell.primaryGuestName.text = thirdBox.primaryGuest.nameText
+                cell.primaryGuestContact.text = thirdBox.primaryGuest.contact
+                
+                cell.otherGuestView.isHidden = true
+                if let otherGuest = thirdBox.otherGuests {
+                    cell.otherGuestView.isHidden = false
+                    cell.otherGuestLabel.text = otherGuest.label
+                    cell.othterGuestText.text = otherGuest.text
+                }
+            }
             
             return cell
         } else if thisSection.type == .priceDetails {
@@ -223,7 +256,7 @@ extension TripDetailsViewController: UICollectionViewDataSource {
                 cell.rating.rating = tripDetails?.rating ?? 1
                 cell.reviewLabel.text = review
                 cell.reviewTitleLabel.text = tripDetails?.reviewTitle
-                cell.dateLabel.text = "Reviewed on " + (tripDetails?.reviewDate?.date("dd/MM/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")
+                cell.dateLabel.text = "Reviewed on " + (tripDetails?.reviewDate?.date("MM/dd/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")
                 
                 if review == "" {
                     cell.reviewLabel.isHidden = true

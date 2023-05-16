@@ -13,20 +13,38 @@ import Cosmos
 class TripDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tripStatus: UILabel!
     @IBOutlet weak var bookingID: UILabel!
+    @IBOutlet weak var bookedDate: UILabel!
     @IBOutlet weak var tripMessage: UILabel!
     
-    @IBOutlet weak var hotelName: UILabel!
-    @IBOutlet weak var hotelImage: UIImageView!
-    @IBOutlet weak var hotelAddress: UILabel!
-    @IBOutlet weak var checkinDate: UILabel!
-    @IBOutlet weak var checkinTime: UILabel!
-    @IBOutlet weak var checkoutDate: UILabel!
-    @IBOutlet weak var checkoutTime: UILabel!
-    @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var primaryGuest: UILabel!
-    @IBOutlet weak var roomType: UILabel!
-    @IBOutlet weak var tripSpec: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var address: UILabel!
+    
+    //ThirdBox
+    @IBOutlet weak var fromDateView: UIView!
+    @IBOutlet weak var fromDateLabel: UILabel!
+    @IBOutlet weak var fromDateText: UILabel!
+    @IBOutlet weak var fromDateTime: UILabel!
+    
+    @IBOutlet weak var toDateView: UIView!
+    @IBOutlet weak var toDateLabel: UILabel!
+    @IBOutlet weak var toDateText: UILabel!
+    @IBOutlet weak var toDateTime: UILabel!
+    
+    @IBOutlet weak var roomAndGuestLabel: UILabel!
+    @IBOutlet weak var roomTypeLabel: UILabel!
+    
+    @IBOutlet weak var primaryGuestView: UIView!
+    @IBOutlet weak var primaryGuestLabel: UILabel!
+    @IBOutlet weak var primaryGuestName: UILabel!
+    @IBOutlet weak var primaryGuestContact: UILabel!
+    
+    @IBOutlet weak var otherGuestView: UIView!
+    @IBOutlet weak var otherGuestLabel: UILabel!
+    @IBOutlet weak var othterGuestText: UILabel!
+    
     @IBOutlet weak var daysLabel: UILabel!
+    
     
 }
 
