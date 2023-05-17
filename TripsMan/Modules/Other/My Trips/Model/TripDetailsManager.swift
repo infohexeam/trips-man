@@ -9,6 +9,20 @@ import Foundation
 
 struct TripDetailsManager {
     
+    enum SectionTypes {
+        case tripDetails
+        case priceDetails
+        case review
+        case action
+    }
+    
+    struct TripDetailsSection {
+        var type: SectionTypes
+        var count: Int
+    }
+    
+    var sections: [TripDetailsSection]? = nil
+    
     var hotelTripDetails: HotelTripDetails?
     
     var detailsData: DetailsData?
@@ -60,7 +74,34 @@ struct TripDetailsManager {
         
     init(hotelTripDetails: HotelTripDetails?) {
         self.hotelTripDetails = hotelTripDetails
+        setSections()
         setDetailsData()
+    }
+    
+    func getSections() -> [TripDetailsSection]? {
+        return sections
+    }
+    
+    mutating func setSections() {
+        sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                    TripDetailsSection(type: .priceDetails, count: hotelTripDetails!.amountDetails.count)]
+        if hotelTripDetails!.tripStatusValue == 1 {
+            sections?.append(TripDetailsSection(type: .review, count: 1))
+        }
+        if hotelTripDetails!.tripStatusValue == 0 {
+            sections?.append(TripDetailsSection(type: .action, count: 1))
+        }
+    }
+    
+    func getSection(_ type: SectionTypes) -> Int? {
+        if sections != nil {
+            for i in 0..<sections!.count {
+                if sections![i].type == type {
+                    return i
+                }
+            }
+        }
+        return nil
     }
     
     mutating func setDetailsData() {

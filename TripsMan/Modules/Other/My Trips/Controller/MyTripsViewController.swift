@@ -71,21 +71,24 @@ class MyTripsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if SessionManager.shared.getLoginDetails() != nil {
-            getMyTrips()
-        }
+        
         
         segment.addTarget(self, action: #selector(indexChanged(_:)), for: .valueChanged)
         
         hideKeyboardOnTap()
         
         assignValues()
+        if SessionManager.shared.getLoginDetails() != nil {
+            getMyTrips()
+        }
         setupMenus()
     }
     
     func assignValues() {
         sorts = [Sortby(name: "Latest first", id: 0),
                  Sortby(name: "Oldest first", id: 1)]
+        
+        tripFilters.sortBy = Sortby(name: "DESCDATE", id: 1)
         
         filters = ["Hotel", "Holiday Package", "Activities", "Meetups"]
     }
@@ -105,9 +108,9 @@ class MyTripsViewController: UIViewController {
         
         let sortBy = sorts.filter { $0.name == action.title }.last
         if sortBy?.id == 0 {
-            tripFilters.sortBy = Sortby(name: "ASCDATE", id: 0)
-        } else if sortBy?.id == 1 {
             tripFilters.sortBy = Sortby(name: "DESCDATE", id: 1)
+        } else if sortBy?.id == 1 {
+            tripFilters.sortBy = Sortby(name: "ASCDATE", id: 0)
         }
         
         getMyTrips()
@@ -129,7 +132,7 @@ class MyTripsViewController: UIViewController {
         getMyTrips()
     }
     
-    //IBACtions
+    //IBActions
     @objc func indexChanged(_ sender: UISegmentedControl) {
         selectedIndex = sender.selectedSegmentIndex
         
@@ -139,6 +142,7 @@ class MyTripsViewController: UIViewController {
         if let vc = segue.destination as? TripDetailsViewController {
             if let index = sender as? Int {
                 vc.bookingId = tripsManager?.getTripsToShow()?[index].bookingID ?? 0
+                vc.module = tripsManager?.getTripsToShow()?[index].module
                 vc.delegate = self
             }
         }

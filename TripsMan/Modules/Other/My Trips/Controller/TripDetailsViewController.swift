@@ -18,19 +18,7 @@ class TripDetailsViewController: UIViewController {
         }
     }
     
-    enum SectionTypes {
-        case tripDetails
-        case priceDetails
-        case review
-        case action
-    }
     
-    struct TripDetailsSection {
-        var type: SectionTypes
-        var count: Int
-    }
-    
-    var sections: [TripDetailsSection]? = nil
     var delegate: TripsRefreshDelegate?
     
     var tripManager: TripDetailsManager?
@@ -39,19 +27,12 @@ class TripDetailsViewController: UIViewController {
     var tripDetails: HotelTripDetails? {
         didSet {
             tripManager = TripDetailsManager(hotelTripDetails: tripDetails)
-            sections = [TripDetailsSection(type: .tripDetails, count: 1),
-                        TripDetailsSection(type: .priceDetails, count: tripDetails!.amountDetails.count)]
-            if tripDetails!.tripStatusValue == 1 {
-                sections?.append(TripDetailsSection(type: .review, count: 1))
-            }
-            if tripDetails!.tripStatusValue == 0 {
-                sections?.append(TripDetailsSection(type: .action, count: 1))
-            }
             tripDetailsCollection.reloadData()
         }
     }
     
     var bookingId = 0
+    var module: ListType?
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,17 +58,6 @@ class TripDetailsViewController: UIViewController {
     
     @IBAction func editReviewTapped() {
         performSegue(withIdentifier: "toAddReview", sender: nil)
-    }
-    
-    func getSection(_ type: SectionTypes) -> Int? {
-        if sections != nil {
-            for i in 0..<sections!.count {
-                if sections![i].type == type {
-                    return i
-                }
-            }
-        }
-        return nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -160,18 +130,18 @@ extension TripDetailsViewController: AddReviewDelegate {
 
 extension TripDetailsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sections?.count ?? 0
+        return tripManager?.getSections()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let thisSection = self.sections?[section] else { return 0 }
+        guard let thisSection = tripManager?.getSections()?[section] else { return 0 }
         
         return thisSection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let thisSection = self.sections?[indexPath.section] else { return UICollectionViewCell()  }
+        guard let thisSection = self.tripManager?.getSections()?[indexPath.section] else { return UICollectionViewCell()  }
         
         if thisSection.type == .tripDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tripDetailsCell", for: indexPath) as! TripDetailsCollectionViewCell
@@ -295,7 +265,7 @@ extension TripDetailsViewController {
             
             //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
             
-            guard let thisSection = self.sections?[sectionIndex] else { return nil }
+            guard let thisSection = self.tripManager?.getSections()?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
             

@@ -84,6 +84,7 @@
 		C15E320E28C82BD600E209EB /* OtpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15E320D28C82BD600E209EB /* OtpViewController.swift */; };
 		C165D0112A11ED3A00FF647C /* TripsFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165D0102A11ED3A00FF647C /* TripsFilters.swift */; };
 		C165D0132A12472200FF647C /* TripDetailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C165D0122A12472100FF647C /* TripDetailsManager.swift */; };
+		C170B2A02A14C6D4004FA831 /* HolidayTripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C170B29F2A14C6D4004FA831 /* HolidayTripDetails.swift */; };
 		C17161CD2988E3440098A6C0 /* BookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17161CC2988E3440098A6C0 /* BookingData.swift */; };
 		C175F8D62A0CFECF00479052 /* TripListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C175F8D52A0CFECF00479052 /* TripListManager.swift */; };
 		C17736662966DBE900845EF7 /* BannerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17736652966DBE900845EF7 /* BannerData.swift */; };
@@ -277,6 +278,7 @@
 		C15E320D28C82BD600E209EB /* OtpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpViewController.swift; sourceTree = "<group>"; };
 		C165D0102A11ED3A00FF647C /* TripsFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsFilters.swift; sourceTree = "<group>"; };
 		C165D0122A12472100FF647C /* TripDetailsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsManager.swift; sourceTree = "<group>"; };
+		C170B29F2A14C6D4004FA831 /* HolidayTripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayTripDetails.swift; sourceTree = "<group>"; };
 		C17161CC2988E3440098A6C0 /* BookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingData.swift; sourceTree = "<group>"; };
 		C175F8D52A0CFECF00479052 /* TripListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListManager.swift; sourceTree = "<group>"; };
 		C17736652966DBE900845EF7 /* BannerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerData.swift; sourceTree = "<group>"; };
@@ -1142,6 +1144,7 @@
 			isa = PBXGroup;
 			children = (
 				C101CA20298BDB970051A94F /* HotelTripDetails.swift */,
+				C170B29F2A14C6D4004FA831 /* HolidayTripDetails.swift */,
 				C101CA1D298B74700051A94F /* MyTrips.swift */,
 			);
 			path = "Data Model";
@@ -1841,6 +1844,7 @@
 				C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */,
 				C19EF45E29658775008EDD66 /* ImageUploadData.swift in Sources */,
 				C13E75D6298A391E00FBE80B /* CouponData.swift in Sources */,
+				C170B2A02A14C6D4004FA831 /* HolidayTripDetails.swift in Sources */,
 				C1D7C6B429939E4600410C7A /* WalletCells.swift in Sources */,
 				C1D0DAD929CB0AC400641491 /* PackageDetailsCollectionViewCell.swift in Sources */,
 				C15E31B128C5F13100E209EB /* AppDelegate.swift in Sources */,

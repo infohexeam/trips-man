@@ -35,7 +35,7 @@ struct MyTrips: Codable {
     let adultCount, childCount: Int
     let tripMessage: String?
     let bookingMessage: String
-    let bookingStatus: String
+    let bookingStatus, vendor: String
     let roomCount: Int
     let place: String?
 
@@ -44,7 +44,7 @@ struct MyTrips: Codable {
         case bookingID = "bookingId"
         case bookingNo, bookedDate, totalAmount, checkInDate, checkOutDate, checkInTime, checkOutTime, customerCode
         case customerID = "customerId"
-        case customerName, totalGuest, primaryGuest, contactNo, gender, age, id, isCancelled, tripStatusValue, tripStatus, name
+        case customerName, totalGuest, primaryGuest, contactNo, gender, age, id, isCancelled, tripStatusValue, tripStatus, name, vendor
         case imageURL = "imageUrl"
         case adultCount, childCount, tripMessage, bookingMessage, bookingStatus, roomCount, place
     }
