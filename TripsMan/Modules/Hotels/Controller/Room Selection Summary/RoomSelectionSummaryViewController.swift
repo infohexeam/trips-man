@@ -163,7 +163,10 @@ extension RoomSelectionSummaryViewController {
                             self.collectionView.insertSections(IndexSet(integer: self.getSection(.bottomView)!-1))
                             self.collectionView.reloadSections(IndexSet(integer: self.getSection(.reward)!))
                         }
-                        self.coupons = result!.data.coupon
+                        if result!.data.coupon.count > 0 {
+                            self.coupons = result!.data.coupon
+                        }
+                       
                     } else {
                         self.view.makeToast(result!.message)
                     }
