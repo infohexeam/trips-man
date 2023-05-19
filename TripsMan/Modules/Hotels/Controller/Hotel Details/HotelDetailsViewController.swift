@@ -608,7 +608,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 cell.review.text = review.hotelReview
                 cell.reviewTitle.text = review.reviewTitle
                 cell.ratingLabel.text = review.hotelRating?.stringValue()
-                cell.customerName.text = "- Reviewed by \(review.customerName) on \(review.reviewDate.date("dd/MM/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")"
+                cell.customerName.text = "- Reviewed by \(review.customerName) on \(review.reviewDate.date("MM/dd/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")"
                 
                 if reviews.count > 2 && indexPath.row == 1 {
                     cell.seeAllreviewButton.isHidden = false
