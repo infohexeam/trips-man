@@ -935,10 +935,10 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                             <rect key="frame" x="0.0" y="0.0" width="244" height="40"/>
                                                                                             <subviews>
                                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Joy-fB-360">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="40"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="40"/>
                                                                                                     <subviews>
                                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="BYP-8A-0KC">
-                                                                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="20"/>
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="20"/>
                                                                                                             <constraints>
                                                                                                                 <constraint firstAttribute="height" constant="20" id="ORT-aj-vBt"/>
                                                                                                             </constraints>
@@ -946,8 +946,8 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                                             <color key="textColor" name="primaryLabel"/>
                                                                                                             <nil key="highlightedColor"/>
                                                                                                         </label>
-                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mp-gr-vgP">
-                                                                                                            <rect key="frame" x="0.0" y="20" width="88" height="20"/>
+                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mp-gr-vgP">
+                                                                                                            <rect key="frame" x="0.0" y="20" width="118" height="20"/>
                                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                                             <color key="textColor" name="tertiaryLabel"/>
                                                                                                             <nil key="highlightedColor"/>
@@ -955,7 +955,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                                     </subviews>
                                                                                                 </stackView>
                                                                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-o0-bsH" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
-                                                                                                    <rect key="frame" x="96" y="0.0" width="148" height="40"/>
+                                                                                                    <rect key="frame" x="126" y="0.0" width="118" height="40"/>
                                                                                                     <color key="backgroundColor" name="primaryColor"/>
                                                                                                     <state key="normal" title="Button"/>
                                                                                                     <buttonConfiguration key="configuration" style="plain" title="Select">
@@ -1043,28 +1043,29 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                             <outlet property="roomName" destination="UXD-0v-nKp" id="tdQ-Se-lEs"/>
                                             <outlet property="selectButton" destination="7hY-o0-bsH" id="vNi-6F-BhM"/>
                                             <outlet property="soldOutView" destination="99B-qd-SMV" id="js8-ev-Hfo"/>
+                                            <outlet property="taxLabel" destination="3Mp-gr-vgP" id="dQP-eC-18g"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rulesCell" id="jxz-4J-B2B" customClass="PropertyRulesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="858" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-at-vb9">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-at-vb9">
                                                     <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Non-veg food is allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHA-b6-g05">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-veg food is allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHA-b6-g05">
                                                             <rect key="frame" x="0.0" y="0.0" width="412" height="192"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20f-VX-9jR">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20f-VX-9jR">
                                                             <rect key="frame" x="0.0" y="192" width="412" height="25"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypN-rT-HA1">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypN-rT-HA1">
                                                                     <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="LjL-Ss-3Ta"/>
@@ -2209,48 +2210,27 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                     <rect key="frame" x="203" y="0.0" width="195" height="162"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-c6-2e5">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="195" height="24"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="195" height="16"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </view>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3P-yI-egF">
-                                                                            <rect key="frame" x="0.0" y="32" width="195" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="24" width="195" height="20"/>
                                                                             <subviews>
-                                                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evO-7U-tVt" customClass="CosmosView" customModule="Cosmos">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
-                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" constant="100" id="MPb-fL-Eow"/>
-                                                                                    </constraints>
-                                                                                    <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
-                                                                                            <color key="value" name="primaryColor"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
-                                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
-                                                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
-                                                                                            <real key="value" value="15"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
-                                                                                            <color key="value" name="primaryColor"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                                                            <real key="value" value="5"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                    </userDefinedRuntimeAttributes>
-                                                                                </view>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭑⭑⭑⭑⭑ Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9e-46-C8J">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="67.333333333333329" height="20"/>
+                                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="10"/>
+                                                                                    <color key="textColor" name="primaryLabel"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKD-mV-rAN">
-                                                                                    <rect key="frame" x="100" y="0.0" width="50" height="20"/>
+                                                                                    <rect key="frame" x="67.333333333333314" y="0.0" width="77.666666666666686" height="20"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCj-oQ-VrG" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
-                                                                                    <rect key="frame" x="150" y="0.0" width="45" height="20"/>
+                                                                                    <rect key="frame" x="145" y="0.0" width="50" height="20"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.1/5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Afz-Lf-crz">
-                                                                                            <rect key="frame" x="2" y="2" width="41" height="16"/>
+                                                                                            <rect key="frame" x="2" y="2" width="46" height="16"/>
                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
@@ -2273,7 +2253,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Orion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAZ-lW-jB1">
-                                                                            <rect key="frame" x="0.0" y="60" width="195" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="52" width="195" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="hX6-qU-nBw"/>
                                                                             </constraints>
@@ -2282,18 +2262,18 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot No. 9 opp. ITC Rajputana Sheraton Fateh Singh Market, Go- palbari, Jaipur, Rajasthan 302006" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9C-Cb-3N3">
-                                                                            <rect key="frame" x="0.0" y="88" width="195" height="42.333333333333343"/>
+                                                                            <rect key="frame" x="0.0" y="80" width="195" height="42.333333333333343"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                             <color key="textColor" name="tertiaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-47-0Pm">
-                                                                            <rect key="frame" x="0.0" y="138.33333333333334" width="195" height="23.666666666666657"/>
+                                                                            <rect key="frame" x="0.0" y="130.33333333333334" width="195" height="31.666666666666657"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </view>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="DHn-47-0Pm" firstAttribute="height" secondItem="fFs-c6-2e5" secondAttribute="height" id="yMH-ef-rwx"/>
+                                                                        <constraint firstItem="DHn-47-0Pm" firstAttribute="height" secondItem="fFs-c6-2e5" secondAttribute="height" multiplier="2:1" id="yMH-ef-rwx"/>
                                                                     </constraints>
                                                                 </stackView>
                                                             </subviews>
@@ -2324,27 +2304,27 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-O4-fOB">
                                                                             <rect key="frame" x="192.66666666666666" y="0.0" width="22" height="64"/>
                                                                         </view>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-L7-gsa">
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-L7-gsa">
                                                                             <rect key="frame" x="222.66666666666663" y="0.0" width="159.33333333333337" height="64"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNs-v7-lYu">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="159.33333333333334" height="16"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="159.33333333333334" height="18"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </view>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWz-T2-y7M">
-                                                                                    <rect key="frame" x="0.0" y="16" width="159.33333333333334" height="16"/>
+                                                                                    <rect key="frame" x="0.0" y="18" width="159.33333333333334" height="0.0"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                                                     <color key="textColor" name="primaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAk-Ha-plb">
-                                                                                    <rect key="frame" x="0.0" y="32" width="159.33333333333334" height="16"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night| asa" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAk-Ha-plb">
+                                                                                    <rect key="frame" x="0.0" y="18" width="159.33333333333334" height="28.333333333333329"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="tertiaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVR-4L-bZb">
-                                                                                    <rect key="frame" x="0.0" y="48" width="159.33333333333334" height="16"/>
+                                                                                    <rect key="frame" x="0.0" y="46.333333333333343" width="159.33333333333334" height="17.666666666666671"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </view>
                                                                             </subviews>
@@ -2392,11 +2372,12 @@ velit esse quam nihil molestiae consequatur.</string>
                                             <outlet property="hotelImage" destination="g5R-i9-vRW" id="vTG-02-tLr"/>
                                             <outlet property="hotelName" destination="PAZ-lW-jB1" id="6TU-Um-U3A"/>
                                             <outlet property="priceLabel" destination="dWz-T2-y7M" id="Pbc-ZU-8dU"/>
-                                            <outlet property="rating" destination="evO-7U-tVt" id="f19-fR-Zqr"/>
                                             <outlet property="ratingText" destination="Afz-Lf-crz" id="sgj-SW-N5H"/>
                                             <outlet property="ratingView" destination="CCj-oQ-VrG" id="lef-64-YLR"/>
                                             <outlet property="roomImage" destination="UbA-Gc-rso" id="8aX-ed-fRz"/>
                                             <outlet property="roomName" destination="Q48-5d-FX1" id="Ys3-7w-NrP"/>
+                                            <outlet property="starRating" destination="s9e-46-C8J" id="O4q-vL-e9N"/>
+                                            <outlet property="taxLabel" destination="uAk-Ha-plb" id="Ie7-tY-9C8"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="primaryFieldCell" id="iou-2I-fv8" customClass="PrimaryFieldCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
@@ -2568,6 +2549,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                                                             <connections>
                                                                                 <action selector="valueChanged:" destination="iou-2I-fv8" eventType="editingChanged" id="Xpg-tk-7pF"/>
+                                                                                <outlet property="delegate" destination="vmJ-tU-cqd" id="bzT-Hf-Yhj"/>
                                                                             </connections>
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-yL-tyd">
@@ -2609,7 +2591,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <color key="textColor" name="profileKeyLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-c3-dU7" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                        <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-c3-dU7" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="20" width="1616" height="30"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -2620,6 +2602,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                                                             <connections>
                                                                                 <action selector="valueChanged:" destination="iou-2I-fv8" eventType="editingChanged" id="HwX-Sr-zPg"/>
+                                                                                <outlet property="delegate" destination="vmJ-tU-cqd" id="aJN-MW-kwT"/>
                                                                             </connections>
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-hi-iS3">
@@ -2664,7 +2647,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <color key="textColor" name="profileKeyLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8m-ur-04i" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                        <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8m-ur-04i" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="20" width="1616" height="30"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -2676,6 +2659,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <connections>
                                                                                 <action selector="valueChanged:" destination="iou-2I-fv8" eventType="editingChanged" id="6Ff-zV-QUX"/>
                                                                                 <action selector="valueChanged:" destination="iou-2I-fv8" eventType="valueChanged" id="OhG-2O-ZpV"/>
+                                                                                <outlet property="delegate" destination="vmJ-tU-cqd" id="U2Z-uZ-0yg"/>
                                                                             </connections>
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROd-8i-lu7">
@@ -2723,7 +2707,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwa-kK-EHa" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwa-kK-EHa" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="20" width="804" height="30"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
@@ -2794,7 +2778,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-hy-zhN" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-hy-zhN" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="20" width="804" height="30"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
@@ -2802,7 +2786,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     </constraints>
                                                                                     <color key="textColor" name="fieldTextColor"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                                                                     <connections>
                                                                                         <action selector="valueChanged:" destination="iou-2I-fv8" eventType="editingChanged" id="aho-QX-AZk"/>
                                                                                     </connections>
@@ -2883,7 +2867,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dZC-xJ-v3U">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-EW-7dt">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guest Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-EW-7dt">
                                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="azH-JC-ne2"/>
@@ -2895,7 +2879,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bwq-SO-o1r">
                                                                             <rect key="frame" x="0.0" y="20" width="414" height="30"/>
                                                                             <subviews>
-                                                                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NrR-L7-ovE" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NrR-L7-ovE" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="376" height="30"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
@@ -2906,6 +2890,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                                                                     <connections>
                                                                                         <action selector="valueChanged:" destination="VuS-Ph-IRl" eventType="editingChanged" id="uWf-8P-3kf"/>
+                                                                                        <outlet property="delegate" destination="VuS-Ph-IRl" id="ekt-0A-Sva"/>
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgX-ig-2aT">
@@ -2966,7 +2951,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-Ge-pLn" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-Ge-pLn" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="20" width="203" height="30"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
@@ -3035,7 +3020,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wn9-7U-E5X" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wn9-7U-E5X" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
                                                                                     <rect key="frame" x="0.0" y="20" width="203" height="30"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
@@ -3046,6 +3031,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                                                     <connections>
                                                                                         <action selector="valueChanged:" destination="VuS-Ph-IRl" eventType="editingChanged" id="6HS-Bh-Dek"/>
+                                                                                        <outlet property="delegate" destination="VuS-Ph-IRl" id="NSc-zO-afC"/>
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBl-rW-cWY">
@@ -4041,58 +4027,55 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
             <size key="intrinsicContentSize" width="66.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="A8V-hy-zhN">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="C4c-c3-dU7">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="E40-EL-yGQ">
-            <size key="intrinsicContentSize" width="78" height="34"/>
+            <size key="intrinsicContentSize" width="82" height="34"/>
         </designable>
         <designable name="Gkn-em-h8L">
             <size key="intrinsicContentSize" width="145" height="25"/>
         </designable>
         <designable name="Kwa-kK-EHa">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="MLE-vc-H1r">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="NGN-fA-oyt">
             <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="NrR-L7-ovE">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="Wn9-7U-E5X">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="cHi-bc-b3Q">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="e1m-tf-f3H">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="eEc-JR-W2C">
-            <size key="intrinsicContentSize" width="28" height="34"/>
-        </designable>
-        <designable name="evO-7U-tVt">
-            <size key="intrinsicContentSize" width="95" height="15"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="gQ2-fD-uJS">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="nQu-z5-QbP">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="oLc-Ge-pLn">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="pKV-qF-j9S">
-            <size key="intrinsicContentSize" width="70" height="34"/>
+            <size key="intrinsicContentSize" width="74" height="34"/>
         </designable>
         <designable name="y8m-ur-04i">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
     </designables>
     <resources>

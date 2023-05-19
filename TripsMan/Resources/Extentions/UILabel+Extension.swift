@@ -12,7 +12,7 @@ import UIKit
 
 extension UILabel {
     func addPriceString(_ price: Double,_ offerPrice: Double, fontSize: CGFloat, twoLine: Bool = false)  {
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "\(currency) \(price.clean)")
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: "\(SessionManager.shared.getCurrency()) \(price.clean)")
         
 //        if fontSize == nil {
 //            fontSize = self.font.pointSize
@@ -21,14 +21,14 @@ extension UILabel {
         if (offerPrice > 0) {
             let priceTextAttribute = [NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: fontSize - 4)]
             
-            attributeString.addAttributes(priceTextAttribute as [NSAttributedString.Key : Any], range: NSRange(location: currency.count - 1, length: price.stringValue().count))
+            attributeString.addAttributes(priceTextAttribute as [NSAttributedString.Key : Any], range: NSRange(location: SessionManager.shared.getCurrency().count - 1, length: price.stringValue().count))
             let currencyAttribute = [NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: fontSize - 4)]
-            attributeString.addAttributes(currencyAttribute as [NSAttributedString.Key : Any], range: NSRange(location: 0, length: currency.count))
+            attributeString.addAttributes(currencyAttribute as [NSAttributedString.Key : Any], range: NSRange(location: 0, length: SessionManager.shared.getCurrency().count))
             attributeString.addAttribute(.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
             attributeString.addAttribute(.foregroundColor, value: UIColor(named: "tertiaryLabel") ?? .lightGray, range: NSRange(location: 0, length: attributeString.length))
-            let offerString = NSMutableAttributedString(string: "\(currency) \(offerPrice.clean)")
+            let offerString = NSMutableAttributedString(string: "\(SessionManager.shared.getCurrency()) \(offerPrice.clean)")
             let offerCurrencyAttribute = [NSAttributedString.Key.font: UIFont(name: self.font!.fontName, size: fontSize - 4)]
-            offerString.addAttributes(offerCurrencyAttribute as [NSAttributedString.Key : Any], range: NSRange(location: 0, length: currency.count))
+            offerString.addAttributes(offerCurrencyAttribute as [NSAttributedString.Key : Any], range: NSRange(location: 0, length: SessionManager.shared.getCurrency().count))
             let finalString: NSMutableAttributedString = attributeString.mutableCopy() as! NSMutableAttributedString
 //            if twoLine {
 //                finalString.append(NSAttributedString(string: "\n"))
@@ -40,7 +40,7 @@ extension UILabel {
             
         } else {
             let currencyAttribute = [NSAttributedString.Key.font: UIFont(name: self.font!.fontName, size: fontSize - 4)]
-            attributeString.addAttributes(currencyAttribute as [NSAttributedString.Key : Any], range: NSRange(location: 0, length: currency.count))
+            attributeString.addAttributes(currencyAttribute as [NSAttributedString.Key : Any], range: NSRange(location: 0, length: SessionManager.shared.getCurrency().count))
             
             self.attributedText = attributeString
         }

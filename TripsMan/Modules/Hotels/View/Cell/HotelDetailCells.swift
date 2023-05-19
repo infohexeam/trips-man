@@ -132,6 +132,7 @@ class HotelRoomsCollectionViewCell: UICollectionViewCell {
     var delegate: ViewImageDelegate?
     
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var taxLabel: UILabel!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var roomImage: UIImageView!
     @IBOutlet weak var offLabel: UILabel!

@@ -7,7 +7,6 @@
 
 import Foundation
 
-let currency = "INR"
 let baseURLAuth = "https://tripsmanauth.hexeam.in/"
 let baseURL = "https://tripsmanadmin.hexeam.in/"
 

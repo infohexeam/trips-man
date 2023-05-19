@@ -8,9 +8,11 @@
 import UIKit
 import SideMenu
 
-struct CountrySelection {
+struct CountrySelection: Codable {
     var name: String
     var icon: String
+    var countryCode: String
+    var currency: String
     var id: Int
 }
 
@@ -31,7 +33,10 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
     
     var selectedCountry: CountrySelection? {
         didSet {
-            countryImage.image = UIImage(named: selectedCountry!.icon)
+            if let selectedCountry = selectedCountry {
+                countryImage.image = UIImage(named: selectedCountry.icon)
+                SessionManager.shared.setCountry(selectedCountry)
+            }
         }
     }   
     
@@ -40,8 +45,8 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
         
         tabBarDelegate = self
         
-        countries = [CountrySelection(name: "India", icon: "country-icon", id: 1),
-                     CountrySelection(name: "UAE", icon: "uae", id: 2)]
+        countries = [CountrySelection(name: "India", icon: "country-icon", countryCode: "IND", currency: "INR", id: 1),
+                     CountrySelection(name: "UAE", icon: "uae", countryCode: "UAE", currency: "AED", id: 2)]
         languages = [LanguageSelection(name: "English", id: 1)]
         
         selectedCountry = countries[0]

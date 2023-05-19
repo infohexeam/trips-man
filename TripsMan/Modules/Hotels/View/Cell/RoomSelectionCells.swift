@@ -12,13 +12,14 @@ import Cosmos
 class RoomSummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var hotelImage: UIImageView!
     @IBOutlet weak var ratingView: UIView!
-    @IBOutlet weak var rating: CosmosView!
+    @IBOutlet weak var starRating: UILabel!
     @IBOutlet weak var ratingText: UILabel!
     @IBOutlet weak var hotelName: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var roomImage: UIImageView!
     @IBOutlet weak var roomName: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var taxLabel: UILabel!
 }
 
 class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
@@ -74,6 +75,15 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
             return delegate.collectionViewCell(textField: textField, shouldChangeCharactersIn: range, replacementString: string, delegatedFrom: self)
         }
         return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = self.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
     
     fileprivate func validate(_ textField: UITextField) -> (Bool, String?) {
@@ -211,6 +221,15 @@ class GuestFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
             return delegate.collectionViewCell(textField: textField, shouldChangeCharactersIn: range, replacementString: string, delegatedFrom: self)
         }
         return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = self.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
     }
     
     fileprivate func validate(_ textField: UITextField) -> (Bool, String?) {

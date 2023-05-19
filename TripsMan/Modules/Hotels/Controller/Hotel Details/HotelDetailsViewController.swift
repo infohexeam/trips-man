@@ -201,6 +201,17 @@ class HotelDetailsViewController: UIViewController {
         }
     }
     
+    func getSection(_ type: SectionTypes) -> Int? {
+        if sections != nil {
+            for i in 0..<sections!.count {
+                if sections![i].type == type {
+                    return i
+                }
+            }
+        }
+        return nil
+    }
+    
     @IBAction func datePickerDoneTapped(_ sender: UIBarButtonItem) {
         if datePicker.tag == 1 {
             checkinField.text = datePicker.date.stringValue(format: "dd-MM-yyyy")
@@ -514,9 +525,10 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(rooms.actualPrice, rooms.offerPrice, fontSize: fontSize!)
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(rooms.serviceChargeValue)\ntaxes & fee per night"
                 cell.offLabel.isHidden = true
                 if rooms.roomImages?.count != 0 {
-                    cell.roomImage.sd_setImage(with: URL(string: rooms.roomImages?[0].roomImage ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
+                    cell.roomImage.sd_setImage(with: URL(string: rooms.roomImages?[0].roomImage ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                 }
                 cell.roomName.text = rooms.roomType
                 
@@ -659,7 +671,7 @@ extension HotelDetailsViewController: UICollectionViewDelegate {
             let allFacilties = thisSection.count
             if allFacilties > facilityCount {
                 facilityCount = allFacilties
-                collectionView.reloadItems(at: [IndexPath(row: 0, section: 3)])
+                collectionView.reloadSections(IndexSet(integer: getSection(.facilities)!))
             }
         }
         

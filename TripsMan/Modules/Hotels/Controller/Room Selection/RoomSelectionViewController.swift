@@ -67,6 +67,8 @@ class RoomSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardOnTap()
+        
         textFieldsTexts = [IndexPath:GuestFds]()
         createdBookingID = nil
         
@@ -84,7 +86,11 @@ class RoomSelectionViewController: UIViewController {
         var isValid = false
         let primary = textFieldsTexts.filter { $0.key == [1,0] }
         if primary.count != 0 {
-            isValid = true
+            let index = IndexPath(row: 0, section: 1)
+            if primary[index]?.name != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
+                print("=====true")
+//                isValid = true
+            }
         }
         return isValid
     }
@@ -94,6 +100,8 @@ class RoomSelectionViewController: UIViewController {
             vc.bookedData = bookedData
         }
     }
+    
+    
     
 }
 
@@ -228,12 +236,9 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
             if let hotelDetails = hotelDetails {
 //                cell.hotelImage.sd_setImage(with: URL(string: hotelDetails.hotelImages[0]))
                 if hotelDetails.userRatingCount > 0 {
-                    cell.rating.rating = hotelDetails.userRating
                     cell.ratingText.text = "\(hotelDetails.userRating)/5"
-                    cell.rating.isHidden = false
                     cell.ratingView.isHidden = false
                 } else {
-                    cell.rating.isHidden = true
                     cell.ratingView.isHidden = true
                 }
                 cell.hotelName.text = hotelDetails.hotelName
@@ -249,6 +254,7 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
                 }
                 
                 cell.priceLabel.addPriceString(room.actualPrice, room.offerPrice, fontSize: fontSize!)
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(room.serviceChargeValue)\ntaxes & fee per night"
             }
             return cell
             
@@ -319,13 +325,14 @@ extension RoomSelectionViewController: CollectionViewCellDelegate {
             if textField.tag == 1 {
                 textFieldsTexts[indexPath] = GuestFds(name: text, contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: textFieldsTexts[indexPath]?.gender ?? "", age: textFieldsTexts[indexPath]?.age ?? "")
             } else if textField.tag == 2 {
-                textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: text, age: textFieldsTexts[indexPath]?.age ?? "")
-            } else if textField.tag == 3 {
-                textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: textFieldsTexts[indexPath]?.gender ?? "", age: text)
-            } else if textField.tag == 4 {
                 textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", contactNumber: text, emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: textFieldsTexts[indexPath]?.gender ?? "", age: textFieldsTexts[indexPath]?.age ?? "")
-            } else if textField.tag == 5 {
+                
+            } else if textField.tag == 3 {
                 textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: text, gender: textFieldsTexts[indexPath]?.gender ?? "", age: textFieldsTexts[indexPath]?.age ?? "")
+            } else if textField.tag == 4 {
+                textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: textFieldsTexts[indexPath]?.gender ?? "", age: text)
+            } else if textField.tag == 5 {
+                textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: text, age: textFieldsTexts[indexPath]?.age ?? "")
             }
             print("\n text changed: \(textFieldsTexts[indexPath])")
         }

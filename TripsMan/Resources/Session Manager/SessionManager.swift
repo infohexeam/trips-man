@@ -10,6 +10,8 @@ import UIKit
 
 struct SessionKeys {
     static let loginData = "loginData"
+    static let selectedCountry = "selectedCountry"
+    static let currency = "currency"
 }
 
 class SessionManager {
@@ -47,13 +49,34 @@ class SessionManager {
         return "EN"
     }
     
+    func setCountry(_ country: CountrySelection) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(country) {
+            defaults.set(encoded, forKey: SessionKeys.selectedCountry)
+        }
+        
+        
+    }
+    
     func getCountry() -> String {
         //IND.UAE,OTH
+        if let countryData = defaults.object(forKey: SessionKeys.selectedCountry) as? Data {
+            let decoder = JSONDecoder()
+            if let country = try? decoder.decode(CountrySelection.self, from: countryData) {
+                return country.countryCode
+            }
+        }
         return "IND"
     }
     
     func getCurrency() -> String {
         //INR,AED,USD
+        if let countryData = defaults.object(forKey: SessionKeys.selectedCountry) as? Data {
+            let decoder = JSONDecoder()
+            if let country = try? decoder.decode(CountrySelection.self, from: countryData) {
+                return country.currency
+            }
+        }
         return "INR"
     }
 }
