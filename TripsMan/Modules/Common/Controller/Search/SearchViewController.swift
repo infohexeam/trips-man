@@ -31,24 +31,29 @@ class SearchViewController: UIViewController {
     
     var sections: [SearchSection]? = nil
     let parser = Parser()
-    var searchResults = [Hotel]() {
+    var search: Search? {
         didSet {
-            sections = [SearchSection(type: .searchList, count: searchResults.count)]
+            searchManager = SearchManager(search: search)
+            sections = [SearchSection(type: .searchList, count: searchManager?.getSearchResults()?.count ?? 0)]
             searchCollectionView.reloadData()
         }
     }
     
     var module = ""
+    var searchManager: SearchManager?
     
     var delegate: SearchDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if module == "HTL" {
             self.searchBar.placeholder = "Search hotels.."
         } else if module == "HDY" {
             self.searchBar.placeholder = "Search packages.."
+        } else if module == "ACT" {
+            self.searchBar.placeholder = "Search activities.."
+        } else if module == "MTP" {
+            self.searchBar.placeholder = "Search meetup.."
         }
     }
 }
@@ -59,7 +64,9 @@ extension SearchViewController: UISearchBarDelegate {
         if searchText.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
             perform(#selector(self.getSearchList(_:)), with: searchBar, afterDelay: 0.75)
         } else {
-            searchResults = [Hotel]()
+            searchManager = SearchManager(search: nil)
+            sections = [SearchSection(type: .searchList, count: 0)]
+            searchCollectionView.reloadData()
         }
     }
 }
@@ -75,12 +82,12 @@ extension SearchViewController {
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHotelSearch", http: .post, parameters: params) { (result: HotelData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHotelSearch", http: .post, parameters: params) { (result: SearchData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.searchResults = result!.data
+                        self.search = result!.data
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -102,18 +109,15 @@ extension SearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let thisSection = self.sections?[section] else { return 0 }
-
         return thisSection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCell", for: indexPath) as! SearchListCell
-        
-        let searchData = searchResults[indexPath.row]
-        cell.hotelName.text = "\(searchData.hotelName), \(searchData.hotelCity ?? ""), \(searchData.hotelState ?? "")"
-        cell.hotelType.text = searchData.hotelType
-        
-        
+        if let searchResult = searchManager?.getSearchResults()?[indexPath.row] {
+            cell.mainLabel.text = searchResult.name
+            cell.subLabel.text = searchResult.type
+        }
         return cell
     }
     
@@ -121,8 +125,10 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.searchItemDidPressed(searchResults[indexPath.row])
-        self.dismiss(animated: true)
+        if let search = search {
+            delegate?.searchItemDidPressed(search, index: indexPath.row)
+            self.dismiss(animated: true)
+        }
     }
 }
 
@@ -152,9 +158,7 @@ extension SearchViewController {
                 
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
-                
-
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 
                 return section
                 
@@ -171,5 +175,5 @@ extension SearchViewController {
 
 
 protocol SearchDelegate {
-    func searchItemDidPressed(_ item: Hotel)
+    func searchItemDidPressed(_ item: Search, index: Int)
 }

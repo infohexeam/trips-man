@@ -397,7 +397,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imagesCell", for: indexPath) as! ImagesCollectionViewCell
             
             if let roomImages = hotelDetails?.hotelRooms[imageContainer.tag].roomImages {
-                cell.roomImage.sd_setImage(with: URL(string: roomImages[indexPath.row].roomImage ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
+                cell.roomImage.sd_setImage(with: URL(string: roomImages[indexPath.row].roomImage ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
             }
             
             
@@ -410,7 +410,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! HotelImageCollectionViewCell
             
             if let images = hotelDetails?.hotelImages {
-                cell.hotelImage.sd_setImage(with: URL(string: images[indexPath.row].imageURL ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
+                cell.hotelImage.sd_setImage(with: URL(string: images[indexPath.row].imageURL ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
             }
             
             return cell

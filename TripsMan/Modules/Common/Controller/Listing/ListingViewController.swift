@@ -233,7 +233,9 @@ class ListingViewController: UIViewController {
                 }
                 
 //                strongSelf.locationField.text = (place.name ?? "")
-                strongSelf.locationLabel.text = (place.name ?? "")
+                if strongSelf.listType == .hotel {
+                    strongSelf.locationLabel.text = (place.name ?? "")
+                }
             }
         }
     }
@@ -253,7 +255,7 @@ class ListingViewController: UIViewController {
             if let index = sender as? Int {
                 vc.hotelID = listingManager.getListingData()?[index].id ?? 0
                 vc.hotelFilters = hotelFilters
-            } else if let selHotel = sender as? Hotel {
+            } else if let selHotel = sender as? HotelSearch {
                 vc.hotelID = selHotel.hotelID
                 vc.hotelFilters = hotelFilters
             }
@@ -263,6 +265,10 @@ class ListingViewController: UIViewController {
                 vc.module = "HTL"
             } else if listType == .packages {
                 vc.module = "HDY"
+            } else if listType == .activities {
+                vc.module = "ACT"
+            } else if listType == .meetups {
+                vc.module = "MTP"
             }
         } else if let vc = segue.destination  as? DefaultFilterViewController {
             vc.hotelFilters = hotelFilters
@@ -274,15 +280,24 @@ class ListingViewController: UIViewController {
             if let index = sender as? Int {
                 vc.packageID = listingManager.getListingData()?[index].id ?? 0
                 vc.packageFilters = packageFilter
+            } else if let selPackage = sender as? HolidaySearch {
+                vc.packageID = selPackage.packageID
+                vc.packageFilters = packageFilter
             }
         } else if let vc = segue.destination as? ActivityDetailsViewController {
             if let index = sender as? Int {
                 vc.activityID = listingManager.getListingData()?[index].id ?? 0
                 vc.activityFilters = activityFilter
+            } else if let selActivity = sender as? ActivitySearch {
+                vc.activityID = selActivity.activityID
+                vc.activityFilters = activityFilter
             }
         } else if let vc = segue.destination as? MeetupDetailsViewController {
             if let index = sender as? Int {
                 vc.meetupID = listingManager.getListingData()?[index].id ?? 0
+                vc.meetupFilters = meetupFilter
+            } else if let selMeetup = sender as? MeetupSearch {
+                vc.meetupID = selMeetup.meetupID
                 vc.meetupFilters = meetupFilter
             }
         }
@@ -292,8 +307,16 @@ class ListingViewController: UIViewController {
 }
 
 extension ListingViewController: SearchDelegate {
-    func searchItemDidPressed(_ item: Hotel) {
-        performSegue(withIdentifier: "toHotelDetails", sender: item)
+    func searchItemDidPressed(_ item: Search, index: Int) {
+        if let hotel = item.hotel {
+            performSegue(withIdentifier: "toHotelDetails", sender: hotel[index])
+        } else if let holiday = item.holiday {
+            performSegue(withIdentifier: "toPackageDetails", sender: holiday[index])
+        } else if let activities = item.activity {
+            performSegue(withIdentifier: "toActivityDetails", sender: activities[index])
+        } else if let meetups = item.meetup {
+            performSegue(withIdentifier: "toMeetupDetails", sender: meetups[index])
+        }
     }
 }
 

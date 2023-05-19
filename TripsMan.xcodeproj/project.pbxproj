@@ -156,6 +156,8 @@
 		C1E7E9A029FA828F00676237 /* ActivityBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */; };
 		C1E97DD229A796EE0025B03F /* SearchCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD129A796EE0025B03F /* SearchCells.swift */; };
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
+		C1EF48432A1727A8002C877A /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EF48422A1727A8002C877A /* SearchData.swift */; };
+		C1EF48452A173340002C877A /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EF48442A173340002C877A /* SearchManager.swift */; };
 		C1F68B622A0A13F2000C0BD7 /* MeetupBookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */; };
 		C1F68B642A0A1D8F000C0BD7 /* MeetupBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */; };
 		C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */; };
@@ -350,6 +352,8 @@
 		C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookingManager.swift; sourceTree = "<group>"; };
 		C1E97DD129A796EE0025B03F /* SearchCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCells.swift; sourceTree = "<group>"; };
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
+		C1EF48422A1727A8002C877A /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
+		C1EF48442A173340002C877A /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupBookingData.swift; sourceTree = "<group>"; };
 		C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupBookingManager.swift; sourceTree = "<group>"; };
 		C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllReviewsViewController.swift; sourceTree = "<group>"; };
@@ -1025,6 +1029,7 @@
 				C189620429C04A540070243F /* ListingData.swift */,
 				C15CDDE529C1913E00E15E9F /* FilterManager.swift */,
 				C1D64B5029C9842700E91F06 /* CountryManager.swift */,
+				C1EF48442A173340002C877A /* SearchManager.swift */,
 				C1CA190029B9AB9300CFD04A /* Data Model */,
 			);
 			path = Model;
@@ -1039,6 +1044,7 @@
 				C1DF2D7D29BF2A40000732B7 /* PackageListingData.swift */,
 				C14894C129ED0B0400EB559E /* ActivityListingData.swift */,
 				C155DF092A04F67000F9ED58 /* MeetupListingData.swift */,
+				C1EF48422A1727A8002C877A /* SearchData.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -1863,6 +1869,7 @@
 				C178318E29EFA4C200FAC9B7 /* ActivityDetailsImageCollectionViewCell.swift in Sources */,
 				C18FFEC7295BF96A00F29EC9 /* KeyboardLayout.swift in Sources */,
 				C165D0132A12472200FF647C /* TripDetailsManager.swift in Sources */,
+				C1EF48432A1727A8002C877A /* SearchData.swift in Sources */,
 				C153B4B329EEA4B300399C58 /* ActivityDetailsManager.swift in Sources */,
 				C1E25CEE2A08A73B00AC328A /* MeetupDescriptionCollectionViewCell.swift in Sources */,
 				C155DF0A2A04F67000F9ED58 /* MeetupListingData.swift in Sources */,
@@ -1954,6 +1961,7 @@
 				C15E320028C74F9F00E209EB /* UIViewController+Extension.swift in Sources */,
 				C15E31BB28C5F13100E209EB /* TripsMan.xcdatamodeld in Sources */,
 				C18FFECA295C15BA00F29EC9 /* ListingFilters.swift in Sources */,
+				C1EF48452A173340002C877A /* SearchManager.swift in Sources */,
 				C15E31E828C6D44B00E209EB /* MainViewController.swift in Sources */,
 				C17738742975690C009A7477 /* FilterViewController.swift in Sources */,
 				C15CDDE629C1913E00E15E9F /* FilterManager.swift in Sources */,

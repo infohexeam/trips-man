@@ -242,14 +242,14 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
                     cell.ratingView.isHidden = true
                 }
                 cell.hotelName.text = hotelDetails.hotelName
-                cell.hotelImage.sd_setImage(with: URL(string: hotelDetails.featuredImage ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
+                cell.hotelImage.sd_setImage(with: URL(string: hotelDetails.featuredImage ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                 cell.addressLabel.text = hotelDetails.address
                 
                 let room = hotelDetails.hotelRooms[selectedRoomIndex]
                 cell.roomName.text = room.roomType
                 if (room.roomImages?.count != 0) {
                     if let roomImage = room.roomImages?[0].roomImage {
-                        cell.roomImage.sd_setImage(with: URL(string: roomImage), placeholderImage: UIImage(named: "hotel-default-img"))
+                        cell.roomImage.sd_setImage(with: URL(string: roomImage), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                     }
                 }
                 

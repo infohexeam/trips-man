@@ -304,7 +304,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 cell.checkinLabel.text = bookedData.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
                 cell.checkoutLabel.text = bookedData.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
                 cell.hotelName.text = bookedData.hotelDetails.hotelName
-                cell.hotelImage.sd_setImage(with: URL(string: bookedData.imageUrl ?? ""), placeholderImage: UIImage(named: "hotel-default-img"))
+                cell.hotelImage.sd_setImage(with: URL(string: bookedData.imageUrl ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                 cell.roomType.text = bookedData.roomDetails[0].roomType
                 cell.addressLabel.text = bookedData.hotelDetails.address
             }

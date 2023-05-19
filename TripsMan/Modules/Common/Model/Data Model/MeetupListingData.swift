@@ -20,7 +20,8 @@ struct Meetup: Codable {
     let meetupID: Int
     let meetupName, address, meetupCode: String
     let countryID: Int
-    let countryName, shortDescription, termsAndConditions, details: String
+    let countryName: String?
+    let shortDescription, termsAndConditions, details: String
     let latitude, longitude, meetupDate: String
     let costPerPerson: Double
     let meetupType, meetupStatus: String

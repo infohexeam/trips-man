@@ -9,6 +9,6 @@ import Foundation
 import UIKit
 
 class SearchListCell: UICollectionViewCell {
-    @IBOutlet weak var hotelName: UILabel!
-    @IBOutlet weak var hotelType: UILabel!
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBOutlet weak var subLabel: UILabel!
 }

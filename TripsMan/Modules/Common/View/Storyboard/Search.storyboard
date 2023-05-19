@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -52,16 +52,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9M0-FT-Ic2">
-                                                    <rect key="frame" x="4" y="8" width="376" height="86"/>
+                                                    <rect key="frame" x="0.0" y="8" width="384" height="86"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="I am very pleased to announce that our team is growing. We have a new joiner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exn-AO-ILg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="318.66666666666669" height="86"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" text="I am very pleased to announce that our team is growing. We have a new joiner" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exn-AO-ILg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="380" height="86"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-0i-wQ8">
-                                                            <rect key="frame" x="322.66666666666669" y="0.0" width="53.333333333333314" height="86"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" ambiguous="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnW-0i-wQ8">
+                                                            <rect key="frame" x="384" y="0.0" width="0.0" height="86"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
@@ -77,8 +77,8 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9M0-FT-Ic2" firstAttribute="leading" secondItem="m78-xM-UHQ" secondAttribute="leading" constant="4" id="TOa-aH-Aha"/>
-                                                <constraint firstAttribute="trailing" secondItem="9M0-FT-Ic2" secondAttribute="trailing" constant="4" id="XiE-so-OES"/>
+                                                <constraint firstItem="9M0-FT-Ic2" firstAttribute="leading" secondItem="m78-xM-UHQ" secondAttribute="leading" id="TOa-aH-Aha"/>
+                                                <constraint firstAttribute="trailing" secondItem="9M0-FT-Ic2" secondAttribute="trailing" id="XiE-so-OES"/>
                                                 <constraint firstAttribute="trailing" secondItem="4TF-lu-uby" secondAttribute="trailing" id="hML-Fg-dZ5"/>
                                                 <constraint firstItem="9M0-FT-Ic2" firstAttribute="top" secondItem="m78-xM-UHQ" secondAttribute="top" constant="8" id="j1i-F2-JcW"/>
                                                 <constraint firstItem="4TF-lu-uby" firstAttribute="leading" secondItem="m78-xM-UHQ" secondAttribute="leading" id="knk-2p-kck"/>
@@ -88,8 +88,8 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="384" height="102"/>
                                         <connections>
-                                            <outlet property="hotelName" destination="Exn-AO-ILg" id="dVc-QZ-7s1"/>
-                                            <outlet property="hotelType" destination="FnW-0i-wQ8" id="cKH-Jf-WPg"/>
+                                            <outlet property="mainLabel" destination="Exn-AO-ILg" id="dVc-QZ-7s1"/>
+                                            <outlet property="subLabel" destination="FnW-0i-wQ8" id="cKH-Jf-WPg"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
