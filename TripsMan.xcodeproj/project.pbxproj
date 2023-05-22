@@ -30,6 +30,7 @@
 		C1422EA92A06525E005E83D2 /* MeetupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EA82A06525E005E83D2 /* MeetupDetailsViewController.swift */; };
 		C1422EAB2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EAA2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift */; };
 		C1422EAD2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EAC2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift */; };
+		C142584C2A1B34A90036DB98 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C142584B2A1B34A90036DB98 /* CustomButton.swift */; };
 		C147E6FE299DF2EE00ED4428 /* ListingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C147E6FD299DF2EE00ED4428 /* ListingManager.swift */; };
 		C14894C229ED0B0400EB559E /* ActivityListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14894C129ED0B0400EB559E /* ActivityListingData.swift */; };
 		C14A983328E15273000C52AA /* HotelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14A983228E15273000C52AA /* HotelDetailsViewController.swift */; };
@@ -222,6 +223,7 @@
 		C1422EA82A06525E005E83D2 /* MeetupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDetailsViewController.swift; sourceTree = "<group>"; };
 		C1422EAA2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1422EAC2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		C142584B2A1B34A90036DB98 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C147E6FD299DF2EE00ED4428 /* ListingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingManager.swift; sourceTree = "<group>"; };
 		C14894C129ED0B0400EB559E /* ActivityListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListingData.swift; sourceTree = "<group>"; };
 		C14A983228E15273000C52AA /* HotelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailsViewController.swift; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 				C15E31F928C701BA00E209EB /* CustomView.swift */,
 				C15E31FB28C7020000E209EB /* DisableButton.swift */,
 				C132E48728DC55BD00D980D1 /* Gradient.swift */,
+				C142584B2A1B34A90036DB98 /* CustomButton.swift */,
 			);
 			path = Designables;
 			sourceTree = "<group>";
@@ -1971,6 +1974,7 @@
 				C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */,
 				C19EF45C29657321008EDD66 /* ImagePicker.swift in Sources */,
 				C15E320E28C82BD600E209EB /* OtpViewController.swift in Sources */,
+				C142584C2A1B34A90036DB98 /* CustomButton.swift in Sources */,
 				C14B4898290A7EE300D8FFBA /* LoginData.swift in Sources */,
 				C118652129D2E26200EED029 /* PrimaryTravellerCollectionViewCell.swift in Sources */,
 				C178318C29EFA4A100FAC9B7 /* ActivityDetailsFooterView.swift in Sources */,

@@ -30,6 +30,14 @@ extension Double {
     }
 }
 
+//Percentage
+extension Double {
+    func percentage(_ total: Double) -> String {
+        let val = (self/total)*100
+        return "\(val.clean)"
+    }
+}
+
 extension Int {
     func oneOrMany(_ word: String, suffix: String = "s") -> String {
             if self == 1 {

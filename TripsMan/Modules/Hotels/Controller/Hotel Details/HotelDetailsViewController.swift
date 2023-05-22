@@ -527,16 +527,16 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 cell.priceLabel.addPriceString(rooms.actualPrice, rooms.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(rooms.serviceChargeValue)\ntaxes & fee per night"
                 cell.offLabel.isHidden = true
+                
+                cell.multipleButton.isHidden = true
                 if rooms.roomImages?.count != 0 {
                     cell.roomImage.sd_setImage(with: URL(string: rooms.roomImages?[0].roomImage ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
+                    if rooms.roomImages!.count > 1 {
+                        cell.multipleButton.isHidden = false
+                    }
+
                 }
                 cell.roomName.text = rooms.roomType
-                
-                var facilities = ""
-                for facility in rooms.roomFacilities {
-                    facilities += "✔ \(facility.roomFacilityName)\n"
-                }
-                cell.featuresLabel.text = facilities.trimmingCharacters(in: .whitespacesAndNewlines)
                 
                 cell.soldOutView.isHidden = true
                 cell.selectButton.isEnabled = true

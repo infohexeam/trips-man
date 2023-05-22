@@ -814,7 +814,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                     </constraints>
                                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <state key="normal" title="Button"/>
-                                                                                    <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                                                                    <buttonConfiguration key="configuration" style="plain" image="arrow.up.left.and.arrow.down.right" catalog="system"/>
                                                                                 </button>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-ns-uH5">
                                                                                     <rect key="frame" x="40" y="0.0" width="64" height="40"/>
@@ -867,50 +867,11 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfl-sx-mMa">
                                                                     <rect key="frame" x="152" y="0.0" width="260" height="217"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WwE-of-7sp">
-                                                                            <rect key="frame" x="8" y="8" width="244" height="201"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WwE-of-7sp">
+                                                                            <rect key="frame" x="8" y="16" width="244" height="185"/>
                                                                             <subviews>
-                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99B-qd-SMV">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="244" height="25"/>
-                                                                                    <subviews>
-                                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAJ-8g-iTF" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
-                                                                                            <rect key="frame" x="189.66666666666669" y="-8" width="62.333333333333343" height="33"/>
-                                                                                            <subviews>
-                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdq-8U-7I1">
-                                                                                                    <rect key="frame" x="8" y="8" width="46.333333333333336" height="17"/>
-                                                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
-                                                                                                    <color key="textColor" name="primaryLabel"/>
-                                                                                                    <nil key="highlightedColor"/>
-                                                                                                </label>
-                                                                                            </subviews>
-                                                                                            <color key="backgroundColor" name="primaryColor"/>
-                                                                                            <constraints>
-                                                                                                <constraint firstAttribute="bottom" secondItem="bdq-8U-7I1" secondAttribute="bottom" constant="8" id="KqF-JH-g4J"/>
-                                                                                                <constraint firstAttribute="trailing" secondItem="bdq-8U-7I1" secondAttribute="trailing" constant="8" id="nFE-FZ-sCT"/>
-                                                                                                <constraint firstItem="bdq-8U-7I1" firstAttribute="top" secondItem="qAJ-8g-iTF" secondAttribute="top" constant="8" id="oFg-Te-yPT"/>
-                                                                                                <constraint firstItem="bdq-8U-7I1" firstAttribute="leading" secondItem="qAJ-8g-iTF" secondAttribute="leading" constant="8" id="xHA-23-q6Q"/>
-                                                                                            </constraints>
-                                                                                            <userDefinedRuntimeAttributes>
-                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                                    <real key="value" value="5"/>
-                                                                                                </userDefinedRuntimeAttribute>
-                                                                                            </userDefinedRuntimeAttributes>
-                                                                                        </view>
-                                                                                    </subviews>
-                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="trailing" secondItem="qAJ-8g-iTF" secondAttribute="trailing" constant="-8" id="3z2-Aq-mgV"/>
-                                                                                        <constraint firstItem="qAJ-8g-iTF" firstAttribute="top" secondItem="99B-qd-SMV" secondAttribute="top" constant="-8" id="8Vi-e5-QO0"/>
-                                                                                        <constraint firstAttribute="height" constant="25" id="Stz-6S-Zbr"/>
-                                                                                        <constraint firstAttribute="bottom" secondItem="qAJ-8g-iTF" secondAttribute="bottom" id="X8I-iR-583"/>
-                                                                                    </constraints>
-                                                                                </view>
-                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQ6-vZ-49m">
-                                                                                    <rect key="frame" x="0.0" y="29" width="244" height="30.666666666666671"/>
-                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                </view>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deluxe AC Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXD-0v-nKp">
-                                                                                    <rect key="frame" x="0.0" y="63.666666666666671" width="244" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="244" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="RRy-Je-mS2"/>
                                                                                     </constraints>
@@ -918,89 +879,139 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                     <color key="textColor" name="primaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrh-UJ-7cL">
-                                                                                    <rect key="frame" x="0.0" y="87.666666666666671" width="244" height="0.0"/>
-                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                                                                    <color key="textColor" name="tertiaryLabel"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Joy-fB-360">
+                                                                                    <rect key="frame" x="0.0" y="28.000000000000004" width="244" height="34.333333333333343"/>
+                                                                                    <subviews>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="BYP-8A-0KC">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="244" height="20"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="20" id="ORT-aj-vBt"/>
+                                                                                            </constraints>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
+                                                                                            <color key="textColor" name="primaryLabel"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mp-gr-vgP">
+                                                                                            <rect key="frame" x="0.0" y="20" width="244" height="14.333333333333336"/>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                                                            <nil key="highlightedColor"/>
+                                                                                        </label>
+                                                                                    </subviews>
+                                                                                </stackView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-e8-iqa">
-                                                                                    <rect key="frame" x="0.0" y="91.666666666666671" width="244" height="30.666666666666671"/>
+                                                                                    <rect key="frame" x="0.0" y="70.333333333333329" width="244" height="51.666666666666671"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TF-rp-5DJ">
-                                                                                    <rect key="frame" x="0.0" y="126.33333333333334" width="244" height="40"/>
+                                                                                    <rect key="frame" x="0.0" y="130" width="244" height="55"/>
                                                                                     <subviews>
-                                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-0O-TK4">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="244" height="40"/>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Sf-qX-xEf">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="244" height="55"/>
                                                                                             <subviews>
-                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Joy-fB-360">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="40"/>
+                                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="99B-qd-SMV">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="244" height="20"/>
                                                                                                     <subviews>
-                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="BYP-8A-0KC">
-                                                                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="20"/>
+                                                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAJ-8g-iTF" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
+                                                                                                            <rect key="frame" x="0.0" y="-8" width="110" height="28"/>
+                                                                                                            <subviews>
+                                                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sold Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdq-8U-7I1">
+                                                                                                                    <rect key="frame" x="0.0" y="8" width="110" height="12"/>
+                                                                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                                                                                    <color key="textColor" systemColor="systemRedColor"/>
+                                                                                                                    <nil key="highlightedColor"/>
+                                                                                                                </label>
+                                                                                                            </subviews>
                                                                                                             <constraints>
-                                                                                                                <constraint firstAttribute="height" constant="20" id="ORT-aj-vBt"/>
+                                                                                                                <constraint firstAttribute="bottom" secondItem="bdq-8U-7I1" secondAttribute="bottom" constant="8" id="KqF-JH-g4J"/>
+                                                                                                                <constraint firstAttribute="trailing" secondItem="bdq-8U-7I1" secondAttribute="trailing" id="nFE-FZ-sCT"/>
+                                                                                                                <constraint firstItem="bdq-8U-7I1" firstAttribute="top" secondItem="qAJ-8g-iTF" secondAttribute="top" constant="8" id="oFg-Te-yPT"/>
+                                                                                                                <constraint firstItem="bdq-8U-7I1" firstAttribute="leading" secondItem="qAJ-8g-iTF" secondAttribute="leading" id="xHA-23-q6Q"/>
                                                                                                             </constraints>
-                                                                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
-                                                                                                            <color key="textColor" name="primaryLabel"/>
-                                                                                                            <nil key="highlightedColor"/>
-                                                                                                        </label>
-                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mp-gr-vgP">
-                                                                                                            <rect key="frame" x="0.0" y="20" width="118" height="20"/>
-                                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                                                                                            <color key="textColor" name="tertiaryLabel"/>
-                                                                                                            <nil key="highlightedColor"/>
-                                                                                                        </label>
+                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                                    <real key="value" value="5"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                            </userDefinedRuntimeAttributes>
+                                                                                                        </view>
+                                                                                                    </subviews>
+                                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                                                    <constraints>
+                                                                                                        <constraint firstItem="qAJ-8g-iTF" firstAttribute="leading" secondItem="99B-qd-SMV" secondAttribute="leading" id="6cR-xw-TXN"/>
+                                                                                                        <constraint firstItem="qAJ-8g-iTF" firstAttribute="top" secondItem="99B-qd-SMV" secondAttribute="top" constant="-8" id="8Vi-e5-QO0"/>
+                                                                                                        <constraint firstAttribute="height" constant="20" id="Stz-6S-Zbr"/>
+                                                                                                        <constraint firstAttribute="bottom" secondItem="qAJ-8g-iTF" secondAttribute="bottom" id="X8I-iR-583"/>
+                                                                                                    </constraints>
+                                                                                                </view>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wPr-0O-TK4">
+                                                                                                    <rect key="frame" x="0.0" y="20" width="244" height="35"/>
+                                                                                                    <subviews>
+                                                                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-o0-bsH" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="118" height="35"/>
+                                                                                                            <color key="backgroundColor" name="primaryColor"/>
+                                                                                                            <constraints>
+                                                                                                                <constraint firstAttribute="height" constant="35" id="9S1-4g-LvS"/>
+                                                                                                            </constraints>
+                                                                                                            <state key="normal" title="Button"/>
+                                                                                                            <buttonConfiguration key="configuration" style="plain" title="Select">
+                                                                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                                                                <color key="baseForegroundColor" name="secondaryLabel"/>
+                                                                                                            </buttonConfiguration>
+                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                                    <integer key="value" value="10"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
+                                                                                                                    <color key="value" red="0.96470588239999999" green="0.63137254899999995" blue="0.0" alpha="0.49271397049999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
+                                                                                                                    <color key="value" name="primaryColor"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                            </userDefinedRuntimeAttributes>
+                                                                                                        </button>
+                                                                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ox8-NM-Fij">
+                                                                                                            <rect key="frame" x="126" y="0.0" width="118" height="35"/>
+                                                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                                            <state key="normal" title="Button"/>
+                                                                                                            <buttonConfiguration key="configuration" style="plain" title="View More">
+                                                                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                                                                                <color key="baseForegroundColor" name="primaryColor"/>
+                                                                                                            </buttonConfiguration>
+                                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                                    <integer key="value" value="10"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                                                    <real key="value" value="1"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                                                    <color key="value" name="primaryColor"/>
+                                                                                                                </userDefinedRuntimeAttribute>
+                                                                                                            </userDefinedRuntimeAttributes>
+                                                                                                        </button>
                                                                                                     </subviews>
                                                                                                 </stackView>
-                                                                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-o0-bsH" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
-                                                                                                    <rect key="frame" x="126" y="0.0" width="118" height="40"/>
-                                                                                                    <color key="backgroundColor" name="primaryColor"/>
-                                                                                                    <state key="normal" title="Button"/>
-                                                                                                    <buttonConfiguration key="configuration" style="plain" title="Select">
-                                                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                                                                        <color key="baseForegroundColor" name="secondaryLabel"/>
-                                                                                                    </buttonConfiguration>
-                                                                                                    <userDefinedRuntimeAttributes>
-                                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                                            <integer key="value" value="10"/>
-                                                                                                        </userDefinedRuntimeAttribute>
-                                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                                                                                                            <color key="value" red="0.96470588239999999" green="0.63137254899999995" blue="0.0" alpha="0.49271397049999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                                        </userDefinedRuntimeAttribute>
-                                                                                                        <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
-                                                                                                            <color key="value" name="primaryColor"/>
-                                                                                                        </userDefinedRuntimeAttribute>
-                                                                                                    </userDefinedRuntimeAttributes>
-                                                                                                </button>
                                                                                             </subviews>
+                                                                                            <constraints>
+                                                                                                <constraint firstItem="qAJ-8g-iTF" firstAttribute="trailing" secondItem="7hY-o0-bsH" secondAttribute="trailing" constant="-8" id="Mis-lL-OhW"/>
+                                                                                            </constraints>
                                                                                         </stackView>
                                                                                     </subviews>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="trailing" secondItem="wPr-0O-TK4" secondAttribute="trailing" id="QEz-uU-KPg"/>
-                                                                                        <constraint firstItem="wPr-0O-TK4" firstAttribute="leading" secondItem="2TF-rp-5DJ" secondAttribute="leading" id="RkV-mc-qcQ"/>
-                                                                                        <constraint firstAttribute="height" constant="40" id="VY2-GE-w4U"/>
-                                                                                        <constraint firstAttribute="bottom" secondItem="wPr-0O-TK4" secondAttribute="bottom" id="Yeg-Z0-Zgy"/>
-                                                                                        <constraint firstItem="wPr-0O-TK4" firstAttribute="top" secondItem="2TF-rp-5DJ" secondAttribute="top" id="ike-Pn-Ai9"/>
+                                                                                        <constraint firstItem="2Sf-qX-xEf" firstAttribute="leading" secondItem="2TF-rp-5DJ" secondAttribute="leading" id="AZh-b9-RHZ"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="2Sf-qX-xEf" secondAttribute="bottom" id="OVQ-AX-Ti9"/>
+                                                                                        <constraint firstItem="2Sf-qX-xEf" firstAttribute="top" secondItem="2TF-rp-5DJ" secondAttribute="top" id="c3n-QC-puC"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="2Sf-qX-xEf" secondAttribute="trailing" id="zpW-0J-MYE"/>
                                                                                     </constraints>
                                                                                 </view>
-                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKv-XR-s1t">
-                                                                                    <rect key="frame" x="0.0" y="170.33333333333334" width="244" height="30.666666666666657"/>
-                                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                                                </view>
                                                                             </subviews>
-                                                                            <constraints>
-                                                                                <constraint firstItem="yKv-XR-s1t" firstAttribute="height" secondItem="BQ6-vZ-49m" secondAttribute="height" id="Pvy-aA-oRu"/>
-                                                                                <constraint firstItem="bfo-e8-iqa" firstAttribute="height" secondItem="BQ6-vZ-49m" secondAttribute="height" id="aGU-P5-VNz"/>
-                                                                            </constraints>
                                                                         </stackView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstItem="WwE-of-7sp" firstAttribute="leading" secondItem="Yfl-sx-mMa" secondAttribute="leading" constant="8" id="KHw-Sp-NDV"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="WwE-of-7sp" secondAttribute="bottom" constant="8" id="OyG-Mc-K47"/>
-                                                                        <constraint firstItem="WwE-of-7sp" firstAttribute="top" secondItem="Yfl-sx-mMa" secondAttribute="top" constant="8" id="jfC-FA-QLh"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="WwE-of-7sp" secondAttribute="bottom" constant="16" id="OyG-Mc-K47"/>
+                                                                        <constraint firstItem="WwE-of-7sp" firstAttribute="top" secondItem="Yfl-sx-mMa" secondAttribute="top" constant="16" id="jfC-FA-QLh"/>
                                                                         <constraint firstAttribute="trailing" secondItem="WwE-of-7sp" secondAttribute="trailing" constant="8" id="p98-hs-Cjz"/>
                                                                     </constraints>
                                                                 </view>
@@ -1035,8 +1046,8 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="featuresLabel" destination="Yrh-UJ-7cL" id="GCX-Y8-wRr"/>
                                             <outlet property="imageButton" destination="qhR-nn-8D2" id="yHX-FH-eeu"/>
+                                            <outlet property="multipleButton" destination="Ehx-mc-MO6" id="hOA-0t-Do9"/>
                                             <outlet property="offLabel" destination="ClJ-wz-j0E" id="FvR-DG-Y4v"/>
                                             <outlet property="priceLabel" destination="BYP-8A-0KC" id="T4b-sb-pFE"/>
                                             <outlet property="roomImage" destination="goC-C4-Nqv" id="zvO-c6-u2k"/>
@@ -1104,21 +1115,21 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="termsCell" id="W9K-bq-Bfs" customClass="TermsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1085" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ9-5i-Gcb">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ9-5i-Gcb">
                                                     <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-S7-7J2">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-S7-7J2">
                                                             <rect key="frame" x="0.0" y="0.0" width="412" height="1"/>
                                                             <color key="backgroundColor" name="seperatorColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="oH9-VC-3Be"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-TS-Vwp">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-TS-Vwp">
                                                             <rect key="frame" x="0.0" y="9" width="412" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="9yu-y0-7hI"/>
@@ -1127,17 +1138,17 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-QH-ylH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-QH-ylH">
                                                             <rect key="frame" x="0.0" y="37" width="412" height="147"/>
                                                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo</string>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23h-xX-5cC">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23h-xX-5cC">
                                                             <rect key="frame" x="0.0" y="192" width="412" height="25"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-vL-TLX">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-vL-TLX">
                                                                     <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="e2J-qD-Dpt"/>
@@ -4027,58 +4038,59 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
             <size key="intrinsicContentSize" width="66.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="A8V-hy-zhN">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="C4c-c3-dU7">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="E40-EL-yGQ">
-            <size key="intrinsicContentSize" width="82" height="34"/>
+            <size key="intrinsicContentSize" width="78" height="34"/>
         </designable>
         <designable name="Gkn-em-h8L">
             <size key="intrinsicContentSize" width="145" height="25"/>
         </designable>
         <designable name="Kwa-kK-EHa">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="MLE-vc-H1r">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="NGN-fA-oyt">
             <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="NrR-L7-ovE">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="Wn9-7U-E5X">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="cHi-bc-b3Q">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="e1m-tf-f3H">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="eEc-JR-W2C">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="gQ2-fD-uJS">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="nQu-z5-QbP">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="oLc-Ge-pLn">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="pKV-qF-j9S">
-            <size key="intrinsicContentSize" width="74" height="34"/>
+            <size key="intrinsicContentSize" width="70" height="34"/>
         </designable>
         <designable name="y8m-ur-04i">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
     </designables>
     <resources>
+        <image name="arrow.up.left.and.arrow.down.right" catalog="system" width="128" height="115"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
@@ -4086,7 +4098,6 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
         <image name="hotel-default-img" width="500" height="300"/>
         <image name="hotel-details-banner-img1" width="670" height="330"/>
         <image name="hotel-details-room-deluxe" width="536" height="357"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="pencil.line" catalog="system" width="128" height="98"/>

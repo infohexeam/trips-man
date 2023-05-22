@@ -139,8 +139,9 @@ class HotelRoomsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var soldOutView: UIView!
     @IBOutlet weak var roomName: UILabel!
-    @IBOutlet weak var featuresLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
+    
+    @IBOutlet weak var multipleButton: UIButton!
     
     @IBAction func imageTapped(_ sender: UIButton) {
         delegate?.imageTapped(sender.tag)

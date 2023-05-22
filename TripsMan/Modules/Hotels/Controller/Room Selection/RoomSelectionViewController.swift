@@ -89,7 +89,7 @@ class RoomSelectionViewController: UIViewController {
             let index = IndexPath(row: 0, section: 1)
             if primary[index]?.name != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
                 print("=====true")
-//                isValid = true
+                isValid = true
             }
         }
         return isValid
