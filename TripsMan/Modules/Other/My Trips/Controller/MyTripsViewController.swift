@@ -12,6 +12,9 @@ class MyTripsViewController: UIViewController {
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var sortByButton: UIButton!
     @IBOutlet weak var filterByButton: UIButton!
+    @IBOutlet weak var noBookingsLabel: UILabel!
+
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var myTripsCollection: UICollectionView! {
         didSet {
@@ -19,6 +22,11 @@ class MyTripsViewController: UIViewController {
             myTripsCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             myTripsCollection.dataSource = self
             myTripsCollection.delegate = self
+            
+            myTripsCollection.alwaysBounceVertical = true
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+            myTripsCollection.refreshControl = refreshControl
         }
     }
     
@@ -45,6 +53,11 @@ class MyTripsViewController: UIViewController {
     let parser = Parser()
     var myTrips = [MyTrips]() {
         didSet {
+            if myTrips.count == 0 {
+                noBookingsLabel.isHidden = false
+            } else {
+                noBookingsLabel.isHidden = true
+            }
             tripsManager = TripListManager(myTrips: myTrips)
             myTripsCollection.reloadData()
         }
@@ -82,6 +95,7 @@ class MyTripsViewController: UIViewController {
             getMyTrips()
         }
         setupMenus()
+        noBookingsLabel.isHidden = true
     }
     
     func assignValues() {
@@ -130,6 +144,12 @@ class MyTripsViewController: UIViewController {
         }
         
         getMyTrips()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        print("\n\ncallled")
+        getMyTrips()
+        refreshControl.endRefreshing()
     }
     
     //IBActions

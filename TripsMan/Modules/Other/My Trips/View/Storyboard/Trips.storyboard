@@ -414,16 +414,28 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No bookings found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMq-hN-P4G">
+                                <rect key="frame" x="0.0" y="412" width="390" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Y1s-w5-hSK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                <color key="textColor" name="primaryLabel"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dMq-hN-P4G" secondAttribute="trailing" id="31Y-yN-LcZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="vhd-Ag-I3f" secondAttribute="bottom" id="BEa-CR-aRJ"/>
                             <constraint firstItem="2Rc-lj-8f7" firstAttribute="top" secondItem="osC-wX-iUG" secondAttribute="bottom" id="HDe-Pl-z6S"/>
                             <constraint firstItem="vhd-Ag-I3f" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QMl-aB-Pft"/>
+                            <constraint firstItem="dMq-hN-P4G" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Sri-KB-0VC"/>
                             <constraint firstItem="vhd-Ag-I3f" firstAttribute="top" secondItem="2Rc-lj-8f7" secondAttribute="bottom" id="TjE-Xo-LmN"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vhd-Ag-I3f" secondAttribute="trailing" id="Wep-eT-LjZ"/>
                             <constraint firstItem="osC-wX-iUG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="XAk-bx-zjo"/>
+                            <constraint firstItem="dMq-hN-P4G" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="eFr-Dj-52p"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="osC-wX-iUG" secondAttribute="trailing" constant="8" id="ehb-1t-U5e"/>
                             <constraint firstItem="osC-wX-iUG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="kVz-g3-hpq"/>
                             <constraint firstItem="2Rc-lj-8f7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ncN-Y9-5ik"/>
@@ -434,6 +446,7 @@
                     <connections>
                         <outlet property="filterByButton" destination="Yoj-NG-3lT" id="gi8-vc-HOb"/>
                         <outlet property="myTripsCollection" destination="vhd-Ag-I3f" id="3bN-ve-61C"/>
+                        <outlet property="noBookingsLabel" destination="dMq-hN-P4G" id="rQd-cj-y2W"/>
                         <outlet property="segment" destination="osC-wX-iUG" id="3yy-m2-zvd"/>
                         <outlet property="sortByButton" destination="ho4-nx-gdL" id="uk5-Ug-wvG"/>
                         <segue destination="vAZ-1Q-jrm" kind="show" identifier="toTripDetails" id="2nY-bc-9eH"/>
@@ -1523,19 +1536,19 @@ velit esse quam nihil molestiae consequatur.</string>
     </scenes>
     <designables>
         <designable name="WpO-As-I4K">
-            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
         </designable>
         <designable name="Xtb-c1-XTN">
             <size key="intrinsicContentSize" width="270" height="50"/>
         </designable>
         <designable name="fxG-uL-dpA">
-            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
         <designable name="rcz-7J-woS">
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="sCQ-PC-LLh">
-            <size key="intrinsicContentSize" width="134.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="138.33333333333334" height="34"/>
         </designable>
     </designables>
     <resources>
