@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signupAppleButton: UIButton!
     @IBOutlet weak var signupAccountButton: UIButton!
     
+    @IBOutlet weak var eyeButton: UIButton!
+    
     let parser = Parser()
     
     override func viewDidLoad() {
@@ -43,6 +45,9 @@ class LoginViewController: UIViewController {
         //Disable Login Button
         loginButton.isEnabled = false
         
+        eyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+        eyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
+        passwordField.setLeftPaddingPoints(30)
     }
     
     func clearFields() {
@@ -62,6 +67,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toRegister", sender: nil)
+    }
+    
+    @IBAction func eyeButtonTapped(_ sender: UIButton) {
+        eyeButton.isSelected = !eyeButton.isSelected
+        passwordField.isSecureTextEntry = !passwordField.isSecureTextEntry
     }
     
     

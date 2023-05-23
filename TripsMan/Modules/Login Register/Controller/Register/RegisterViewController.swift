@@ -25,6 +25,9 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var registerButton: DisableButton!
     
+    @IBOutlet weak var passwordEyeButton: UIButton!
+    @IBOutlet weak var confirmEyeButton: UIButton!
+    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     let parser = Parser()
@@ -56,6 +59,14 @@ class RegisterViewController: UIViewController {
         
         //Disable Register Button
         registerButton.isEnabled = false
+        
+        
+        passwordEyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+        passwordEyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
+        confirmEyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
+        confirmEyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
+        passwordField.setLeftPaddingPoints(30)
+        retypePasswordField.setLeftPaddingPoints(30)
     }
     
     
@@ -66,6 +77,17 @@ class RegisterViewController: UIViewController {
     
     @IBAction func clearTapped(_ sender: UIButton) {
         setupView()
+    }
+    
+    @IBAction func eyeButtonTapped(_ sender: UIButton) {
+        if sender == passwordEyeButton {
+            passwordEyeButton.isSelected = !passwordEyeButton.isSelected
+            passwordField.isSecureTextEntry = !passwordField.isSecureTextEntry
+        } else if sender == confirmEyeButton {
+            confirmEyeButton.isSelected = !confirmEyeButton.isSelected
+            retypePasswordField.isSecureTextEntry = !retypePasswordField.isSecureTextEntry
+        }
+        
     }
     
     //MARK: Navigation

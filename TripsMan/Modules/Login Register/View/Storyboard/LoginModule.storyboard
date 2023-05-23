@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -124,6 +125,12 @@
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                                         <color key="value" name="placeholderColor"/>
                                                                     </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingRight">
+                                                                        <real key="value" value="35"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="WPv-Is-iLl"/>
@@ -158,12 +165,30 @@
                                                             </view>
                                                         </subviews>
                                                     </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0I-D3-V30">
+                                                        <rect key="frame" x="280" y="0.0" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="B0I-D3-V30" secondAttribute="height" id="5pF-pc-sk8"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain">
+                                                            <imageReference key="image" image="eye.fill" catalog="system" symbolScale="small"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="eyeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ueo-GK-Qyp"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="B0I-D3-V30" firstAttribute="bottom" secondItem="BOT-6R-f2l" secondAttribute="bottom" id="5hq-5d-a0b"/>
+                                                    <constraint firstItem="B0I-D3-V30" firstAttribute="top" secondItem="BOT-6R-f2l" secondAttribute="top" id="AQm-7n-vXE"/>
                                                     <constraint firstAttribute="trailing" secondItem="NJr-Du-MIm" secondAttribute="trailing" id="Eg3-Us-d2d"/>
                                                     <constraint firstItem="NJr-Du-MIm" firstAttribute="leading" secondItem="fit-VD-PcR" secondAttribute="leading" id="HE0-BK-k4J"/>
                                                     <constraint firstItem="NJr-Du-MIm" firstAttribute="top" secondItem="fit-VD-PcR" secondAttribute="top" id="ijZ-f6-guK"/>
+                                                    <constraint firstItem="B0I-D3-V30" firstAttribute="trailing" secondItem="BOT-6R-f2l" secondAttribute="trailing" id="umv-t8-cYR"/>
                                                     <constraint firstAttribute="bottom" secondItem="NJr-Du-MIm" secondAttribute="bottom" id="xKJ-se-Lwh"/>
                                                 </constraints>
                                             </view>
@@ -439,6 +464,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1hB-OQ-Suy"/>
                     <connections>
+                        <outlet property="eyeButton" destination="B0I-D3-V30" id="bkZ-dg-jcI"/>
                         <outlet property="loginButton" destination="od1-00-bLl" id="1Kb-QF-heP"/>
                         <outlet property="passwordField" destination="BOT-6R-f2l" id="hHp-je-vR9"/>
                         <outlet property="passwordValidationLabel" destination="PAb-zr-anv" id="cbS-bE-lQO"/>
@@ -902,12 +928,32 @@
                                                                             </view>
                                                                         </subviews>
                                                                     </stackView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CC-Mz-gXO">
+                                                                        <rect key="frame" x="280" y="0.0" width="30" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="4CC-Mz-gXO" secondAttribute="height" id="bQb-Dd-Dkn"/>
+                                                                        </constraints>
+                                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="eye.fill" catalog="system" symbolScale="small"/>
+                                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="eyeButtonTapped:" destination="bxc-82-wDu" eventType="touchUpInside" id="27d-xJ-YlL"/>
+                                                                            <action selector="eyeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="axs-6t-BaU"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="4CC-Mz-gXO" firstAttribute="trailing" secondItem="L7u-XZ-X75" secondAttribute="trailing" id="Fia-K2-6hW"/>
+                                                                    <constraint firstItem="4CC-Mz-gXO" firstAttribute="top" secondItem="L7u-XZ-X75" secondAttribute="top" id="Iw4-Lv-58i"/>
                                                                     <constraint firstAttribute="trailing" secondItem="10p-qa-kyL" secondAttribute="trailing" id="MCc-Do-kdN"/>
                                                                     <constraint firstItem="10p-qa-kyL" firstAttribute="top" secondItem="fpm-E3-zre" secondAttribute="top" id="ZgE-ke-V2D"/>
                                                                     <constraint firstItem="10p-qa-kyL" firstAttribute="leading" secondItem="fpm-E3-zre" secondAttribute="leading" id="q0T-0L-O9v"/>
+                                                                    <constraint firstItem="4CC-Mz-gXO" firstAttribute="width" secondItem="4CC-Mz-gXO" secondAttribute="height" id="qFC-Fv-YAY"/>
+                                                                    <constraint firstItem="4CC-Mz-gXO" firstAttribute="bottom" secondItem="L7u-XZ-X75" secondAttribute="bottom" id="r1L-bu-ojc"/>
                                                                     <constraint firstAttribute="bottom" secondItem="10p-qa-kyL" secondAttribute="bottom" id="so1-Ap-WJN"/>
                                                                 </constraints>
                                                             </view>
@@ -960,12 +1006,33 @@
                                                                             </view>
                                                                         </subviews>
                                                                     </stackView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDA-gU-K9t">
+                                                                        <rect key="frame" x="280" y="0.0" width="30" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="kDA-gU-K9t" secondAttribute="height" id="fW9-tj-65k"/>
+                                                                        </constraints>
+                                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" title="Button"/>
+                                                                        <buttonConfiguration key="configuration" style="plain">
+                                                                            <imageReference key="image" image="eye.fill" catalog="system" symbolScale="small"/>
+                                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </buttonConfiguration>
+                                                                        <connections>
+                                                                            <action selector="eyeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TO6-dK-OAW"/>
+                                                                            <action selector="eyeButtonTapped:" destination="bxc-82-wDu" eventType="touchUpInside" id="WLY-Yn-0Zz"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstItem="kDA-gU-K9t" firstAttribute="trailing" secondItem="JII-LL-2jZ" secondAttribute="trailing" id="3mU-TO-Lxi"/>
+                                                                    <constraint firstItem="kDA-gU-K9t" firstAttribute="bottom" secondItem="JII-LL-2jZ" secondAttribute="bottom" id="4F5-LE-hLS"/>
                                                                     <constraint firstAttribute="bottom" secondItem="eAX-jU-E7Q" secondAttribute="bottom" id="CMX-To-Nn7"/>
                                                                     <constraint firstItem="eAX-jU-E7Q" firstAttribute="leading" secondItem="Ysd-lO-qK6" secondAttribute="leading" id="Ty4-4g-h4R"/>
+                                                                    <constraint firstItem="kDA-gU-K9t" firstAttribute="top" secondItem="JII-LL-2jZ" secondAttribute="top" id="Wvf-yI-txp"/>
+                                                                    <constraint firstItem="kDA-gU-K9t" firstAttribute="width" secondItem="kDA-gU-K9t" secondAttribute="height" id="XZV-xR-XbZ"/>
                                                                     <constraint firstAttribute="trailing" secondItem="eAX-jU-E7Q" secondAttribute="trailing" id="cac-IJ-uWR"/>
+                                                                    <constraint firstItem="kDA-gU-K9t" firstAttribute="width" secondItem="kDA-gU-K9t" secondAttribute="height" id="mAL-6b-d6o"/>
                                                                     <constraint firstItem="eAX-jU-E7Q" firstAttribute="top" secondItem="Ysd-lO-qK6" secondAttribute="top" id="rE9-B4-2lX"/>
                                                                 </constraints>
                                                             </view>
@@ -1070,6 +1137,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hU3-83-y6Y"/>
                     <connections>
+                        <outlet property="confirmEyeButton" destination="kDA-gU-K9t" id="0Qd-X0-RVB"/>
                         <outlet property="containerView" destination="FJu-8u-Ze5" id="TkL-IF-qGM"/>
                         <outlet property="emailField" destination="phs-Z4-ZMh" id="fL0-Rr-rXK"/>
                         <outlet property="emailValidationLabel" destination="WHI-LR-4mo" id="8RE-Gg-3dd"/>
@@ -1077,6 +1145,7 @@
                         <outlet property="mobileValidationLabel" destination="55B-Mr-NdB" id="zje-0z-lzU"/>
                         <outlet property="nameField" destination="Ayb-GD-EZk" id="dkl-95-e5U"/>
                         <outlet property="nameValidationLabel" destination="DTz-Le-h5X" id="BgO-KB-geG"/>
+                        <outlet property="passwordEyeButton" destination="4CC-Mz-gXO" id="32c-fi-tyL"/>
                         <outlet property="passwordField" destination="L7u-XZ-X75" id="ie4-Pn-ZD6"/>
                         <outlet property="passwordValidationLabel" destination="SIa-Nj-y3D" id="kxx-lh-wwD"/>
                         <outlet property="registerButton" destination="0Tx-uP-4eS" id="zn5-ei-SaW"/>
@@ -1532,7 +1601,7 @@
             <size key="intrinsicContentSize" width="50" height="19.333333333333332"/>
         </designable>
         <designable name="BOT-6R-f2l">
-            <size key="intrinsicContentSize" width="76.333333333333329" height="18"/>
+            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
         </designable>
         <designable name="C6Y-nE-vp2">
             <size key="intrinsicContentSize" width="55.333333333333336" height="19.333333333333332"/>
@@ -1572,9 +1641,10 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="uR0-uh-Rq1"/>
+        <segue reference="dy8-Bu-wxD"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="eye.fill" catalog="system" width="128" height="80"/>
         <image name="forgot-password-bg" width="360" height="640"/>
         <image name="login-bg" width="360" height="640"/>
         <image name="login-icon-account" width="17.5" height="17.5"/>

@@ -46,6 +46,9 @@ class CustomTextField: UITextField {
         }
     }
     
+    @IBInspectable var paddingLeft: CGFloat = 5
+    @IBInspectable var paddingRight: CGFloat = 5
+    
     //PrepareForInterfaceBuilder
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
@@ -54,18 +57,18 @@ class CustomTextField: UITextField {
 //        layer.cornerRadius = cornerRadius
     }
     
-    //EdgeInsets
-    let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+        return CGRectMake(bounds.origin.x + paddingLeft, bounds.origin.y,
+                          bounds.size.width - paddingLeft - paddingRight, bounds.size.height)
     }
     
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+        return textRect(forBounds: bounds)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
+        return textRect(forBounds: bounds)
     }
+    
 }
