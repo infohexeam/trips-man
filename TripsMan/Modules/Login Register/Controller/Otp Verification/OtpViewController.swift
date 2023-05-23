@@ -10,17 +10,20 @@ import UIKit
 class OtpViewController: UIViewController {
 
     @IBOutlet weak var otpField: CustomTextField!
-    
     @IBOutlet weak var otpValidationLabel: UILabel!
-    
     @IBOutlet weak var verifyButton: DisableButton!
+    @IBOutlet weak var resendButton: DisableButton!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var resendText: UILabel!
     
     var email = ""
     var mobile = ""
     var isMobile = true
     let parser = Parser()
     
+    var timer: Timer?
     
+    var otpTime = K.otpTimer
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +31,17 @@ class OtpViewController: UIViewController {
         setupView()
         hideKeyboardOnTap()
         if isMobile {
+            messageLabel.text = "Please enter the OTP sent to your mobile number"
+            verifyButton.setTitle("Verify Mobile", for: .normal)
             generateOTP()
         } else {
+            messageLabel.text = "Please enter the OTP sent to your email"
+            verifyButton.setTitle("Verify Email", for: .normal)
             generateEmailOTP()
         }
         
-        otpField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         
-        print("is mobile - \(isMobile)")
+        otpField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
     }
     
     func setupView() {
@@ -44,7 +50,41 @@ class OtpViewController: UIViewController {
         
         //Disable Verify Button
         verifyButton.isEnabled = false
+        
+        
+        resendText.isHidden = true
     }
+    
+    func clearFields() {
+        otpField.text = ""
+    }
+    
+    func startTimer() {
+        timer?.invalidate()
+        resendButton.isEnabled = false
+        resendText.isHidden = false
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                return
+            }
+            self.handleTimer(timer)
+        }
+        timer?.fire()
+    }
+    
+    func handleTimer(_ timer: Timer) {
+        otpTime -= 1
+        resendText.text = "Resend OTP in \(otpTime)"
+        guard otpTime >= 0 else {
+            otpTime = K.otpTimer
+            resendText.isHidden = true
+            resendButton.isEnabled = true
+            timer.invalidate()
+            return
+        }
+    }
+    
     
     //MARK: UIButton Actions
     @IBAction func verifyTapped(_ sender: UIButton) {
@@ -75,7 +115,11 @@ extension OtpViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        
+                        if self.timer != nil {
+                            self.view.makeToast(K.otpSentSuccessMessage)
+                        }
+                        self.startTimer()
+                        self.clearFields()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -95,7 +139,11 @@ extension OtpViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        
+                        if self.timer != nil {
+                            self.view.makeToast(K.otpSentSuccessMessage)
+                        }
+                        self.startTimer()
+                        self.clearFields()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -119,7 +167,7 @@ extension OtpViewController {
                         self.navigationController?.view.makeToast(result!.message)
                         self.navigationController?.popToRootViewController(animated: true)
                     } else {
-                        self.view.makeToast(result!.message)
+                        self.view.makeToast(K.otpFailureMessage)
                     }
                 } else {
                     self.view.makeToast("Something went wrong!")
@@ -141,7 +189,7 @@ extension OtpViewController {
                         self.navigationController?.view.makeToast(result!.message)
                         self.navigationController?.popToRootViewController(animated: true)
                     } else {
-                        self.view.makeToast(result!.message)
+                        self.view.makeToast(K.otpFailureMessage)
                     }
                 } else {
                     self.view.makeToast("Something went wrong!")

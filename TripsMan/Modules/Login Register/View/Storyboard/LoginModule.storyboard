@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ffT-va-TTL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ffT-va-TTL">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1113,10 +1113,10 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-of-QiU" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
-                                <rect key="frame" x="20" y="118" width="350" height="272"/>
+                                <rect key="frame" x="20" y="118" width="350" height="278"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bkr-ev-vBA">
-                                        <rect key="frame" x="20" y="20" width="310" height="232"/>
+                                        <rect key="frame" x="20" y="20" width="310" height="238"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTP VERIFICATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aP-CK-b9g">
                                                 <rect key="frame" x="0.0" y="0.0" width="310" height="28.333333333333332"/>
@@ -1124,14 +1124,14 @@
                                                 <color key="textColor" name="primaryLabel"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the OTP sent to your email and mobile number" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6L-AF-wdf">
-                                                <rect key="frame" x="0.0" y="36.333333333333343" width="310" height="33"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter the OTP sent to" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6L-AF-wdf">
+                                                <rect key="frame" x="0.0" y="36.333333333333343" width="310" height="16.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                 <color key="textColor" name="tertiaryLabel"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxH-xU-HQN">
-                                                <rect key="frame" x="0.0" y="77.333333333333343" width="310" height="58.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="61" width="310" height="58.666666666666657"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="39B-yz-eGU">
                                                         <rect key="frame" x="0.0" y="0.0" width="310" height="58.666666666666664"/>
@@ -1189,7 +1189,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-ig-ee2" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="144" width="310" height="40"/>
+                                                <rect key="frame" x="0.0" y="127.66666666666669" width="310" height="40"/>
                                                 <color key="backgroundColor" name="buttonBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="bBw-i2-QFF"/>
@@ -1214,8 +1214,8 @@
                                                     <action selector="verifyTapped:" destination="dhI-Ji-lBH" eventType="touchUpInside" id="Mje-g2-OXO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aox-CU-tWZ">
-                                                <rect key="frame" x="0.0" y="192" width="310" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aox-CU-tWZ" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="175.66666666666669" width="310" height="40"/>
                                                 <color key="backgroundColor" name="secondaryButtonColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="u33-km-aTV"/>
@@ -1234,6 +1234,12 @@
                                                     <action selector="resendTapped:" destination="dhI-Ji-lBH" eventType="touchUpInside" id="vUD-wv-cA5"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resend OTP in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glU-39-F5X">
+                                                <rect key="frame" x="0.0" y="223.66666666666669" width="310" height="14.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -1267,8 +1273,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ec8-lS-8dL"/>
                     <connections>
+                        <outlet property="messageLabel" destination="n6L-AF-wdf" id="khS-XH-X97"/>
                         <outlet property="otpField" destination="JPo-wp-HRo" id="f8F-ND-8St"/>
                         <outlet property="otpValidationLabel" destination="1n2-Un-EAV" id="RU4-Hd-N4i"/>
+                        <outlet property="resendButton" destination="aox-CU-tWZ" id="27h-7z-7jY"/>
+                        <outlet property="resendText" destination="glU-39-F5X" id="mjN-yU-RA7"/>
                         <outlet property="verifyButton" destination="9Po-ig-ee2" id="lOn-YL-AE0"/>
                     </connections>
                 </viewController>

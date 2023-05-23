@@ -45,6 +45,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    func clearFields() {
+        userNameField.text = ""
+        passwordField.text = ""
+    }
+    
  
     //MARK: UIButton Actions
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
@@ -90,10 +95,13 @@ extension LoginViewController {
                         SessionManager.shared.saveLoginDetails(result!)
                         sideMenuDelegate?.updateSideMenu()
                         self.dismiss(animated: true)
+                        self.clearFields()
                     } else if result!.status == 3 { //email not verified
                         self.performSegue(withIdentifier: "toOtp", sender: "email")
+                        self.clearFields()
                     } else if result!.status == 4 {
                         self.performSegue(withIdentifier: "toOtp", sender: "mobile")
+                        self.clearFields()
                     } else {
                         self.view.makeToast(result!.message)
                     }

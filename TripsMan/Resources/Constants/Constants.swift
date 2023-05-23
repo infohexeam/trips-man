@@ -12,6 +12,8 @@ let baseURL = "https://tripsmanadmin.hexeam.in/"
 
 
 struct K {
+    static let otpTimer = 10
+    
     static let minimumPrice: Double = 0
     static let maximumPrice: Double = 100000
     
@@ -27,4 +29,7 @@ struct K {
     static let defaultRoomCount = 1
     static let defaultAdultCount = 2
     static let defaultChildCount = 0
+    
+    static let otpSentSuccessMessage = "Successfully sent OTP"
+    static let otpFailureMessage = "OTP is invalid or expired"
 }
