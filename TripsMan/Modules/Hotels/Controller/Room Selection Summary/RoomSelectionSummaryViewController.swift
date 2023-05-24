@@ -66,9 +66,9 @@ class RoomSelectionSummaryViewController: UIViewController {
                         collectionView.reloadSections(IndexSet(integer: getSection(.coupon)!))
                     }
                 } else {
-                    sections!.insert(SelectionSummarySection(type: .coupon, count: showingCoupons.count), at: (getSection(.reward) ?? (getSection(.bottomView)! - 1)))
-                    collectionView.insertSections(IndexSet(integer: (getSection(.reward) ?? (getSection(.bottomView)! -  1))))
-                    collectionView.reloadSections(IndexSet(integer: getSection(.coupon)!))
+//                    sections!.insert(SelectionSummarySection(type: .coupon, count: showingCoupons.count), at: (getSection(.reward) ?? (getSection(.bottomView)! - 1)))
+//                    collectionView.insertSections(IndexSet(integer: (getSection(.reward) ?? (getSection(.bottomView)! -  1))))
+//                    collectionView.reloadSections(IndexSet(integer: getSection(.coupon)!))
                 }
             }
         }
@@ -158,11 +158,11 @@ extension RoomSelectionSummaryViewController {
                 if error == nil {
                     if result!.status == 1 {
                         self.rewardPoints = result!.data.rewardPoint
-                        if result!.data.rewardPoint > 0 {
-                            self.sections!.insert(SelectionSummarySection(type: .reward, count: 1), at: self.getSection(.bottomView)!-1)
-                            self.collectionView.insertSections(IndexSet(integer: self.getSection(.bottomView)!-1))
-                            self.collectionView.reloadSections(IndexSet(integer: self.getSection(.reward)!))
-                        }
+//                        if result!.data.rewardPoint > 0 {
+//                            self.sections!.insert(SelectionSummarySection(type: .reward, count: 1), at: self.getSection(.bottomView)!-1)
+//                            self.collectionView.insertSections(IndexSet(integer: self.getSection(.bottomView)!-1))
+//                            self.collectionView.reloadSections(IndexSet(integer: self.getSection(.reward)!))
+//                        }
                         if result!.data.coupon.count > 0 {
                             self.coupons = result!.data.coupon
                         }

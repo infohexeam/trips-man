@@ -1060,23 +1060,23 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rulesCell" id="jxz-4J-B2B" customClass="PropertyRulesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="858" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-at-vb9">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-at-vb9">
                                                     <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-veg food is allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHA-b6-g05">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Non-veg food is allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHA-b6-g05">
                                                             <rect key="frame" x="0.0" y="0.0" width="412" height="192"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20f-VX-9jR">
+                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20f-VX-9jR">
                                                             <rect key="frame" x="0.0" y="192" width="412" height="25"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypN-rT-HA1">
+                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypN-rT-HA1">
                                                                     <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="LjL-Ss-3Ta"/>
@@ -1115,21 +1115,21 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="termsCell" id="W9K-bq-Bfs" customClass="TermsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1085" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ9-5i-Gcb">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ9-5i-Gcb">
                                                     <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-S7-7J2">
+                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-S7-7J2">
                                                             <rect key="frame" x="0.0" y="0.0" width="412" height="1"/>
                                                             <color key="backgroundColor" name="seperatorColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="oH9-VC-3Be"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-TS-Vwp">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-TS-Vwp">
                                                             <rect key="frame" x="0.0" y="9" width="412" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="9yu-y0-7hI"/>
@@ -1138,17 +1138,17 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-QH-ylH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-QH-ylH">
                                                             <rect key="frame" x="0.0" y="37" width="412" height="147"/>
                                                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo</string>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23h-xX-5cC">
+                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23h-xX-5cC">
                                                             <rect key="frame" x="0.0" y="192" width="412" height="25"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-vL-TLX">
+                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-vL-TLX">
                                                                     <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="e2J-qD-Dpt"/>
@@ -2107,6 +2107,13 @@ velit esse quam nihil molestiae consequatur.</string>
                             <constraint firstItem="oDe-lX-ypK" firstAttribute="bottom" secondItem="dfo-6a-rKo" secondAttribute="bottom" id="pD8-qF-Udq"/>
                             <constraint firstItem="lBI-zJ-6G2" firstAttribute="top" secondItem="DGR-Pn-JGi" secondAttribute="top" id="zNh-Tw-fIL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dfo-6a-rKo"/>
+                                <exclude reference="lBI-zJ-6G2"/>
+                                <exclude reference="qOf-P5-WDE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="f3I-S2-Oet"/>
                     <connections>
@@ -2158,6 +2165,164 @@ velit esse quam nihil molestiae consequatur.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPr-ty-ADM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1084" y="1994"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SvF-IJ-Fc8">
+            <objects>
+                <viewController id="j02-Cb-OaK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8z8-0E-NYX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yJc-XY-6kx">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xE8-en-fbf">
+                                    <size key="itemSize" width="393" height="229"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="W9L-pR-ndl" customClass="HotelImageCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="2" y="0.0" width="389" height="213"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dhb-Ax-aHz">
+                                            <rect key="frame" x="0.0" y="0.0" width="389" height="213"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hotel-details-banner-img1" translatesAutoresizingMaskIntoConstraints="NO" id="SXM-EK-Joc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="389" height="213"/>
+                                                    <color key="tintColor" name="seperatorColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="SXM-EK-Joc" secondAttribute="bottom" id="9Al-jl-ckA"/>
+                                                <constraint firstAttribute="trailing" secondItem="SXM-EK-Joc" secondAttribute="trailing" id="IPT-l5-jrH"/>
+                                                <constraint firstItem="SXM-EK-Joc" firstAttribute="leading" secondItem="dhb-Ax-aHz" secondAttribute="leading" id="im2-VE-buX"/>
+                                                <constraint firstItem="SXM-EK-Joc" firstAttribute="top" secondItem="dhb-Ax-aHz" secondAttribute="top" id="thK-Vk-po0"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="389" height="213"/>
+                                        <connections>
+                                            <outlet property="hotelImage" destination="SXM-EK-Joc" id="1rA-Vi-kVQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7JA-oW-Cpp">
+                                        <rect key="frame" x="0.0" y="223" width="393" height="83"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9nF-th-dsF">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deluxe AC Room" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0J-ye-NzY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="83"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="CWF-Sd-w9L"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                                                    <color key="textColor" name="primaryLabel"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="F0J-ye-NzY" secondAttribute="trailing" id="9nW-Je-P6e"/>
+                                                <constraint firstItem="F0J-ye-NzY" firstAttribute="top" secondItem="9nF-th-dsF" secondAttribute="top" id="dEb-eK-PXb"/>
+                                                <constraint firstItem="F0J-ye-NzY" firstAttribute="leading" secondItem="9nF-th-dsF" secondAttribute="leading" id="jJQ-9a-P1a"/>
+                                                <constraint firstAttribute="bottom" secondItem="F0J-ye-NzY" secondAttribute="bottom" id="rBd-HY-i96"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="83"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="facilitiesCell" id="MzZ-4T-2G8" customClass="HotelFacilitiesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="316" width="393" height="229"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Vx-kx-Vwe">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="229"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5af-Sr-jak">
+                                                    <rect key="frame" x="7.3333333333332575" y="4" width="88.333333333333329" height="22.666666666666668"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MzO-Ys-2IN">
+                                                            <rect key="frame" x="0.0" y="2.3333333333333321" width="22.666666666666668" height="18.333333333333336"/>
+                                                            <color key="tintColor" name="primaryLabel"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="MzO-Ys-2IN" secondAttribute="height" id="Nii-Td-lFK"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jng-DI-GrQ">
+                                                            <rect key="frame" x="30.666666666666668" y="0.0" width="57.666666666666657" height="22.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                            <color key="textColor" name="primaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="facilityIcon" destination="MzO-Ys-2IN" id="23j-r2-BHZ"/>
+                                            <outlet property="facilityLabel" destination="Jng-DI-GrQ" id="8ur-lG-mN6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nsd-Eb-5BW">
+                                        <rect key="frame" x="76.666666666666671" y="555" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xSd-4L-bKD">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="muB-EN-D1C">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-pJ-HkM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h55-ZJ-C4j">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="h55-ZJ-C4j" firstAttribute="leading" secondItem="FdB-pJ-HkM" secondAttribute="leading" id="8Md-Q0-r3Z"/>
+                                                                <constraint firstAttribute="bottom" secondItem="h55-ZJ-C4j" secondAttribute="bottom" id="DZI-61-LIs"/>
+                                                                <constraint firstItem="h55-ZJ-C4j" firstAttribute="top" secondItem="FdB-pJ-HkM" secondAttribute="top" id="GSN-rB-p4Z"/>
+                                                                <constraint firstAttribute="trailing" secondItem="h55-ZJ-C4j" secondAttribute="trailing" id="eTu-Ka-YPi"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="muB-EN-D1C" secondAttribute="bottom" id="E8C-l3-jBG"/>
+                                                <constraint firstAttribute="trailing" secondItem="muB-EN-D1C" secondAttribute="trailing" id="Y64-eF-aVQ"/>
+                                                <constraint firstItem="muB-EN-D1C" firstAttribute="top" secondItem="xSd-4L-bKD" secondAttribute="top" id="YBG-PW-NAV"/>
+                                                <constraint firstItem="muB-EN-D1C" firstAttribute="leading" secondItem="xSd-4L-bKD" secondAttribute="leading" id="yq0-Zd-Qp1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jAG-ag-NoS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yJc-XY-6kx" firstAttribute="leading" secondItem="jAG-ag-NoS" secondAttribute="leading" id="XzT-Xa-onZ"/>
+                            <constraint firstItem="yJc-XY-6kx" firstAttribute="top" secondItem="jAG-ag-NoS" secondAttribute="top" id="ibf-it-brS"/>
+                            <constraint firstItem="jAG-ag-NoS" firstAttribute="trailing" secondItem="yJc-XY-6kx" secondAttribute="trailing" id="oWM-ox-Dma"/>
+                            <constraint firstAttribute="bottom" secondItem="yJc-XY-6kx" secondAttribute="bottom" id="vEf-bP-xl2"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQ7-Vu-mch" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1901.5267175572519" y="2322.535211267606"/>
         </scene>
         <!--Room Selection View Controller-->
         <scene sceneID="jEA-mv-kHB">
