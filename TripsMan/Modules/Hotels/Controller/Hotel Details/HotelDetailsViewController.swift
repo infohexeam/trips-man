@@ -317,8 +317,11 @@ class HotelDetailsViewController: UIViewController {
                     vc.hotelDetails = hotelDetails
                 }
             } else if let vc = nav.topViewController as? SeeAllReviewsViewController {
-                print("segue")
                 vc.reviews = hotelDetails?.hotelReviews
+            }
+        } else if let vc = segue.destination as? RoomDetailsViewController {
+            if let index = sender as? Int {
+                vc.hotelRoom = hotelDetails?.hotelRooms[index]
             }
         }
     }
@@ -518,6 +521,8 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roomsCell", for: indexPath) as! HotelRoomsCollectionViewCell
             
             cell.imageButton.tag = indexPath.row
+            cell.selectButton.tag = indexPath.row
+            cell.viewMoreButton.tag = indexPath.row
             
             if let rooms = hotelDetails?.hotelRooms[indexPath.row] {
                 cell.delegate = self
@@ -527,6 +532,10 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 cell.priceLabel.addPriceString(rooms.actualPrice, rooms.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(rooms.serviceChargeValue)\ntaxes & fee per night"
                 cell.offLabel.isHidden = true
+                if rooms.offerPrice > 0 {
+                    cell.offLabel.text = " " + "\(rooms.offerPrice.percentage(rooms.actualPrice)) % off" + " "
+                    cell.offLabel.isHidden = false
+                }
                 
                 cell.multipleButton.isHidden = true
                 if rooms.roomImages?.count != 0 {
@@ -657,17 +666,7 @@ extension HotelDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let thisSection = sections?[indexPath.section] else { return }
         
-        if thisSection.type == .rooms {
-            if SessionManager.shared.getLoginDetails() == nil {
-                tabBarDelegate?.switchTab(0)
-                tabBarDelegate?.presentVC("toLogin")
-            } else {
-                if hotelDetails!.hotelRooms[indexPath.row].isSoldOut != 1 {
-                    hotelFilters.roomDetails = Room(hotelID: hotelID, roomID: hotelDetails!.hotelRooms[indexPath.row].roomID)
-                    performSegue(withIdentifier: "toRoomSelect", sender: indexPath.row)
-                }
-            }
-        } else if thisSection.type == .facilities {
+        if thisSection.type == .facilities {
             let allFacilties = thisSection.count
             if allFacilties > facilityCount {
                 facilityCount = allFacilties
@@ -704,7 +703,23 @@ extension HotelDetailsViewController: DynamicCellHeightDelegate {
     }
 }
 
-extension HotelDetailsViewController: ViewImageDelegate {
+extension HotelDetailsViewController: RoomCellDelegate {
+    func viewMoreTapped(_ index: Int) {
+        performSegue(withIdentifier: "toRoomDetails", sender: index)
+    }
+    
+    func selectTapped(_ index: Int) {
+        if SessionManager.shared.getLoginDetails() == nil {
+            tabBarDelegate?.switchTab(0)
+            tabBarDelegate?.presentVC("toLogin")
+        } else {
+            if hotelDetails!.hotelRooms[index].isSoldOut != 1 {
+                hotelFilters.roomDetails = Room(hotelID: hotelID, roomID: hotelDetails!.hotelRooms[index].roomID)
+                performSegue(withIdentifier: "toRoomSelect", sender: index)
+            }
+        }
+    }
+    
     func imageTapped(_ tag: Int) {
         imageContainer.tag = tag
         imageContainer.isHidden = false

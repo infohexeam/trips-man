@@ -129,7 +129,7 @@ class RoomFilterCollectionViewCell: UICollectionViewCell {
 
 class HotelRoomsCollectionViewCell: UICollectionViewCell {
     
-    var delegate: ViewImageDelegate?
+    var delegate: RoomCellDelegate?
     
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
@@ -142,9 +142,18 @@ class HotelRoomsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var selectButton: UIButton!
     
     @IBOutlet weak var multipleButton: UIButton!
+    @IBOutlet weak var viewMoreButton: UIButton!
     
     @IBAction func imageTapped(_ sender: UIButton) {
         delegate?.imageTapped(sender.tag)
+    }
+    
+    @IBAction func viewMoreTapped(_ sender: UIButton) {
+        delegate?.viewMoreTapped(sender.tag)
+    }
+    
+    @IBAction func selectTapped(_ sender: UIButton) {
+        delegate?.selectTapped(sender.tag)
     }
     
 }
@@ -236,6 +245,8 @@ class HotelDetailsFooterView: UICollectionReusableView {
 
 
 
-protocol ViewImageDelegate {
+protocol RoomCellDelegate {
     func imageTapped(_ tag: Int)
+    func viewMoreTapped(_ index: Int)
+    func selectTapped(_ index: Int)
 }
