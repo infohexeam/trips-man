@@ -28,6 +28,7 @@ class RoomDetailsViewController: UIViewController {
         print("\n-------1")
         if let hotelRoom = hotelRoom {
             print("\n-------2")
+            print(hotelRoom)
             roomManager = RoomDetailsManager(roomDetails: hotelRoom)
             roomCollectionView.reloadData()
         }
@@ -161,17 +162,13 @@ extension RoomDetailsViewController {
                 
             } else if thisSection.type == .facilities {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50),
-                                                      heightDimension: .estimated(60))
+                                                      heightDimension: .absolute(20))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(60))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.interItemSpacing = .fixed(10)
-                
-                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                        heightDimension: .absolute(20))
-                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                group.interItemSpacing = .fixed(20)
                 
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10

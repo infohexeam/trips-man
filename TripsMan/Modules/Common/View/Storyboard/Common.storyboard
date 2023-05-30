@@ -94,6 +94,98 @@
             </objects>
             <point key="canvasLocation" x="924.63768115942037" y="2359.8214285714284"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="iZ8-2B-ACY">
+            <objects>
+                <viewController id="5QW-L3-bQO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qrs-fP-13D">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DSo-Fw-hcz">
+                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EUa-LA-q9E">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FQs-S5-PDN">
+                                        <rect key="frame" x="132.66666666666666" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="z6n-9j-tSD">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="priceDetailsCell" id="iuF-SY-X72" customClass="PriceDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="138" width="396" height="163"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TvB-if-lKE">
+                                            <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hid-mb-yQI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PKv-au-ZiW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Charges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-EK-1ks">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="163"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="h16-iR-W2Y"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                                    <color key="textColor" name="primaryLabel"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFO-AU-YGs">
+                                                                    <rect key="frame" x="202" y="0.0" width="194" height="163"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="0c3-GT-k9y"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                                    <color key="textColor" name="primaryLabel"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="hid-mb-yQI" secondAttribute="trailing" id="9Bc-tN-K0x"/>
+                                                <constraint firstItem="hid-mb-yQI" firstAttribute="leading" secondItem="TvB-if-lKE" secondAttribute="leading" id="Gd3-Ei-qof"/>
+                                                <constraint firstAttribute="bottom" secondItem="hid-mb-yQI" secondAttribute="bottom" id="cQQ-10-U8n"/>
+                                                <constraint firstItem="hid-mb-yQI" firstAttribute="top" secondItem="TvB-if-lKE" secondAttribute="top" id="gNZ-ls-sKQ"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="396" height="163"/>
+                                        <connections>
+                                            <outlet property="keyLabel" destination="NXF-EK-1ks" id="4Ot-I6-b8n"/>
+                                            <outlet property="valueLabel" destination="nFO-AU-YGs" id="es0-6x-b9y"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7vI-aq-LAt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DSo-Fw-hcz" secondAttribute="bottom" id="PHA-7U-fdf"/>
+                            <constraint firstItem="7vI-aq-LAt" firstAttribute="trailing" secondItem="DSo-Fw-hcz" secondAttribute="trailing" id="lYU-2a-5by"/>
+                            <constraint firstItem="DSo-Fw-hcz" firstAttribute="leading" secondItem="7vI-aq-LAt" secondAttribute="leading" id="nec-qV-0wZ"/>
+                            <constraint firstItem="DSo-Fw-hcz" firstAttribute="top" secondItem="7vI-aq-LAt" secondAttribute="top" id="nwg-Ik-wT6"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G2U-0v-lQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="3159"/>
+        </scene>
         <!--Coupons View Controller-->
         <scene sceneID="IK3-eN-AMh">
             <objects>
@@ -2284,40 +2376,37 @@
     </scenes>
     <designables>
         <designable name="1T9-G6-MSm">
-            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
-        </designable>
-        <designable name="5EU-Lt-ZKv">
             <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
+        <designable name="5EU-Lt-ZKv">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="34"/>
+        </designable>
         <designable name="B4F-Iy-xaU">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="LEA-Xo-Gm1">
-            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
         </designable>
         <designable name="LuT-BN-FcK">
             <size key="intrinsicContentSize" width="62.333333333333336" height="31.666666666666668"/>
         </designable>
         <designable name="YzH-Nx-dYM">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="eEh-RU-GRp">
-            <size key="intrinsicContentSize" width="13" height="16"/>
-        </designable>
-        <designable name="iiq-H7-Bcr">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="mFS-kl-EN0">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="qtj-cd-Kxh">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="yA4-vh-mec">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="zG6-Pg-E3x">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
     </designables>
     <resources>

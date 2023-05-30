@@ -37,7 +37,7 @@ struct RoomDetailsManager {
         if let roomDetails = roomDetails {
             sections = [RoomDetailsSection(type: .image, count: roomDetails.roomImages?.count ?? 0),
                         RoomDetailsSection(type: .roomDetails, count: 1),
-                        RoomDetailsSection(type: .facilities, count: 1),
+                        RoomDetailsSection(type: .facilities, count: roomDetails.roomFacilities.count),
                         RoomDetailsSection(type: .priceDetails, count: 1)]
         }
     }
