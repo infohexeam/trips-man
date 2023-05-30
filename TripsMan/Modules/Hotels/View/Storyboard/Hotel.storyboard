@@ -1211,7 +1211,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-em-h8L" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="0.0" y="28" width="396" height="88"/>
+                                                            <rect key="frame" x="0.0" y="28" width="145" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="k55-L4-UN5"/>
                                                             </constraints>
@@ -2301,8 +2301,22 @@ velit esse quam nihil molestiae consequatur.</string>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="muB-EN-D1C">
                                                     <rect key="frame" x="0.0" y="0.0" width="383" height="196"/>
                                                     <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wDs-Eg-IRM">
+                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="1"/>
+                                                            <color key="backgroundColor" name="seperatorColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="OFA-DG-mPy"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AtH-z8-qqB">
+                                                            <rect key="frame" x="0.0" y="13" width="383" height="6"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="6" id="lwt-gX-v5V"/>
+                                                            </constraints>
+                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FdB-pJ-HkM">
-                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="31" width="383" height="20"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="h55-ZJ-C4j">
                                                                     <rect key="frame" x="0.0" y="0.0" width="383" height="20"/>
@@ -2337,7 +2351,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5A-iq-Hj3">
-                                                            <rect key="frame" x="0.0" y="32" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="63" width="383" height="20"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5DV-im-9Ph">
                                                                     <rect key="frame" x="0.0" y="0.0" width="383" height="20"/>
@@ -2372,20 +2386,20 @@ velit esse quam nihil molestiae consequatur.</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oM7-FF-lPz">
-                                                            <rect key="frame" x="0.0" y="64" width="383" height="1"/>
+                                                            <rect key="frame" x="0.0" y="95" width="383" height="1"/>
                                                             <color key="backgroundColor" name="seperatorColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="8Dq-ab-R0Y"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2R-sf-Tuj">
-                                                            <rect key="frame" x="0.0" y="77" width="383" height="67"/>
+                                                            <rect key="frame" x="0.0" y="108" width="383" height="12"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HWz-tR-2Qn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="67"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="12"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="Teu-HL-riH">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="67"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="12"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="GMa-FV-OzY"/>
                                                                             </constraints>
@@ -2394,7 +2408,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1855" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="OUK-BF-QcI">
-                                                                            <rect key="frame" x="191.66666666666663" y="0.0" width="191.33333333333337" height="67"/>
+                                                                            <rect key="frame" x="191.66666666666663" y="0.0" width="191.33333333333337" height="12"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="lig-aX-vNZ"/>
                                                                             </constraints>
@@ -2411,6 +2425,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                 <constraint firstAttribute="bottom" secondItem="HWz-tR-2Qn" secondAttribute="bottom" id="dSD-q1-HeP"/>
                                                                 <constraint firstAttribute="trailing" secondItem="HWz-tR-2Qn" secondAttribute="trailing" id="jXn-Id-gSQ"/>
                                                                 <constraint firstItem="HWz-tR-2Qn" firstAttribute="top" secondItem="K2R-sf-Tuj" secondAttribute="top" id="snR-9F-IFg"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C58-E1-vup">
+                                                            <rect key="frame" x="0.0" y="132" width="383" height="12"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="12" id="K9d-HM-IWM"/>
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDW-ro-0mz">
@@ -2431,6 +2452,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <action selector="returnHomeTapped:" destination="Nk5-tI-O4s" eventType="touchUpInside" id="Qie-92-KQ2"/>
+                                                                <action selector="selectRoomTapped:" destination="j02-Cb-OaK" eventType="touchUpInside" id="QY8-Xj-Gau"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -4373,52 +4395,55 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
             <size key="intrinsicContentSize" width="66.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="A8V-hy-zhN">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="C4c-c3-dU7">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="E40-EL-yGQ">
-            <size key="intrinsicContentSize" width="82" height="34"/>
+            <size key="intrinsicContentSize" width="78" height="34"/>
+        </designable>
+        <designable name="Gkn-em-h8L">
+            <size key="intrinsicContentSize" width="145" height="25"/>
         </designable>
         <designable name="Kwa-kK-EHa">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="MLE-vc-H1r">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="NGN-fA-oyt">
             <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="NrR-L7-ovE">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="Wn9-7U-E5X">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="cHi-bc-b3Q">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="e1m-tf-f3H">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="eEc-JR-W2C">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="gQ2-fD-uJS">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="nQu-z5-QbP">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="oLc-Ge-pLn">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="pKV-qF-j9S">
-            <size key="intrinsicContentSize" width="74" height="34"/>
+            <size key="intrinsicContentSize" width="70" height="34"/>
         </designable>
         <designable name="y8m-ur-04i">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
     </designables>
     <resources>

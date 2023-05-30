@@ -20,6 +20,9 @@ class RoomDetailsViewController: UIViewController {
     
     var roomManager: RoomDetailsManager?
     var hotelRoom: HotelRoom?
+    var delegate: RoomCellDelegate?
+    
+    var index = 0
     
     private let pagingInfoSubject = PassthroughSubject<PagingInfo, Never>()
 
@@ -32,6 +35,11 @@ class RoomDetailsViewController: UIViewController {
             roomManager = RoomDetailsManager(roomDetails: hotelRoom)
             roomCollectionView.reloadData()
         }
+    }
+    
+    @IBAction func selectRoomTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: false)
+        delegate?.selectTapped(index)
     }
 }
 

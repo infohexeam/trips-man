@@ -322,6 +322,8 @@ class HotelDetailsViewController: UIViewController {
         } else if let vc = segue.destination as? RoomDetailsViewController {
             if let index = sender as? Int {
                 vc.hotelRoom = hotelDetails?.hotelRooms[index]
+                vc.index = index
+                vc.delegate = self
             }
         }
     }
