@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="924.63768115942037" y="2359.8214285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Checkout View Controller-->
         <scene sceneID="iZ8-2B-ACY">
             <objects>
-                <viewController id="5QW-L3-bQO" sceneMemberID="viewController">
+                <viewController id="5QW-L3-bQO" customClass="CheckoutViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qrs-fP-13D">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,16 +112,8 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FQs-S5-PDN">
-                                        <rect key="frame" x="132.66666666666666" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="z6n-9j-tSD">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="priceDetailsCell" id="iuF-SY-X72" customClass="PriceDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="138" width="396" height="163"/>
+                                        <rect key="frame" x="0.0" y="10" width="396" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TvB-if-lKE">
                                             <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
@@ -169,6 +161,132 @@
                                             <outlet property="valueLabel" destination="nFO-AU-YGs" id="es0-6x-b9y"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="seperatorCell" id="osw-jh-BqB" customClass="SeperatorCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="183" width="413" height="17"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LWB-a1-crW">
+                                            <rect key="frame" x="0.0" y="0.0" width="413" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" name="seperatorColor"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="413" height="17"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FQs-S5-PDN">
+                                        <rect key="frame" x="0.0" y="210" width="393" height="111"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="z6n-9j-tSD">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KsK-kb-HPh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="111"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-mr-Wai">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="91"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-mJ-lTr">
+                                                            <rect key="frame" x="0.0" y="91" width="393" height="20"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YwR-xe-TMY">
+                                                                    <rect key="frame" x="0.0" y="0.99999999999999822" width="20" height="18.666666666666664"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="20" id="LEF-Ji-eEL"/>
+                                                                        <constraint firstAttribute="width" secondItem="YwR-xe-TMY" secondAttribute="height" id="qqu-kf-r1o"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Razor Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbZ-PR-PEO">
+                                                                    <rect key="frame" x="28" y="0.0" width="365" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="yNN-64-m6T"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                    <color key="textColor" name="primaryLabel"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KsK-kb-HPh" firstAttribute="leading" secondItem="z6n-9j-tSD" secondAttribute="leading" id="6Qf-l6-uIm"/>
+                                                <constraint firstItem="KsK-kb-HPh" firstAttribute="top" secondItem="z6n-9j-tSD" secondAttribute="top" id="TnK-dJ-AUu"/>
+                                                <constraint firstAttribute="bottom" secondItem="KsK-kb-HPh" secondAttribute="bottom" id="hVE-yB-yKN"/>
+                                                <constraint firstAttribute="trailing" secondItem="KsK-kb-HPh" secondAttribute="trailing" id="hdV-pH-osS"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="111"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Pax-aO-GNV">
+                                        <rect key="frame" x="0.0" y="331" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nkQ-ii-CbL">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0yM-Ue-jKl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eTr-B3-5s4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="52"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljp-bN-lGU">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="52"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="30" id="4sV-1j-NXb"/>
+                                                                    </constraints>
+                                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system">
+                                                                        <color key="baseForegroundColor" name="tertiaryLabel"/>
+                                                                    </buttonConfiguration>
+                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redeem INR 50 Reward points" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-mF-QMu">
+                                                                    <rect key="frame" x="38" y="0.0" width="355" height="52"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="8tb-7V-Yls"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                    <color key="textColor" name="tertiaryLabel"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-Uy-1cY">
+                                                            <rect key="frame" x="0.0" y="60" width="393" height="40"/>
+                                                            <color key="backgroundColor" red="0.96470588239999999" green="0.63137254899999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="tzX-BL-ZF0"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="Proceed to Payment">
+                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                <color key="baseForegroundColor" name="buttonTextColor"/>
+                                                            </buttonConfiguration>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="searchButtonTapped:" destination="MiT-ss-DYw" eventType="touchUpInside" id="uu1-NS-4JU"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0yM-Ue-jKl" firstAttribute="leading" secondItem="nkQ-ii-CbL" secondAttribute="leading" id="O5F-fA-txh"/>
+                                                <constraint firstAttribute="bottom" secondItem="0yM-Ue-jKl" secondAttribute="bottom" id="WEi-Qw-tfl"/>
+                                                <constraint firstItem="0yM-Ue-jKl" firstAttribute="top" secondItem="nkQ-ii-CbL" secondAttribute="top" id="muP-Eb-QN0"/>
+                                                <constraint firstAttribute="trailing" secondItem="0yM-Ue-jKl" secondAttribute="trailing" id="yXH-fL-Wcc"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="100"/>
+                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
@@ -184,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2U-0v-lQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="3159"/>
+            <point key="canvasLocation" x="922.90076335877859" y="3158.4507042253522"/>
         </scene>
         <!--Coupons View Controller-->
         <scene sceneID="IK3-eN-AMh">
@@ -2412,7 +2530,9 @@
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="123"/>
+        <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="globe.asia.australia.fill" catalog="system" width="128" height="123"/>
         <image name="hotel-default-img" width="500" height="300"/>
         <image name="hotel-listing-ad" width="670" height="330"/>

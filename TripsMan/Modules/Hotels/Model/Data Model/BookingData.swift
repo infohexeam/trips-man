@@ -39,7 +39,7 @@ struct CreateBooking: Codable {
 
 // MARK: - AmountDetail
 struct AmountDetail: Codable {
-    let amount: Int
+    let amount: Double
     let label: String
     let isTotalAmount: Int
 }
