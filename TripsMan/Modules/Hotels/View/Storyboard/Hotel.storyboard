@@ -4370,6 +4370,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                         <outlet property="successLabel" destination="mPF-9t-3Ed" id="zaC-a2-W7e"/>
                         <outlet property="successView" destination="Mzo-Be-e24" id="Z95-bx-CRh"/>
                         <segue destination="49f-uo-mxF" kind="presentation" identifier="toCoupons" id="8LR-ee-yPI"/>
+                        <segue destination="BoB-Jj-djv" kind="show" identifier="toCheckout" id="9ox-x3-fee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8d-09-1bv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4383,6 +4384,16 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FEX-7e-JN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3660" y="1578"/>
+        </scene>
+        <!--CheckoutViewController-->
+        <scene sceneID="nQP-rk-cx1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Common" referencedIdentifier="CheckoutViewController" id="BoB-Jj-djv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zvA-zp-k8c"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sBO-AR-Pi8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3659" y="1747"/>
         </scene>
     </scenes>
     <designables>

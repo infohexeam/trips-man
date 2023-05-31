@@ -28,9 +28,7 @@ class RoomDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\n-------1")
         if let hotelRoom = hotelRoom {
-            print("\n-------2")
             print(hotelRoom)
             roomManager = RoomDetailsManager(roomDetails: hotelRoom)
             roomCollectionView.reloadData()

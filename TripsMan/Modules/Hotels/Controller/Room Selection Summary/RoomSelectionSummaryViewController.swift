@@ -115,6 +115,11 @@ class RoomSelectionSummaryViewController: UIViewController {
             vc.selectedCoupon = selectedCoupon
             vc.bookingID = bookedData!.bookingID
             vc.delegate = self
+        } else if let vc = segue.destination as? CheckoutViewController {
+            if let data = sender as? CheckoutData {
+                vc.checkoutData = data.data
+                vc.bookingID = bookedData?.bookingID
+            }
         }
     }
     
@@ -130,7 +135,7 @@ class RoomSelectionSummaryViewController: UIViewController {
     }
     
     @IBAction func paymentTapped(_ sender: UIButton) {
-        confirmBooking()
+        checkoutBooking()
     }
     
     @IBAction func applyRewardTapped(_ sender: UIButton) {
@@ -244,15 +249,18 @@ extension RoomSelectionSummaryViewController {
         }
     }
     
-    func confirmBooking() {
+    func checkoutBooking() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/ConfirmCustomerHotelBooking?BookingId=\(bookedData!.bookingID)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        let params: [String: Any] = ["bookingId": bookedData?.bookingID ?? 0,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHotelCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.successView.isHidden = false
-                        self.successLabel.text = result!.message
+                        self.performSegue(withIdentifier: "toCheckout", sender: result)
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -263,6 +271,7 @@ extension RoomSelectionSummaryViewController {
             }
         }
     }
+
 }
 
 //MARK: - Coupon Delegate

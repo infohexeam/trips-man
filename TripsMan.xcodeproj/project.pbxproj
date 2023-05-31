@@ -26,6 +26,10 @@
 		C13DAD0A295D8E5900DAF734 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD09295D8E5900DAF734 /* SessionManager.swift */; };
 		C13E75D6298A391E00FBE80B /* CouponData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E75D5298A391E00FBE80B /* CouponData.swift */; };
 		C13E75D8298A723F00FBE80B /* CouponsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13E75D7298A723F00FBE80B /* CouponsViewController.swift */; };
+		C140C1542A2714560099D707 /* CheckoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C1532A2714560099D707 /* CheckoutManager.swift */; };
+		C140C1572A2715B80099D707 /* PaymentMethodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C1562A2715B80099D707 /* PaymentMethodCollectionViewCell.swift */; };
+		C140C1592A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C1582A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift */; };
+		C140C15B2A27179F0099D707 /* CheckoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C15A2A27179F0099D707 /* CheckoutData.swift */; };
 		C1422EA72A0651D7005E83D2 /* Meetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1422EA62A0651D7005E83D2 /* Meetup.storyboard */; };
 		C1422EA92A06525E005E83D2 /* MeetupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EA82A06525E005E83D2 /* MeetupDetailsViewController.swift */; };
 		C1422EAB2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EAA2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift */; };
@@ -223,6 +227,10 @@
 		C13DAD09295D8E5900DAF734 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		C13E75D5298A391E00FBE80B /* CouponData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponData.swift; sourceTree = "<group>"; };
 		C13E75D7298A723F00FBE80B /* CouponsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponsViewController.swift; sourceTree = "<group>"; };
+		C140C1532A2714560099D707 /* CheckoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutManager.swift; sourceTree = "<group>"; };
+		C140C1562A2715B80099D707 /* PaymentMethodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCollectionViewCell.swift; sourceTree = "<group>"; };
+		C140C1582A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRewardCollectionViewCell.swift; sourceTree = "<group>"; };
+		C140C15A2A27179F0099D707 /* CheckoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutData.swift; sourceTree = "<group>"; };
 		C1422EA62A0651D7005E83D2 /* Meetup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meetup.storyboard; sourceTree = "<group>"; };
 		C1422EA82A06525E005E83D2 /* MeetupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDetailsViewController.swift; sourceTree = "<group>"; };
 		C1422EAA2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -446,6 +454,15 @@
 				C13DAD09295D8E5900DAF734 /* SessionManager.swift */,
 			);
 			path = "Session Manager";
+			sourceTree = "<group>";
+		};
+		C140C1552A2715890099D707 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				C140C1562A2715B80099D707 /* PaymentMethodCollectionViewCell.swift */,
+				C140C1582A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift */,
+			);
+			path = Checkout;
 			sourceTree = "<group>";
 		};
 		C1422E9E2A065120005E83D2 /* Meetups */ = {
@@ -1050,6 +1067,7 @@
 				C15CDDE529C1913E00E15E9F /* FilterManager.swift */,
 				C1D64B5029C9842700E91F06 /* CountryManager.swift */,
 				C1EF48442A173340002C877A /* SearchManager.swift */,
+				C140C1532A2714560099D707 /* CheckoutManager.swift */,
 				C1CA190029B9AB9300CFD04A /* Data Model */,
 			);
 			path = Model;
@@ -1065,6 +1083,7 @@
 				C14894C129ED0B0400EB559E /* ActivityListingData.swift */,
 				C155DF092A04F67000F9ED58 /* MeetupListingData.swift */,
 				C1EF48422A1727A8002C877A /* SearchData.swift */,
+				C140C15A2A27179F0099D707 /* CheckoutData.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -1081,6 +1100,7 @@
 		C1CA190329B9ABB300CFD04A /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				C140C1552A2715890099D707 /* Checkout */,
 				C1D64B5229C988B300E91F06 /* Country */,
 				C1CA192729B9D44200CFD04A /* Filter */,
 				C1CA192629B9D27800CFD04A /* Listing */,
@@ -1894,6 +1914,7 @@
 				C13DAD07295D6F7200DAF734 /* TabBarController.swift in Sources */,
 				C15E320A28C8267700E209EB /* RegisterViewController.swift in Sources */,
 				C12D83FC294999A70091B311 /* MyTripsViewController.swift in Sources */,
+				C140C1542A2714560099D707 /* CheckoutManager.swift in Sources */,
 				C132E48828DC55BD00D980D1 /* Gradient.swift in Sources */,
 				C1D0DAD229CACAD900641491 /* PackageDetailsManager.swift in Sources */,
 				C1FFA59F28E3FB5900E13D75 /* RoomSelectionViewController.swift in Sources */,
@@ -1920,6 +1941,7 @@
 				C1E7E99A29FA7BE500676237 /* ActivityCustomerCollectionViewCell.swift in Sources */,
 				C1F89CFA29FCD5C300EB370B /* ActivityBookSummaryCollectionViewCell.swift in Sources */,
 				C1D8F6C02907725700C6CBBA /* Constants.swift in Sources */,
+				C140C15B2A27179F0099D707 /* CheckoutData.swift in Sources */,
 				C1422EAD2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift in Sources */,
 				C1E25CF22A08B9D000AC328A /* MeetupDetailsFooterView.swift in Sources */,
 				C14D783428FE57800065BA63 /* UITextField+Extension.swift in Sources */,
@@ -1987,6 +2009,7 @@
 				C189620529C04A540070243F /* ListingData.swift in Sources */,
 				C19335E328DBF241001A037F /* ListingViewController.swift in Sources */,
 				C19335E628DC340A001A037F /* HotelListCells.swift in Sources */,
+				C140C1572A2715B80099D707 /* PaymentMethodCollectionViewCell.swift in Sources */,
 				C1DDD11128CAEBA30032FA12 /* Validator.swift in Sources */,
 				C1D0DAD729CAF6FD00641491 /* PackageDetailsFooterCollectionReusableView.swift in Sources */,
 				C1D64B4F29C982BC00E91F06 /* CountryListingViewController.swift in Sources */,
@@ -2002,6 +2025,7 @@
 				C15CDDE629C1913E00E15E9F /* FilterManager.swift in Sources */,
 				C1FFA5A628E5559F00E13D75 /* RoomSelectionSummaryCells.swift in Sources */,
 				C1D0DACD29CAB00D00641491 /* PackageDetailsViewController.swift in Sources */,
+				C140C1592A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift in Sources */,
 				C17161CD2988E3440098A6C0 /* BookingData.swift in Sources */,
 				C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */,
 				C19EF45C29657321008EDD66 /* ImagePicker.swift in Sources */,
