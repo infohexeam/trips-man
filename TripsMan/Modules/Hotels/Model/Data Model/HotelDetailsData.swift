@@ -117,11 +117,11 @@ struct RoomFacility: Codable {
 struct RoomImage: Codable {
     let id, roomID: Int
     let roomImage: String?
-    let status: Int
+    let status, isFeatured: Int
 
     enum CodingKeys: String, CodingKey {
         case id
         case roomID = "roomId"
-        case roomImage, status
+        case roomImage, status, isFeatured
     }
 }

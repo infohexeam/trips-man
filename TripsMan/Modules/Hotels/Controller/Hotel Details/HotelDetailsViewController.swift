@@ -541,7 +541,8 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 
                 cell.multipleButton.isHidden = true
                 if rooms.roomImages?.count != 0 {
-                    cell.roomImage.sd_setImage(with: URL(string: rooms.roomImages?[0].roomImage ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
+                    let roomImage: String = rooms.roomImages?.filter( {$0.isFeatured == 1 }).last?.roomImage ?? (rooms.roomImages?[0].roomImage ?? "")
+                    cell.roomImage.sd_setImage(with: URL(string: roomImage), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                     if rooms.roomImages!.count > 1 {
                         cell.multipleButton.isHidden = false
                     }
