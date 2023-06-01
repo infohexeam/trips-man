@@ -92,8 +92,10 @@ extension CheckoutViewController: UICollectionViewDataSource {
                 
                 cell.keyLabel.text = amount.label
                 cell.valueLabel.text = "\(SessionManager.shared.getCurrency()) \(amount.amount)"
+                cell.seperator.isHidden = true
                 
                 if amount.isTotalAmount == 1 {
+                    cell.seperator.isHidden = false
                     cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 15)
                     cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 15)
                 }

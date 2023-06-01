@@ -141,7 +141,7 @@ extension CouponsViewController: UICollectionViewDataSource {
             cell.radioImage.image = UIImage(systemName: "circle")
             
             if selectedCoupon == coupon.couponCode {
-                cell.radioImage.image = UIImage(systemName: "circle.fill")
+                cell.radioImage.image = UIImage(systemName: "circle.circle.fill")
             }
             
             return cell

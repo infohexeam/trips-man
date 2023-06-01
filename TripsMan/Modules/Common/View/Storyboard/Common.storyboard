@@ -119,14 +119,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hid-mb-yQI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hid-mb-yQI">
+                                                    <rect key="frame" x="8" y="8" width="380" height="147"/>
                                                     <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pf9-eI-DoF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="380" height="1"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="bzp-ZF-gOc"/>
+                                                            </constraints>
+                                                        </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PKv-au-ZiW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
+                                                            <rect key="frame" x="0.0" y="9" width="380" height="138"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Charges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXF-EK-1ks">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="163"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="186" height="138"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="h16-iR-W2Y"/>
                                                                     </constraints>
@@ -135,7 +142,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFO-AU-YGs">
-                                                                    <rect key="frame" x="202" y="0.0" width="194" height="163"/>
+                                                                    <rect key="frame" x="194" y="0.0" width="186" height="138"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="25" id="0c3-GT-k9y"/>
                                                                     </constraints>
@@ -148,16 +155,18 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" name="seperatorColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="hid-mb-yQI" secondAttribute="trailing" id="9Bc-tN-K0x"/>
-                                                <constraint firstItem="hid-mb-yQI" firstAttribute="leading" secondItem="TvB-if-lKE" secondAttribute="leading" id="Gd3-Ei-qof"/>
-                                                <constraint firstAttribute="bottom" secondItem="hid-mb-yQI" secondAttribute="bottom" id="cQQ-10-U8n"/>
-                                                <constraint firstItem="hid-mb-yQI" firstAttribute="top" secondItem="TvB-if-lKE" secondAttribute="top" id="gNZ-ls-sKQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="hid-mb-yQI" secondAttribute="trailing" constant="8" id="9Bc-tN-K0x"/>
+                                                <constraint firstItem="hid-mb-yQI" firstAttribute="leading" secondItem="TvB-if-lKE" secondAttribute="leading" constant="8" id="Gd3-Ei-qof"/>
+                                                <constraint firstAttribute="bottom" secondItem="hid-mb-yQI" secondAttribute="bottom" constant="8" id="cQQ-10-U8n"/>
+                                                <constraint firstItem="hid-mb-yQI" firstAttribute="top" secondItem="TvB-if-lKE" secondAttribute="top" constant="8" id="gNZ-ls-sKQ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="396" height="163"/>
                                         <connections>
                                             <outlet property="keyLabel" destination="NXF-EK-1ks" id="4Ot-I6-b8n"/>
+                                            <outlet property="seperator" destination="Pf9-eI-DoF" id="OOC-Xs-jZX"/>
                                             <outlet property="valueLabel" destination="nFO-AU-YGs" id="es0-6x-b9y"/>
                                         </connections>
                                     </collectionViewCell>
@@ -182,29 +191,33 @@
                                                     <rect key="frame" x="0.0" y="8" width="393" height="95"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-mr-Wai">
-                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="33"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fzh-mJ-lTr">
-                                                            <rect key="frame" x="0.0" y="65" width="393" height="30"/>
+                                                            <rect key="frame" x="0.0" y="45" width="393" height="50"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YwR-xe-TMY">
-                                                                    <rect key="frame" x="0.0" y="0.99999999999999822" width="20" height="28.666666666666664"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YwR-xe-TMY">
+                                                                    <rect key="frame" x="0.0" y="1" width="20" height="48.666666666666671"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="20" id="LEF-Ji-eEL"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay using Razor Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IbZ-PR-PEO">
-                                                                    <rect key="frame" x="28" y="0.0" width="365" height="30"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="30" id="yNN-64-m6T"/>
-                                                                    </constraints>
+                                                                    <rect key="frame" x="28" y="0.0" width="257" height="50"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="razorpay_logo" translatesAutoresizingMaskIntoConstraints="NO" id="3Nq-Cv-I8s">
+                                                                    <rect key="frame" x="293" y="0.0" width="100" height="50"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="50" id="G0T-UB-TIM"/>
+                                                                        <constraint firstAttribute="width" constant="100" id="VLJ-xQ-mft"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -229,14 +242,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0yM-Ue-jKl">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0yM-Ue-jKl">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eTr-B3-5s4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="52"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljp-bN-lGU">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="52"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="44"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="30" id="4sV-1j-NXb"/>
                                                                     </constraints>
@@ -247,7 +260,7 @@
                                                                     </buttonConfiguration>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redeem INR 50 Reward points" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-mF-QMu">
-                                                                    <rect key="frame" x="38" y="0.0" width="355" height="52"/>
+                                                                    <rect key="frame" x="38" y="0.0" width="355" height="44"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="8tb-7V-Yls"/>
                                                                     </constraints>
@@ -369,11 +382,6 @@
                             <constraint firstItem="DSo-Fw-hcz" firstAttribute="leading" secondItem="7vI-aq-LAt" secondAttribute="leading" id="nec-qV-0wZ"/>
                             <constraint firstItem="DSo-Fw-hcz" firstAttribute="top" secondItem="7vI-aq-LAt" secondAttribute="top" id="nwg-Ik-wT6"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ODF-Gr-Y2l"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="checkoutCollectionView" destination="DSo-Fw-hcz" id="3pt-Uy-n4i"/>
@@ -2575,37 +2583,40 @@
     </scenes>
     <designables>
         <designable name="1T9-G6-MSm">
-            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
         </designable>
         <designable name="5EU-Lt-ZKv">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
         <designable name="B4F-Iy-xaU">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="LEA-Xo-Gm1">
-            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
         </designable>
         <designable name="LuT-BN-FcK">
             <size key="intrinsicContentSize" width="62.333333333333336" height="31.666666666666668"/>
         </designable>
         <designable name="YzH-Nx-dYM">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="eEh-RU-GRp">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
+        </designable>
+        <designable name="iiq-H7-Bcr">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="mFS-kl-EN0">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="qtj-cd-Kxh">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="yA4-vh-mec">
-            <size key="intrinsicContentSize" width="31" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="zG6-Pg-E3x">
-            <size key="intrinsicContentSize" width="3" height="16"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
     </designables>
     <resources>
@@ -2614,7 +2625,7 @@
         <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="circle" catalog="system" width="128" height="123"/>
-        <image name="circle.fill" catalog="system" width="128" height="123"/>
+        <image name="circle.circle.fill" catalog="system" width="128" height="123"/>
         <image name="globe.asia.australia.fill" catalog="system" width="128" height="123"/>
         <image name="hotel-default-img" width="500" height="300"/>
         <image name="hotel-listing-ad" width="670" height="330"/>
@@ -2624,6 +2635,7 @@
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="pencil.line" catalog="system" width="128" height="98"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="razorpay_logo" width="1896" height="401"/>
         <namedColor name="buttonBackgroundColor">
             <color red="0.015686274509803921" green="0.4823529411764706" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

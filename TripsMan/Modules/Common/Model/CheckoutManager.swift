@@ -35,7 +35,6 @@ struct CheckoutManager {
     mutating func setSections() {
         if let checkouData = checkouData {
             sections = [CheckoutSection(type: .priceDetails, count: checkouData.amounts.count),
-                        CheckoutSection(type: .seperator, count: 1),
                         CheckoutSection(type: .paymentMethod, count: 1),
                         CheckoutSection(type: .reward, count: 1)]
         }

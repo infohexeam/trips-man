@@ -240,7 +240,7 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
                 cell.removeButton.isHidden = true
                 
                 if packageManager?.getSelectedCoupon() == coupon.couponCode {
-                    cell.radioImage.image = UIImage(systemName: "circle.fill")
+                    cell.radioImage.image = UIImage(systemName: "circle.circle.fill")
                     cell.removeButton.isHidden = false
                 }
             }

@@ -350,7 +350,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
             cell.removeButton.isHidden = true
             
             if selectedCoupon == coupon.couponCode {
-                cell.radioImage.image = UIImage(systemName: "circle.fill")
+                cell.radioImage.image = UIImage(systemName: "circle.circle.fill")
                 cell.removeButton.isHidden = false
             }
             
