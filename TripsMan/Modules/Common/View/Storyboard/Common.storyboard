@@ -255,15 +255,15 @@
                                                                     </constraints>
                                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system">
+                                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.square.fill" catalog="system" imagePlacement="top">
                                                                         <color key="baseForegroundColor" name="tertiaryLabel"/>
                                                                     </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="rewardButtonTapped:" destination="5QW-L3-bQO" eventType="touchUpInside" id="Hxx-i8-DnL"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redeem INR 50 Reward points" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXa-mF-QMu">
                                                                     <rect key="frame" x="38" y="0.0" width="355" height="44"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="8tb-7V-Yls"/>
-                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                     <color key="textColor" name="tertiaryLabel"/>
                                                                     <nil key="highlightedColor"/>
@@ -303,6 +303,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="393" height="100"/>
                                         <connections>
+                                            <outlet property="rewardButton" destination="ljp-bN-lGU" id="Zom-A8-Jwm"/>
                                             <outlet property="rewardText" destination="eXa-mF-QMu" id="e4J-7Y-kIc"/>
                                         </connections>
                                     </collectionViewCell>

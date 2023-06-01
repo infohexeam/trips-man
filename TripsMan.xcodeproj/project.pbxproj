@@ -102,6 +102,7 @@
 		C178318C29EFA4A100FAC9B7 /* ActivityDetailsFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178318B29EFA4A100FAC9B7 /* ActivityDetailsFooterView.swift */; };
 		C178318E29EFA4C200FAC9B7 /* ActivityDetailsImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C178318D29EFA4C100FAC9B7 /* ActivityDetailsImageCollectionViewCell.swift */; };
 		C17AF1F1299CA8AD002C20B1 /* CouponCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17AF1F0299CA8AD002C20B1 /* CouponCells.swift */; };
+		C18161DF2A289CCA00BF9E01 /* RewardPointsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18161DE2A289CC900BF9E01 /* RewardPointsData.swift */; };
 		C189620529C04A540070243F /* ListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C189620429C04A540070243F /* ListingData.swift */; };
 		C18FFEC7295BF96A00F29EC9 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FFEC6295BF96A00F29EC9 /* KeyboardLayout.swift */; };
 		C18FFECA295C15BA00F29EC9 /* ListingFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18FFEC9295C15BA00F29EC9 /* ListingFilters.swift */; };
@@ -307,6 +308,7 @@
 		C178318B29EFA4A100FAC9B7 /* ActivityDetailsFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsFooterView.swift; sourceTree = "<group>"; };
 		C178318D29EFA4C100FAC9B7 /* ActivityDetailsImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C17AF1F0299CA8AD002C20B1 /* CouponCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponCells.swift; sourceTree = "<group>"; };
+		C18161DE2A289CC900BF9E01 /* RewardPointsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardPointsData.swift; sourceTree = "<group>"; };
 		C189620429C04A540070243F /* ListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingData.swift; sourceTree = "<group>"; };
 		C18FFEC6295BF96A00F29EC9 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		C18FFEC9295C15BA00F29EC9 /* ListingFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingFilters.swift; sourceTree = "<group>"; };
@@ -1077,6 +1079,7 @@
 			isa = PBXGroup;
 			children = (
 				C13E75D5298A391E00FBE80B /* CouponData.swift */,
+				C18161DE2A289CC900BF9E01 /* RewardPointsData.swift */,
 				C1BE352C2976654D004EB983 /* FilterData.swift */,
 				C1CA2C492977B92000648A45 /* HotelListingData.swift */,
 				C1DF2D7D29BF2A40000732B7 /* PackageListingData.swift */,
@@ -1996,6 +1999,7 @@
 				C1E7E99329FA565A00676237 /* ActivityBookingViewController.swift in Sources */,
 				C153B4B629EEBB9E00399C58 /* ActivityDetailsData.swift in Sources */,
 				C1DC9DB7299F79D6004AA17E /* SearchViewController.swift in Sources */,
+				C18161DF2A289CCA00BF9E01 /* RewardPointsData.swift in Sources */,
 				C1E7E9A029FA828F00676237 /* ActivityBookingManager.swift in Sources */,
 				C1F89CFE29FCF30C00EB370B /* ActivityBookingData.swift in Sources */,
 				C145C94A2A1F259F0002FAF0 /* RoomDetailsManager.swift in Sources */,

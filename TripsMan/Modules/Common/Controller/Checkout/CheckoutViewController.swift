@@ -25,17 +25,27 @@ class CheckoutViewController: UIViewController {
     var bookingID = 0
     
     let parser = Parser()
+    
+    var rewardApplied = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         successView.isHidden = true
 
         if let checkoutData = checkoutData {
-            checkoutManager = CheckoutManager(checkoutData: checkoutData)
+            checkoutManager = CheckoutManager(checkoutData: checkoutData, amounts: nil)
             checkoutCollectionView.reloadData()
         }
     }
     
+    @IBAction func rewardButtonTapped(_ sender: UIButton) {
+        if !rewardApplied {
+            applyRewardPoint()
+        } else {
+            removeRewardPoint()
+        }
+        
+    }
     
     @IBAction func proceedButtonTapped(_ sender: UIButton) {
         confirmBooking()
@@ -68,6 +78,62 @@ extension CheckoutViewController {
             }
         }
     }
+    
+    func applyRewardPoint() {
+        showIndicator()
+        
+        let params: [String: Any] = ["bookingId": bookingID,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/ApplyCustomerHotelRewardPoint", http: .post, parameters: params) { (result: RewardPointsData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        let checkout = self.checkoutManager?.getCheckoutDetails()
+                        self.checkoutManager = CheckoutManager(checkoutData: checkout, amounts: result!.data)
+                        self.rewardApplied = true
+                        self.checkoutCollectionView.reloadData()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                    
+            }
+        }
+    }
+    
+    func removeRewardPoint() {
+        showIndicator()
+        
+        let params: [String: Any] = ["bookingId": bookingID,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        
+        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/RemoveCustomerHotelRewardPoint", http: .post, parameters: params) { (result: RewardPointsData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        let checkout = self.checkoutManager?.getCheckoutDetails()
+                        self.checkoutManager = CheckoutManager(checkoutData: checkout, amounts: result!.data)
+                        self.rewardApplied = false
+                        self.checkoutCollectionView.reloadData()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                    
+            }
+        }
+    }
 }
 
 //MARK: - UICollectionView
@@ -86,7 +152,7 @@ extension CheckoutViewController: UICollectionViewDataSource {
         
         if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
-            if let amount = checkoutManager?.getCheckoutDetails()?.amounts[indexPath.row] {
+            if let amount = checkoutManager?.getAmountDetails()?[indexPath.row] {
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 
@@ -113,7 +179,11 @@ extension CheckoutViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .reward {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardCell", for: indexPath) as! CheckoutRewardCollectionViewCell
             if let details = checkoutManager?.getCheckoutDetails() {
-                cell.rewardText.text = "Reddem \(details.redeamPercentage)% of your waller points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.redeamablePoints)"
+                cell.rewardButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+                cell.rewardButton.setImage(UIImage(systemName: "square"), for: .normal)
+                cell.rewardButton.isSelected = self.rewardApplied
+                
+                cell.rewardText.text = "Redeem \(details.redeamPercentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.redeamablePoints)"
             }
             
             return cell

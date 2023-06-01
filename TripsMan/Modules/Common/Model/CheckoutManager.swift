@@ -22,11 +22,18 @@ struct CheckoutManager {
     
     var sections: [CheckoutSection]? = nil
     var checkouData: Checkout?
+    var amountDetails: [Amount]?
     
-    init(checkoutData: Checkout) {
+    init(checkoutData: Checkout?, amounts: [Amount]?) {
         self.checkouData = checkoutData
+        if let amounts = amounts {
+            self.amountDetails = amounts
+        } else {
+            self.amountDetails = checkoutData?.amounts
+        }
         setSections()
     }
+    
     
     func getSections() -> [CheckoutSection]? {
         return sections
@@ -34,7 +41,8 @@ struct CheckoutManager {
     
     mutating func setSections() {
         if let checkouData = checkouData {
-            sections = [CheckoutSection(type: .priceDetails, count: checkouData.amounts.count),
+            print("settingSections: \(checkouData)")
+            sections = [CheckoutSection(type: .priceDetails, count: amountDetails?.count ?? 0),
                         CheckoutSection(type: .paymentMethod, count: 1),
                         CheckoutSection(type: .reward, count: 1)]
         }
@@ -42,6 +50,10 @@ struct CheckoutManager {
     
     func getCheckoutDetails() -> Checkout? {
         return self.checkouData
+    }
+    
+    func getAmountDetails() -> [Amount]? {
+        return self.amountDetails
     }
     
 }

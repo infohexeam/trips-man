@@ -9,4 +9,7 @@ import UIKit
 
 class CheckoutRewardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rewardText: UILabel!
+    @IBOutlet weak var rewardButton: UIButton!
+    
+    
 }
