@@ -49,6 +49,7 @@ struct TripDetailsManager {
     struct ThirdBox {
         var fromDate: DateLabels
         var toDate: DateLabels?
+        var duration: String?
         var roomAndGuestCount: String?
         var roomType: String?
         var primaryGuest: PrimaryGuest
@@ -111,6 +112,8 @@ struct TripDetailsManager {
             
             let fromDate = DateLabels(label: "Check-in", date: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: hotelTripDetails.hotelDetails.checkInTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
             let toDate = DateLabels(label: "Check-out", date: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: hotelTripDetails.hotelDetails.checkOutTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
+            
+            let duration = hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.numberOfDays(to: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date()).oneOrMany("Night")
             let roomAndGuestCount = "\(hotelTripDetails.roomCount.oneOrMany("Room")) for \(hotelTripDetails.adultCount.oneOrMany("Adult")), \(hotelTripDetails.childCount.oneOrMany("Child", suffix: "ren"))"
             let primary = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 1}).last
             let primaryGuest = PrimaryGuest(label: "Primary Guest", nameText: "\(primary?.guestName ?? ""), \(primary?.gender ?? "") \(primary?.age.intValue().oneOrMany("yr") ?? "")", contact: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
@@ -121,7 +124,7 @@ struct TripDetailsManager {
             }
             let otherGuest = OtherGuest(label: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
             
-            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, roomAndGuestCount: roomAndGuestCount, roomType: hotelTripDetails.roomDetails.count > 0 ? hotelTripDetails.roomDetails[0].roomType : "", primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
+            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: roomAndGuestCount, roomType: hotelTripDetails.roomDetails.count > 0 ? hotelTripDetails.roomDetails[0].roomType : "", primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
         }

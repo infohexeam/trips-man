@@ -194,6 +194,9 @@ extension TripDetailsViewController: UICollectionViewDataSource {
                     cell.otherGuestLabel.text = otherGuest.label
                     cell.othterGuestText.text = otherGuest.text
                 }
+                
+                
+                cell.daysLabel.text = thirdBox.duration
             }
             
             return cell
