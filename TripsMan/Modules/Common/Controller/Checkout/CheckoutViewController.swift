@@ -113,7 +113,7 @@ extension CheckoutViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .reward {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardCell", for: indexPath) as! CheckoutRewardCollectionViewCell
             if let details = checkoutManager?.getCheckoutDetails() {
-                
+                cell.rewardText.text = "Reddem \(details.redeamPercentage)% of your waller points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.redeamablePoints)"
             }
             
             return cell
