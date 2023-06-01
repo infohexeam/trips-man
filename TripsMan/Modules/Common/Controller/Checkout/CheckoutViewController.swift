@@ -38,11 +38,11 @@ class CheckoutViewController: UIViewController {
     
     
     @IBAction func proceedButtonTapped(_ sender: UIButton) {
-        
+        confirmBooking()
     }
     
     @IBAction func returnHomeButton(_ sender: UIButton) {
-        
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
 }

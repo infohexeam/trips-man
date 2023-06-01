@@ -4112,48 +4112,8 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                             <outlet property="removeButton" destination="xse-qN-HSs" id="v36-a1-gTs"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rewardPointCell" id="drz-zs-iT3" customClass="RewardPointCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="541" width="399" height="49"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nWR-nP-uim">
-                                            <rect key="frame" x="0.0" y="0.0" width="399" height="49"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-g0-u5u">
-                                                    <rect key="frame" x="0.0" y="0.0" width="399" height="49"/>
-                                                    <color key="backgroundColor" name="primaryColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="UKP-WI-TMs"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Redeem Reward Points">
-                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                        <color key="baseForegroundColor" name="buttonTextColor"/>
-                                                    </buttonConfiguration>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="applyRewardTapped:" destination="Nk5-tI-O4s" eventType="touchUpInside" id="lU2-Pv-Vim"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="2Vd-g0-u5u" secondAttribute="bottom" id="84W-Yu-idI"/>
-                                                <constraint firstItem="2Vd-g0-u5u" firstAttribute="leading" secondItem="nWR-nP-uim" secondAttribute="leading" id="BiG-9V-cC4"/>
-                                                <constraint firstAttribute="trailing" secondItem="2Vd-g0-u5u" secondAttribute="trailing" id="Rap-iK-Oln"/>
-                                                <constraint firstItem="2Vd-g0-u5u" firstAttribute="top" secondItem="nWR-nP-uim" secondAttribute="top" id="wHJ-vD-9ai"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="399" height="49"/>
-                                        <connections>
-                                            <outlet property="rewardButton" destination="2Vd-g0-u5u" id="kba-JL-MPR"/>
-                                        </connections>
-                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="priceDetailsCell" id="6ht-f0-aiM" customClass="PriceDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="600" width="396" height="163"/>
+                                        <rect key="frame" x="0.0" y="541" width="396" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3ei-v6-Nwu">
                                             <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
@@ -4251,7 +4211,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionFooter" id="pu3-Wr-c7P" customClass="CouponFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="763" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="704" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buL-Oc-QJK">
@@ -4401,55 +4361,52 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
             <size key="intrinsicContentSize" width="66.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="A8V-hy-zhN">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="C4c-c3-dU7">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="E40-EL-yGQ">
-            <size key="intrinsicContentSize" width="78" height="34"/>
-        </designable>
-        <designable name="Gkn-em-h8L">
-            <size key="intrinsicContentSize" width="145" height="25"/>
+            <size key="intrinsicContentSize" width="82" height="34"/>
         </designable>
         <designable name="Kwa-kK-EHa">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="MLE-vc-H1r">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="NGN-fA-oyt">
             <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="NrR-L7-ovE">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="Wn9-7U-E5X">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="cHi-bc-b3Q">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="e1m-tf-f3H">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="eEc-JR-W2C">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="gQ2-fD-uJS">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="nQu-z5-QbP">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="oLc-Ge-pLn">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="pKV-qF-j9S">
-            <size key="intrinsicContentSize" width="70" height="34"/>
+            <size key="intrinsicContentSize" width="74" height="34"/>
         </designable>
         <designable name="y8m-ur-04i">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
     </designables>
     <resources>

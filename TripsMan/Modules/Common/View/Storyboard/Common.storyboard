@@ -274,6 +274,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
+                                                                <action selector="proceedButtonTapped:" destination="5QW-L3-bQO" eventType="touchUpInside" id="PRe-pk-ylc"/>
                                                                 <action selector="searchButtonTapped:" destination="MiT-ss-DYw" eventType="touchUpInside" id="uu1-NS-4JU"/>
                                                             </connections>
                                                         </button>
@@ -304,7 +305,7 @@
                                                 <rect key="frame" x="8" y="8" width="337" height="179.66666666666666"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dzi-Ce-Rps">
-                                                        <rect key="frame" x="0.0" y="-0.6666666666666643" width="337" height="101.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="-0.6666666666666643" width="337" height="101.33333333333331"/>
                                                         <color key="tintColor" systemColor="systemGreenColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="Wmx-dN-LkZ"/>
@@ -332,6 +333,9 @@
                                                                 <real key="value" value="10"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="returnHomeButton:" destination="5QW-L3-bQO" eventType="touchUpInside" id="Paj-Rs-bnQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -365,9 +369,16 @@
                             <constraint firstItem="DSo-Fw-hcz" firstAttribute="leading" secondItem="7vI-aq-LAt" secondAttribute="leading" id="nec-qV-0wZ"/>
                             <constraint firstItem="DSo-Fw-hcz" firstAttribute="top" secondItem="7vI-aq-LAt" secondAttribute="top" id="nwg-Ik-wT6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ODF-Gr-Y2l"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="checkoutCollectionView" destination="DSo-Fw-hcz" id="3pt-Uy-n4i"/>
+                        <outlet property="successLabel" destination="I0m-BS-qLh" id="Nl1-9M-jgr"/>
+                        <outlet property="successView" destination="ODF-Gr-Y2l" id="Z5Q-rg-18W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2U-0v-lQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2564,40 +2575,37 @@
     </scenes>
     <designables>
         <designable name="1T9-G6-MSm">
-            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
-        </designable>
-        <designable name="5EU-Lt-ZKv">
             <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
+        <designable name="5EU-Lt-ZKv">
+            <size key="intrinsicContentSize" width="74.666666666666671" height="34"/>
+        </designable>
         <designable name="B4F-Iy-xaU">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="LEA-Xo-Gm1">
-            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
         </designable>
         <designable name="LuT-BN-FcK">
             <size key="intrinsicContentSize" width="62.333333333333336" height="31.666666666666668"/>
         </designable>
         <designable name="YzH-Nx-dYM">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="eEh-RU-GRp">
-            <size key="intrinsicContentSize" width="13" height="16"/>
-        </designable>
-        <designable name="iiq-H7-Bcr">
-            <size key="intrinsicContentSize" width="-1" height="65"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
         <designable name="mFS-kl-EN0">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="qtj-cd-Kxh">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="yA4-vh-mec">
-            <size key="intrinsicContentSize" width="27" height="34"/>
+            <size key="intrinsicContentSize" width="31" height="34"/>
         </designable>
         <designable name="zG6-Pg-E3x">
-            <size key="intrinsicContentSize" width="13" height="16"/>
+            <size key="intrinsicContentSize" width="3" height="16"/>
         </designable>
     </designables>
     <resources>

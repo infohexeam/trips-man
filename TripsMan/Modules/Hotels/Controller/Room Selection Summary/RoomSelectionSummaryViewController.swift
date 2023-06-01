@@ -27,7 +27,6 @@ class RoomSelectionSummaryViewController: UIViewController {
         case otherGuest
         case seperator
         case coupon
-        case reward
         case bottomView
     }
     
@@ -66,9 +65,9 @@ class RoomSelectionSummaryViewController: UIViewController {
                         collectionView.reloadSections(IndexSet(integer: getSection(.coupon)!))
                     }
                 } else {
-//                    sections!.insert(SelectionSummarySection(type: .coupon, count: showingCoupons.count), at: (getSection(.reward) ?? (getSection(.bottomView)! - 1)))
-//                    collectionView.insertSections(IndexSet(integer: (getSection(.reward) ?? (getSection(.bottomView)! -  1))))
-//                    collectionView.reloadSections(IndexSet(integer: getSection(.coupon)!))
+                    sections!.insert(SelectionSummarySection(type: .coupon, count: showingCoupons.count), at: (getSection(.bottomView) ?? (getSection(.bottomView)! - 1)))
+                    collectionView.insertSections(IndexSet(integer: (getSection(.bottomView) ?? (getSection(.bottomView)! -  1))))
+                    collectionView.reloadSections(IndexSet(integer: getSection(.coupon)!))
                 }
             }
         }
@@ -95,7 +94,7 @@ class RoomSelectionSummaryViewController: UIViewController {
                         SelectionSummarySection(type: .primaryGuest, count: 1),
                         SelectionSummarySection(type: .otherGuest, count: bookedData.hotelGuests.filter { $0.isPrimary == 0 }.count),
                         SelectionSummarySection(type: .seperator, count: 1),
-                        SelectionSummarySection(type: .seperator, count: 1),
+                        SelectionSummarySection(type: .coupon, count: 0),
                         SelectionSummarySection(type: .bottomView, count: bookedData.amountDetails.count)]
         }
         
@@ -118,7 +117,7 @@ class RoomSelectionSummaryViewController: UIViewController {
         } else if let vc = segue.destination as? CheckoutViewController {
             if let data = sender as? CheckoutData {
                 vc.checkoutData = data.data
-                vc.bookingID = bookedData?.bookingID
+                vc.bookingID = bookedData?.bookingID ?? 0
             }
         }
     }
@@ -163,11 +162,6 @@ extension RoomSelectionSummaryViewController {
                 if error == nil {
                     if result!.status == 1 {
                         self.rewardPoints = result!.data.rewardPoint
-//                        if result!.data.rewardPoint > 0 {
-//                            self.sections!.insert(SelectionSummarySection(type: .reward, count: 1), at: self.getSection(.bottomView)!-1)
-//                            self.collectionView.insertSections(IndexSet(integer: self.getSection(.bottomView)!-1))
-//                            self.collectionView.reloadSections(IndexSet(integer: self.getSection(.reward)!))
-//                        }
                         if result!.data.coupon.count > 0 {
                             self.coupons = result!.data.coupon
                         }
@@ -362,14 +356,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
             
             
             return cell
-        } else if thisSection.type == .reward {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardPointCell", for: indexPath) as! RewardPointCollectionViewCell
-            
-            cell.rewardButton.setTitle("Redeem Reward Points: \(rewardPoints)", for: .normal)
-            cell.rewardButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 15)
-            
-            return cell
-        } else if thisSection.type == .bottomView {
+        }  else if thisSection.type == .bottomView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             if let amountDetails = amountDetails {
                 cell.paymentButton.isHidden = true
@@ -535,19 +522,7 @@ extension RoomSelectionSummaryViewController {
                 section.boundarySupplementaryItems = [sectionHeader, sectionFooter]
                 section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 0, trailing: 8)
-            } else if thisSection.type == .reward {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(44))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(44))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-            } else if thisSection.type == .bottomView {
+            }  else if thisSection.type == .bottomView {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(44))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
