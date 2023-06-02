@@ -9,6 +9,8 @@ import UIKit
 
 class NotificationViewController: UIViewController {
     
+    @IBOutlet weak var notificationsLabel: UILabel!
+    
     @IBOutlet weak var notificationCollection: UICollectionView! {
         didSet {
             notificationCollection.collectionViewLayout = createLayout()
@@ -32,8 +34,13 @@ class NotificationViewController: UIViewController {
     let parser = Parser()
     var notifications = [Notifications]() {
         didSet {
-            sections = [NotifSection(type: .notifications, count: notifications.count)]
-            notificationCollection.reloadData()
+            if notifications.count > 0 {
+                sections = [NotifSection(type: .notifications, count: notifications.count)]
+                notificationCollection.reloadData()
+
+            } else {
+                notificationsLabel.isHidden = false
+            }
         }
     }
     
@@ -49,6 +56,7 @@ class NotificationViewController: UIViewController {
 
         sections = [NotifSection]()
         getNotifications()
+        notificationsLabel.isHidden = true
     }
 
 }

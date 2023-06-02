@@ -91,10 +91,6 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
         self.dismiss(animated: true)
     }
     
-    @IBAction func countryButtonTapped(_ sender: UIButton) {
-        
-    }
-    
     func countryHandler(action: UIAction) {
         print(action.title)
         selectedCountry = countries.filter { $0.name == action.title }.last
@@ -105,7 +101,11 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
     }
     
     @IBAction func notificationTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toNotification", sender: nil)
+        if SessionManager.shared.getLoginDetails() != nil {
+            performSegue(withIdentifier: "toNotification", sender: nil)
+        } else {
+            performSegue(withIdentifier: "toLogin", sender: nil)
+        }
     }
 }
 

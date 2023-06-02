@@ -38,7 +38,7 @@ class SideMenuTableViewController: UITableViewController {
                          SideMenuItems(imageName: "logout", imageType: .savedImg, title: "Logout", action: .logout)]
         } else {
             menuItems = [SideMenuItems(imageName: "person.circle", imageType: .systemImg, title: "Login / Sign Up Now", titleColor: "secondaryColor", menuSubText: "Login for best deals", action: .presentVC, identifier: "toLogin"),
-                         SideMenuItems(imageName: "briefcase", imageType: .systemImg, title: "My Trips", menuSubText: "View your trips", action: .switchTab, index: 1)]
+                         SideMenuItems(imageName: "briefcase", imageType: .systemImg, title: "My Trips", menuSubText: "View your trips", action: .presentVC, identifier: "toLogin")]
         }
         
         sideMenuTable.reloadData()

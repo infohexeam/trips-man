@@ -18,7 +18,7 @@ struct HotelTripDetailsData: Codable {
 // MARK: - TripDetails
 struct HotelTripDetails: Codable {
     let bookingDate: String
-    let totalAmount: Int
+    let totalAmount: Double
     let bookingFrom, bookingTo: String
     let totalCharge, tax, serviceCharge, discount: Int
     let totalPrice, totalGuest: Int

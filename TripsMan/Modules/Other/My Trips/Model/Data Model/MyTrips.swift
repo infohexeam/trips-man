@@ -21,7 +21,7 @@ struct MyTrips: Codable {
     let bookingID: Int
     let bookingNo: String?
     let bookedDate: String
-    let totalAmount: Int
+    let totalAmount: Double
     let checkInDate, checkOutDate: String
     let checkInTime, checkOutTime: String?
     let customerCode, customerID: String

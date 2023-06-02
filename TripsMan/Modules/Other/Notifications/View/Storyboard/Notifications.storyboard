@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ho4-3k-TMz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ho4-3k-TMz">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -99,12 +99,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No notifications to show." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIq-8m-CAz">
+                                <rect key="frame" x="0.0" y="416" width="393" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f2L-Ft-IN7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="f2L-Ft-IN7" firstAttribute="trailing" secondItem="qIq-8m-CAz" secondAttribute="trailing" id="T4a-eo-qK3"/>
                             <constraint firstItem="gBY-CV-AFn" firstAttribute="top" secondItem="f2L-Ft-IN7" secondAttribute="top" id="f3b-GY-nKe"/>
                             <constraint firstItem="gBY-CV-AFn" firstAttribute="leading" secondItem="f2L-Ft-IN7" secondAttribute="leading" id="izh-73-dYq"/>
+                            <constraint firstItem="qIq-8m-CAz" firstAttribute="leading" secondItem="f2L-Ft-IN7" secondAttribute="leading" id="lnl-SI-TgH"/>
+                            <constraint firstItem="qIq-8m-CAz" firstAttribute="centerY" secondItem="Ch5-3v-7b5" secondAttribute="centerY" id="uVc-am-rot"/>
                             <constraint firstItem="f2L-Ft-IN7" firstAttribute="bottom" secondItem="gBY-CV-AFn" secondAttribute="bottom" id="ux6-f1-0ds"/>
                             <constraint firstItem="f2L-Ft-IN7" firstAttribute="trailing" secondItem="gBY-CV-AFn" secondAttribute="trailing" id="xxA-kC-RET"/>
                         </constraints>
@@ -112,6 +121,7 @@
                     <navigationItem key="navigationItem" id="CS1-Ay-reA"/>
                     <connections>
                         <outlet property="notificationCollection" destination="gBY-CV-AFn" id="Tg2-Hx-qW7"/>
+                        <outlet property="notificationsLabel" destination="qIq-8m-CAz" id="eoA-Ib-0L6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGh-iL-lbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
