@@ -92,12 +92,17 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
     }
     
     func countryHandler(action: UIAction) {
-        print(action.title)
+        if selectedCountry?.name != action.title {
+            self.view.makeToast("Country changed to \(action.title)")
+        }
         selectedCountry = countries.filter { $0.name == action.title }.last
     }
     
     func languageHandler(action: UIAction) {
-        
+        //TODO: -
+//        if selectedCountry?.name != action.title {
+//            self.view.makeToast("Country changed to \(action.title)")
+//        }
     }
     
     @IBAction func notificationTapped(_ sender: UIButton) {
