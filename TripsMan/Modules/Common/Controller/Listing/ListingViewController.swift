@@ -115,12 +115,9 @@ class ListingViewController: UIViewController {
             hotelFilters.checkout = Date().adding(minutes: 1440)
             hotelFilters.checkin = Date()
             
-            
             hotelFilters.roomCount = K.defaultRoomCount
             hotelFilters.adult = K.defaultAdultCount
             hotelFilters.child = K.defaultChildCount
-            
-            hotelFilters.location = Location(latitude: 11.259698798029197, longitude: 75.82969398017917, name: "Calicut")
             
             hotelFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         } else if listType == .packages {
@@ -146,7 +143,7 @@ class ListingViewController: UIViewController {
     func assignValues() {
         
         if listType == .hotel {
-            locationLabel.text = hotelFilters.location?.name
+            locationLabel.text = hotelFilters.location?.name ?? "Select location"
             let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
             var roomText = "\(hotelFilters.roomCount!) Rooms"
             if hotelFilters.roomCount == 1 {
@@ -490,8 +487,6 @@ extension ListingViewController {
                                      "AdultCount": hotelFilters.adult!,
                                      "ChildCount": hotelFilters.child!,
                                      "RoomCount": hotelFilters.roomCount!,
-                                     "latitude": hotelFilters.location!.latitude,
-                                     "longitude": hotelFilters.location!.longitude,
                                      "Country": SessionManager.shared.getCountry(),
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage(),
@@ -506,6 +501,11 @@ extension ListingViewController {
         
         if let tripType = hotelFilters.tripType {
             params["tripType"] = tripType.id
+        }
+        
+        if let location = hotelFilters.location {
+            params["latitude"] = hotelFilters.location!.latitude
+            params["longitude"] = hotelFilters.location!.longitude
         }
         
         print("\n\n listingParms: \(params)")

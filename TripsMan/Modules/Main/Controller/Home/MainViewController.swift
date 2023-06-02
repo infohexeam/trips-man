@@ -159,7 +159,6 @@ extension MainViewController {
                 if error == nil {
                     if result!.status == 1 {
                         self.banners = result!.data
-                        self.banners.append(contentsOf: result!.data)
                     } else {
                         self.view.makeToast(result!.message)
                     }

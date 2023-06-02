@@ -32,15 +32,16 @@ class MyTripsViewController: UIViewController {
     
     var selectedIndex = 0 {
         didSet {
-            //            if selectedIndex == 0 {
-            //                tripsToShow = myTrips
-            //            } else if selectedIndex == 1 {
-            //                tripsToShow = myTrips.filter { $0.tripStatusValue == 0 }
-            //            } else if selectedIndex == 2 {
-            //                tripsToShow = myTrips.filter { $0.tripStatusValue == 1}
-            //            } else if selectedIndex == 3 {
-            //                tripsToShow = myTrips.filter { $0.tripStatusValue == 3}
-            //            }
+            if selectedIndex == 0 {
+                tripFilters.bookingStatus = BookingStatus(id: 0, status: "")
+            } else if selectedIndex == 1 {
+                tripFilters.bookingStatus = BookingStatus(id: 1, status: "Upcoming")
+            } else if selectedIndex == 2 {
+                tripFilters.bookingStatus = BookingStatus(id: 2, status: "Completed")
+            } else if selectedIndex == 3 {
+                tripFilters.bookingStatus = BookingStatus(id: 3, status: "Cancelled")
+            }
+            getMyTrips()
         }
     }
     
