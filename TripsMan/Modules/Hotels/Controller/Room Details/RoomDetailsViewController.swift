@@ -25,6 +25,12 @@ class RoomDetailsViewController: UIViewController {
     var index = 0
     
     private let pagingInfoSubject = PassthroughSubject<PagingInfo, Never>()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addBackButton(with: "Room Details")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
