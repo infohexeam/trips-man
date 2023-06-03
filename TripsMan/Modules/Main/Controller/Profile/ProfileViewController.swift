@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    let genderArray = ["Male", "Female"]
+    
     
     var selectedCountry: Country? {
         didSet {
@@ -170,7 +170,7 @@ class ProfileViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         
         
-        let genderItems = genderArray.map { UIAction(title: $0, handler: genderHandler) }
+        let genderItems = K.genders.map { UIAction(title: $0, handler: genderHandler) }
         genderButton.menu = UIMenu(title: "", children: genderItems)
         genderButton.showsMenuAsPrimaryAction = true
         
@@ -213,7 +213,7 @@ extension ProfileViewController {
     
     @IBAction func listPickerDoneTapped(_ sender: UIBarButtonItem) {
         if listPicker.tag == 1 {
-            selectedGender = genderArray[selectedRow]
+            selectedGender = K.genders[selectedRow]
             genderField.text = selectedGender
         } else {
             selectedCountry = countryArray[selectedRow]
@@ -520,7 +520,7 @@ extension ProfileViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1{
-            return genderArray.count
+            return K.genders.count
         } else {
             return countryArray.count
         }
@@ -528,7 +528,7 @@ extension ProfileViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
-            return genderArray[row]
+            return K.genders[row]
         }
         return countryArray[row].name
     }

@@ -355,28 +355,6 @@ extension RoomSelectionViewController: DynamicCellHeightDelegate {
     
 }
 
-
-
-//MARK: - PickerView
-extension RoomSelectionViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 2
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if row == 0 {
-            return "Male"
-        } else {
-            return "Female"
-        }
-    }
-    
-}
-
 //MARK: - Layout
 extension RoomSelectionViewController {
     func createLayout() -> UICollectionViewLayout {

@@ -32,4 +32,5 @@ struct K {
     
     static let otpSentSuccessMessage = "Successfully sent OTP"
     static let otpFailureMessage = "OTP is invalid or expired"
+    
 }
