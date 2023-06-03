@@ -98,9 +98,9 @@ class DefaultFilterViewController: UIViewController {
             cityView.isHidden = true
             startDateView.isHidden = true
             
-            roomQty = K.defaultRoomCount
-            adultQty = K.defaultAdultCount
-            childQty = K.defaultChildCount
+            roomQty = hotelFilters.roomCount ?? K.defaultRoomCount
+            adultQty = hotelFilters.adult ?? K.defaultAdultCount
+            childQty = hotelFilters.child ?? K.defaultChildCount
             
             checkinField.text = hotelFilters.checkin!.stringValue(format: "dd-MM-yyyy")
             checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
@@ -113,8 +113,8 @@ class DefaultFilterViewController: UIViewController {
             checkoutView.isHidden = true
             roomView.isHidden = true
             
-            adultQty = K.defaultAdultCount
-            childQty = K.defaultChildCount
+            adultQty = packageFilters.adult ?? K.defaultAdultCount
+            childQty = packageFilters.child ?? K.defaultChildCount
             startDateField.text = packageFilters.startDate?.stringValue(format: "dd-MM-yyyy")
             countryField.text = packageFilters.country?.name
         } else if listType == .activities {
