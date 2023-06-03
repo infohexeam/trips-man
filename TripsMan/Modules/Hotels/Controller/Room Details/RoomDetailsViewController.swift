@@ -84,7 +84,11 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roomPricecell", for: indexPath) as! RoomPriceDetailsCollectionViewCell
             if let details = roomManager?.getRoomDetails() {
-                cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.actualPrice)"
+                if details.offerPrice > 0 {
+                    cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.offerPrice)"
+                } else {
+                    cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.actualPrice)"
+                }
                 cell.taxAndFees.text = "\(SessionManager.shared.getCurrency()) \(details.serviceChargeValue)"
                 
                 let totalAmount = details.actualPrice + details.serviceChargeValue
