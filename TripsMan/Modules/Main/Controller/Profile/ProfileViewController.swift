@@ -202,6 +202,12 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ResetPasswordViewController {
+            vc.isChangePassword = true
+        }
+    }
+    
 }
 
 //MARK: - IBActions
@@ -254,6 +260,10 @@ extension ProfileViewController {
        _ = validate(customerNameField)
         updateProfile()
         
+    }
+    
+    @IBAction func changePassword(_ sender: UIButton) {
+        performSegue(withIdentifier: "toChangePassword", sender: nil)
     }
 }
 

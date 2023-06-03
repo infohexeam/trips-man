@@ -351,7 +351,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDG-PE-KZk">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SU7-zm-ahk">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1076"/>
@@ -1129,6 +1129,9 @@
                                                                 <color key="value" name="buttonBackgroundColor"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="changePassword:" destination="z9u-YM-5r2" eventType="touchUpInside" id="AQL-C9-yMF"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -1255,7 +1258,7 @@
                             <constraint firstItem="vxn-Lo-ySB" firstAttribute="top" secondItem="eL2-Po-GRQ" secondAttribute="top" id="xyU-cr-BmO"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icon-nav-profile" id="2wV-ub-gYf"/>
+                    <navigationItem key="navigationItem" id="ImE-IS-WYh"/>
                     <connections>
                         <outlet property="address1Field" destination="uKM-5p-fF1" id="13B-s9-nQC"/>
                         <outlet property="address1ValidationLabel" destination="n5p-mR-wYX" id="W6f-6r-XdO"/>
@@ -1299,11 +1302,22 @@
                         <outletCollection property="textFields" destination="prD-Iu-rd1" collectionClass="NSMutableArray" id="250-sW-Pnt"/>
                         <outletCollection property="textFields" destination="G6h-oe-mND" collectionClass="NSMutableArray" id="6XC-Ro-15F"/>
                         <outletCollection property="textFields" destination="Ug7-rm-zHe" collectionClass="NSMutableArray" id="mbN-mI-MXr"/>
+                        <segue destination="59x-WO-cin" kind="presentation" identifier="toChangePassword" id="Hdu-Ry-ZV0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWr-ax-7bL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907" y="848"/>
+            <point key="canvasLocation" x="2815.9420289855075" y="847.76785714285711"/>
+        </scene>
+        <!--resetPassword-->
+        <scene sceneID="ff7-5H-Cql">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginModule" referencedIdentifier="resetPassword" id="59x-WO-cin" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="TVI-aQ-52V"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hkx-l8-z20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3653" y="848"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mim-5a-0Yg">
@@ -1395,13 +1409,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-oG-tg4">
-                                                <rect key="frame" x="35" y="0.0" width="35" height="33"/>
+                                                <rect key="frame" x="35" y="0.0" width="22" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="language" translatesAutoresizingMaskIntoConstraints="NO" id="hQH-LM-tc4">
-                                                        <rect key="frame" x="4" y="4" width="27" height="25"/>
+                                                        <rect key="frame" x="4" y="4" width="14" height="25"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-gK-2Sq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                     </button>
@@ -1420,13 +1434,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEM-xt-pwa">
-                                                <rect key="frame" x="70" y="0.0" width="22" height="33"/>
+                                                <rect key="frame" x="57" y="0.0" width="35" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-nav-notification" translatesAutoresizingMaskIntoConstraints="NO" id="xMT-Sz-CFz">
-                                                        <rect key="frame" x="4" y="4" width="14" height="25"/>
+                                                        <rect key="frame" x="4" y="4" width="27" height="25"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-Xz-4cB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
@@ -1484,7 +1498,7 @@
                         <segue destination="LJq-tg-GEX" kind="show" identifier="toLogin" id="kUn-BR-VQH"/>
                         <segue destination="LJq-tg-GEX" kind="showDetail" identifier="toLoginFS" id="KzN-Va-jXL"/>
                         <segue destination="xMj-1U-ItS" kind="relationship" relationship="viewControllers" id="Lgi-x0-ghY"/>
-                        <segue destination="z9u-YM-5r2" kind="relationship" relationship="viewControllers" id="8hs-Su-Cx7"/>
+                        <segue destination="sEn-2V-aAg" kind="relationship" relationship="viewControllers" id="8hs-Su-Cx7"/>
                         <segue destination="7ir-AI-KNY" kind="presentation" identifier="toNotification" id="Z3I-rc-V6k"/>
                     </connections>
                 </tabBarController>
@@ -1548,6 +1562,24 @@
             </objects>
             <point key="canvasLocation" x="-55.072463768115945" y="848.4375"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="85c-Mu-cQb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="sEn-2V-aAg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="icon-nav-profile" id="2wV-ub-gYf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4pK-si-7gU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z9u-YM-5r2" kind="relationship" relationship="rootViewController" id="hAW-JV-OBQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C8Z-U9-Y3a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905.7971014492755" y="847.76785714285711"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0P1-yM-Z0G">
@@ -1594,7 +1626,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="KzN-Va-jXL"/>
+        <segue reference="kUn-BR-VQH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>

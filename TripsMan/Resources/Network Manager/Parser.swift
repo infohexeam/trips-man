@@ -28,10 +28,13 @@ struct Parser {
         }
     }
     
-    func sendRequestLoggedIn<T: Decodable>(url: String, http: Alamofire.HTTPMethod, parameters: [String: Any]?, comp: @escaping (T?, AFError?) -> Void) {
+    func sendRequestLoggedIn<T: Decodable>(url: String, http: Alamofire.HTTPMethod, parameters: [String: Any]?, isAuth: Bool = false, comp: @escaping (T?, AFError?) -> Void) {
         
         if NetworkReachabilityManager()!.isReachable  {
-            let fullUrl = baseURL + url
+            var fullUrl = baseURL + url
+            if isAuth {
+                fullUrl = baseURLAuth + url
+            }
             let header: HTTPHeaders = ["Authorization": "Bearer \(SessionManager.shared.getLoginDetails()?.token ?? "")"]
             AF.request(fullUrl,
                        method: http,
