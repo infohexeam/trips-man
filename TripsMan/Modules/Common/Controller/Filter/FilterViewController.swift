@@ -71,6 +71,8 @@ class FilterViewController: UIViewController {
     
     
     @IBAction func resetButtonTapped(_ sender: UIBarButtonItem) {
+        sliderUpperValue = K.maximumPrice
+        sliderLowerValue = K.minimumPrice
         selectedRates = nil
         selectedIndexes.removeAll()
         filterCollectionView.reloadData()
