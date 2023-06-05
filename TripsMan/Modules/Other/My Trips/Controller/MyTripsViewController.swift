@@ -53,7 +53,8 @@ class MyTripsViewController: UIViewController {
     
     var currentOffset = 0
     var totalPages = 1
-    let recordCount = 5
+    let recordCount = 20
+    var isLoading = false
     
     let parser = Parser()
     var myTrips = [MyTrips]() {
@@ -146,7 +147,6 @@ class MyTripsViewController: UIViewController {
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        print("-----------\ncurrentOffset: \(currentOffset)\ntotalPages: \(totalPages)")
         getMyTrips()
     }
     
@@ -183,16 +183,21 @@ extension MyTripsViewController {
 //MARK: - APICalls
 
 extension MyTripsViewController {
-    @objc func getMyTrips() {
+    @objc func getMyTrips(isPagination: Bool = false) {
+        if !isPagination {
+            currentOffset = 0
+        }
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=0&recordCount=5", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        isLoading = true
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
+                self.isLoading = false
                 if error == nil {
                     if result!.status == 1 {
                         self.myTrips = result!.data
                         self.currentOffset += 1
-                        self.totalPages = result!.totalRecords/self.recordCount
+                        self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
                         self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
@@ -241,8 +246,8 @@ extension MyTripsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == (tripsManager?.getTripsToShow()?.count ?? 0) - 1, currentOffset < totalPages {
-//            getMyTrips()
+        if indexPath.item == (tripsManager?.getTripsToShow()?.count ?? 0) - 1, currentOffset < totalPages, isLoading == false {
+            getMyTrips(isPagination: true)
         }
     }
     
