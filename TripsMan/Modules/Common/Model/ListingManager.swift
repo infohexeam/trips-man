@@ -29,14 +29,6 @@ struct ListingManager {
     
     var listingData: [ListingData]?
     
-//    init(hotels: [Hotel]?, banners: [Banners]?) {
-//        self.hotels = hotels
-//        self.banners = banners
-//
-//        setSections()
-//
-//    }
-    
     mutating func setSections() {
         if let hotels = hotels, hotels.count != 0 {
             if let banners = banners, banners.count != 0 {
@@ -67,8 +59,14 @@ struct ListingManager {
         return sections
     }
     
-    mutating func assignHotels(hotels: [Hotel]?) {
-        self.hotels = hotels
+    mutating func assignHotels(hotels: [Hotel]?, offset: Int) {
+        if offset > 0 {
+            if let hotels = hotels {
+                self.hotels?.append(contentsOf: hotels)
+            }
+        } else {
+            self.hotels = hotels
+        }
         setListingData(.hotel)
         setSections()
     }

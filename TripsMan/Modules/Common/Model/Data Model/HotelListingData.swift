@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - HotelData
 struct HotelData: Codable {
+    let totalRecords: Int
     let data: [Hotel]
     let status: Int
     let message: String

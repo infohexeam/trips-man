@@ -67,6 +67,7 @@ extension UIViewController {
     
     func showIndicator() {
         DispatchQueue.main.async {
+            activityIndicator.stopAnimating()
             activityIndicator = UIActivityIndicatorView(frame: self.view.frame)
             activityIndicator.center = self.view.center
             activityIndicator.hidesWhenStopped = true

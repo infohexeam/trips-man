@@ -29,7 +29,7 @@ class ListingViewController: UIViewController {
     
     @IBOutlet weak var tripTypeMainView: UIView!
     
-    
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var hotelCollectionView: UICollectionView! {
         didSet {
@@ -37,6 +37,10 @@ class ListingViewController: UIViewController {
             hotelCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             hotelCollectionView.dataSource = self
             hotelCollectionView.delegate = self
+            
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+            hotelCollectionView.refreshControl = refreshControl
         }
     }
     
@@ -65,6 +69,11 @@ class ListingViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     var fontSize: CGFloat? = nil
+    
+    var currentOffset = 0
+    var totalPages = 1
+    let recordCount = 20
+    var isLoading = false
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -238,6 +247,9 @@ class ListingViewController: UIViewController {
     }
     
     
+    @objc func refresh(_ sender: AnyObject) {
+        getHotels()
+    }
     
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -479,10 +491,16 @@ extension ListingViewController {
         }
     }
     
-    func getHotels() {
-        showIndicator()
+    func getHotels(isPagination: Bool = false) {
         
-        var params: [String: Any] = ["CheckInDate": hotelFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
+        if !isPagination {
+            currentOffset = 0
+        }
+        
+        showIndicator()
+        var params: [String: Any] = ["offset": currentOffset,
+                                     "recordCount": recordCount,
+                                     "CheckInDate": hotelFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
                                      "CheckOutDate": hotelFilters.checkout!.stringValue(format: "yyyy/MM/dd"),
                                      "AdultCount": hotelFilters.adult!,
                                      "ChildCount": hotelFilters.child!,
@@ -508,18 +526,21 @@ extension ListingViewController {
             params["longitude"] = hotelFilters.location!.longitude
         }
         
-        print("\n\n listingParms: \(params)")
-        
+        self.isLoading = true
         parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHotelList", http: .post, parameters: params) { (result: HotelData?, error) in
             DispatchQueue.main.async {
+                self.isLoading = false
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.listingManager.assignHotels(hotels: result!.data)
+                        self.listingManager.assignHotels(hotels: result!.data, offset: self.currentOffset)
                         self.hotelCollectionView.reloadData()
                         if self.filters.count == 0 {
                             self.getFilters()
                         }
+                        self.currentOffset += 1
+                        self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
+                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -788,6 +809,16 @@ extension ListingViewController: UICollectionViewDataSource {
         
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let thisSection = self.listingManager.getSections()?[indexPath.section] else { return }
+        if thisSection.type == .list {
+            if indexPath.item == (listingManager.getListingData()?.count ?? 0) - 1, currentOffset < totalPages, isLoading == false {
+                getHotels(isPagination: true)
+            }
+        }
+        
+    }
 }
 
 extension ListingViewController: UICollectionViewDelegate {
@@ -874,21 +905,6 @@ extension ListingViewController {
     }
 }
 
-//PickerView
-extension ListingViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "Test List \(row+1)"
-    }
-    
-}
 
 extension ListingViewController: FilterDelegate {
     func filterSearchTapped(minimumPrice: Double, maximumPrice: Double, filterIndexes: [IndexPath]?) {
@@ -904,9 +920,6 @@ extension ListingViewController: FilterDelegate {
             hotelFilters.filters = selectedFilters
             selectedFilterIndexes = filterIndexes
         }
-        
-        
-        
         getHotels()
     }
 }

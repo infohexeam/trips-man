@@ -50,4 +50,8 @@ extension Int {
     func stringValue() -> String {
         return "\(self)"
     }
+    
+    func pageCount(with recordCount: Int) -> Int {
+        return Int(ceil(Double(self)/Double(recordCount)))
+    }
 }

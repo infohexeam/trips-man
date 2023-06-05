@@ -51,6 +51,10 @@ class MyTripsViewController: UIViewController {
     
     var tripsManager: TripListManager?
     
+    var currentOffset = 0
+    var totalPages = 1
+    let recordCount = 5
+    
     let parser = Parser()
     var myTrips = [MyTrips]() {
         didSet {
@@ -63,13 +67,6 @@ class MyTripsViewController: UIViewController {
             myTripsCollection.reloadData()
         }
     }
-    
-    //    var tripsToShow = [MyTrips]() {
-    //        didSet {
-    //            sections = [MyTripsSection(type: .myTrips, count: tripsToShow.count)]
-    //            myTripsCollection.reloadData()
-    //        }
-    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -97,6 +94,7 @@ class MyTripsViewController: UIViewController {
         }
         setupMenus()
         noBookingsLabel.isHidden = true
+        
     }
     
     func assignValues() {
@@ -148,9 +146,8 @@ class MyTripsViewController: UIViewController {
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        print("\n\ncallled")
+        print("-----------\ncurrentOffset: \(currentOffset)\ntotalPages: \(totalPages)")
         getMyTrips()
-        refreshControl.endRefreshing()
     }
     
     //IBActions
@@ -186,14 +183,17 @@ extension MyTripsViewController {
 //MARK: - APICalls
 
 extension MyTripsViewController {
-    func getMyTrips() {
+    @objc func getMyTrips() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=0&recordCount=5", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
                         self.myTrips = result!.data
+                        self.currentOffset += 1
+                        self.totalPages = result!.totalRecords/self.recordCount
+                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -238,6 +238,12 @@ extension MyTripsViewController: UICollectionViewDataSource {
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.item == (tripsManager?.getTripsToShow()?.count ?? 0) - 1, currentOffset < totalPages {
+//            getMyTrips()
+        }
     }
     
     
