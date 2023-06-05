@@ -18,6 +18,7 @@ struct K {
     static let maximumPrice: Double = 100000
     
     static let couponToShow = 4
+    static let readMoreContentLines = 5
     
     static let genders = ["Male", "Female", "Prefer not to say"]
     

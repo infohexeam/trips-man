@@ -68,23 +68,23 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="detailsCell" id="EbC-B2-thC" customClass="HotelDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="287" width="373" height="96"/>
+                                        <rect key="frame" x="10" y="287" width="373" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9V1-1z-dCE">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="373" height="117"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s7j-Vv-NUY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="96"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="117"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The Orion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orf-FM-jQ4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="13.666666666666666"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="34.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="⭑⭑⭑⭑⭑ Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRh-hD-sou">
-                                                            <rect key="frame" x="0.0" y="21.666666666666668" width="373" height="10"/>
+                                                            <rect key="frame" x="0.0" y="42.666666666666664" width="373" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="7GJ-LE-svV"/>
                                                             </constraints>
@@ -92,14 +92,20 @@
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Qa-pxl">
-                                                            <rect key="frame" x="0.0" y="39.666666666666664" width="373" height="14.333333333333336"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Qa-pxl">
+                                                            <rect key="frame" x="0.0" y="60.666666666666664" width="373" height="14.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-lf-d10">
+                                                            <rect key="frame" x="0.0" y="79" width="373" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVm-Om-8yU">
-                                                            <rect key="frame" x="0.0" y="62" width="373" height="25"/>
+                                                            <rect key="frame" x="0.0" y="83" width="373" height="25"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-NL-8Z8">
                                                                     <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
@@ -124,7 +130,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCM-QG-k69">
-                                                            <rect key="frame" x="0.0" y="95" width="373" height="1"/>
+                                                            <rect key="frame" x="0.0" y="116" width="373" height="1"/>
                                                             <color key="backgroundColor" name="seperatorColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="5Y2-qd-BOq"/>
@@ -140,15 +146,17 @@
                                                 <constraint firstItem="s7j-Vv-NUY" firstAttribute="top" secondItem="9V1-1z-dCE" secondAttribute="top" id="yIO-Vf-Pfg"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="373" height="96"/>
+                                        <size key="customSize" width="373" height="117"/>
                                         <connections>
+                                            <outlet property="detailsHiddenLabel" destination="BKM-lf-d10" id="Hvq-Hi-E1j"/>
                                             <outlet property="detailsLabel" destination="NaY-Qa-pxl" id="6Vr-2w-IF9"/>
                                             <outlet property="hotelName" destination="Orf-FM-jQ4" id="Zfv-xT-eWR"/>
+                                            <outlet property="readMoreView" destination="gVm-Om-8yU" id="QgZ-Uu-I3e"/>
                                             <outlet property="starRating" destination="FRh-hD-sou" id="Nbs-sJ-ebC"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="addressCell" id="oCC-vb-yrf" customClass="HotelAddrressCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="393" width="373" height="105"/>
+                                        <rect key="frame" x="10" y="414" width="373" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7Da-Ni-tNI">
                                             <rect key="frame" x="0.0" y="0.0" width="373" height="105"/>
@@ -205,7 +213,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="facilitiesCell" id="sRf-6y-sth" customClass="HotelFacilitiesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="144.66666666666666" y="508" width="103.66666666666666" height="30"/>
+                                        <rect key="frame" x="144.66666666666666" y="529" width="103.66666666666666" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NZN-er-dCi">
                                             <rect key="frame" x="0.0" y="0.0" width="103.66666666666666" height="30"/>
@@ -287,7 +295,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="separator" id="GD6-su-Twc" customClass="SeperatorCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="548" width="412" height="23"/>
+                                        <rect key="frame" x="0.0" y="569" width="412" height="23"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rCD-Qf-TrX">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="23"/>
@@ -297,7 +305,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         <size key="customSize" width="412" height="23"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="roomFilterCell" id="DKg-JB-a7Q" customClass="RoomFilterCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="581" width="488" height="40"/>
+                                        <rect key="frame" x="0.0" y="602" width="488" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CbS-gP-MON">
                                             <rect key="frame" x="0.0" y="0.0" width="488" height="40"/>
@@ -755,7 +763,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="roomsCell" id="MQr-Eh-MQO" customClass="HotelRoomsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="631" width="412" height="217"/>
+                                        <rect key="frame" x="0.0" y="652" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Sby-fd-mq1">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
@@ -1062,7 +1070,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rulesCell" id="jxz-4J-B2B" customClass="PropertyRulesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="858" width="412" height="217"/>
+                                        <rect key="frame" x="0.0" y="879" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
@@ -1117,7 +1125,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="termsCell" id="W9K-bq-Bfs" customClass="TermsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1085" width="412" height="217"/>
+                                        <rect key="frame" x="0.0" y="1106" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
@@ -1189,7 +1197,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ratingCell" id="QW7-Ct-jGX" customClass="RatingCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1312" width="412" height="132"/>
+                                        <rect key="frame" x="0.0" y="1333" width="412" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="zjS-H1-T2Z">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="132"/>
@@ -1254,7 +1262,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="reviewCell" id="GiL-qR-ZTL" customClass="ReviewCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1454" width="412" height="217"/>
+                                        <rect key="frame" x="0.0" y="1475" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="u9C-nn-YBz">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
@@ -1429,7 +1437,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="hotelDetailsFooter" id="SAc-13-7ge" customClass="HotelDetailsFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="1671" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="1692" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pyS-Lr-WkU">
@@ -2146,7 +2154,7 @@ velit esse quam nihil molestiae consequatur.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wl-RA-dnM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="1577.6785714285713"/>
+            <point key="canvasLocation" x="927.48091603053433" y="1577.4647887323945"/>
         </scene>
         <!--AllReviews-->
         <scene sceneID="YiM-f1-Ili">

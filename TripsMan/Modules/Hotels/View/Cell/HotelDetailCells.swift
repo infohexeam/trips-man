@@ -19,6 +19,8 @@ class HotelDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var hotelName: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var starRating: UILabel!
+    @IBOutlet weak var readMoreView: UIView!
+    @IBOutlet weak var detailsHiddenLabel: UILabel!
     
     var delegate: ReadMoreDelegate?
     
@@ -160,6 +162,7 @@ class HotelRoomsCollectionViewCell: UICollectionViewCell {
 
 class PropertyRulesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ruleLabel: UILabel!
+    @IBOutlet weak var readMoreView: UIView!
     
     var delegate: ReadMoreDelegate?
     

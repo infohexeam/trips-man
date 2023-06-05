@@ -63,8 +63,6 @@ class HotelDetailsViewController: UIViewController {
     }
     
     var fontSize: CGFloat? = nil
-    var linesToShow = 3
-    var termsLinesToShow = 3
     var facilityCount = 5
     
     var hotelID = 0
@@ -424,12 +422,13 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "detailsCell", for: indexPath) as! HotelDetailsCollectionViewCell
             
             if let hotelDetails = hotelDetails {
-                //                let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.labelAction(_:)))
-                //                cell.detailsLabel.addGestureRecognizer(tap)
-                //                cell.detailsLabel.isUserInteractionEnabled = true
-                //                tap.delegate = self
+                cell.readMoreView.isHidden = true
                 cell.detailsLabel.setAttributedHtmlText(hotelDetails.description)
-                cell.detailsLabel.numberOfLines = linesToShow
+                cell.detailsLabel.numberOfLines = 0
+                if cell.detailsLabel.lines() > K.readMoreContentLines {
+                    cell.readMoreView.isHidden = false
+                }
+                cell.detailsLabel.numberOfLines = K.readMoreContentLines
                 cell.hotelName.text = hotelDetails.hotelName
                 cell.delegate = self
                 
@@ -437,17 +436,8 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 for _ in 0..<hotelDetails.hotelStar {
                     starRating += "⭑"
                 }
-                
                 cell.starRating.text = "\(starRating) \(hotelDetails.hotelType)"
                 
-                //                if linesToShow != 0 {
-                //                    let readmoreFont = UIFont(name: "Helvetica-Oblique", size: 11.0)
-                //                    let readmoreFontColor = UIColor(named: "buttonBackgroundColor")!
-                //                    DispatchQueue.main.async {
-                //                        cell.detailsLabel.addTrailing(with: "... ", moreText: "Read more ", moreTextFont: readmoreFont!, moreTextColor: readmoreFontColor)
-                //
-                //                    }
-                //                }
             }
             
             return cell
@@ -677,26 +667,6 @@ extension HotelDetailsViewController: UICollectionViewDelegate {
             }
         }
         
-    }
-}
-
-extension HotelDetailsViewController: UIGestureRecognizerDelegate {
-    @objc func labelAction(_ gesture: UITapGestureRecognizer) {
-        if linesToShow == 0 {
-            linesToShow = 3
-        } else {
-            linesToShow = 0
-        }
-        hotelDetailsCollectionView.reloadItems(at: [IndexPath(row: 0, section: 1)])
-    }
-    
-    @objc func termsLabelAction(_ gesture: UITapGestureRecognizer) {
-        if termsLinesToShow == 0 {
-            termsLinesToShow = 3
-        } else {
-            termsLinesToShow = 0
-        }
-        hotelDetailsCollectionView.reloadItems(at: [IndexPath(row: 0, section: 8)])
     }
 }
 
