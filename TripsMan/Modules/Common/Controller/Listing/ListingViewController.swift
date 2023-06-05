@@ -176,7 +176,7 @@ class ListingViewController: UIViewController {
             var secondText = dateText! + " | " + adultText!
             
             if packageFilter.child != nil && packageFilter.child != 0 {
-                var childText = packageFilter.child!.oneOrMany("Child", suffix: "ren")
+                let childText = packageFilter.child!.oneOrMany("Child", suffix: "ren")
                 secondText = secondText + childText
             }
             dateAndGuestLabel.text = secondText
@@ -498,7 +498,7 @@ extension ListingViewController {
         }
         
         showIndicator()
-        var params: [String: Any] = ["offset": currentOffset,
+        var params: [String: Any] = ["offset": currentOffset*recordCount,
                                      "recordCount": recordCount,
                                      "CheckInDate": hotelFilters.checkin!.stringValue(format: "yyyy/MM/dd"),
                                      "CheckOutDate": hotelFilters.checkout!.stringValue(format: "yyyy/MM/dd"),

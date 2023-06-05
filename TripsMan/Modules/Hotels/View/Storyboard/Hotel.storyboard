@@ -4149,7 +4149,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                                                 <constraint firstAttribute="height" constant="40" id="WxE-Ci-qwk"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="Proceed to Payment">
+                                                            <buttonConfiguration key="configuration" style="plain" title="Continue">
                                                                 <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                                 <color key="baseForegroundColor" name="buttonTextColor"/>
                                                             </buttonConfiguration>
@@ -4320,6 +4320,11 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                             <constraint firstAttribute="bottom" secondItem="q0f-eg-12i" secondAttribute="bottom" id="t7M-0a-2wI"/>
                             <constraint firstItem="Mzo-Be-e24" firstAttribute="top" secondItem="1GP-IH-u1m" secondAttribute="top" id="vNd-L3-uIK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Mzo-Be-e24"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="DaB-Wc-jAs"/>
                     <connections>
