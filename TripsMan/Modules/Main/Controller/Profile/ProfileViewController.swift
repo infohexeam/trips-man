@@ -272,8 +272,6 @@ extension ProfileViewController {
     func getProfileDetails() {
         showIndicator()
         
-        print(SessionManager.shared.getLoginDetails()?.userid)
-        print(SessionManager.shared.getLoginDetails()?.token)
 
         parser.sendRequestLoggedIn(url: "api/CustomerProfile/GetCustomerProfile?UserId=\(SessionManager.shared.getLoginDetails()?.userid ?? "")", http: .get, parameters: nil) { (result: ProfileData?, error) in
             DispatchQueue.main.async {
@@ -555,7 +553,8 @@ extension ProfileViewController: ImagePickerDelegate {
         if let image = image {
             print("image picked \(imageName)")
             let imgData = image.jpegData(compressionQuality: 0.2)!
-            profileImage.image = image
+//            profileImage.image = image
+            print("-------picked")
             uploadImage(imgData: imgData)
         }
     }
