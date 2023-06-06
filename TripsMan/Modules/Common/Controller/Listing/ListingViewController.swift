@@ -105,16 +105,9 @@ class ListingViewController: UIViewController {
         //        locationManager.startUpdatingLocation()
         
         
-        if listType == .hotel {
-            getHotels()
-        } else if listType == .packages {
-            getPackages()
-        } else if listType == .activities {
-            getActivities()
-        } else if listType == .meetups {
-            getMeetups()
+        if let listType = listType {
+            callListingAPI(of: listType)
         }
-        
     }
     
     func setupView() {
@@ -212,12 +205,12 @@ class ListingViewController: UIViewController {
             hotelFilters.tripType = tripTypes.filter { $0.name == action.title }.last
         }
         setupMenus()
-        getHotels()
+        callListingAPI(of: .hotel)
     }
     
     func sortHandler(action: UIAction) {
         hotelFilters.sort = sorts.filter { $0.name == action.title }.last
-        getHotels()
+        callListingAPI(of: .hotel)
     }
     
     func getCurrentLocation() {
@@ -248,9 +241,23 @@ class ListingViewController: UIViewController {
     
     
     @objc func refresh(_ sender: AnyObject) {
-        getHotels()
+        if let listType = listType {
+            callListingAPI(of: listType)
+        }
     }
     
+    func callListingAPI(of type: ListType, isPagination: Bool = false) {
+        switch type {
+        case .hotel:
+            getHotels(isPagination: isPagination)
+        case .packages:
+            getPackages()
+        case .activities:
+            getActivities()
+        case .meetups:
+            getMeetups()
+        }
+    }
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
@@ -334,7 +341,7 @@ extension ListingViewController: DefaultFilterDelegate {
         if let filters = meetupFilter {
             self.meetupFilter = filters
             assignValues()
-            getMeetups()
+            callListingAPI(of: .meetups)
         }
     }
     
@@ -342,15 +349,15 @@ extension ListingViewController: DefaultFilterDelegate {
         if let filters = activityFilters {
             self.activityFilter = filters
             assignValues()
-            getActivities()
+            callListingAPI(of: .activities)
         }
     }
     
     func searchDidTapped(_ packageFilters: PackageFilters?) {
         if let filters = packageFilters {
-           self.packageFilter = filters
-           assignValues()
-           getPackages()
+            self.packageFilter = filters
+            assignValues()
+            callListingAPI(of: .packages)
        }
 
     }
@@ -359,7 +366,7 @@ extension ListingViewController: DefaultFilterDelegate {
         if let filters = hotelFilters {
             self.hotelFilters = filters
             assignValues()
-            getHotels()
+            callListingAPI(of: .hotel)
         }
     }
     
@@ -814,7 +821,16 @@ extension ListingViewController: UICollectionViewDataSource {
         guard let thisSection = self.listingManager.getSections()?[indexPath.section] else { return }
         if thisSection.type == .list {
             if indexPath.item == (listingManager.getListingData()?.count ?? 0) - 1, currentOffset < totalPages, isLoading == false {
-                getHotels(isPagination: true)
+                if let listType = listType {
+                    //TODO: -
+                    if listType == .hotel {
+                        callListingAPI(of: listType, isPagination: true)
+                    } else {
+                        
+                    }
+                    
+
+                }
             }
         }
         
@@ -920,6 +936,6 @@ extension ListingViewController: FilterDelegate {
             hotelFilters.filters = selectedFilters
             selectedFilterIndexes = filterIndexes
         }
-        getHotels()
+        callListingAPI(of: .hotel)
     }
 }

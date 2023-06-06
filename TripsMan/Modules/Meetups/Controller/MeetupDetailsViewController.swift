@@ -216,9 +216,9 @@ extension MeetupDetailsViewController {
                 
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
-                section.orthogonalScrollingBehavior = .groupPagingCentered
+                section.orthogonalScrollingBehavior = .groupPaging
                 section.boundarySupplementaryItems = [sectionFooter]
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: -30, trailing: 8)
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: -30, trailing: 0)
                 
                 section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
                     guard let self = self else { return }

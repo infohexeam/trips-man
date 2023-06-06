@@ -269,8 +269,8 @@ extension MainViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
                 section.boundarySupplementaryItems = [sectionFooter]
-                section.orthogonalScrollingBehavior = .groupPagingCentered
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: -30, trailing: 10)
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: -30, trailing: 0)
                 
                 section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
                     guard let self = self else { return }

@@ -241,7 +241,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             <rect key="frame" x="8" y="4" width="87.666666666666671" height="22"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ci6-Rn-XOX">
-                                                                    <rect key="frame" x="0.0" y="2.3333333333333321" width="22" height="17.666666666666668"/>
+                                                                    <rect key="frame" x="0.0" y="2.3333333333333321" width="22" height="17.666666666666682"/>
                                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="Ci6-Rn-XOX" secondAttribute="height" id="W3l-7r-0ax"/>
