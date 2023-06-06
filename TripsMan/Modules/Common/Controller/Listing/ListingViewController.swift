@@ -193,7 +193,9 @@ class ListingViewController: UIViewController {
         tripTypeButton.menu = UIMenu(title: "", children: tripTypes)
         tripTypeButton.showsMenuAsPrimaryAction = true
         
-        let sorts = sorts.map { UIAction(title: "\($0.name)", state: $0.name == hotelFilters.sort?.name ? .on: .off, handler: sortHandler) }
+        
+        
+        let sorts = sorts.map { UIAction(title: "\($0.name)", state: $0.name == getSortName() ? .on: .off, handler: sortHandler) }
         sortByButton.menu = UIMenu(title: "", children: sorts)
         sortByButton.showsMenuAsPrimaryAction = true
     }
@@ -216,6 +218,21 @@ class ListingViewController: UIViewController {
         }
         setupMenus()
         callListingAPI(of: .hotel)
+    }
+    
+    func getSortName() -> String? {
+        var sortName: String?
+        if listType == .hotel {
+            sortName = hotelFilters.sort?.name
+        } else if listType == .packages {
+            sortName = packageFilter.sort?.name
+        } else if listType == .activities {
+            sortName = activityFilter.sort?.name
+        } else if listType == .meetups {
+            sortName = meetupFilter.sort?.name
+        }
+        
+        return sortName
     }
     
     func getCurrentLocation() {

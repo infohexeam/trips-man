@@ -144,6 +144,7 @@ class HotelRoomsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var selectButton: UIButton!
     
     @IBOutlet weak var multipleButton: UIButton!
+    @IBOutlet weak var fullScreenButton: UIButton!
     @IBOutlet weak var viewMoreButton: UIButton!
     
     @IBAction func imageTapped(_ sender: UIButton) {

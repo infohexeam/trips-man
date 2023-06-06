@@ -515,9 +515,9 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             cell.imageButton.tag = indexPath.row
             cell.selectButton.tag = indexPath.row
             cell.viewMoreButton.tag = indexPath.row
+            cell.fullScreenButton.isHidden = true
             
             if let rooms = hotelDetails?.hotelRooms[indexPath.row] {
-                cell.delegate = self
                 if fontSize == nil {
                     fontSize = cell.priceLabel.font.pointSize
                 }
@@ -536,7 +536,8 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                     if rooms.roomImages!.count > 1 {
                         cell.multipleButton.isHidden = false
                     }
-
+                    cell.fullScreenButton.isHidden = false
+                    cell.delegate = self
                 }
                 cell.roomName.text = rooms.roomType
                 

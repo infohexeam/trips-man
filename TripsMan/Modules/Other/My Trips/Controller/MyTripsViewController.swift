@@ -53,7 +53,7 @@ class MyTripsViewController: UIViewController {
     
     var currentOffset = 0
     var totalPages = 1
-    let recordCount = 20
+    let recordCount = 100
     var isLoading = false
     
     let parser = Parser()
@@ -189,7 +189,7 @@ extension MyTripsViewController {
         }
         showIndicator()
         isLoading = true
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset*recordCount)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 self.isLoading = false
