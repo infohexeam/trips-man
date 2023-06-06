@@ -216,8 +216,6 @@ class ListingViewController: UIViewController {
         } else {
             hotelFilters.sort = sorts.filter { $0.name == action.title }.last
         }
-        setupMenus()
-        callListingAPI(of: .hotel)
     }
     
     func getSortName() -> String? {
@@ -233,6 +231,24 @@ class ListingViewController: UIViewController {
         }
         
         return sortName
+    }
+    
+    func assignSort(_ sort: Sortby?) {
+        if let listType = listType {
+            switch listType {
+            case .hotel:
+                hotelFilters.sort = sort
+            case .packages:
+                packageFilter.sort = sort
+            case .activities:
+                activityFilter.sort = sort
+            case .meetups:
+                meetupFilter.sort = sort
+            }
+            setupMenus()
+            callListingAPI(of: listType)
+        }
+        
     }
     
     func getCurrentLocation() {
@@ -415,21 +431,17 @@ extension ListingViewController {
                     getFilters()
                 } else if listType == .packages {
                     getPackageFilters()
+                } else if listType == .activities {
+                    getActivityFilters()
                 } else if listType == .meetups {
                     getMeetupFilters()
                 }
             }
             return
-            
-    
-            
-        
         default:
             return
         }
-        
     }
-    
 }
 
 //MARK: - APICalls
@@ -551,8 +563,8 @@ extension ListingViewController {
         }
         
         if let location = hotelFilters.location {
-            params["latitude"] = hotelFilters.location!.latitude
-            params["longitude"] = hotelFilters.location!.longitude
+            params["latitude"] = location.latitude
+            params["longitude"] = location.longitude
         }
         
         self.isLoading = true
@@ -584,7 +596,6 @@ extension ListingViewController {
     
     func getPackages() {
         showIndicator()
-        
         var params: [String: Any] = [
                                      "sortBy": "",
                                      "offset": 0,
@@ -603,12 +614,6 @@ extension ListingViewController {
         if let startDate = packageFilter.startDate {
             params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
         }
-//
-//        if let tripType = hotelFilters.tripType {
-//            params["tripType"] = tripType.id
-//        }
-        
-        
         parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayPackageList", http: .post, parameters: params) { (result: PackageListingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -632,7 +637,6 @@ extension ListingViewController {
     
     func getActivities() {
         showIndicator()
-        
         var params: [String: Any] = [
                                      "sortBy": "",
                                      "offset": 0,
@@ -652,12 +656,7 @@ extension ListingViewController {
         if let startDate = packageFilter.startDate {
             params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
         }
-//
-//        if let tripType = hotelFilters.tripType {
-//            params["tripType"] = tripType.id
-//        }
-        
-        
+
         parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityList", http: .post, parameters: params) { (result: ActivityListingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
