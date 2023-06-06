@@ -1121,6 +1121,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="readMoreView" destination="20f-VX-9jR" id="QqE-6T-ca2"/>
                                             <outlet property="ruleLabel" destination="AHA-b6-g05" id="59f-EK-545"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1193,6 +1194,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="readMoreView" destination="23h-xX-5cC" id="HX9-5p-Gw2"/>
                                             <outlet property="termsLabel" destination="4wy-QH-ylH" id="w8W-2H-h6u"/>
                                         </connections>
                                     </collectionViewCell>
@@ -2226,11 +2228,11 @@ velit esse quam nihil molestiae consequatur.</string>
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="274"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="m1f-r8-d0U">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m1f-r8-d0U">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="274"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Deluxe AC Room" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0J-ye-NzY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="256.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="248.33333333333334"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>

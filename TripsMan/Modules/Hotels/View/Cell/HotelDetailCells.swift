@@ -174,6 +174,7 @@ class PropertyRulesCollectionViewCell: UICollectionViewCell {
 
 class TermsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate {
     @IBOutlet weak var termsLabel: UILabel!
+    @IBOutlet weak var readMoreView: UIView!
     
     var delegate: ReadMoreDelegate?
     

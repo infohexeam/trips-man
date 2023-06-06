@@ -61,6 +61,7 @@
 		C153B4B329EEA4B300399C58 /* ActivityDetailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B4B229EEA4B300399C58 /* ActivityDetailsManager.swift */; };
 		C153B4B629EEBB9E00399C58 /* ActivityDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B4B529EEBB9E00399C58 /* ActivityDetailsData.swift */; };
 		C155DF0A2A04F67000F9ED58 /* MeetupListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C155DF092A04F67000F9ED58 /* MeetupListingData.swift */; };
+		C157B8CD2A2EE358004685AC /* HotelDetails+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C157B8CC2A2EE358004685AC /* HotelDetails+Layout.swift */; };
 		C158276F295D53F800516FD6 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C158276E295D53F800516FD6 /* SideMenu.storyboard */; };
 		C1582774295D54DE00516FD6 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1582773295D54DE00516FD6 /* SideMenuTableViewController.swift */; };
 		C1582776295D626200516FD6 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */; };
@@ -263,6 +264,7 @@
 		C153B4B229EEA4B300399C58 /* ActivityDetailsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsManager.swift; sourceTree = "<group>"; };
 		C153B4B529EEBB9E00399C58 /* ActivityDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsData.swift; sourceTree = "<group>"; };
 		C155DF092A04F67000F9ED58 /* MeetupListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupListingData.swift; sourceTree = "<group>"; };
+		C157B8CC2A2EE358004685AC /* HotelDetails+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HotelDetails+Layout.swift"; sourceTree = "<group>"; };
 		C158276E295D53F800516FD6 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		C1582773295D54DE00516FD6 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		C1582775295D626200516FD6 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -1379,6 +1381,7 @@
 			isa = PBXGroup;
 			children = (
 				C14A983228E15273000C52AA /* HotelDetailsViewController.swift */,
+				C157B8CC2A2EE358004685AC /* HotelDetails+Layout.swift */,
 			);
 			path = "Hotel Details";
 			sourceTree = "<group>";
@@ -1990,6 +1993,7 @@
 				C1CA2C482977B60600648A45 /* NotificationsCollectionViewCell.swift in Sources */,
 				C1D349532A26104500838609 /* CheckoutViewController.swift in Sources */,
 				C17AF1F1299CA8AD002C20B1 /* CouponCells.swift in Sources */,
+				C157B8CD2A2EE358004685AC /* HotelDetails+Layout.swift in Sources */,
 				C15E31FC28C7020000E209EB /* DisableButton.swift in Sources */,
 				C1E3359529F931A0007FAF32 /* ActivityHeaderView.swift in Sources */,
 				C14B489A290FC21000D8FFBA /* ProfileData.swift in Sources */,
