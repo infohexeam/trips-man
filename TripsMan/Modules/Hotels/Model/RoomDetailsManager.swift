@@ -39,6 +39,10 @@ struct RoomDetailsManager {
                         RoomDetailsSection(type: .roomDetails, count: 1),
                         RoomDetailsSection(type: .facilities, count: roomDetails.roomFacilities.count),
                         RoomDetailsSection(type: .priceDetails, count: 1)]
+            
+            if roomDetails.roomImages?.count == 0 {
+                sections?.remove(at: 0)
+            }
         }
     }
     

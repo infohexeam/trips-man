@@ -64,7 +64,9 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
         
         if thisSection.type == .image {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! HotelImageCollectionViewCell
+            print("\n------------")
             if let image = roomManager?.getRoomDetails()?.roomImages?[indexPath.row] {
+                print("\n++++++++++")
                 cell.hotelImage.sd_setImage(with: URL(string: image.roomImage ?? ""), placeholderImage: UIImage(systemName: K.hotelPlaceHolderImage))
 
             }

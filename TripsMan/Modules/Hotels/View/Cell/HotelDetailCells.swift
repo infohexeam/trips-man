@@ -132,6 +132,7 @@ class RoomFilterCollectionViewCell: UICollectionViewCell {
 class HotelRoomsCollectionViewCell: UICollectionViewCell {
     
     var delegate: RoomCellDelegate?
+    var hasRoomImage = false
     
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
@@ -148,7 +149,9 @@ class HotelRoomsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var viewMoreButton: UIButton!
     
     @IBAction func imageTapped(_ sender: UIButton) {
-        delegate?.imageTapped(sender.tag)
+        if hasRoomImage {
+            delegate?.imageTapped(sender.tag)
+        }
     }
     
     @IBAction func viewMoreTapped(_ sender: UIButton) {

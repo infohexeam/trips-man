@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - PackageListingData
 struct PackageListingData: Codable {
+    let totalRecords: Int
     let data: [HolidayPackage]
     let status: Int
     let message: String
@@ -20,7 +21,7 @@ struct HolidayPackage: Codable {
     let packageCode, packageName: String
     let countryID: Int
     let shortDescription, policies, duration: String
-    let amount, offerPrice, costPerPerson, seviceCharge: Double
+    let amount, offerPrice, costPerPerson, serviceCharge: Double
     let status, vendorID: Int
     let countryName: String
     let isSponsored: Int
@@ -34,7 +35,7 @@ struct HolidayPackage: Codable {
         case shortDescription = "short_description"
         case policies, duration, amount, offerPrice
         case costPerPerson = "cost_per_person"
-        case seviceCharge, status
+        case serviceCharge, status
         case vendorID = "vendorId"
         case countryName, isSponsored, holidayImage
     }

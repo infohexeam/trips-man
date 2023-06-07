@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - ActivityListingData
 struct ActivityListingData: Codable {
+    let totalRecords: Int
     let data: [Activity]
     let status: Int
     let message: String
