@@ -25,7 +25,7 @@ struct PackageDetails: Codable {
     let countryName: String
     let packageType, isSponsored, ratingCount: Int
     let userRating: Int
-    let offerPrice, costPerPerson, seviceCharge: Double
+    let offerPrice, costPerPerson, serviceCharge: Double
     let holidayVendor: HolidayVendor
     let holidayItinerary: [HolidayItinerary]
     let holidayImage: [HolidayImage]
@@ -40,7 +40,7 @@ struct PackageDetails: Codable {
         case costPerPerson = "cost_per_person"
         case status
         case vendorID = "vendorId"
-        case countryName, seviceCharge, packageType, isSponsored, ratingCount, userRating, offerPrice, holidayVendor, holidayItinerary, holidayImage
+        case countryName, serviceCharge, packageType, isSponsored, ratingCount, userRating, offerPrice, holidayVendor, holidayItinerary, holidayImage
     }
 }
 

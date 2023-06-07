@@ -114,7 +114,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                 
                 cell.packageName.text = packageDetails.packageName
                 cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.seviceCharge) taxes and fee per person"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
             }
             
             return cell

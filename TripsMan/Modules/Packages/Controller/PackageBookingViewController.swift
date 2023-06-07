@@ -170,7 +170,7 @@ extension PackageBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.packagePrice.font.pointSize
                 }
                 cell.packagePrice.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.seviceCharge) taxes and fee per person"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
                 
                 cell.startDate.text = packageFilter.startDate?.stringValue(format: "dd-MM-yyyy")
             }
