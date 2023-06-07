@@ -68,23 +68,23 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vwB-lU-k8v">
-                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="177"/>
+                                                    <rect key="frame" x="0.0" y="8" width="383" height="169"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTf-kM-FOo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="37"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="383" height="34"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-zj-QrL">
-                                                            <rect key="frame" x="0.0" y="45" width="383" height="10"/>
+                                                            <rect key="frame" x="0.0" y="42" width="383" height="5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="10" id="jvv-JI-EFh"/>
+                                                                <constraint firstAttribute="height" constant="5" id="jvv-JI-EFh"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-jP-jTG">
-                                                            <rect key="frame" x="0.0" y="63" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="55" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="X8H-LR-gGZ"/>
                                                             </constraints>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imo-kE-lJT">
-                                                            <rect key="frame" x="0.0" y="91" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="83" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="y1u-H8-Noe"/>
                                                             </constraints>
@@ -124,14 +124,14 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFS-dc-Ib8">
-                                                            <rect key="frame" x="0.0" y="119" width="383" height="10"/>
+                                                            <rect key="frame" x="0.0" y="111" width="383" height="10"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="Bx5-va-6Mv"/>
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNN-gX-v9b">
-                                                            <rect key="frame" x="0.0" y="137" width="383" height="40"/>
+                                                            <rect key="frame" x="0.0" y="129" width="383" height="40"/>
                                                             <color key="backgroundColor" name="primaryColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="iJQ-PF-KFN"/>
@@ -162,7 +162,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="vwB-lU-k8v" secondAttribute="bottom" id="Xwy-Jq-eXr"/>
                                                 <constraint firstAttribute="trailing" secondItem="vwB-lU-k8v" secondAttribute="trailing" id="ZTz-kF-u2X"/>
                                                 <constraint firstItem="vwB-lU-k8v" firstAttribute="leading" secondItem="KfN-ES-wak" secondAttribute="leading" id="foB-Hl-gXH"/>
-                                                <constraint firstItem="vwB-lU-k8v" firstAttribute="top" secondItem="KfN-ES-wak" secondAttribute="top" id="g8o-bM-DVl"/>
+                                                <constraint firstItem="vwB-lU-k8v" firstAttribute="top" secondItem="KfN-ES-wak" secondAttribute="top" constant="8" id="g8o-bM-DVl"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="383" height="177"/>
@@ -294,47 +294,47 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqT-HC-sCz" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="381" height="151"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RmN-Zd-zH9">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1NU-Wo-HUc">
                                                             <rect key="frame" x="0.0" y="0.0" width="381" height="151"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="thI-xZ-uai">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="250" image="pack-default-img" translatesAutoresizingMaskIntoConstraints="NO" id="L0g-bR-2S1">
                                                                     <rect key="frame" x="0.0" y="0.0" width="152.33333333333334" height="151"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="cH7-F3-knp"/>
+                                                                    </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <integer key="value" value="5"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </imageView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HOl-Jy-AbI">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-DT-jSR">
                                                                     <rect key="frame" x="160.33333333333337" y="0.0" width="220.66666666666663" height="151"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1f-YR-HCs">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="220.66666666666666" height="8"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfy-E2-Hug">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="220.66666666666666" height="5"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="8" id="iKi-rB-eo7"/>
+                                                                                <constraint firstAttribute="height" constant="5" id="uUu-zY-K8l"/>
                                                                             </constraints>
                                                                         </view>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tit-z1-2P0">
-                                                                            <rect key="frame" x="0.0" y="15.999999999999998" width="220.66666666666666" height="21.333333333333329"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tit-z1-2P0">
+                                                                            <rect key="frame" x="0.0" y="13" width="220.66666666666666" height="82"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                                             <color key="textColor" name="primaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gds-9c-S8T">
-                                                                            <rect key="frame" x="0.0" y="45.333333333333336" width="220.66666666666666" height="89.666666666666657"/>
-                                                                            <string key="text">Welcome to your 'Goa Escape-Stone Wood Riverfront Resort, Anjuna! lour On arrival airport in Goa, you will be meet and greet
-ea ov ou representative
-Overnight stay in Goa.</string>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to your 'Goa Escape-Stone Wood " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gds-9c-S8T">
+                                                                            <rect key="frame" x="0.0" y="103" width="220.66666666666666" height="35"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                                             <color key="textColor" name="tertiaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAX-Mb-V6J">
-                                                                            <rect key="frame" x="0.0" y="143" width="220.66666666666666" height="8"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofM-AL-yiA">
+                                                                            <rect key="frame" x="0.0" y="146" width="220.66666666666666" height="5"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="8" id="rV1-1d-UnI"/>
+                                                                                <constraint firstAttribute="height" constant="5" id="Uab-ky-Rmi"/>
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
@@ -344,11 +344,11 @@ Overnight stay in Goa.</string>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="RmN-Zd-zH9" secondAttribute="bottom" id="0Eu-uV-cGe"/>
-                                                        <constraint firstItem="RmN-Zd-zH9" firstAttribute="leading" secondItem="NqT-HC-sCz" secondAttribute="leading" id="FOO-dh-EAF"/>
-                                                        <constraint firstItem="RmN-Zd-zH9" firstAttribute="top" secondItem="NqT-HC-sCz" secondAttribute="top" id="Ybl-gS-E1v"/>
-                                                        <constraint firstItem="thI-xZ-uai" firstAttribute="width" secondItem="NqT-HC-sCz" secondAttribute="width" multiplier="0.4" id="Yya-kA-arq"/>
-                                                        <constraint firstAttribute="trailing" secondItem="RmN-Zd-zH9" secondAttribute="trailing" id="fq4-ty-Gix"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1NU-Wo-HUc" secondAttribute="trailing" id="Eo7-s6-chI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1NU-Wo-HUc" secondAttribute="bottom" id="Gvw-Hc-qc8"/>
+                                                        <constraint firstItem="L0g-bR-2S1" firstAttribute="width" secondItem="NqT-HC-sCz" secondAttribute="width" multiplier="0.4" id="Ivs-h7-wvq"/>
+                                                        <constraint firstItem="1NU-Wo-HUc" firstAttribute="leading" secondItem="NqT-HC-sCz" secondAttribute="leading" id="h8Q-6c-Yi6"/>
+                                                        <constraint firstItem="1NU-Wo-HUc" firstAttribute="top" secondItem="NqT-HC-sCz" secondAttribute="top" id="yfR-yC-p3J"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -373,7 +373,7 @@ Overnight stay in Goa.</string>
                                         <size key="customSize" width="381" height="151"/>
                                         <connections>
                                             <outlet property="itineraryDescription" destination="Gds-9c-S8T" id="q0a-lK-Ebb"/>
-                                            <outlet property="itineraryImage" destination="thI-xZ-uai" id="3df-YE-xgi"/>
+                                            <outlet property="itineraryImage" destination="L0g-bR-2S1" id="89H-9P-5qT"/>
                                             <outlet property="itineraryName" destination="tit-z1-2P0" id="jtv-Xk-sV4"/>
                                         </connections>
                                     </collectionViewCell>
