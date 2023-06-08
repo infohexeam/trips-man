@@ -112,7 +112,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 
-                cell.packageName.text = packageDetails.packageName + " ksldmald " + packageDetails.packageName
+                cell.packageName.text = packageDetails.packageName
                 cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
             }
