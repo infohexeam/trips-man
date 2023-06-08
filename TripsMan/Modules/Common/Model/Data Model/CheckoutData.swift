@@ -16,7 +16,7 @@ struct CheckoutData: Codable {
 
 // MARK: - Checkout
 struct Checkout: Codable {
-    let customerPoints, maximumRedeamAmount, redeamPercentage, redeamablePoints: Double
+    let customerPoints, maximumRedeamAmount, redeamPercentage, redeamablePoints, redeamableAmount: Double
     let amounts: [Amount]
 }
 

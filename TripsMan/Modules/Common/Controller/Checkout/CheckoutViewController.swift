@@ -183,7 +183,7 @@ extension CheckoutViewController: UICollectionViewDataSource {
                 cell.rewardButton.setImage(UIImage(systemName: "square"), for: .normal)
                 cell.rewardButton.isSelected = self.rewardApplied
                 
-                cell.rewardText.text = "Redeem \(details.redeamPercentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.redeamablePoints)"
+                cell.rewardText.text = "Redeem \(details.redeamPercentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.maximumRedeamAmount)"
             }
             
             return cell
