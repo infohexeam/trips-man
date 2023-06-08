@@ -128,7 +128,13 @@ struct ListingManager {
             
         case .packages:
             for package in packages! {
-                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: package.holidayImage.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.serviceCharge)\ntaxes & fee per person"))
+                var packageImage = package.holidayImage.filter { $0.isFeatured == 1 }.last?.imageURL
+                if packageImage == nil {
+                    if package.holidayImage.count > 0 {
+                        packageImage = package.holidayImage[0].imageURL
+                    }
+                }
+                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: packageImage, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.serviceCharge)\ntaxes & fee per person"))
             }
         case .activities:
             for activity in activities! {
