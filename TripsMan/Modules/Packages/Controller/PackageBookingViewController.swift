@@ -53,6 +53,28 @@ class PackageBookingViewController: UIViewController {
         present(datePickerViewController, animated: true)
     }
     
+    func isTravellerDetailsValid() -> Bool {
+        var isValid = false
+        
+        if packageFilter.startDate == nil {
+            self.view.makeToast(Validation.hdyStartDateSelection)
+        } else {
+            let primary = packageFieldTexts.filter { $0.key == [2,0] }
+            if primary.count == 0 {
+                self.view.makeToast(Validation.hdyPrimaryTravellerDetails)
+            } else {
+                let index = IndexPath(row: 0, section: 1)
+                if primary[index]?.name != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
+                    isValid = true
+                } else {
+                    self.view.makeToast(Validation.hdyPrimaryTravellerDetails)
+                }
+            }
+        }
+       
+        return isValid
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PackBookingSummaryViewController {
             vc.packBookingData = bookedData
@@ -65,11 +87,8 @@ class PackageBookingViewController: UIViewController {
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
 //        performSegue(withIdentifier: "toPackBookingSummary", sender: nil)
-        if (packageFilter.startDate != nil) {
-            
+        if isTravellerDetailsValid() {
             createBooking()
-        } else {
-            self.view.makeToast("Select start date")
         }
     }
     

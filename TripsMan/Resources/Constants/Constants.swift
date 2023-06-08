@@ -34,4 +34,18 @@ struct K {
     static let otpSentSuccessMessage = "Successfully sent OTP"
     static let otpFailureMessage = "OTP is invalid or expired"
     
+    
+    
+    
+    
+}
+
+//Validation Messages
+struct Validation {
+    //Holiday Package
+    static let hdyStartDateSelection = "Select start date"
+    static let hdyPrimaryTravellerDetails = "Enter primary traveller details"
+    static let hdyPrimaryTravellerName = "Enter primary traveller name"
+    static let hdyPrimaryTravellerContact = "Enter primary traveller contact number"
+//    static let hdyPrimaryTaveller
 }
