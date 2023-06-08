@@ -170,7 +170,7 @@ class ListingViewController: UIViewController {
             
             if packageFilter.child != nil && packageFilter.child != 0 {
                 let childText = packageFilter.child!.oneOrMany("Child", suffix: "ren")
-                secondText = secondText + childText
+                secondText = secondText + " | " + childText
             }
             dateAndGuestLabel.text = secondText
         } else if listType == .activities {
