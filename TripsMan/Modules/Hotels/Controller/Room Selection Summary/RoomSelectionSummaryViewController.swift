@@ -369,9 +369,12 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 cell.valueLabel.text = "\(SessionManager.shared.getCurrency()) \(amount.amount)"
                 
                 if amount.isTotalAmount == 1 {
-                    cell.paymentButton.isHidden = false
                     cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 15)
                     cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 15)
+                }
+                
+                if indexPath.row == amountDetails.count - 1 {
+                    cell.paymentButton.isHidden = false
                 }
             }
             return cell
