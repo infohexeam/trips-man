@@ -62,13 +62,6 @@ class MainViewController: UIViewController {
         addMenuButton(with: " ")
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if banners.count == 0 {
-            getBanners()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -87,7 +80,8 @@ class MainViewController: UIViewController {
             // Fallback on earlier versions
             print("Locale (before iOS 16): \(locale.regionCode)")
         }
-//        testURL()
+        
+        getBanners()
     }
     
     func testURL() {

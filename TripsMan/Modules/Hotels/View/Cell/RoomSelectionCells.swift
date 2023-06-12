@@ -71,6 +71,11 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == ageField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+                return newString.length <= 2
+        }
         if let delegate = cvcDelegate {
             return delegate.collectionViewCell(textField: textField, shouldChangeCharactersIn: range, replacementString: string, delegatedFrom: self)
         }
@@ -217,6 +222,11 @@ class GuestFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == ageField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+                return newString.length <= 2
+        }
         if let delegate = cvcDelegate {
             return delegate.collectionViewCell(textField: textField, shouldChangeCharactersIn: range, replacementString: string, delegatedFrom: self)
         }
