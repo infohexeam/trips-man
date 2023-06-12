@@ -42,6 +42,10 @@ struct K {
 
 //Validation Messages
 struct Validation {
+    //HOTEL
+    static let htlPrimaryGuestDetails = "Enter primary guest details"
+//    static let htlGuestDetails
+    
     //Holiday Package
     static let hdyStartDateSelection = "Select start date"
     static let hdyPrimaryTravellerDetails = "Enter primary traveller details"

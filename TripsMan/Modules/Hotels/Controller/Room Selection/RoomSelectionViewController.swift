@@ -25,7 +25,6 @@ class RoomSelectionViewController: UIViewController {
             collectionView.collectionViewLayout = createLayout()
             collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             collectionView.dataSource = self
-            collectionView.delegate = self
         }
     }
     
@@ -83,16 +82,34 @@ class RoomSelectionViewController: UIViewController {
     }
     
     func isGuestDetailsValid() -> Bool {
+        
+        
         var isValid = false
-        let primary = textFieldsTexts.filter { $0.key == [1,0] }
-        if primary.count != 0 {
+
+        let primary = textFieldsTexts.filter { $0.key == [getSection(.primaryFields)!,0] }
+        if primary.count == 0 {
+            self.view.makeToast(Validation.htlPrimaryGuestDetails)
+        } else {
             let index = IndexPath(row: 0, section: 1)
             if primary[index]?.name != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
-                print("=====true")
                 isValid = true
+            } else {
+                self.view.makeToast(Validation.htlPrimaryGuestDetails)
             }
         }
+        
         return isValid
+    }
+    
+    func getSection(_ type: SectionTypes) -> Int? {
+        if sections != nil {
+            for i in 0..<sections!.count {
+                if sections![i].type == type {
+                    return i
+                }
+            }
+        }
+        return nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -298,15 +315,6 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
     }
 }
 
-extension RoomSelectionViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let cCell = cell as? GuestFieldCollectionViewCell {
-//            cCell.guestNameField.text = textFieldsTexts[indexPath]?.name
-            print("\n\n \(indexPath) text: \(textFieldsTexts[indexPath]?.name), \(textFieldsTexts[indexPath]?.gender), \(textFieldsTexts[indexPath]?.age)")
-
-        }
-    }
-}
 
 extension RoomSelectionViewController: CollectionViewCellDelegate {
     func collectionViewCell(deleteTappedFrom cell: UICollectionViewCell) {
