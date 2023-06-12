@@ -71,7 +71,7 @@ struct NameValidator {
 
 struct MobileValidator {
     func validate(_ mobile: String) -> (Bool, String) {
-        return (mobile.count >= 10, "Invalid mobile number")
+        return (mobile.count >= 9, "Invalid mobile number")
     }
 }
 

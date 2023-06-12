@@ -9,6 +9,7 @@ import UIKit
 
 class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     @IBOutlet weak var customerField: CustomTextField!
+    @IBOutlet weak var countryCodeField:CustomTextField!
     @IBOutlet weak var contactField: CustomTextField!
     @IBOutlet weak var emailField: CustomTextField!
     @IBOutlet weak var genderField: CustomTextField!
@@ -23,6 +24,8 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
     @IBOutlet weak var ageValidationLabel: UILabel!
     
     @IBOutlet weak var genderButton: UIButton!
+    @IBOutlet weak var countryCodeButton: UIButton!
+
     
     var delegate: DynamicCellHeightDelegate?
     var cvcDelegate: CollectionViewCellDelegate?
@@ -41,11 +44,23 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
         genderButton.menu = UIMenu(title: "", children: items)
         genderButton.showsMenuAsPrimaryAction = true
         
+        let codes = K.countryCodes.map { UIAction(title: "\($0.code)", handler: countryCodeHandler) }
+        countryCodeButton.menu = UIMenu(title: "", children: codes)
+        countryCodeButton.showsMenuAsPrimaryAction = true
+        
     }
     
     func genderHandler(action: UIAction) {
         genderField.text = action.title
         cvcDelegate?.collectionViewCell(valueChangedIn: genderField, delegatedFrom: self)
+    }
+    
+    func countryCodeHandler(action: UIAction) {
+        countryCodeField.text = action.title
+        cvcDelegate?.collectionViewCell(valueChangedIn: countryCodeField, delegatedFrom: self)
+        if contactField.text?.count ?? 0 > K.countryCodes.filter( { $0.code == countryCodeField.text }).last?.mobileLength ?? 0 {
+            contactField.text?.removeLast()
+        }
     }
     
     @IBAction func valueChanged(_ sender: UITextField) {
@@ -54,6 +69,16 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == contactField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= K.countryCodes.filter( { $0.code == countryCodeField.text }).last?.mobileLength ?? 10
+        }
+        if textField == ageField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+                return newString.length <= 2
+        }
         if let delegate = cvcDelegate {
             return delegate.collectionViewCell(textField: textField, shouldChangeCharactersIn: range, replacementString: string, delegatedFrom: self)
         }

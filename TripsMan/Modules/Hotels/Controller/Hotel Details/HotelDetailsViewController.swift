@@ -539,7 +539,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                         cell.multipleButton.isHidden = false
                     }
                     cell.fullScreenButton.isHidden = false
-                    cell.hasRoomImage = false
+                    cell.hasRoomImage = true
                 }
                 cell.roomName.text = rooms.roomType
                 

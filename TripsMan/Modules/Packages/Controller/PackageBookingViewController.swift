@@ -64,7 +64,7 @@ class PackageBookingViewController: UIViewController {
                 self.view.makeToast(Validation.hdyPrimaryTravellerDetails)
             } else {
                 let index = IndexPath(row: 0, section: 1)
-                if primary[index]?.name != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
+                if primary[index]?.name != "" && primary[index]?.countryCode != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
                     isValid = true
                 } else {
                     self.view.makeToast(Validation.hdyPrimaryTravellerDetails)
@@ -209,6 +209,7 @@ extension PackageBookingViewController: UICollectionViewDataSource {
             cell.cvcDelegate = self
             cell.genderButton.tag = indexPath.section
             cell.primayTravellerField.text = packageFieldTexts[indexPath]?.name
+            cell.countryCodeField.text = packageFieldTexts[indexPath]?.countryCode
             cell.contactField.text = packageFieldTexts[indexPath]?.contactNumber
             cell.emailField.text = packageFieldTexts[indexPath]?.emailID
             cell.genderField.text = packageFieldTexts[indexPath]?.gender
@@ -236,15 +237,17 @@ extension PackageBookingViewController: CollectionViewCellDelegate {
     func collectionViewCell(valueChangedIn textField: UITextField, delegatedFrom cell: UICollectionViewCell) {
         if let indexPath = packageCollectionView.indexPath(for: cell), let text = textField.text {
             if textField.tag == 1 {
-                packageFieldTexts[indexPath] = GuestFds(name: text, contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+                packageFieldTexts[indexPath] = GuestFds(name: text, countryCode: packageFieldTexts[indexPath]?.countryCode ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
             } else if textField.tag == 2 {
-                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: text, age: packageFieldTexts[indexPath]?.age ?? "")
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", countryCode: packageFieldTexts[indexPath]?.countryCode ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: text, age: packageFieldTexts[indexPath]?.age ?? "")
             } else if textField.tag == 3 {
-                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: text)
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", countryCode: packageFieldTexts[indexPath]?.countryCode ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: text)
             } else if textField.tag == 4 {
-                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: text, emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", countryCode: packageFieldTexts[indexPath]?.countryCode ?? "", contactNumber: text, emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
             } else if textField.tag == 5 {
-                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: text, gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", countryCode: packageFieldTexts[indexPath]?.countryCode ?? "", contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: text, gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
+            } else if textField.tag == 6 {
+                packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", countryCode: text, contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
             }
             print("\n text changed: \(packageFieldTexts[indexPath])")
         }

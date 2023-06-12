@@ -2752,26 +2752,26 @@ velit esse quam nihil molestiae consequatur.</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="primaryFieldCell" id="iou-2I-fv8" customClass="PrimaryFieldCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="286" width="1616" height="370"/>
+                                        <rect key="frame" x="2.6666666666666665" y="286" width="388" height="298"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AF1-b8-Q0g">
-                                            <rect key="frame" x="0.0" y="0.0" width="1616" height="370"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="298"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-Is-2bu">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1616" height="370"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="298"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mqz-cC-EPL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="1616" height="58"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="388" height="50"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tjq-qC-Nq4">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="804" height="58"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="50"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ctQ-gC-QHy">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="804" height="58"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="190" height="50"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-IF-Xgp">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="Ovj-3h-cGs"/>
                                                                                     </constraints>
@@ -2780,7 +2780,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e1m-tf-f3H" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="20" width="804" height="30"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="190" height="22"/>
                                                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="30" id="pxI-Af-04e"/>
@@ -2793,7 +2793,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VP-AV-bDU">
-                                                                                    <rect key="frame" x="0.0" y="50" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="42" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="unD-mC-pPw"/>
                                                                                     </constraints>
@@ -2802,7 +2802,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9G-lU-Y1f">
-                                                                                    <rect key="frame" x="0.0" y="50" width="804" height="8"/>
+                                                                                    <rect key="frame" x="0.0" y="42" width="190" height="8"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="8" id="WbQ-d3-Awk"/>
@@ -2811,7 +2811,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="RiS-x5-a5T">
-                                                                            <rect key="frame" x="782" y="29.666666666666664" width="14" height="11.000000000000007"/>
+                                                                            <rect key="frame" x="176" y="29.666666666666664" width="6" height="3"/>
                                                                             <color key="tintColor" name="tertiaryLabel"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="RiS-x5-a5T" secondAttribute="height" id="DmY-Aa-PRy"/>
@@ -2830,13 +2830,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOs-5p-IaA">
-                                                                    <rect key="frame" x="812" y="0.0" width="804" height="58"/>
+                                                                    <rect key="frame" x="198" y="0.0" width="190" height="50"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uwn-jU-Fro">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="804" height="58"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="190" height="50"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R72-yS-7Cf">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="z9p-Q6-acg"/>
                                                                                     </constraints>
@@ -2845,7 +2845,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nQu-z5-QbP" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="20" width="804" height="30"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="190" height="22"/>
                                                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="30" id="eWd-2o-DET"/>
@@ -2858,7 +2858,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="561-dE-ueu">
-                                                                                    <rect key="frame" x="0.0" y="50" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="42" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="h02-Gk-ara"/>
                                                                                     </constraints>
@@ -2867,7 +2867,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SPM-RE-ZPY">
-                                                                                    <rect key="frame" x="0.0" y="50" width="804" height="8"/>
+                                                                                    <rect key="frame" x="0.0" y="42" width="190" height="8"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="8" id="Dm3-f0-c12"/>
@@ -2876,7 +2876,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-5N-Cl1">
-                                                                            <rect key="frame" x="782" y="29.666666666666664" width="14" height="11.000000000000007"/>
+                                                                            <rect key="frame" x="176" y="29.666666666666664" width="6" height="3"/>
                                                                             <color key="tintColor" name="tertiaryLabel"/>
                                                                         </imageView>
                                                                     </subviews>
@@ -2895,13 +2895,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                             </subviews>
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNz-Fw-Zl8">
-                                                            <rect key="frame" x="0.0" y="58" width="1616" height="78"/>
+                                                            <rect key="frame" x="0.0" y="50" width="388" height="58"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Usu-WH-v0r">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="1616" height="78"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="58"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primary Guest Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bke-60-SET">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="1616" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="388" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="X3R-fg-IQZ"/>
                                                                             </constraints>
@@ -2910,7 +2910,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEc-JR-W2C" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="20" width="1616" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="20" width="388" height="30"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="c37-Gw-YVZ"/>
@@ -2924,13 +2924,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </connections>
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoA-yL-tyd">
-                                                                            <rect key="frame" x="0.0" y="50" width="1616" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="50" width="388" height="0.0"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                                             <color key="textColor" name="validationLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcJ-5l-1Iu">
-                                                                            <rect key="frame" x="0.0" y="70" width="1616" height="8"/>
+                                                                            <rect key="frame" x="0.0" y="50" width="388" height="8"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="8" id="c3d-iL-ogZ"/>
@@ -2948,69 +2948,118 @@ velit esse quam nihil molestiae consequatur.</string>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82T-0l-zFr">
-                                                            <rect key="frame" x="0.0" y="136" width="1616" height="78"/>
+                                                            <rect key="frame" x="0.0" y="108" width="388" height="50"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7pd-Vr-pMj">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="1616" height="78"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xl-dt-6p3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="KIb-Yq-a0T"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                                                    <color key="textColor" name="profileKeyLabel"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JXG-3c-nfC">
+                                                                    <rect key="frame" x="0.0" y="20" width="388" height="30"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9I-0B-d80">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="1616" height="20"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="iAf-ey-is8"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
-                                                                            <color key="textColor" name="profileKeyLabel"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-c3-dU7" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="20" width="1616" height="30"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXD-bf-XUv">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                            <subviews>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nj3-ZZ-hOV">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                                    <subviews>
+                                                                                        <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+971" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZb-BY-4aD" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="30" id="bDG-0t-ti1"/>
+                                                                                            </constraints>
+                                                                                            <color key="textColor" name="fieldTextColor"/>
+                                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                                                        </textField>
+                                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tj-BF-t79">
+                                                                                            <rect key="frame" x="0.0" y="30" width="50" height="0.0"/>
+                                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        </view>
+                                                                                    </subviews>
+                                                                                </stackView>
+                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P28-2p-wby">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
+                                                                                    <state key="normal" title="Button"/>
+                                                                                    <buttonConfiguration key="configuration" style="plain" title=" "/>
+                                                                                </button>
+                                                                            </subviews>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="30" id="r2h-wB-TFX"/>
-                                                                            </constraints>
-                                                                            <color key="textColor" name="fieldTextColor"/>
-                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
-                                                                            <connections>
-                                                                                <action selector="valueChanged:" destination="iou-2I-fv8" eventType="editingChanged" id="HwX-Sr-zPg"/>
-                                                                                <outlet property="delegate" destination="vmJ-tU-cqd" id="aJN-MW-kwT"/>
-                                                                            </connections>
-                                                                        </textField>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-hi-iS3">
-                                                                            <rect key="frame" x="0.0" y="50" width="1616" height="20"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="n8m-XZ-cNI"/>
-                                                                            </constraints>
-                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
-                                                                            <color key="textColor" name="validationLabel"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9al-tl-UGx">
-                                                                            <rect key="frame" x="0.0" y="70" width="1616" height="8"/>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="8" id="M8F-fd-Rif"/>
+                                                                                <constraint firstItem="P28-2p-wby" firstAttribute="leading" secondItem="AZb-BY-4aD" secondAttribute="leading" id="BgO-vu-dn7"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="Nj3-ZZ-hOV" secondAttribute="bottom" id="HxX-kf-taR"/>
+                                                                                <constraint firstItem="Nj3-ZZ-hOV" firstAttribute="top" secondItem="oXD-bf-XUv" secondAttribute="top" id="K6W-LX-v9E"/>
+                                                                                <constraint firstItem="Nj3-ZZ-hOV" firstAttribute="leading" secondItem="oXD-bf-XUv" secondAttribute="leading" id="KIW-Bm-pbr"/>
+                                                                                <constraint firstItem="P28-2p-wby" firstAttribute="trailing" secondItem="AZb-BY-4aD" secondAttribute="trailing" id="Ks5-4X-wvU"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="Nj3-ZZ-hOV" secondAttribute="trailing" id="PDJ-BK-tIf"/>
+                                                                                <constraint firstAttribute="width" constant="50" id="m4D-39-AcG"/>
+                                                                                <constraint firstItem="P28-2p-wby" firstAttribute="bottom" secondItem="AZb-BY-4aD" secondAttribute="bottom" id="sdO-uQ-r9r"/>
+                                                                                <constraint firstItem="P28-2p-wby" firstAttribute="top" secondItem="AZb-BY-4aD" secondAttribute="top" id="w4L-4M-j6N"/>
                                                                             </constraints>
                                                                         </view>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7pd-Vr-pMj">
+                                                                            <rect key="frame" x="58" y="0.0" width="330" height="30"/>
+                                                                            <subviews>
+                                                                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4c-c3-dU7" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="2"/>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="30" id="r2h-wB-TFX"/>
+                                                                                    </constraints>
+                                                                                    <color key="textColor" name="fieldTextColor"/>
+                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                                                                                    <connections>
+                                                                                        <action selector="valueChanged:" destination="iou-2I-fv8" eventType="editingChanged" id="HwX-Sr-zPg"/>
+                                                                                        <outlet property="delegate" destination="vmJ-tU-cqd" id="aJN-MW-kwT"/>
+                                                                                    </connections>
+                                                                                </textField>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dP2-hi-iS3">
+                                                                                    <rect key="frame" x="0.0" y="2" width="330" height="20"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="20" id="n8m-XZ-cNI"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                                                                    <color key="textColor" name="validationLabel"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9al-tl-UGx">
+                                                                                    <rect key="frame" x="0.0" y="22" width="330" height="8"/>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="8" id="M8F-fd-Rif"/>
+                                                                                    </constraints>
+                                                                                </view>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="7pd-Vr-pMj" firstAttribute="top" secondItem="82T-0l-zFr" secondAttribute="top" id="61V-OH-hms"/>
-                                                                <constraint firstAttribute="bottom" secondItem="7pd-Vr-pMj" secondAttribute="bottom" id="828-2D-m32"/>
-                                                                <constraint firstAttribute="trailing" secondItem="7pd-Vr-pMj" secondAttribute="trailing" id="D1S-Lq-wuF"/>
-                                                                <constraint firstItem="7pd-Vr-pMj" firstAttribute="leading" secondItem="82T-0l-zFr" secondAttribute="leading" id="pCF-aH-R0c"/>
+                                                                <constraint firstAttribute="trailing" secondItem="6Xl-dt-6p3" secondAttribute="trailing" id="6Ss-px-BsU"/>
+                                                                <constraint firstAttribute="bottom" secondItem="JXG-3c-nfC" secondAttribute="bottom" id="AUh-Nr-4MG"/>
+                                                                <constraint firstItem="6Xl-dt-6p3" firstAttribute="top" secondItem="82T-0l-zFr" secondAttribute="top" id="E82-Uk-S8a"/>
+                                                                <constraint firstAttribute="trailing" secondItem="JXG-3c-nfC" secondAttribute="trailing" id="Kli-w6-g3h"/>
+                                                                <constraint firstItem="6Xl-dt-6p3" firstAttribute="leading" secondItem="82T-0l-zFr" secondAttribute="leading" id="gwc-r7-f8Y"/>
+                                                                <constraint firstItem="JXG-3c-nfC" firstAttribute="top" secondItem="82T-0l-zFr" secondAttribute="top" constant="20" id="kCh-D5-Cp1"/>
+                                                                <constraint firstItem="JXG-3c-nfC" firstAttribute="leading" secondItem="82T-0l-zFr" secondAttribute="leading" id="sIn-1X-ffR"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ol1-fS-QYP">
-                                                            <rect key="frame" x="0.0" y="214" width="1616" height="78"/>
+                                                            <rect key="frame" x="0.0" y="158" width="388" height="78"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eYU-hh-h5A">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="1616" height="78"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="388" height="78"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJC-1e-fIF">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="1616" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="388" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="X4M-pP-uNZ"/>
                                                                             </constraints>
@@ -3019,7 +3068,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8m-ur-04i" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="20" width="1616" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="20" width="388" height="30"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="dIy-a5-a3D"/>
@@ -3034,7 +3083,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </connections>
                                                                         </textField>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROd-8i-lu7">
-                                                                            <rect key="frame" x="0.0" y="50" width="1616" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="50" width="388" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="T4F-L8-v8S"/>
                                                                             </constraints>
@@ -3043,7 +3092,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNl-S6-W32">
-                                                                            <rect key="frame" x="0.0" y="70" width="1616" height="8"/>
+                                                                            <rect key="frame" x="0.0" y="70" width="388" height="8"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="8" id="7uS-sa-in8"/>
@@ -3061,16 +3110,16 @@ velit esse quam nihil molestiae consequatur.</string>
                                                             </constraints>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xjy-fx-mtL">
-                                                            <rect key="frame" x="0.0" y="292" width="1616" height="78"/>
+                                                            <rect key="frame" x="0.0" y="236" width="388" height="62"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0A9-mC-exN">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="804" height="78"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="62"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fK4-HZ-bJ2">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="804" height="78"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="190" height="62"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s0q-sY-SOq">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="JVY-KF-ITG"/>
                                                                                     </constraints>
@@ -3079,7 +3128,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kwa-kK-EHa" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="20" width="804" height="30"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="190" height="22"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="30" id="Nsa-Gr-D5B"/>
@@ -3089,7 +3138,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                                                 </textField>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wju-BT-mq1">
-                                                                                    <rect key="frame" x="0.0" y="50" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="42" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="549-e3-LBl"/>
                                                                                     </constraints>
@@ -3098,23 +3147,20 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q06-r7-pq6">
-                                                                                    <rect key="frame" x="0.0" y="70" width="804" height="8"/>
+                                                                                    <rect key="frame" x="0.0" y="62" width="190" height="0.0"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="8" id="7Ch-6a-emm"/>
-                                                                                    </constraints>
                                                                                 </view>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wcd-43-hSz">
-                                                                            <rect key="frame" x="782" y="30.333333333333329" width="14" height="9.3333333333333499"/>
+                                                                            <rect key="frame" x="176" y="30.333333333333332" width="6" height="1.3333333333333321"/>
                                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="wcd-43-hSz" secondAttribute="height" id="xyw-3i-tfj"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hH-RT-3Z9">
-                                                                            <rect key="frame" x="0.0" y="20" width="804" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="20" width="190" height="22"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" title=" "/>
                                                                         </button>
@@ -3135,13 +3181,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMH-8v-mLP">
-                                                                    <rect key="frame" x="812" y="0.0" width="804" height="78"/>
+                                                                    <rect key="frame" x="198" y="0.0" width="190" height="62"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="39n-kw-ET6">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="804" height="78"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="190" height="62"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYj-9h-sw7">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="O0N-4u-geh"/>
                                                                                     </constraints>
@@ -3150,7 +3196,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-hy-zhN" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="20" width="804" height="30"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="190" height="14"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="30" id="AKe-VX-Lsr"/>
@@ -3163,7 +3209,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     </connections>
                                                                                 </textField>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Validation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0VA-w4-G50">
-                                                                                    <rect key="frame" x="0.0" y="50" width="804" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="34" width="190" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="zYK-Kw-7yu"/>
                                                                                     </constraints>
@@ -3172,7 +3218,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lcy-vG-qIS">
-                                                                                    <rect key="frame" x="0.0" y="70" width="804" height="8"/>
+                                                                                    <rect key="frame" x="0.0" y="54" width="190" height="8"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="8" id="OEc-bp-pxF"/>
@@ -3201,12 +3247,15 @@ velit esse quam nihil molestiae consequatur.</string>
                                                 <constraint firstAttribute="trailing" secondItem="ef5-Is-2bu" secondAttribute="trailing" id="tAv-eQ-nsP"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="388" height="298"/>
                                         <connections>
                                             <outlet property="ageField" destination="A8V-hy-zhN" id="igz-m7-frp"/>
                                             <outlet property="ageValidationLabel" destination="0VA-w4-G50" id="fMl-W0-xwr"/>
                                             <outlet property="checkinField" destination="e1m-tf-f3H" id="SZY-vC-gKl"/>
                                             <outlet property="checkoutField" destination="nQu-z5-QbP" id="Tyt-rA-GsZ"/>
                                             <outlet property="contactField" destination="C4c-c3-dU7" id="9vu-mP-udv"/>
+                                            <outlet property="countryCodeButton" destination="P28-2p-wby" id="Cfi-B4-nEN"/>
+                                            <outlet property="countryCodeField" destination="AZb-BY-4aD" id="qTN-gB-q8a"/>
                                             <outlet property="emailField" destination="y8m-ur-04i" id="q3I-yW-qwd"/>
                                             <outlet property="emailValidationLabel" destination="ROd-8i-lu7" id="gxb-HK-JBr"/>
                                             <outlet property="genderButton" destination="6hH-RT-3Z9" id="sl6-TJ-lPh"/>
@@ -3218,12 +3267,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                             <outletCollection property="textFields" destination="y8m-ur-04i" collectionClass="NSMutableArray" id="WMm-Lx-eCz"/>
                                             <outletCollection property="textFields" destination="Kwa-kK-EHa" collectionClass="NSMutableArray" id="kh4-OT-fKW"/>
                                             <outletCollection property="textFields" destination="A8V-hy-zhN" collectionClass="NSMutableArray" id="twf-H5-Nz3"/>
-                                            <outletCollection property="textFields" destination="C4c-c3-dU7" collectionClass="NSMutableArray" id="Ttd-Nb-qhE"/>
                                             <outletCollection property="textFields" destination="eEc-JR-W2C" collectionClass="NSMutableArray" id="IGr-WF-vpc"/>
+                                            <outletCollection property="textFields" destination="C4c-c3-dU7" collectionClass="NSMutableArray" id="Ttd-Nb-qhE"/>
+                                            <outletCollection property="textFields" destination="AZb-BY-4aD" collectionClass="NSMutableArray" id="IiU-Mh-lGU"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="guestFieldCell" id="VuS-Ph-IRl" customClass="GuestFieldCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="666" width="414" height="156"/>
+                                        <rect key="frame" x="0.0" y="594" width="414" height="156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S1C-zU-vmZ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
@@ -3459,7 +3509,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="actionsCell" id="C2p-et-Ehh" customClass="RoomSelectionActionsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="832" width="414" height="154"/>
+                                        <rect key="frame" x="0.0" y="760" width="414" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WCu-nO-eXi">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
@@ -3639,7 +3689,7 @@ velit esse quam nihil molestiae consequatur.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="19x-D8-Nr0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="1577.6785714285713"/>
+            <point key="canvasLocation" x="1901.5267175572519" y="1577.4647887323945"/>
         </scene>
         <!--Room Selection Summary View Controller-->
         <scene sceneID="TFp-ph-fcQ">
@@ -4375,6 +4425,9 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
         </designable>
         <designable name="A8V-hy-zhN">
             <size key="intrinsicContentSize" width="28" height="34"/>
+        </designable>
+        <designable name="AZb-BY-4aD">
+            <size key="intrinsicContentSize" width="58" height="34"/>
         </designable>
         <designable name="C4c-c3-dU7">
             <size key="intrinsicContentSize" width="28" height="34"/>

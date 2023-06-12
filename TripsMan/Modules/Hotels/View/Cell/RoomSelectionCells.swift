@@ -26,6 +26,7 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
     @IBOutlet weak var checkinField: CustomTextField!
     @IBOutlet weak var checkoutField: CustomTextField!
     @IBOutlet weak var primayGuestField: CustomTextField!
+    @IBOutlet weak var countryCodeField:CustomTextField!
     @IBOutlet weak var contactField: CustomTextField!
     @IBOutlet weak var emailField: CustomTextField!
     @IBOutlet weak var genderField: CustomTextField!
@@ -40,6 +41,7 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
     @IBOutlet weak var ageValidationLabel: UILabel!
     
     @IBOutlet weak var genderButton: UIButton!
+    @IBOutlet weak var countryCodeButton: UIButton!
     
     var delegate: DynamicCellHeightDelegate?
     var cvcDelegate: CollectionViewCellDelegate?
@@ -58,6 +60,18 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
         genderButton.menu = UIMenu(title: "", children: items)
         genderButton.showsMenuAsPrimaryAction = true
         
+        let codes = K.countryCodes.map { UIAction(title: "\($0.code)", handler: countryCodeHandler) }
+        countryCodeButton.menu = UIMenu(title: "", children: codes)
+        countryCodeButton.showsMenuAsPrimaryAction = true
+        
+    }
+    
+    func countryCodeHandler(action: UIAction) {
+        countryCodeField.text = action.title
+        cvcDelegate?.collectionViewCell(valueChangedIn: countryCodeField, delegatedFrom: self)
+        if contactField.text?.count ?? 0 > K.countryCodes.filter( { $0.code == countryCodeField.text }).last?.mobileLength ?? 0 {
+            contactField.text?.removeLast()
+        }
     }
     
     func genderHandler(action: UIAction) {
@@ -71,6 +85,11 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == contactField {
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= K.countryCodes.filter( { $0.code == countryCodeField.text }).last?.mobileLength ?? 10
+        }
         if textField == ageField {
             let currentString: NSString = textField.text! as NSString
             let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString

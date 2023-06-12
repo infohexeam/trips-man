@@ -277,6 +277,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
             cell.cvcDelegate = self
             cell.genderButton.tag = indexPath.section
             cell.customerField.text = activityFieldTexts[indexPath]?.name
+            cell.countryCodeField.text = activityFieldTexts[indexPath]?.countryCode
             cell.contactField.text = activityFieldTexts[indexPath]?.contactNumber
             cell.emailField.text = activityFieldTexts[indexPath]?.emailID
             cell.genderField.text = activityFieldTexts[indexPath]?.gender
@@ -304,15 +305,17 @@ extension ActivityBookingViewController: CollectionViewCellDelegate {
     func collectionViewCell(valueChangedIn textField: UITextField, delegatedFrom cell: UICollectionViewCell) {
         if let indexPath = activityCollectionView.indexPath(for: cell), let text = textField.text {
             if textField.tag == 1 {
-                activityFieldTexts[indexPath] = GuestFds(name: text, contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
+                activityFieldTexts[indexPath] = GuestFds(name: text, countryCode: activityFieldTexts[indexPath]?.countryCode ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
             } else if textField.tag == 2 {
-                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: text, age: activityFieldTexts[indexPath]?.age ?? "")
+                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", countryCode: activityFieldTexts[indexPath]?.countryCode ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: text, age: activityFieldTexts[indexPath]?.age ?? "")
             } else if textField.tag == 3 {
-                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: text)
+                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", countryCode: activityFieldTexts[indexPath]?.countryCode ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: text)
             } else if textField.tag == 4 {
-                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", contactNumber: text, emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
+                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", countryCode: activityFieldTexts[indexPath]?.countryCode ?? "", contactNumber: text, emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
             } else if textField.tag == 5 {
-                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: text, gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
+                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", countryCode: activityFieldTexts[indexPath]?.countryCode ?? "", contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: text, gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
+            } else if textField.tag == 6 {
+                activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", countryCode: text, contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
             }
             print("\n text changed: \(activityFieldTexts[indexPath])")
         }

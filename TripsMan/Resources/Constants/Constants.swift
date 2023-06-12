@@ -22,6 +22,9 @@ struct K {
     
     static let genders = ["Male", "Female", "Prefer not to say"]
     
+    static let countryCodes: [MobileCodes] = [MobileCodes(code: "+91", mobileLength: 10),
+                                              MobileCodes(code: "+971", mobileLength: 9)]
+    
     static let hotelPlaceHolderImage = "hotel-default-img"
     static let packagePlaceHolderImage = "pack-default-img"
     static let activityPlaceholderImage = "activity-default-img"
@@ -34,10 +37,11 @@ struct K {
     static let otpSentSuccessMessage = "Successfully sent OTP"
     static let otpFailureMessage = "OTP is invalid or expired"
     
-    
-    
-    
-    
+}
+
+struct MobileCodes {
+    var code: String
+    var mobileLength: Int
 }
 
 //Validation Messages
