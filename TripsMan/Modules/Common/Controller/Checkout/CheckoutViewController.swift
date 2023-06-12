@@ -224,11 +224,18 @@ extension CheckoutViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .reward {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardCell", for: indexPath) as! CheckoutRewardCollectionViewCell
             if let details = checkoutManager?.getCheckoutDetails() {
-                cell.rewardButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
-                cell.rewardButton.setImage(UIImage(systemName: "square"), for: .normal)
-                cell.rewardButton.isSelected = self.rewardApplied
+                cell.rewardView.isHidden = true
                 
-                cell.rewardText.text = "Redeem \(details.redeamPercentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.maximumRedeamAmount)"
+                if details.customerPoints > 0 {
+                    cell.rewardView.isHidden = false
+                    cell.rewardButton.setImage(UIImage(systemName: "checkmark.square.fill"), for: .selected)
+                    cell.rewardButton.setImage(UIImage(systemName: "square"), for: .normal)
+                    cell.rewardButton.isSelected = self.rewardApplied
+                    
+                    cell.rewardText.text = "Redeem \(details.redeamPercentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.maximumRedeamAmount)"
+                }
+                
+                
             }
             
             return cell
