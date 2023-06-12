@@ -9,9 +9,6 @@ import UIKit
 
 class PackBookingSummaryViewController: UIViewController {
     
-    @IBOutlet weak var successView: UIView!
-    @IBOutlet weak var successLabel: UILabel!
-    
     @IBOutlet weak var summaryCollectionView: UICollectionView! {
         didSet {
             summaryCollectionView.collectionViewLayout = createLayout()
@@ -30,15 +27,13 @@ class PackBookingSummaryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        successView.isHidden = true
         packageManager = PackageSummaryManager(packagbooking: packBookingData)
         getCoupons()
         
     }
     
     @IBAction func paymentButtonTapped(_ sender: UIButton) {
-        print("reached here")
-        confirmBooking()
+        checkoutBooking()
     }
     
     @IBAction func returnHomeTapped(_ sender: UIButton) {
@@ -61,6 +56,12 @@ class PackBookingSummaryViewController: UIViewController {
             vc.bookingID = packBookingData!.bookingID
             vc.couponModule = .holiday
             vc.delegate = self
+        } else if let vc = segue.destination as? CheckoutViewController {
+            if let data = sender as? CheckoutData {
+                vc.checkoutData = data.data
+                vc.bookingID = packBookingData?.bookingID ?? 0
+                vc.listType = .packages
+            }
         }
     }
 
@@ -147,15 +148,18 @@ extension PackBookingSummaryViewController {
         }
     }
     
-    func confirmBooking() {
+    func checkoutBooking() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(packBookingData!.bookingID)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        let params: [String: Any] = ["bookingId": packBookingData?.bookingID ?? 0,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHotelCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.successView.isHidden = false
-                        self.successLabel.text = result!.message
+                        self.performSegue(withIdentifier: "toCheckout", sender: result)
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -247,13 +251,7 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
             
             
             return cell
-        } else if thisSection.type == .rewardPoints {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardPointCell", for: indexPath) as! RewardPointCollectionViewCell
-            
-            
-            
-            return cell
-        } else if thisSection.type == .bottomView {
+        }  else if thisSection.type == .bottomView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             if let amountDetails = packageManager?.getAmountDetails() {
                 cell.paymentButton.isHidden = true
@@ -386,18 +384,6 @@ extension PackBookingSummaryViewController {
                 
                 section = NSCollectionLayoutSection(group: group)
                 section.boundarySupplementaryItems = [sectionHeader]
-                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
-            } else if thisSection.type == .rewardPoints {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(44))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(44))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
             }   else if thisSection.type == .coupon {

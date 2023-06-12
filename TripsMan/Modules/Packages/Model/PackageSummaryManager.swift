@@ -13,7 +13,6 @@ struct PackageSummaryManager {
         case primaryTraveller
         case otherTravellers
         case coupon
-        case rewardPoints
         case seperator
         case bottomView
     }
@@ -72,9 +71,6 @@ struct PackageSummaryManager {
             sections?.append(PackageSummarySection(type: .seperator, count: 1))
             if coupons != nil {
                 sections?.append(PackageSummarySection(type: .coupon, count: couponsToShow!.count))
-            }
-            if rewardPoint > 0 {
-                sections?.append(PackageSummarySection(type: .rewardPoints, count: 1))
             }
             sections?.append(PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count))
 //            if coupons == nil {

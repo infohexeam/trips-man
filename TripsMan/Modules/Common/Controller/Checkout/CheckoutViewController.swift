@@ -23,6 +23,7 @@ class CheckoutViewController: UIViewController {
     var checkoutManager: CheckoutManager?
     var checkoutData: Checkout?
     var bookingID = 0
+    var listType: ListType?
     
     let parser = Parser()
     
@@ -61,7 +62,22 @@ class CheckoutViewController: UIViewController {
 extension CheckoutViewController {
     func confirmBooking() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/ConfirmCustomerHotelBooking?BookingId=\(bookingID)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        
+        var url = ""
+        if let listType = listType {
+            switch listType {
+            case .hotel:
+                url = "api/CustomerHotelBooking/ConfirmCustomerHotelBooking?BookingId=\(bookingID)"
+            case .packages:
+                url = "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(bookingID)"
+            case .activities:
+                url = "" //TODO: -
+            case .meetups:
+                url = "" //TODO: -
+            }
+        }
+        
+        parser.sendRequestLoggedIn(url: url, http: .post, parameters: nil) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -79,15 +95,30 @@ extension CheckoutViewController {
         }
     }
     
+    
     func applyRewardPoint() {
         showIndicator()
+        
+        var url = ""
+        if let listType = listType {
+            switch listType {
+            case .hotel:
+                url = "api/CustomerHotelBooking/ApplyCustomerHotelRewardPoint"
+            case .packages:
+                url = "api/CustomerHolidayCoupon/ApplyCustomerHolidayRewardPoint"
+            case .activities:
+                url = "" //TODO: -
+            case .meetups:
+                url = "" //TODO: -
+            }
+        }
         
         let params: [String: Any] = ["bookingId": bookingID,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/ApplyCustomerHotelRewardPoint", http: .post, parameters: params) { (result: RewardPointsData?, error) in
+        parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: RewardPointsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -110,12 +141,26 @@ extension CheckoutViewController {
     func removeRewardPoint() {
         showIndicator()
         
+        var url = ""
+        if let listType = listType {
+            switch listType {
+            case .hotel:
+                url = "api/CustomerCoupon/RemoveCustomerHotelRewardPoint"
+            case .packages:
+                url = "api/CustomerHolidayCoupon/RemoveCustomerHolidayRewardPoint"
+            case .activities:
+                url = "" //TODO: -
+            case .meetups:
+                url = "" //TODO: -
+            }
+        }
+        
         let params: [String: Any] = ["bookingId": bookingID,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/RemoveCustomerHotelRewardPoint", http: .post, parameters: params) { (result: RewardPointsData?, error) in
+        parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: RewardPointsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

@@ -43,8 +43,11 @@ struct CheckoutManager {
         if let checkouData = checkouData {
             print("settingSections: \(checkouData)")
             sections = [CheckoutSection(type: .priceDetails, count: amountDetails?.count ?? 0),
-                        CheckoutSection(type: .paymentMethod, count: 1),
-                        CheckoutSection(type: .reward, count: 1)]
+                        CheckoutSection(type: .paymentMethod, count: 1)]
+            
+            if checkouData.customerPoints > 0 {
+                sections?.append(CheckoutSection(type: .reward, count: 1))
+            }
         }
     }
     

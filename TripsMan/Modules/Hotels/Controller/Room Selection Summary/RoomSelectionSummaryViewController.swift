@@ -118,6 +118,7 @@ class RoomSelectionSummaryViewController: UIViewController {
             if let data = sender as? CheckoutData {
                 vc.checkoutData = data.data
                 vc.bookingID = bookedData?.bookingID ?? 0
+                vc.listType = .hotel
             }
         }
     }
