@@ -29,6 +29,12 @@ class PackageBookingViewController: UIViewController {
     
     var fontSize: CGFloat? = nil
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addBackButton(with: "Package Booking")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let packageDetails = packageFilter.packageDetails {
@@ -59,11 +65,14 @@ class PackageBookingViewController: UIViewController {
         if packageFilter.startDate == nil {
             self.view.makeToast(Validation.hdyStartDateSelection)
         } else {
-            let primary = packageFieldTexts.filter { $0.key == [2,0] }
+            
+            let sect = packageManager?.getSection(.primaryTraveller)
+            let primary = packageFieldTexts.filter { $0.key == [sect!,0] }
+            
             if primary.count == 0 {
                 self.view.makeToast(Validation.hdyPrimaryTravellerDetails)
             } else {
-                let index = IndexPath(row: 0, section: 1)
+                let index = IndexPath(row: 0, section: sect!)
                 if primary[index]?.name != "" && primary[index]?.countryCode != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
                     isValid = true
                 } else {
@@ -88,7 +97,8 @@ class PackageBookingViewController: UIViewController {
     @IBAction func continueButtonTapped(_ sender: UIButton) {
 //        performSegue(withIdentifier: "toPackBookingSummary", sender: nil)
         if isTravellerDetailsValid() {
-            createBooking()
+            print("\n\nsuccesssssss")
+//            createBooking()
         }
     }
     

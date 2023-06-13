@@ -87,11 +87,12 @@ class RoomSelectionViewController: UIViewController {
         
         var isValid = false
 
-        let primary = textFieldsTexts.filter { $0.key == [getSection(.primaryFields)!,0] }
+        let sect = getSection(.primaryFields)
+        let primary = textFieldsTexts.filter { $0.key == [sect!,0] }
         if primary.count == 0 {
             self.view.makeToast(Validation.htlPrimaryGuestDetails)
         } else {
-            let index = IndexPath(row: 0, section: 1)
+            let index = IndexPath(row: 0, section: sect!)
             if primary[index]?.name != "" && primary[index]?.contactNumber != "" && primary[index]?.countryCode != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
                 isValid = true
             } else {
