@@ -192,13 +192,13 @@ extension MyTripsViewController {
         parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset*recordCount)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
+                self.refreshControl.endRefreshing()
                 self.isLoading = false
                 if error == nil {
                     if result!.status == 1 {
                         self.myTrips = result!.data
                         self.currentOffset += 1
                         self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
-                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }

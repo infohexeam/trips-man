@@ -134,6 +134,7 @@ extension ListingViewController {
         parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHotelList", http: .post, parameters: params) { (result: HotelData?, error) in
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.refreshControl.endRefreshing()
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
@@ -144,7 +145,6 @@ extension ListingViewController {
                         }
                         self.currentOffset += 1
                         self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
-                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -184,6 +184,7 @@ extension ListingViewController {
         parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayPackageList", http: .post, parameters: params) { (result: PackageListingData?, error) in
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.refreshControl.endRefreshing()
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
@@ -194,7 +195,6 @@ extension ListingViewController {
                         }
                         self.currentOffset += 1
                         self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
-                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -234,6 +234,7 @@ extension ListingViewController {
         parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityList", http: .post, parameters: params) { (result: ActivityListingData?, error) in
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.refreshControl.endRefreshing()
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
@@ -244,7 +245,6 @@ extension ListingViewController {
                         }
                         self.currentOffset += 1
                         self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
-                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }
@@ -285,6 +285,7 @@ extension ListingViewController {
         parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupList", http: .post, parameters: params) { (result: MeetupListingData?, error) in
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.refreshControl.endRefreshing()
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
@@ -295,7 +296,6 @@ extension ListingViewController {
                         }
                         self.currentOffset += 1
                         self.totalPages = result!.totalRecords.pageCount(with: self.recordCount)
-                        self.refreshControl.endRefreshing()
                     } else {
                         self.view.makeToast(result!.message)
                     }

@@ -11,6 +11,8 @@ import Combine
 import SDWebImage
 
 class MainViewController: UIViewController {
+    
+    var refreshControl = UIRefreshControl()
 
     @IBOutlet weak var homeCollection: UICollectionView! {
         didSet {
@@ -18,6 +20,11 @@ class MainViewController: UIViewController {
             homeCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             homeCollection.dataSource = self
             homeCollection.delegate = self
+            
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+            homeCollection.refreshControl = refreshControl
+            
         }
     }
     
@@ -81,6 +88,10 @@ class MainViewController: UIViewController {
             print("Locale (before iOS 16): \(locale.regionCode)")
         }
         
+        getBanners()
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
         getBanners()
     }
     
@@ -150,6 +161,7 @@ extension MainViewController {
         parser.sendRequestWithStaticKey(url: "api/CustomerBanner/GetCustomerBannerList?Type=home", http: .get, parameters: nil) { (result: BannerData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
+                self.refreshControl.endRefreshing()
                 if error == nil {
                     if result!.status == 1 {
                         self.banners = result!.data
