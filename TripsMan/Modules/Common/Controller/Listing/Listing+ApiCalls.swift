@@ -166,12 +166,15 @@ extension ListingViewController {
                                      "sortBy": "",
                                      "offset": currentOffset*recordCount,
                                      "recordCount": recordCount,
+                                     "countryName": packageFilter.country?.name ?? "",
                                      "Country": SessionManager.shared.getCountry(),
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage(),
                                      "minimumBudget": packageFilter.rate!.from,
                                      "maximumBudget": packageFilter.rate!.to,
-                                     "holidayFilters": packageFilter.filters ?? [String: [Any]]()]
+                                     "holidayFilters": packageFilter.filters ?? [String: [Any]](),
+                                     "adultCount": packageFilter.adult!,
+                                     "childCount": packageFilter.child!]
         
         if let sort = packageFilter.sort {
             params["sortBy"] = sort.name

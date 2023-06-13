@@ -299,7 +299,19 @@ class ListingViewController: UIViewController {
                 vc.filters = filters
                 vc.delegate = self
                 vc.selectedIndexes = selectedFilterIndexes
-                vc.selectedRates = hotelFilters.rate
+                if let listType = listType {
+                    switch listType {
+                    case .hotel:
+                        vc.selectedRates = hotelFilters.rate
+                    case .packages:
+                        vc.selectedRates = packageFilter.rate
+                    case .activities:
+                        vc.selectedRates = activityFilter.rate
+                    case .meetups:
+                        vc.selectedRates = meetupFilter.rate
+                    }
+                }
+                
             }
         } else if let vc = segue.destination as? HotelDetailsViewController {
             if let index = sender as? Int {
@@ -324,6 +336,7 @@ class ListingViewController: UIViewController {
             vc.hotelFilters = hotelFilters
             vc.packageFilters = packageFilter
             vc.activityFilters = activityFilter
+            vc.meetupFilters = meetupFilter
             vc.listType = listType
             vc.delegate = self
         } else if let vc = segue.destination as? PackageDetailsViewController {
