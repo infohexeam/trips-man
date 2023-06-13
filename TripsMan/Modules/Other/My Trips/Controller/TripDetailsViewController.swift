@@ -51,6 +51,21 @@ class TripDetailsViewController: UIViewController {
         hideKeyboardOnTap()
     }
     
+    func getTripDetails() {
+        if let module = module {
+            switch module {
+            case .hotel:
+                getHotelBookingDetails()
+            case .packages:
+                getHolidayBookingDetails()
+            case .activities:
+                break
+            case .meetups:
+                break
+            }
+        }
+    }
+    
     
     @IBAction func cancelBookingTapped() {
         cancelBooking()
@@ -73,7 +88,7 @@ class TripDetailsViewController: UIViewController {
 
 //MARK: - APICalls
 extension TripDetailsViewController {
-    func getTripDetails(_ isRefresh: Bool = false) {
+    func getHotelBookingDetails(_ isRefresh: Bool = false) {
         showIndicator()
         parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerHotelBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: HotelTripDetailsData?, error) in
             DispatchQueue.main.async {
@@ -81,6 +96,28 @@ extension TripDetailsViewController {
                 if error == nil {
                     if result!.status == 1 {
                         self.tripDetails = result!.data
+                        if isRefresh {
+                            self.delegate?.refreshTrips()
+                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
+    func getHolidayBookingDetails(_ isRefresh: Bool = false) {
+        showIndicator()
+        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/GetCustomerHolidayBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: HolidayTripDetailsData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+//                        self.tripManager = TripDetailsManager(hotelTripDetails: tripDetails)
+                        self.tripDetailsCollection.reloadData()
                         if isRefresh {
                             self.delegate?.refreshTrips()
                         }
@@ -102,7 +139,7 @@ extension TripDetailsViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.getTripDetails(true)
+//                        self.getTripDetails(true)
                         self.view.makeToast(result!.message)
                     } else {
                         self.view.makeToast(result!.message)

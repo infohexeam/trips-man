@@ -24,6 +24,7 @@ struct TripDetailsManager {
     var sections: [TripDetailsSection]? = nil
     
     var hotelTripDetails: HotelTripDetails?
+    var holidayTripDetails: HolidayTripDetails?
     
     var detailsData: DetailsData?
     
@@ -79,19 +80,31 @@ struct TripDetailsManager {
         setDetailsData()
     }
     
+    init(holidayTripDetails: HolidayTripDetails?) {
+        self.holidayTripDetails = holidayTripDetails
+        setSections()
+        setDetailsData()
+    }
+    
     func getSections() -> [TripDetailsSection]? {
         return sections
     }
     
     mutating func setSections() {
-        sections = [TripDetailsSection(type: .tripDetails, count: 1),
-                    TripDetailsSection(type: .priceDetails, count: hotelTripDetails!.amountDetails.count)]
-        if hotelTripDetails!.tripStatusValue == 1 {
-            sections?.append(TripDetailsSection(type: .review, count: 1))
+        if let hotelTripDetails = hotelTripDetails {
+            sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                        TripDetailsSection(type: .priceDetails, count: hotelTripDetails.amountDetails.count)]
+            if hotelTripDetails.tripStatusValue == 1 {
+                sections?.append(TripDetailsSection(type: .review, count: 1))
+            }
+            if hotelTripDetails.tripStatusValue == 0 {
+                sections?.append(TripDetailsSection(type: .action, count: 1))
+            }
+        } else if let holidayTripDetails = holidayTripDetails {
+            sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                        TripDetailsSection(type: .priceDetails, count: holidayTripDetails.amountdetails.count)]
         }
-        if hotelTripDetails!.tripStatusValue == 0 {
-            sections?.append(TripDetailsSection(type: .action, count: 1))
-        }
+        
     }
     
     func getSection(_ type: SectionTypes) -> Int? {
@@ -127,6 +140,8 @@ struct TripDetailsManager {
             let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: roomAndGuestCount, roomType: hotelTripDetails.roomDetails.count > 0 ? hotelTripDetails.roomDetails[0].roomType : "", primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
+        } else if let holidayTripDetails = holidayTripDetails {
+//            let topBox = TopBox(tripStatus: holidayTripDetails., bookingNo: <#T##String#>, bookedDate: <#T##String#>, tripMessage: <#T##String#>)
         }
     }
     
