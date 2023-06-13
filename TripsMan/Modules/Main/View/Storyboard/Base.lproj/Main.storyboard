@@ -997,6 +997,14 @@
                                                                     </view>
                                                                 </subviews>
                                                             </stackView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c7i-TB-BAM">
+                                                                <rect key="frame" x="368" y="27.5" width="22" height="15"/>
+                                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="c7i-TB-BAM" secondAttribute="height" id="88A-QN-Yd2"/>
+                                                                </constraints>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                            </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BA6-kq-KB9">
                                                                 <rect key="frame" x="0.0" y="20" width="398" height="30"/>
                                                                 <state key="normal" title="Button"/>
@@ -1006,11 +1014,14 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="y1h-4G-ple" firstAttribute="top" secondItem="5Re-ln-KTR" secondAttribute="top" id="3pS-rw-49I"/>
+                                                            <constraint firstItem="c7i-TB-BAM" firstAttribute="bottom" secondItem="0P1-yM-Z0G" secondAttribute="bottom" constant="-4" id="8Be-ck-CjS"/>
                                                             <constraint firstItem="y1h-4G-ple" firstAttribute="leading" secondItem="5Re-ln-KTR" secondAttribute="leading" id="GB9-bD-azN"/>
+                                                            <constraint firstItem="c7i-TB-BAM" firstAttribute="trailing" secondItem="0P1-yM-Z0G" secondAttribute="trailing" constant="-8" id="TZ6-Tc-OUU"/>
                                                             <constraint firstItem="BA6-kq-KB9" firstAttribute="leading" secondItem="0P1-yM-Z0G" secondAttribute="leading" id="UW3-dN-xvN"/>
                                                             <constraint firstItem="BA6-kq-KB9" firstAttribute="bottom" secondItem="0P1-yM-Z0G" secondAttribute="bottom" id="XMp-fw-nK0"/>
                                                             <constraint firstAttribute="trailing" secondItem="y1h-4G-ple" secondAttribute="trailing" id="ch7-Hj-WGI"/>
                                                             <constraint firstAttribute="bottom" secondItem="y1h-4G-ple" secondAttribute="bottom" id="sIJ-Yf-sn1"/>
+                                                            <constraint firstItem="c7i-TB-BAM" firstAttribute="top" secondItem="0P1-yM-Z0G" secondAttribute="top" constant="4" id="wy0-BT-Y4v"/>
                                                             <constraint firstItem="BA6-kq-KB9" firstAttribute="top" secondItem="0P1-yM-Z0G" secondAttribute="top" id="yy5-m9-t24"/>
                                                             <constraint firstItem="BA6-kq-KB9" firstAttribute="trailing" secondItem="0P1-yM-Z0G" secondAttribute="trailing" id="zx0-t2-Mw2"/>
                                                         </constraints>
@@ -1061,6 +1072,14 @@
                                                                     </view>
                                                                 </subviews>
                                                             </stackView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FNk-WX-qqZ">
+                                                                <rect key="frame" x="368" y="26.5" width="22" height="16.5"/>
+                                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="FNk-WX-qqZ" secondAttribute="height" id="UCU-5d-w1X"/>
+                                                                </constraints>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                            </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiC-Kb-hFb">
                                                                 <rect key="frame" x="0.0" y="20" width="398" height="30"/>
                                                                 <state key="normal" title="Button"/>
@@ -1072,14 +1091,18 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstItem="FNk-WX-qqZ" firstAttribute="top" secondItem="cvb-5z-Ulb" secondAttribute="top" constant="4" id="8rZ-OT-3LY"/>
+                                                            <constraint firstItem="FNk-WX-qqZ" firstAttribute="trailing" secondItem="cvb-5z-Ulb" secondAttribute="trailing" constant="-8" id="DPY-8i-gmS"/>
                                                             <constraint firstItem="DiC-Kb-hFb" firstAttribute="leading" secondItem="cvb-5z-Ulb" secondAttribute="leading" id="HDJ-AM-jgE"/>
                                                             <constraint firstAttribute="bottom" secondItem="c0c-Ca-O3x" secondAttribute="bottom" id="NFb-Cm-pdE"/>
                                                             <constraint firstItem="DiC-Kb-hFb" firstAttribute="bottom" secondItem="cvb-5z-Ulb" secondAttribute="bottom" id="Q40-3f-mda"/>
                                                             <constraint firstAttribute="trailing" secondItem="c0c-Ca-O3x" secondAttribute="trailing" id="SRl-17-kOO"/>
                                                             <constraint firstItem="c0c-Ca-O3x" firstAttribute="top" secondItem="0FR-dD-Idx" secondAttribute="top" id="Tz5-vy-fqT"/>
+                                                            <constraint firstItem="FNk-WX-qqZ" firstAttribute="bottom" secondItem="cvb-5z-Ulb" secondAttribute="bottom" constant="-4" id="hOC-vY-eRS"/>
                                                             <constraint firstItem="c0c-Ca-O3x" firstAttribute="leading" secondItem="0FR-dD-Idx" secondAttribute="leading" id="iTX-GM-cLc"/>
                                                             <constraint firstItem="DiC-Kb-hFb" firstAttribute="trailing" secondItem="cvb-5z-Ulb" secondAttribute="trailing" id="mZq-Am-NGS"/>
                                                             <constraint firstItem="DiC-Kb-hFb" firstAttribute="top" secondItem="cvb-5z-Ulb" secondAttribute="top" id="sMj-4k-JsC"/>
+                                                            <constraint firstItem="FNk-WX-qqZ" firstAttribute="width" secondItem="FNk-WX-qqZ" secondAttribute="height" id="ywt-4W-BQL"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeP-6J-yCO" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
@@ -1409,13 +1432,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-oG-tg4">
-                                                <rect key="frame" x="35" y="0.0" width="22" height="33"/>
+                                                <rect key="frame" x="35" y="0.0" width="35" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="language" translatesAutoresizingMaskIntoConstraints="NO" id="hQH-LM-tc4">
-                                                        <rect key="frame" x="4" y="4" width="14" height="25"/>
+                                                        <rect key="frame" x="4" y="4" width="27" height="25"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-gK-2Sq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                     </button>
@@ -1434,13 +1457,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEM-xt-pwa">
-                                                <rect key="frame" x="57" y="0.0" width="35" height="33"/>
+                                                <rect key="frame" x="70" y="0.0" width="22" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-nav-notification" translatesAutoresizingMaskIntoConstraints="NO" id="xMT-Sz-CFz">
-                                                        <rect key="frame" x="4" y="4" width="27" height="25"/>
+                                                        <rect key="frame" x="4" y="4" width="14" height="25"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-Xz-4cB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
@@ -1583,46 +1606,46 @@
     </scenes>
     <designables>
         <designable name="0P1-yM-Z0G">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="6gI-UB-Gee">
             <size key="intrinsicContentSize" width="145.5" height="32"/>
         </designable>
         <designable name="7wp-Hs-RPU">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="BeP-6J-yCO">
             <size key="intrinsicContentSize" width="72" height="32"/>
         </designable>
         <designable name="G6h-oe-mND">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="GON-Kf-SQR">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="RiR-1C-ha6">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="UJs-Av-qWz">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="Ug7-rm-zHe">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="cvb-5z-Ulb">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="fAB-7v-z1Z">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="prD-Iu-rd1">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="uKM-5p-fF1">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="veT-Tj-0YA">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
@@ -1631,6 +1654,7 @@
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="banner-img1" width="500" height="250"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="country-icon" width="24" height="24"/>
         <image name="home-cat-Activities" width="161.5" height="136.5"/>
         <image name="home-cat-icon-Hotels" width="27.5" height="27.5"/>
