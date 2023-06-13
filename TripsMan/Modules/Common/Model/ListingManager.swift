@@ -148,6 +148,19 @@ struct ListingManager {
         }
     }
     
+    func getNoDataString(of type: ListType) -> String {
+        switch type {
+        case .hotel:
+            return "No available hotels match your search. Try using fewer filters."
+        case .packages:
+            return "No available holiday packages match your search. Try using fewer filters."
+        case .activities:
+            return "No available activities match your search. Try using fewer filters."
+        case .meetups:
+            return "No available meetup match your search. Try using fewer filters."
+        }
+    }
+    
 }
 
 

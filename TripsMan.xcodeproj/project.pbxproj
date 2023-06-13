@@ -184,6 +184,7 @@
 		C1FFA5A128E3FDF400E13D75 /* RoomSelectionCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA5A028E3FDF400E13D75 /* RoomSelectionCells.swift */; };
 		C1FFA5A428E54A5300E13D75 /* RoomSelectionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA5A328E54A5300E13D75 /* RoomSelectionSummaryViewController.swift */; };
 		C1FFA5A628E5559F00E13D75 /* RoomSelectionSummaryCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA5A528E5559F00E13D75 /* RoomSelectionSummaryCells.swift */; };
+		CE87B3802A382D6B006409F1 /* NoDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87B37F2A382D6B006409F1 /* NoDataCollectionViewCell.swift */; };
 		DFE8A636E2CF65EFF2ABC951 /* Pods_TripsManTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BCA0740EA055A45ABAC32 /* Pods_TripsManTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -392,6 +393,7 @@
 		C1FFA5A028E3FDF400E13D75 /* RoomSelectionCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionCells.swift; sourceTree = "<group>"; };
 		C1FFA5A328E54A5300E13D75 /* RoomSelectionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionSummaryViewController.swift; sourceTree = "<group>"; };
 		C1FFA5A528E5559F00E13D75 /* RoomSelectionSummaryCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionSummaryCells.swift; sourceTree = "<group>"; };
+		CE87B37F2A382D6B006409F1 /* NoDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		E238A545805F3BE2C4B6FA4E /* Pods-TripsMan-TripsManUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripsMan-TripsManUITests.debug.xcconfig"; path = "Target Support Files/Pods-TripsMan-TripsManUITests/Pods-TripsMan-TripsManUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E26BCA0740EA055A45ABAC32 /* Pods_TripsManTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripsManTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1426,6 +1428,7 @@
 			isa = PBXGroup;
 			children = (
 				C19335E528DC340A001A037F /* HotelListCells.swift */,
+				CE87B37F2A382D6B006409F1 /* NoDataCollectionViewCell.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -2038,6 +2041,7 @@
 				C1FFA5A628E5559F00E13D75 /* RoomSelectionSummaryCells.swift in Sources */,
 				C1D0DACD29CAB00D00641491 /* PackageDetailsViewController.swift in Sources */,
 				C140C1592A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift in Sources */,
+				CE87B3802A382D6B006409F1 /* NoDataCollectionViewCell.swift in Sources */,
 				C17161CD2988E3440098A6C0 /* BookingData.swift in Sources */,
 				C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */,
 				C19EF45C29657321008EDD66 /* ImagePicker.swift in Sources */,

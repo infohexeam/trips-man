@@ -523,7 +523,10 @@ extension ListingViewController: UICollectionViewDataSource {
             
             return cell
         } else if thisSection.type == .zeroData {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "zeroDataCell", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "zeroDataCell", for: indexPath) as!NoDataCollectionViewCell
+            if let listType = listType {
+                cell.nodataLabel.text = listingManager.getNoDataString(of: listType)
+            }
             
             return cell
         }
