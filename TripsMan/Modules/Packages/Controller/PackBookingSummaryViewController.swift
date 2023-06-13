@@ -98,7 +98,7 @@ extension PackBookingSummaryViewController {
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/ApplyCustomerHotelCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/ApplyCustomerHolidayCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -128,7 +128,7 @@ extension PackBookingSummaryViewController {
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/RemoveCustomerHotelCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/RemoveCustomerHolidayCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -154,7 +154,7 @@ extension PackBookingSummaryViewController {
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHotelCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHolidayCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

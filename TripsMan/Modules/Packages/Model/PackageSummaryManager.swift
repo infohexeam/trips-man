@@ -159,6 +159,6 @@ struct PackageSummaryManager {
     }
     
     func getAmountDetails() -> [AmountDetail]? {
-        return bookingData?.amountDetails
+        return self.amountDetails
     }
 }

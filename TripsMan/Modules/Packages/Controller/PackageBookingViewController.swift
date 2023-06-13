@@ -37,6 +37,8 @@ class PackageBookingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createdPackageBookingID = nil
+        packageFieldTexts = [IndexPath:GuestFds]()
         if let packageDetails = packageFilter.packageDetails {
             packageManager = PackageBookingManager(packageDetails: packageDetails)
         }
@@ -97,8 +99,7 @@ class PackageBookingViewController: UIViewController {
     @IBAction func continueButtonTapped(_ sender: UIButton) {
 //        performSegue(withIdentifier: "toPackBookingSummary", sender: nil)
         if isTravellerDetailsValid() {
-            print("\n\nsuccesssssss")
-//            createBooking()
+            createBooking()
         }
     }
     

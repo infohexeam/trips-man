@@ -43,7 +43,7 @@ struct ApplyCouponData: Codable {
 
 // MARK: - ApplyCoupon
 struct ApplyCoupon: Codable {
-    let coupon: Coupon
+    let coupon: Coupon?
     let amounts: [AmountDetail]
 }
 

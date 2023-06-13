@@ -100,7 +100,7 @@ extension CouponsViewController {
                         UIView.performWithoutAnimation {
                             self.collectionView.reloadData()
                         }
-                        self.delegate?.couponDidSelected(coupon: result!.data!.coupon, amountDetails: result!.data!.amounts)
+                        self.delegate?.couponDidSelected(coupon: result!.data!.coupon!, amountDetails: result!.data!.amounts)
                         self.dismiss(animated: true)
                         
                     } else {
