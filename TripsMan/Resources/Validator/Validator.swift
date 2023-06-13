@@ -54,7 +54,7 @@ struct PasswordValidator {
         if password.count >= 7 && capitalPred.evaluate(with: password) && smallPred.evaluate(with: password) && numberPred.evaluate(with: password) && specialPred.evaluate(with: password) {
             isValid = true
         }
-        return (isValid, "Password must contain a lowercase letter, an uppercase letter, a number and minimum 8 characters")
+        return (isValid, "Password must contain a lowercase letter, an uppercase letter, a special character, a number and minimum 8 characters")
     }
     
     func retypeValidate(_ password: String, _ retype: String) -> (Bool, String) {
