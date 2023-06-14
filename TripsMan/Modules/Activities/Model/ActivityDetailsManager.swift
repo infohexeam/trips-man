@@ -64,5 +64,16 @@ struct ActivityDetailsManager {
         return self.activityDetails
     }
     
+    func getSection(_ type: SectionTypes) -> Int? {
+        if sections != nil {
+            for i in 0..<sections!.count {
+                if sections![i].type == type {
+                    return i
+                }
+            }
+        }
+        return nil
+    }
+    
     
 }

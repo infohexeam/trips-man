@@ -44,7 +44,13 @@ class ActivityDetailsViewController: UIViewController {
     @IBAction func bookNowTapped(_ sender: UIButton) {
         if activityFilters.activityDate != nil {
             performSegue(withIdentifier: "toActivityBooking", sender: nil)
+        } else {
+            self.view.makeToast("Select date")
         }
+    }
+    
+    @IBAction func datePickerTapped(_ sender: UIButton) {
+        presentDatePicker()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,6 +66,29 @@ class ActivityDetailsViewController: UIViewController {
             vc.activityFilters = activityFilters
             vc.listType = .activities
         }
+    }
+    
+    func presentDatePicker() {
+        let datePickerViewController = UIStoryboard(name: "Common", bundle: nil).instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
+
+        datePickerViewController.pickerTag = 1
+        datePickerViewController.delegate = self
+        datePickerViewController.minDate = Date().adding(minutes: 1440)
+        
+        datePickerViewController.modalPresentationStyle = .pageSheet
+        
+        if let sheet = datePickerViewController.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+        }
+        present(datePickerViewController, animated: true)
+    }
+}
+
+extension ActivityDetailsViewController: DatePickerDelegate {
+    func datePickerDoneTapped(date: Date, tag: Int) {
+        activityFilters.activityDate = date
+        activityCollectionView.reloadSections(IndexSet(integer: (activityManager?.getSection(.activityDetails))!))
     }
 }
 

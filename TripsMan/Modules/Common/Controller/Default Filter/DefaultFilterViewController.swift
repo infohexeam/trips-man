@@ -160,7 +160,6 @@ class DefaultFilterViewController: UIViewController {
 
         datePickerViewController.pickerTag = tag
         datePickerViewController.delegate = self
-        datePickerViewController.viewController = self
 
         if tag == 1 {
             datePickerViewController.minDate = Date()
@@ -326,25 +325,23 @@ extension DefaultFilterViewController: GMSAutocompleteViewControllerDelegate {
     
 }
 extension DefaultFilterViewController: DatePickerDelegate {
-    func datePickerDoneTapped(_ viewController: UIViewController?, date: Date, tag: Int) {
-        if viewController == self {
-            if tag == 1 {
-                checkinField.text = date.stringValue(format: "dd-MM-yyyy")
-                hotelFilters.checkin = date
-                if hotelFilters.checkin!.adding(minutes: 30) >= hotelFilters.checkout! {
-                    hotelFilters.checkout = hotelFilters.checkin!.adding(minutes: 1440)
-                    checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
-                }
-            } else if tag == 2 {
-                checkoutField.text = date.stringValue(format: "dd-MM-yyyy")
-                hotelFilters.checkout = date
-            } else if tag == 3 {
-                startDateField.text = date.stringValue(format: "dd-MM-yyyy")
-                packageFilters.startDate = date
-            } else if tag == 4 {
-                startDateField.text = date.stringValue(format: "dd-MM-yyyy")
-                activityFilters.activityDate = date
+    func datePickerDoneTapped(date: Date, tag: Int) {
+        if tag == 1 {
+            checkinField.text = date.stringValue(format: "dd-MM-yyyy")
+            hotelFilters.checkin = date
+            if hotelFilters.checkin!.adding(minutes: 30) >= hotelFilters.checkout! {
+                hotelFilters.checkout = hotelFilters.checkin!.adding(minutes: 1440)
+                checkoutField.text = hotelFilters.checkout!.stringValue(format: "dd-MM-yyyy")
             }
+        } else if tag == 2 {
+            checkoutField.text = date.stringValue(format: "dd-MM-yyyy")
+            hotelFilters.checkout = date
+        } else if tag == 3 {
+            startDateField.text = date.stringValue(format: "dd-MM-yyyy")
+            packageFilters.startDate = date
+        } else if tag == 4 {
+            startDateField.text = date.stringValue(format: "dd-MM-yyyy")
+            activityFilters.activityDate = date
         }
     }
 }

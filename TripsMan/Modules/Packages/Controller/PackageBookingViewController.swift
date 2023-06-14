@@ -50,7 +50,6 @@ class PackageBookingViewController: UIViewController {
         datePickerViewController.pickerTag = 1
         datePickerViewController.delegate = self
         datePickerViewController.minDate = Date().adding(minutes: 1440)
-        datePickerViewController.viewController = self
         
         datePickerViewController.modalPresentationStyle = .pageSheet
         
@@ -286,12 +285,9 @@ extension PackageBookingViewController: DynamicCellHeightDelegate {
 
 //MARK: - DatePickerDelegate
 extension PackageBookingViewController: DatePickerDelegate {
-    func datePickerDoneTapped(_ viewController: UIViewController?, date: Date, tag: Int) {
-        if viewController == self {
-            packageFilter.startDate = date
-            packageCollectionView.reloadSections(IndexSet(integer: packageManager?.getSection(.packageSummary) ?? 0))
-            print("selected date: \(packageFilter.startDate)")
-        }
+    func datePickerDoneTapped(date: Date, tag: Int) {
+        packageFilter.startDate = date
+        packageCollectionView.reloadSections(IndexSet(integer: packageManager?.getSection(.packageSummary) ?? 0))
     }
 }
     

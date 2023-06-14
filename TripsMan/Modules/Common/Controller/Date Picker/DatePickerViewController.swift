@@ -17,7 +17,6 @@ class DatePickerViewController: UIViewController {
     var minDate: Date?
     var maxDate: Date?
     var delegate: DatePickerDelegate?
-    var viewController: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +27,12 @@ class DatePickerViewController: UIViewController {
     
     
     @IBAction func datePickerDoneTapped(_ sender: UIBarButtonItem) {
-        delegate?.datePickerDoneTapped(viewController, date: datePicker.date, tag: pickerTag)
+        delegate?.datePickerDoneTapped(date: datePicker.date, tag: pickerTag)
         self.dismiss(animated: true)
     }
 }
 
 
 protocol DatePickerDelegate {
-    func datePickerDoneTapped(_ viewController: UIViewController?, date: Date, tag: Int)
+    func datePickerDoneTapped(date: Date, tag: Int)
 }
