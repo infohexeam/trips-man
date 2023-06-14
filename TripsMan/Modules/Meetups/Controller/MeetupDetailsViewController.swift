@@ -185,7 +185,7 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
 
 //MARK: ReadMoreDelegate
 extension MeetupDetailsViewController: ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes, content: String?) {
+    func showReadMore(for type: ReadMoreTypes, content: NSAttributedString?) {
         print("\n\n delegate: \(content)")
         performSegue(withIdentifier: "toReadMore", sender: content)
     }

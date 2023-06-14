@@ -11,10 +11,7 @@ class ReadMoreViewController: UIViewController {
     
     @IBOutlet weak var readMoreLabel: UILabel!
     
-    var type: ReadMoreTypes?
-    var hotelDetails: HotelDetails?
-    var readMoreContent: String?
-    var pageTitle: String?
+    var readMore: ReadMore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +51,10 @@ class ReadMoreViewController: UIViewController {
 }
 
 protocol ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes, content: String?)
+    func showReadMore(for type: ReadMoreTypes, content: NSAttributedString?)
 }
 
-enum ReadMoreTypes {
-    case details
-    case rules
-    case terms
-    case activityDescription
+struct ReadMore {
+    var title: String
+    var content: String
 }
