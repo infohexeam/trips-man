@@ -116,7 +116,7 @@ extension TripDetailsViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-//                        self.tripManager = TripDetailsManager(hotelTripDetails: tripDetails)
+                        self.tripManager = TripDetailsManager(holidayTripDetails: result!.data)
                         self.tripDetailsCollection.reloadData()
                         if isRefresh {
                             self.delegate?.refreshTrips()
@@ -240,7 +240,8 @@ extension TripDetailsViewController: UICollectionViewDataSource {
         } else if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             
-            if let amountDetails = tripDetails?.amountDetails[indexPath.row] {
+            if let amountDetails = tripManager?.getAmountDetails()?[indexPath.row] {
+                
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 

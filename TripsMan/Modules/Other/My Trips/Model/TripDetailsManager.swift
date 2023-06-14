@@ -28,6 +28,8 @@ struct TripDetailsManager {
     
     var detailsData: DetailsData?
     
+    var amountDetails: [AmountDetail]?
+    
     struct DetailsData {
         var topBox: TopBox
         var secondBox: SecondBox
@@ -76,12 +78,14 @@ struct TripDetailsManager {
         
     init(hotelTripDetails: HotelTripDetails?) {
         self.hotelTripDetails = hotelTripDetails
+        self.amountDetails = hotelTripDetails?.amountDetails
         setSections()
         setDetailsData()
     }
     
     init(holidayTripDetails: HolidayTripDetails?) {
         self.holidayTripDetails = holidayTripDetails
+        self.amountDetails = holidayTripDetails?.amountdetails
         setSections()
         setDetailsData()
     }
@@ -141,11 +145,35 @@ struct TripDetailsManager {
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
         } else if let holidayTripDetails = holidayTripDetails {
-//            let topBox = TopBox(tripStatus: holidayTripDetails., bookingNo: <#T##String#>, bookedDate: <#T##String#>, tripMessage: <#T##String#>)
+            let topBox = TopBox(tripStatus: "---", bookingNo: "BOOKING ID - \(holidayTripDetails.bookingNo)", bookedDate: "Booked on \(holidayTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: "---")
+            
+            let secondBox = SecondBox(image: "", name: holidayTripDetails.packagedetails[0].packageName, address: holidayTripDetails.packagedetails[0].shortDescription)
+            
+            let fromDate = DateLabels(label: "Start Date", date: holidayTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
+            let toDate = DateLabels(label: "End Date", date: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
+            
+            let duration = holidayTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.numberOfDays(to: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date()).oneOrMany("Day")
+            let guestCount = "--- adult & --- child"
+            let primary = holidayTripDetails.packageguest.filter({ $0.isPrimary == 1}).last
+            let primaryGuest = PrimaryGuest(label: "Primary Guest", nameText: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", contact: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
+            let others = holidayTripDetails.packageguest.filter({ $0.isPrimary == 0})
+            var otherGuestText = ""
+            for other in others {
+                otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
+            }
+            let otherGuest = OtherGuest(label: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
+            
+            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: "", roomType: guestCount, primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
+            
+            detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
         }
     }
     
     func getDetailsData() -> DetailsData? {
         return detailsData
+    }
+    
+    func getAmountDetails() -> [AmountDetail]? {
+        return amountDetails
     }
 }
