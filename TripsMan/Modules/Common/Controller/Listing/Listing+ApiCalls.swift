@@ -226,12 +226,12 @@ extension ListingViewController {
                                      "budgetTo": activityFilter.rate!.to,
                                      "activityFilters": activityFilter.filters ?? [String: [Any]]()]
         
-        if let sort = packageFilter.sort {
+        if let sort = activityFilter.sort {
             params["sortBy"] = sort.name
         }
         
-        if let startDate = packageFilter.startDate {
-            params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
+        if let activityDate = activityFilter.activityDate {
+            params["date"] = activityDate.stringValue(format: "yyyy-MM-dd")
         }
         self.isLoading = true
         parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityList", http: .post, parameters: params) { (result: ActivityListingData?, error) in
@@ -276,13 +276,10 @@ extension ListingViewController {
                                      "budgetTo": meetupFilter.rate!.to,
                                      "meetupFilters": meetupFilter.filters ?? [String: [Any]]()]
         
-        if let sort = packageFilter.sort {
+        if let sort = meetupFilter.sort {
             params["sortBy"] = sort.name
         }
         
-        if let startDate = packageFilter.startDate {
-            params["packageDate"] = startDate.stringValue(format: "yyyy-MM-dd")
-        }
         
         self.isLoading = true
         parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupList", http: .post, parameters: params) { (result: MeetupListingData?, error) in

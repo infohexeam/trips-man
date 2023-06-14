@@ -190,6 +190,9 @@ class DefaultFilterViewController: UIViewController {
         countryPickerVC.delegate = self
         countryPickerVC.listType = listType
         countryPickerVC.isCity = isCity
+        if isCity {
+            countryPickerVC.countryId = meetupFilters.country?.countryID
+        }
         
         present(countryPickerVC, animated: true)
     }
@@ -261,6 +264,8 @@ class DefaultFilterViewController: UIViewController {
                 delegate?.searchDidTapped(packageFilters)
             } else if listType == .activities {
                 delegate?.searchDidTapped(activityFilters)
+            } else if listType == .meetups {
+                delegate?.searchDidTapped(meetupFilters)
             }
             self.dismiss(animated: false)
             

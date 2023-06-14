@@ -30,7 +30,14 @@ class CountryListingViewController: UIViewController {
         }
     }
     
-    var cities: [City]?
+    var cities: [City]? {
+        didSet {
+            if let cities = cities {
+                countryManager = CountryManager(cities: cities)
+                countryCollectionView.reloadData()
+            }
+        }
+    }
     
     var delegate: CountryPickerDelegate?
     var listType: ListType?
@@ -48,13 +55,11 @@ class CountryListingViewController: UIViewController {
             getActivityCountries()
         } else if listType == .meetups {
             if isCity {
-                
+                getMeetupCities()
             } else {
                 getMeetupCountries()
             }
-            
         }
-
     }
 
 }
@@ -120,7 +125,7 @@ extension CountryListingViewController {
     
     func getMeetupCities() {
         showIndicator()
-        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupCityList", http: .get, parameters: nil) { (result: CityData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupCityList?CountryId=\(countryId ?? 0)", http: .get, parameters: nil) { (result: CityData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -146,15 +151,39 @@ extension CountryListingViewController: UISearchBarDelegate {
 
 extension CountryListingViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if isCity {
+            return countryManager?.getCitySection(searchBar.text ?? "")?.count ?? 0
+        }
         return countryManager?.getSections(searchBar.text ?? "")?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isCity {
+            guard let thisSection = countryManager?.getCitySection(searchBar.text ?? "")?[section] else { return 0 }
+            return thisSection.count
+        }
         guard let thisSection = countryManager?.getSections(searchBar.text ?? "")?[section] else { return 0 }
         return thisSection.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if isCity {
+            guard let thisSection = countryManager?.getCitySection(searchBar.text ?? "")?[indexPath.section] else { return UICollectionViewCell() }
+            
+            if thisSection.type == .countryList {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "countryCell", for: indexPath) as! CountryCollectionViewCell
+                
+                if let cities = countryManager?.getCities(searchBar.text ?? "") {
+                    cell.countryIcon.image = UIImage(systemName: "globe")
+                    cell.countryName.text = cities[indexPath.row].cityName
+                }
+                
+                return cell
+            }  else {
+                return UICollectionViewCell()
+            }
+        }
+        
         guard let thisSection = countryManager?.getSections(searchBar.text ?? "")?[indexPath.section] else { return UICollectionViewCell() }
         
         if thisSection.type == .countryList {
@@ -175,11 +204,10 @@ extension CountryListingViewController: UICollectionViewDataSource {
 extension CountryListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if isCity {
-            if let cities = cities {
-                delegate?.cityDidSelected(cities[indexPath.row].cityName)
-            }
+            delegate?.cityDidSelected(countryManager?.getCities(searchBar.text ?? "")?[indexPath.row].cityName ?? "")
+        } else {
+            delegate?.countryDidSelected((countryManager?.getCountries(searchBar.text ?? "")![indexPath.row])!)
         }
-        delegate?.countryDidSelected((countryManager?.getCountries(searchBar.text ?? "")![indexPath.row])!)
         self.dismiss(animated: true)
     }
 }

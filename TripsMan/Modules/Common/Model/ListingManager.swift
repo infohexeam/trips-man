@@ -138,11 +138,23 @@ struct ListingManager {
             }
         case .activities:
             for activity in activities! {
-                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activity.activityImages.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\ntaxes & fee per person"))
+                var activityImage = activity.activityImages.filter { $0.isFeatured == 1 }.last?.imageURL
+                if activityImage == nil {
+                    if activity.activityImages.count > 0 {
+                        activityImage = activity.activityImages[0].imageURL
+                    }
+                }
+                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activityImage, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\ntaxes & fee per person"))
             }
         case .meetups:
             for meetup in meetups! {
-                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetup.meetupImages.filter { $0.isFeatured == 1 }.last?.imageURL, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM") ?? "nil")", actualPrice: 1111, offerPrice: 0, taxLabelText: "+ \(SessionManager.shared.getCurrency()) 0\ntaxes & fee per person"))
+                var meetupImage = meetup.meetupImages.filter { $0.isFeatured == 1 }.last?.imageURL
+                if meetupImage == nil {
+                    if meetup.meetupImages.count > 0 {
+                        meetupImage = meetup.meetupImages[0].imageURL
+                    }
+                }
+                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetupImage, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", actualPrice: meetup.costPerPerson, offerPrice: meetup.offerAmount, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(meetup.serviceCharge)\ntaxes & fee per person"))
             }
             break
         }
