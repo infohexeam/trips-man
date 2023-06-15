@@ -150,7 +150,7 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
                 annotation.title = details.meetupName
                 cell.mapView.addAnnotation(annotation)
                 
-                cell.addressLabel.text = details.address
+                cell.addressLabel.text = details.address.capitalizedSentence
             }
             
             

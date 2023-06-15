@@ -13,6 +13,12 @@ extension String {
         return Int(self) ?? 0
     }
     
+    var capitalizedSentence: String {
+            let firstLetter = self.prefix(1).capitalized
+            let remainingLetters = self.dropFirst().lowercased()
+            return firstLetter + remainingLetters
+        }
+    
     func loadImage(completion: @escaping (UIImage) -> Void) {
         SDWebImageManager.shared.loadImage(
             with: URL(string: self),

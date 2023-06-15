@@ -310,7 +310,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 cell.hotelName.text = bookedData.hotelDetails.hotelName
                 cell.hotelImage.sd_setImage(with: URL(string: bookedData.imageUrl ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                 cell.roomType.text = bookedData.roomDetails[0].roomType
-                cell.addressLabel.text = bookedData.hotelDetails.address
+                cell.addressLabel.text = bookedData.hotelDetails.address.capitalizedSentence
             }
             
             return cell

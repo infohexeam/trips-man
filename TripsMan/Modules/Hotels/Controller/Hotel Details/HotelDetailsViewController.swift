@@ -464,7 +464,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 annotation.title = hotelDetails.hotelName
                 cell.addressMap.addAnnotation(annotation)
                 
-                cell.addressLabel.text = hotelDetails.address
+                cell.addressLabel.text = hotelDetails.address.capitalizedSentence
             }
             
             return cell

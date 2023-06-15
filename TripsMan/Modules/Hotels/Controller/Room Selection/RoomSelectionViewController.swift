@@ -262,7 +262,7 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
                 }
                 cell.hotelName.text = hotelDetails.hotelName
                 cell.hotelImage.sd_setImage(with: URL(string: hotelDetails.featuredImage ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
-                cell.addressLabel.text = hotelDetails.address
+                cell.addressLabel.text = hotelDetails.address.capitalizedSentence
                 
                 let room = hotelDetails.hotelRooms[selectedRoomIndex]
                 cell.roomName.text = room.roomType
