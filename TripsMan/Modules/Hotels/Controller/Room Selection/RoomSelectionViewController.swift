@@ -127,6 +127,7 @@ class RoomSelectionViewController: UIViewController {
 extension RoomSelectionViewController {
     
     @IBAction func addGuestTapped(_ sender: UIButton) {
+        self.view.endEditing(true)
         let guests = sections?.filter { $0.type == .guestFields }
         let totalGuests = (hotelFilters.adult ?? 0) + (hotelFilters.child ?? 0)
         if (guests?.count ?? 0) >= totalGuests - 1 {
@@ -138,8 +139,12 @@ extension RoomSelectionViewController {
         } else {
             let sectionCount = sections?.count ?? 1
             sections?.insert(RoomSelectionSection(type: .guestFields, count: 1), at: sectionCount - 1)
-            collectionView.insertSections(IndexSet(integer: sectionCount - 1))
-            collectionView.reloadSections(IndexSet(integer: sectionCount - 1))
+            print("\n\ninserting...1")
+//            collectionView.insertSections(IndexSet(integer: sectionCount - 1))
+//            print("\n\ninserting...2")
+//            collectionView.reloadSections(IndexSet(integer: sectionCount - 1))
+            collectionView.reloadData()
+            print("\n\ninserting...3")
         }
     }
     
@@ -174,7 +179,7 @@ extension RoomSelectionViewController {
         
         for each in textFieldsTexts {
             guests.append(["id": 0,
-                           "contactNo": each.value.contactNumber,
+                           "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
                            "gender": each.value.gender,
@@ -286,7 +291,7 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
             cell.checkoutField.text = hotelFilters.checkout?.stringValue(format: "dd-MM-yyyy")
             cell.genderButton.tag = indexPath.section
             cell.primayGuestField.text = textFieldsTexts[indexPath]?.name
-            cell.countryCodeField.text = textFieldsTexts[indexPath]?.name
+            cell.countryCodeField.text = textFieldsTexts[indexPath]?.countryCode
             cell.contactField.text = textFieldsTexts[indexPath]?.contactNumber
             cell.emailField.text = textFieldsTexts[indexPath]?.emailID
             cell.genderField.text = textFieldsTexts[indexPath]?.gender
@@ -323,7 +328,8 @@ extension RoomSelectionViewController: CollectionViewCellDelegate {
     func collectionViewCell(deleteTappedFrom cell: UICollectionViewCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
             sections?.remove(at: indexPath.section)
-            collectionView.deleteSections(IndexSet(integer: indexPath.section))
+//            collectionView.deleteSections(IndexSet(integer: indexPath.section))
+//            collectionView.reloadData()
             textFieldsTexts.removeValue(forKey: indexPath)
             UIView.performWithoutAnimation {
                 collectionView.reloadData()
