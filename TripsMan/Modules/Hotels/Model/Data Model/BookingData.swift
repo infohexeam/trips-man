@@ -18,7 +18,7 @@ struct CreateBookingData: Codable {
 struct CreateBooking: Codable {
     let bookingDate: String
     let bookingFrom, bookingTo: String
-    let totalGuest: Int
+    let totalGuest, roomCount, adultCount, childCount: Int
     let primaryGuest, contactNo, emailID, gender: String
     let age, bookingID: Int
     let imageUrl: String?
@@ -29,7 +29,7 @@ struct CreateBooking: Codable {
 
     enum CodingKeys: String, CodingKey {
         case bookingDate, bookingFrom, bookingTo
-        case totalGuest, primaryGuest, contactNo, imageUrl
+        case totalGuest, roomCount, adultCount, childCount, primaryGuest, contactNo, imageUrl
         case emailID = "emailId"
         case gender, age
         case bookingID = "bookingId"

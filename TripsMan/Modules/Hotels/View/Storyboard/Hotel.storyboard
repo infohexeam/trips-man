@@ -3710,29 +3710,29 @@ velit esse quam nihil molestiae consequatur.</string>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bookSummaryCell" id="Blw-hK-t2H" customClass="BookSummaryCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="60" width="413" height="172"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WPr-I7-eSu">
-                                            <rect key="frame" x="0.0" y="0.0" width="413" height="172"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Wb-yz-pqS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="172"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAp-5h-C8z">
-                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="172"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-Lc-l3c">
-                                                            <rect key="frame" x="8" y="8" width="397" height="156"/>
+                                                            <rect key="frame" x="8" y="8" width="377" height="204"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="smY-Ao-3Hj">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="397" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KeT-GM-0La">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="40"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="40"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnf-UJ-Z4J">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="uoI-jC-yDF"/>
                                                                                     </constraints>
@@ -3741,7 +3741,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Oct 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eS-y2-tgK">
-                                                                                    <rect key="frame" x="0.0" y="20" width="194.66666666666666" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="184.66666666666666" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="HRZ-vf-zTx"/>
                                                                                     </constraints>
@@ -3752,10 +3752,10 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vZx-oi-So5">
-                                                                            <rect key="frame" x="202.66666666666663" y="0.0" width="194.33333333333337" height="40"/>
+                                                                            <rect key="frame" x="192.66666666666663" y="0.0" width="184.33333333333337" height="40"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ab-c6-hY1">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="184.33333333333334" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="taM-Sv-LUE"/>
                                                                                     </constraints>
@@ -3764,7 +3764,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Oct 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLh-fC-tBy">
-                                                                                    <rect key="frame" x="0.0" y="20" width="194.33333333333334" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="184.33333333333334" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="gbm-0X-ptT"/>
                                                                                     </constraints>
@@ -3777,13 +3777,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cgx-nu-hB0">
-                                                                    <rect key="frame" x="0.0" y="48" width="397" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="48" width="377" height="40"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fmX-El-sEp">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="40"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="40"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2g-uT-n9x">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="x56-Hp-HaT"/>
                                                                                     </constraints>
@@ -3792,7 +3792,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Metro Inn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kuM-wm-J55">
-                                                                                    <rect key="frame" x="0.0" y="20" width="194.66666666666666" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="184.66666666666666" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="fqg-a0-Bhw"/>
                                                                                     </constraints>
@@ -3803,10 +3803,10 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wcE-db-QMg">
-                                                                            <rect key="frame" x="202.66666666666663" y="0.0" width="194.33333333333337" height="40"/>
+                                                                            <rect key="frame" x="192.66666666666663" y="0.0" width="184.33333333333337" height="40"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOu-MH-wNa">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="194.33333333333334" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="184.33333333333334" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="rBf-H1-jm9"/>
                                                                                     </constraints>
@@ -3815,7 +3815,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deluxe AC Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFX-wI-7RY">
-                                                                                    <rect key="frame" x="0.0" y="20" width="194.33333333333334" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="20" width="184.33333333333334" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="1bg-1B-HcQ"/>
                                                                                     </constraints>
@@ -3827,11 +3827,34 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eFG-QR-g1s">
+                                                                    <rect key="frame" x="0.0" y="96" width="377" height="40"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rooms &amp; Guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVi-u7-Yui">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="377" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="pwD-vO-DW9"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                                                                            <color key="textColor" name="secondaryLabel"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot No. 9 opp. ITC R" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltp-hV-MGl">
+                                                                            <rect key="frame" x="0.0" y="20" width="377" height="20"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="20" id="UKO-eN-NWM"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                            <color key="textColor" name="secondaryLabel"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0bC-hT-gaV">
-                                                                    <rect key="frame" x="0.0" y="96" width="397" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="144" width="377" height="60"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHW-Kp-3gL">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="397" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="377" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="aMA-fA-cAr"/>
                                                                             </constraints>
@@ -3840,7 +3863,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cec-J9-WDK">
-                                                                            <rect key="frame" x="0.0" y="20" width="397" height="0.0"/>
+                                                                            <rect key="frame" x="0.0" y="20" width="377" height="40"/>
                                                                             <string key="text">Plot No. 9 opp. ITC Rajputana Sheraton Fateh Singh
 Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnalfasldfka</string>
                                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
@@ -3849,10 +3872,6 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GC7-bG-pCn">
-                                                                    <rect key="frame" x="0.0" y="124" width="397" height="32"/>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </view>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -3876,18 +3895,19 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                                 <constraint firstItem="5Wb-yz-pqS" firstAttribute="leading" secondItem="WPr-I7-eSu" secondAttribute="leading" id="sYe-mf-XgI"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="413" height="172"/>
+                                        <size key="customSize" width="393" height="220"/>
                                         <connections>
                                             <outlet property="addressLabel" destination="Cec-J9-WDK" id="hJ7-rG-yoa"/>
                                             <outlet property="checkinLabel" destination="2eS-y2-tgK" id="1yp-d4-4td"/>
                                             <outlet property="checkoutLabel" destination="MLh-fC-tBy" id="sy8-FX-eaH"/>
+                                            <outlet property="guestLabel" destination="ltp-hV-MGl" id="La9-xI-bcv"/>
                                             <outlet property="hotelImage" destination="5Wb-yz-pqS" id="N55-DX-Cad"/>
                                             <outlet property="hotelName" destination="kuM-wm-J55" id="EKW-2G-Wv9"/>
                                             <outlet property="roomType" destination="hFX-wI-7RY" id="5aB-i6-75h"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="primaryGuestCell" id="bWK-Q1-WMq" customClass="PrimaryGuestCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="242" width="397" height="64"/>
+                                        <rect key="frame" x="0.0" y="280" width="397" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DWb-ZG-CGx">
                                             <rect key="frame" x="0.0" y="0.0" width="397" height="64"/>
@@ -3961,7 +3981,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="otherGuestCell" id="elv-pJ-L98" customClass="OtherGuestCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="316" width="396" height="58"/>
+                                        <rect key="frame" x="0.0" y="354" width="396" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LEC-fE-Jku">
                                             <rect key="frame" x="0.0" y="0.0" width="396" height="58"/>
@@ -4010,7 +4030,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="seperatorCell" id="tIM-Ub-Wa6" customClass="SeperatorCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="384" width="413" height="17"/>
+                                        <rect key="frame" x="0.0" y="422" width="413" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Itk-NW-dcb">
                                             <rect key="frame" x="0.0" y="0.0" width="413" height="17"/>
@@ -4020,7 +4040,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                         <size key="customSize" width="413" height="17"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="couponCell" id="3FP-N8-7Rn" customClass="CouponCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="411" width="397" height="120"/>
+                                        <rect key="frame" x="0.0" y="449" width="397" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G1S-8W-cJx">
                                             <rect key="frame" x="0.0" y="0.0" width="397" height="120"/>
@@ -4171,7 +4191,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="priceDetailsCell" id="6ht-f0-aiM" customClass="PriceDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="541" width="396" height="163"/>
+                                        <rect key="frame" x="0.0" y="579" width="396" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3ei-v6-Nwu">
                                             <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
@@ -4269,7 +4289,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionFooter" id="pu3-Wr-c7P" customClass="CouponFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="704" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="742" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buL-Oc-QJK">
@@ -4398,7 +4418,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8d-09-1bv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2853.6231884057975" y="1577.6785714285713"/>
+            <point key="canvasLocation" x="2852.6717557251909" y="1577.4647887323945"/>
         </scene>
         <!--CouponsViewController-->
         <scene sceneID="7Qr-60-O8I">

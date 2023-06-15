@@ -311,6 +311,8 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 cell.hotelImage.sd_setImage(with: URL(string: bookedData.imageUrl ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                 cell.roomType.text = bookedData.roomDetails[0].roomType
                 cell.addressLabel.text = bookedData.hotelDetails.address.capitalizedSentence
+                let roomAndGuestCount = "\(bookedData.roomCount.oneOrMany("Room")) for \(bookedData.adultCount.oneOrMany("Adult")) and \(bookedData.childCount.oneOrMany("Child", suffix: "ren"))"
+                cell.guestLabel.text = roomAndGuestCount
             }
             
             return cell
@@ -454,7 +456,7 @@ extension RoomSelectionSummaryViewController {
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .absolute(190))
+                                                       heightDimension: .absolute(230))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)

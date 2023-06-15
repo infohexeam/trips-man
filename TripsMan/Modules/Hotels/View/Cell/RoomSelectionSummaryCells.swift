@@ -15,6 +15,7 @@ class BookSummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var roomType: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var hotelImage: UIImageView!
+    @IBOutlet weak var guestLabel: UILabel!
     
 }
 
