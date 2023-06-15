@@ -112,7 +112,8 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 
-                cell.packageName.text = packageDetails.packageName
+                cell.packageName.text = packageDetails.packageName + " - " + packageDetails.duration
+                cell.packageCode.text = "Package code: \(packageDetails.packageCode)"
                 cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
             }
@@ -160,7 +161,6 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                 headerView.titleLabel.text = "Vendor"
             }
             return headerView
-            
             
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "packageDetailsFooter", for: indexPath) as! PackageDetailsFooterView

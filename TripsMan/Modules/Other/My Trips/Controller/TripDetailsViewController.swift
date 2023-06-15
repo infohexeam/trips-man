@@ -157,6 +157,9 @@ extension TripDetailsViewController {
     }
     
     func invoiceDownload() {
+        if module != .hotel {
+            return
+        }
         showIndicator()
         parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/CustomerHotelInvoice?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: InvoiceData?, error) in
             DispatchQueue.main.async {
