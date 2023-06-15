@@ -556,6 +556,9 @@
                                                                                             <real key="value" value="10"/>
                                                                                         </userDefinedRuntimeAttribute>
                                                                                     </userDefinedRuntimeAttributes>
+                                                                                    <connections>
+                                                                                        <action selector="downloadInvoiceTapped:" destination="vAZ-1Q-jrm" eventType="touchUpInside" id="wcl-4i-G7U"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                             </subviews>
                                                                         </stackView>
