@@ -16,33 +16,9 @@ class ReadMoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\n\n-----\(readMoreContent)")
-        
-        if let hotelDetails = hotelDetails {
-            var content = ""
-            var pageTitle = ""
-            if type == .details {
-                content = hotelDetails.description
-                pageTitle = hotelDetails.hotelName
-            } else if type == .rules {
-                content = hotelDetails.propertyRules
-                pageTitle = "Property Rules"
-            } else if type == .terms {
-                content = hotelDetails.termsAndCondition
-                pageTitle = "Terms and Conditions"
-            }
-            
-            if let readMoreContent = readMoreContent {
-                content = readMoreContent
-            }
-            
-            readMoreLabel.setAttributedHtmlText(content)
-            self.title = pageTitle
-            
-        } else  if let readMoreContent = readMoreContent {
-            let  content = readMoreContent
-            readMoreLabel.setAttributedHtmlText(content)
-            self.title = pageTitle
+        if let readMore = readMore {
+            readMoreLabel.setAttributedHtmlText(readMore.content)
+            self.title = readMore.title
         }
         
         
@@ -51,7 +27,7 @@ class ReadMoreViewController: UIViewController {
 }
 
 protocol ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes, content: NSAttributedString?)
+    func showReadMore(_ tag: Int)
 }
 
 struct ReadMore {

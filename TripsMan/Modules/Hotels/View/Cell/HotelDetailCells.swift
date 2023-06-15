@@ -25,7 +25,7 @@ class HotelDetailsCollectionViewCell: UICollectionViewCell {
     var delegate: ReadMoreDelegate?
     
     @IBAction func readMoreDidTapped(_ sender: UIButton) {
-        delegate?.showReadMore(for: .details, content: nil)
+        delegate?.showReadMore(100)
     }
 }
 
@@ -171,7 +171,7 @@ class PropertyRulesCollectionViewCell: UICollectionViewCell {
     var delegate: ReadMoreDelegate?
     
     @IBAction func readMoreDidTapped(_ sender: UIButton) {
-        delegate?.showReadMore(for: .rules, content: nil)
+        delegate?.showReadMore(101)
     }
     
 }
@@ -183,8 +183,7 @@ class TermsCollectionViewCell: UICollectionViewCell, UIGestureRecognizerDelegate
     var delegate: ReadMoreDelegate?
     
     @IBAction func readMoreDidTapped(_ sender: UIButton) {
-        print("\n terms clikced")
-        delegate?.showReadMore(for: .terms, content: termsLabel.attributedText)
+        delegate?.showReadMore(102)
     }
     
 }

@@ -49,8 +49,10 @@ class MeetupDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {
-                if let content = sender as? String {
-                    vc.readMoreContent = content
+                if let tag = sender as? Int {
+                    if let description = meetupManager?.getDescription()?[tag] {
+                        vc.readMore = ReadMore(title: description.title, content: description.description)
+                    }
                 }
             }
             
@@ -128,6 +130,7 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! MeetupDescriptionCollectionViewCell
             
             if let description = meetupManager?.getDescription() {
+                cell.descDetails.tag = indexPath.row
                 cell.descTitle.text = description[indexPath.row].title
                 cell.descDetails.attributedText = description[indexPath.row].description.attributedHtmlString
                 cell.delegate = self
@@ -185,9 +188,8 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
 
 //MARK: ReadMoreDelegate
 extension MeetupDetailsViewController: ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes, content: NSAttributedString?) {
-        print("\n\n delegate: \(content)")
-        performSegue(withIdentifier: "toReadMore", sender: content)
+    func showReadMore(_ tag: Int) {
+        performSegue(withIdentifier: "toReadMore", sender: tag)
     }
 }
 

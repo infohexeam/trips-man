@@ -310,9 +310,18 @@ class HotelDetailsViewController: UIViewController {
             }
         } else if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {
-                if let type = sender as? ReadMoreTypes {
-                    vc.type = type
-                    vc.hotelDetails = hotelDetails
+                if let tag = sender as? Int {
+                    if let hotelDetails = hotelDetails {
+                        if tag == 100 { //HotelDetails
+                            vc.readMore = ReadMore(title: hotelDetails.hotelName, content: hotelDetails.description)
+                        } else if tag == 101 { //Property Rule
+                            vc.readMore = ReadMore(title: "Property Rules", content: hotelDetails.propertyRules)
+                        } else if tag == 102 {
+                            vc.readMore = ReadMore(title: "Terms and Conditions", content: hotelDetails.termsAndCondition)
+                        }
+                    }
+                    
+                    
                 }
             } else if let vc = nav.topViewController as? SeeAllReviewsViewController {
                 vc.reviews = hotelDetails?.hotelReviews
@@ -364,8 +373,8 @@ extension HotelDetailsViewController {
 
 //MARK: ReadMoreDelegate
 extension HotelDetailsViewController: ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes, content: NSAttributedString?) {
-        performSegue(withIdentifier: "toReadMore", sender: type)
+    func showReadMore(_ tag: Int) {
+        performSegue(withIdentifier: "toReadMore", sender: tag)
     }
 }
 

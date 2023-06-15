@@ -56,8 +56,14 @@ class ActivityDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {
-                if let content = sender as? String {
-                    vc.readMoreContent = content
+                if let tag = sender as? Int {
+                    if tag == 102 {
+                        vc.readMore = ReadMore(title: "Terms and Conditions", content: activityManager?.getActivityDetails()?.termsAndConditions ?? "")
+                    } else {
+                        if let description = activityManager?.getDescription()?[tag] {
+                            vc.readMore = ReadMore(title: description.title, content: description.description)
+                        }
+                    }
                 }
             }
             
@@ -159,6 +165,7 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ActivityDescriptionCollectionViewCell
             
             if let description = activityManager?.getDescription() {
+                cell.descDetails.tag = indexPath.row
                 cell.descTitle.text = description[indexPath.row].title
                 cell.descDetails.attributedText = description[indexPath.row].description.attributedHtmlString
                 cell.delegate = self
@@ -181,7 +188,10 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             return cell
         } else if thisSection.type == .termsAndConditions {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "termsCell", for: indexPath) as! TermsCollectionViewCell
-            
+            if let terms = activityManager?.getActivityDetails()?.termsAndConditions {
+                cell.delegate = self
+                cell.termsLabel.setAttributedHtmlText(terms)
+            }
             
             return cell
         } else {
@@ -221,9 +231,8 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
 
 //MARK: ReadMoreDelegate
 extension ActivityDetailsViewController: ReadMoreDelegate {
-    func showReadMore(for type: ReadMoreTypes, content: NSAttributedString?) {
-        print("\n\n delegate: \(content)")
-        performSegue(withIdentifier: "toReadMore", sender: content)
+    func showReadMore(_ tag: Int) {
+        performSegue(withIdentifier: "toReadMore", sender: tag)
     }
 }
 

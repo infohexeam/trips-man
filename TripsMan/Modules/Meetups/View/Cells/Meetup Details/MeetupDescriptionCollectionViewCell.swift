@@ -14,6 +14,6 @@ class MeetupDescriptionCollectionViewCell: UICollectionViewCell {
     var delegate: ReadMoreDelegate?
     
     @IBAction func readMoreDidTapped(_ sender: UIButton) {
-        delegate?.showReadMore(for: .activityDescription, content: descDetails.attributedText)
+        delegate?.showReadMore(descDetails.tag)
     }
 }
