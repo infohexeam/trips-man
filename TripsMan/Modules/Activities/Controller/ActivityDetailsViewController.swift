@@ -10,6 +10,9 @@ import Combine
 
 class ActivityDetailsViewController: UIViewController {
     
+    @IBOutlet weak var memberAddButton: UIButton!
+    @IBOutlet weak var memberMinusButton: UIButton!
+    
     @IBOutlet weak var activityCollectionView: UICollectionView! {
         didSet {
             activityCollectionView.collectionViewLayout = createLayout()

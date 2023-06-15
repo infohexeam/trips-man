@@ -1606,46 +1606,46 @@
     </scenes>
     <designables>
         <designable name="0P1-yM-Z0G">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="6gI-UB-Gee">
-            <size key="intrinsicContentSize" width="145.5" height="32"/>
+            <size key="intrinsicContentSize" width="147" height="31.5"/>
         </designable>
         <designable name="7wp-Hs-RPU">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="BeP-6J-yCO">
-            <size key="intrinsicContentSize" width="72" height="32"/>
+            <size key="intrinsicContentSize" width="73.5" height="31.5"/>
         </designable>
         <designable name="G6h-oe-mND">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="GON-Kf-SQR">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="RiR-1C-ha6">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="UJs-Av-qWz">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="Ug7-rm-zHe">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="cvb-5z-Ulb">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="fAB-7v-z1Z">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="prD-Iu-rd1">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="uKM-5p-fF1">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
         <designable name="veT-Tj-0YA">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="33" height="34"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
