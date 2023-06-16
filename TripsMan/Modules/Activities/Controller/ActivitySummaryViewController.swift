@@ -9,8 +9,6 @@ import UIKit
 
 class ActivitySummaryViewController: UIViewController {
     
-    @IBOutlet weak var successView: UIView!
-    @IBOutlet weak var successLabel: UILabel!
     
     @IBOutlet weak var summaryCollectionView: UICollectionView! {
         didSet {
@@ -31,7 +29,6 @@ class ActivitySummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        successView.isHidden = true
         activityManager = ActivitySummaryManager(activityBooking: activityBookingData, meetupBooking: meetupBookingData)
         
         if listType == .activities {
@@ -42,12 +39,7 @@ class ActivitySummaryViewController: UIViewController {
     }
     
     @IBAction func paymentButtonTapped(_ sender: UIButton) {
-        print("reached here")
-        if listType == .activities {
-            confirmActivityBooking()
-        } else if listType == .meetups {
-            confirmMeetupBooking()
-        }
+        checkoutBooking()
     }
     
     @IBAction func returnHomeTapped(_ sender: UIButton) {
@@ -75,6 +67,17 @@ class ActivitySummaryViewController: UIViewController {
                 vc.couponModule = .meetup
             }
             vc.delegate = self
+        } else if let vc = segue.destination as? CheckoutViewController {
+            if let data = sender as? CheckoutData {
+                vc.checkoutData = data.data
+                vc.listType = listType
+                if listType == .activities {
+                    vc.bookingID = activityManager?.getActivityBookingSummary()?.bookingId ?? 0
+                } else if listType == .meetups {
+                    vc.bookingID = activityManager?.getMeetupBookingSummary()?.bookingId ?? 0
+                }
+                
+            }
         }
     }
 }
@@ -239,42 +242,36 @@ extension ActivitySummaryViewController {
         }
     }
     
-    func confirmActivityBooking() {
+    func checkoutBooking() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(activityBookingData!.bookingId)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
-            DispatchQueue.main.async {
-                self.hideIndicator()
-                if error == nil {
-                    if result!.status == 1 {
-                        self.successView.isHidden = false
-                        self.successLabel.text = result!.message
-                    } else {
-                        self.view.makeToast(result!.message)
-                    }
-                } else {
-                    self.view.makeToast("Something went wrong!")
-                }
-                
-            }
+        
+        var bookingId = 0
+        var url = ""
+        if listType == .activities {
+            bookingId = activityManager?.getActivityBookingSummary()?.bookingId ?? 0
+            url = "api/CustomerCoupon/CustomerActivityCheckOut"
+        } else if listType == .meetups {
+            bookingId = activityManager?.getMeetupBookingSummary()?.bookingId ?? 0
+            url = "api/CustomerCoupon/CustomerMeetupCheckOut"
         }
-    }
-    
-    func confirmMeetupBooking() {
-        showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/ConfirmCustomerMeetupBooking?BookingId=\(meetupBookingData!.bookingId)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        
+        let params: [String: Any] = ["bookingId": bookingId,
+                                     "country": SessionManager.shared.getCountry(),
+                                     "currency": SessionManager.shared.getCurrency(),
+                                     "language": SessionManager.shared.getLanguage()]
+        parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.successView.isHidden = false
-                        self.successLabel.text = result!.message
+                        self.performSegue(withIdentifier: "toCheckout", sender: result)
                     } else {
                         self.view.makeToast(result!.message)
                     }
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                
+                    
             }
         }
     }
@@ -298,7 +295,8 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityBookSummaryCell", for: indexPath) as! ActivityBookSummaryCollectionViewCell
             if let activityBooking = activityManager?.getActivityBookingSummary() {
                 cell.activityName.text = activityBooking.activityName
-                //                cell.locationLabel.text = booking.
+                cell.locationLabel.text = activityBooking.location
+                cell.guestsLabel.text = activityBooking.totalGuest.stringValue()
                 cell.activityDate.text = activityBooking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
             } else if let meetupBooking = activityManager?.getMeetupBookingSummary() {
                 cell.activityName.text = meetupBooking.meetupName
@@ -348,12 +346,6 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
                     cell.removeButton.isHidden = false
                 }
             }
-            
-            
-            return cell
-        } else if thisSection.type == .reward {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rewardPointCell", for: indexPath) as! RewardPointCollectionViewCell
-            
             
             
             return cell
@@ -498,19 +490,7 @@ extension ActivitySummaryViewController {
                 section.boundarySupplementaryItems = [sectionHeader]
                 section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
-            } else if thisSection.type == .reward {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(44))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(44))
-                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 10, trailing: 8)
-            }   else if thisSection.type == .coupon {
+            }  else if thisSection.type == .coupon {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(44))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)

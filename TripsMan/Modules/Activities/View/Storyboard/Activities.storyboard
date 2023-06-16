@@ -1432,7 +1432,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V5Y-6K-AGx">
                                                                             <rect key="frame" x="192.66666666666663" y="0.0" width="184.33333333333337" height="85"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Curated By" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgV-wQ-kqX">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Customers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CgV-wQ-kqX">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="184.33333333333334" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="2KO-8r-Q4h"/>
@@ -1500,8 +1500,8 @@
                                         <connections>
                                             <outlet property="activityDate" destination="FFm-U6-Dus" id="rM2-JF-xlW"/>
                                             <outlet property="activityName" destination="079-Kf-KSa" id="uyw-sN-p3F"/>
+                                            <outlet property="guestsLabel" destination="i5R-x5-meJ" id="5ep-C4-GQh"/>
                                             <outlet property="locationLabel" destination="TU1-xi-2hC" id="wnL-kS-Kjt"/>
-                                            <outlet property="vendorLabel" destination="i5R-x5-meJ" id="5ep-C4-GQh"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="activityCustomerCell" id="7tz-oA-71r" customClass="PrimaryGuestCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
@@ -1739,91 +1739,8 @@
                                             <outlet property="removeButton" destination="o5t-2o-BWd" id="YgY-5e-0iX"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rewardPointCell" id="5bo-zi-5HK" customClass="RewardPointCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="488" width="393" height="150"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OnT-oa-ZWA">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5T-7g-iAd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
-                                                    <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Rj3-w2-J7q">
-                                                            <rect key="frame" x="8" y="8" width="377" height="134"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 Reward points available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOs-cp-mVM">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="40"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="40" id="D5c-ai-hOX"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                                    <color key="textColor" name="primaryLabel"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gp-Zx-esn">
-                                                                    <rect key="frame" x="0.0" y="40" width="377" height="94"/>
-                                                                    <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter reward points" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPp-Pw-I7v" customClass="CustomTextField" customModule="TripsMan" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="221.66666666666666" height="94"/>
-                                                                            <color key="textColor" name="fieldTextColor"/>
-                                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
-                                                                        </textField>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byD-Ga-xKf" customClass="DisableButton" customModule="TripsMan" customModuleProvider="target">
-                                                                            <rect key="frame" x="221.66666666666663" y="0.0" width="155.33333333333337" height="94"/>
-                                                                            <color key="backgroundColor" name="buttonBackgroundColor"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="40" id="zg8-yh-BEZ"/>
-                                                                            </constraints>
-                                                                            <state key="normal" title="Button"/>
-                                                                            <buttonConfiguration key="configuration" style="plain" title="Redeem">
-                                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                                                <color key="baseForegroundColor" name="buttonTextColor"/>
-                                                                            </buttonConfiguration>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundColor">
-                                                                                    <color key="value" name="disabledButtonColor"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                                <userDefinedRuntimeAttribute type="color" keyPath="defaultBackgroundColor">
-                                                                                    <color key="value" name="primaryColor"/>
-                                                                                </userDefinedRuntimeAttribute>
-                                                                            </userDefinedRuntimeAttributes>
-                                                                            <connections>
-                                                                                <action selector="applyrewardButtonTappedWith_sender:" destination="MQO-Q6-mfK" eventType="touchUpInside" id="f41-gG-aB1"/>
-                                                                            </connections>
-                                                                        </button>
-                                                                    </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="byD-Ga-xKf" firstAttribute="width" secondItem="WPp-Pw-I7v" secondAttribute="width" multiplier="0.7" id="rDv-Jl-eej"/>
-                                                                    </constraints>
-                                                                </stackView>
-                                                            </subviews>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" name="seperatorColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Rj3-w2-J7q" secondAttribute="trailing" constant="8" id="7rr-8Q-w1e"/>
-                                                        <constraint firstItem="Rj3-w2-J7q" firstAttribute="top" secondItem="A5T-7g-iAd" secondAttribute="top" constant="8" id="KI1-Kg-Tsi"/>
-                                                        <constraint firstItem="Rj3-w2-J7q" firstAttribute="leading" secondItem="A5T-7g-iAd" secondAttribute="leading" constant="8" id="OVj-Xo-K4o"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Rj3-w2-J7q" secondAttribute="bottom" constant="8" id="jxE-XG-J4A"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="A5T-7g-iAd" secondAttribute="trailing" id="67D-O0-eJT"/>
-                                                <constraint firstItem="A5T-7g-iAd" firstAttribute="top" secondItem="OnT-oa-ZWA" secondAttribute="top" id="8v8-M1-iAC"/>
-                                                <constraint firstAttribute="bottom" secondItem="A5T-7g-iAd" secondAttribute="bottom" id="MLR-mt-BAo"/>
-                                                <constraint firstItem="A5T-7g-iAd" firstAttribute="leading" secondItem="OnT-oa-ZWA" secondAttribute="leading" id="Uap-hp-ZeX"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="393" height="150"/>
-                                        <connections>
-                                            <outlet property="rewardLabel" destination="xOs-cp-mVM" id="lET-xB-l9v"/>
-                                        </connections>
-                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="priceDetailsCell" id="bqq-4J-v1D" customClass="PriceDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="648" width="396" height="163"/>
+                                        <rect key="frame" x="0.0" y="488" width="396" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KAa-Fj-3ay">
                                             <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
@@ -1832,28 +1749,25 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3lF-ry-0IP">
                                                     <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gYV-6I-4KI">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gYV-6I-4KI">
                                                             <rect key="frame" x="0.0" y="0.0" width="396" height="103"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Charges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tct-5d-VR1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="103"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="teN-ok-rCH"/>
-                                                                    </constraints>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Charges" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tct-5d-VR1">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="258.66666666666669" height="103"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vS7-86-eqz">
-                                                                    <rect key="frame" x="202" y="0.0" width="194" height="103"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="EdF-ey-Y0t"/>
-                                                                    </constraints>
+                                                                    <rect key="frame" x="266.66666666666669" y="0.0" width="129.33333333333331" height="103"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Tct-5d-VR1" firstAttribute="width" secondItem="vS7-86-eqz" secondAttribute="width" multiplier="2:1" id="aF6-gk-BfK"/>
+                                                            </constraints>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-Hz-43u">
                                                             <rect key="frame" x="0.0" y="123" width="396" height="40"/>
@@ -1862,7 +1776,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="p1d-7K-W4y"/>
                                                             </constraints>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title="Proceed to Payment">
+                                                            <buttonConfiguration key="configuration" style="plain" title="Continue">
                                                                 <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                                 <color key="baseForegroundColor" name="buttonTextColor"/>
                                                             </buttonConfiguration>
@@ -1921,7 +1835,7 @@
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="sectionFooter" id="fdX-cg-d71" customClass="CouponFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="811" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="651" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="WmV-Cb-30s">
@@ -1954,87 +1868,21 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vH1-8M-cnD">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PER-oI-rSA">
-                                        <rect key="frame" x="20" y="323.33333333333331" width="353" height="195.66666666666669"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rCu-bQ-na3">
-                                                <rect key="frame" x="8" y="8" width="337" height="179.66666666666666"/>
-                                                <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wdu-Nr-Tdn">
-                                                        <rect key="frame" x="0.0" y="-0.6666666666666643" width="337" height="101.33333333333331"/>
-                                                        <color key="tintColor" systemColor="systemGreenColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="100" id="FJg-uA-MTN"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Booked Successfully!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFR-9z-de4">
-                                                        <rect key="frame" x="0.0" y="108" width="337" height="23.666666666666657"/>
-                                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
-                                                        <color key="textColor" name="primaryLabel"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI1-G8-Ada">
-                                                        <rect key="frame" x="0.0" y="139.66666666666669" width="337" height="40"/>
-                                                        <color key="backgroundColor" name="primaryColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="40" id="1UH-hk-8HU"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Return Home">
-                                                            <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                            <color key="baseForegroundColor" name="buttonTextColor"/>
-                                                        </buttonConfiguration>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="returnHomeTapped:" destination="MQO-Q6-mfK" eventType="touchUpInside" id="INQ-AX-f66"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="rCu-bQ-na3" secondAttribute="bottom" constant="8" id="8S7-0T-RfH"/>
-                                            <constraint firstAttribute="trailing" secondItem="rCu-bQ-na3" secondAttribute="trailing" constant="8" id="Yq7-Iu-9vw"/>
-                                            <constraint firstItem="rCu-bQ-na3" firstAttribute="leading" secondItem="PER-oI-rSA" secondAttribute="leading" constant="8" id="ZjD-wi-e9x"/>
-                                            <constraint firstItem="rCu-bQ-na3" firstAttribute="top" secondItem="PER-oI-rSA" secondAttribute="top" constant="8" id="vdk-RT-eK0"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="PER-oI-rSA" firstAttribute="leading" secondItem="vH1-8M-cnD" secondAttribute="leading" constant="20" id="Bgb-XM-mrT"/>
-                                    <constraint firstItem="PER-oI-rSA" firstAttribute="centerY" secondItem="vH1-8M-cnD" secondAttribute="centerY" id="jtl-8w-Gpu"/>
-                                    <constraint firstAttribute="trailing" secondItem="PER-oI-rSA" secondAttribute="trailing" constant="20" id="wHg-3N-Wk8"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gDb-qa-XcC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vH1-8M-cnD" firstAttribute="leading" secondItem="gDb-qa-XcC" secondAttribute="leading" id="2H0-FV-d61"/>
                             <constraint firstItem="gDb-qa-XcC" firstAttribute="trailing" secondItem="5dr-6r-KhG" secondAttribute="trailing" id="AcM-Io-wZc"/>
-                            <constraint firstItem="vH1-8M-cnD" firstAttribute="top" secondItem="gDb-qa-XcC" secondAttribute="top" id="FDQ-Ko-wJc"/>
                             <constraint firstItem="5dr-6r-KhG" firstAttribute="top" secondItem="gDb-qa-XcC" secondAttribute="top" id="LA7-NJ-s5t"/>
-                            <constraint firstItem="vH1-8M-cnD" firstAttribute="bottom" secondItem="gDb-qa-XcC" secondAttribute="bottom" id="PvO-Hs-3gK"/>
                             <constraint firstItem="5dr-6r-KhG" firstAttribute="leading" secondItem="gDb-qa-XcC" secondAttribute="leading" id="RMW-rS-tXK"/>
-                            <constraint firstItem="vH1-8M-cnD" firstAttribute="trailing" secondItem="gDb-qa-XcC" secondAttribute="trailing" id="i20-eO-o1o"/>
                             <constraint firstAttribute="bottom" secondItem="5dr-6r-KhG" secondAttribute="bottom" id="wtY-OA-Nny"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HWR-gX-tql"/>
                     <connections>
-                        <outlet property="successLabel" destination="aFR-9z-de4" id="iE8-SP-5Ox"/>
-                        <outlet property="successView" destination="vH1-8M-cnD" id="7Qc-cg-i22"/>
                         <outlet property="summaryCollectionView" destination="5dr-6r-KhG" id="BSY-gN-ELz"/>
                         <segue destination="bOA-0x-bAf" kind="presentation" identifier="toCoupons" id="upn-nv-6Sz"/>
+                        <segue destination="BdK-wL-I4D" kind="show" identifier="toCheckout" id="FTi-Lf-173"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvG-SQ-O6z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2051,6 +1899,16 @@
             </objects>
             <point key="canvasLocation" x="2735" y="-18"/>
         </scene>
+        <!--CheckoutViewController-->
+        <scene sceneID="0O9-Ad-l1z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Common" referencedIdentifier="CheckoutViewController" id="BdK-wL-I4D" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1vm-6K-LB4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GI0-AS-kRT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734" y="82"/>
+        </scene>
         <!--ReadMoreViewController-->
         <scene sceneID="IDw-BX-q5v">
             <objects>
@@ -2062,38 +1920,31 @@
     </scenes>
     <designables>
         <designable name="7Dv-i5-4FL">
-            <size key="intrinsicContentSize" width="58" height="34"/>
+            <size key="intrinsicContentSize" width="62" height="34"/>
         </designable>
         <designable name="Csf-ca-dlO">
             <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="DLF-Zv-K6E">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="II9-uC-UlG">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="Pxk-vD-adB">
-            <size key="intrinsicContentSize" width="28" height="34"/>
-        </designable>
-        <designable name="WPp-Pw-I7v">
-            <size key="intrinsicContentSize" width="153.66666666666666" height="34"/>
-        </designable>
-        <designable name="byD-Ga-xKf">
-            <size key="intrinsicContentSize" width="79.666666666666671" height="31.666666666666668"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="jUw-UJ-1r1">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
         <designable name="yg8-7G-l0v">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="32" height="34"/>
         </designable>
     </designables>
     <resources>
         <image name="activity-default-img" width="500" height="300"/>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="120"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="checkmark.seal.fill" catalog="system" width="128" height="124"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="mappin.and.ellipse" catalog="system" width="117" height="128"/>
         <image name="minus" catalog="system" width="128" height="26"/>
@@ -2142,9 +1993,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

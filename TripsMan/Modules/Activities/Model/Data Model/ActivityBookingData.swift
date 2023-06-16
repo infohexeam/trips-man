@@ -19,14 +19,14 @@ struct ActivityBookingData: Codable {
 struct ActivityBooking: Codable {
     let bookingDate: String
     let bookingFrom: String
-    let activityName: String
-    let bookingId, adultCount, childCount: Int
+    let activityName, location: String
+    let bookingId, totalGuest: Int
     let activityGuests: [ActivityGuest]
     let amountDetails: [AmountDetail]
 
     enum CodingKeys: String, CodingKey {
         case bookingDate, bookingFrom, bookingId
-        case activityName, adultCount, childCount, activityGuests, amountDetails
+        case activityName, totalGuest, activityGuests, amountDetails, location
     }
 }
 

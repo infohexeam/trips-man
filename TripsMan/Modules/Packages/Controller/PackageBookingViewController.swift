@@ -62,7 +62,6 @@ class PackageBookingViewController: UIViewController {
     
     func isTravellerDetailsValid() -> Bool {
         var isValid = false
-        
         if packageFilter.startDate == nil {
             self.view.makeToast(Validation.hdyStartDateSelection)
         } else {
@@ -123,7 +122,7 @@ extension PackageBookingViewController {
         
         for each in packageFieldTexts {
             guests.append(["id": 0,
-                           "contactNo": each.value.contactNumber,
+                           "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
                            "gender": each.value.gender,

@@ -899,13 +899,13 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZ3-ot-88f">
-                                                                            <rect key="frame" x="-10" y="15" width="72" height="20"/>
+                                                                            <rect key="frame" x="-10" y="15" width="71" height="20"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JjF-zz-rla" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="71" height="20"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sponsored" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKa-MR-vs8">
-                                                                                            <rect key="frame" x="15" y="4" width="49" height="12"/>
+                                                                                            <rect key="frame" x="15" y="4" width="48" height="12"/>
                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                                                             <color key="textColor" name="primaryLabel"/>
                                                                                             <nil key="highlightedColor"/>
@@ -1148,13 +1148,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No available hotels match your search. Try using fewer filters." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-qg-cYU">
-                                                            <rect key="frame" x="0.0" y="62" width="399" height="35"/>
+                                                            <rect key="frame" x="0.0" y="62" width="399" height="35.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebR-Ha-muT">
-                                                            <rect key="frame" x="0.0" y="105" width="399" height="26"/>
+                                                            <rect key="frame" x="0.0" y="105.33333333333334" width="399" height="25.666666666666657"/>
                                                         </view>
                                                     </subviews>
                                                     <constraints>
@@ -2600,37 +2600,40 @@
     </scenes>
     <designables>
         <designable name="1T9-G6-MSm">
-            <size key="intrinsicContentSize" width="71" height="34"/>
+            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
         </designable>
         <designable name="5EU-Lt-ZKv">
-            <size key="intrinsicContentSize" width="74.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
         <designable name="B4F-Iy-xaU">
-            <size key="intrinsicContentSize" width="4" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="LEA-Xo-Gm1">
-            <size key="intrinsicContentSize" width="67" height="34"/>
+            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
         </designable>
         <designable name="LuT-BN-FcK">
-            <size key="intrinsicContentSize" width="62.666666666666664" height="31.666666666666668"/>
+            <size key="intrinsicContentSize" width="62.333333333333336" height="31.666666666666668"/>
         </designable>
         <designable name="YzH-Nx-dYM">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="eEh-RU-GRp">
-            <size key="intrinsicContentSize" width="4" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
+        </designable>
+        <designable name="iiq-H7-Bcr">
+            <size key="intrinsicContentSize" width="-1" height="65"/>
         </designable>
         <designable name="mFS-kl-EN0">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="qtj-cd-Kxh">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="yA4-vh-mec">
-            <size key="intrinsicContentSize" width="32" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="zG6-Pg-E3x">
-            <size key="intrinsicContentSize" width="4" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
     </designables>
     <resources>

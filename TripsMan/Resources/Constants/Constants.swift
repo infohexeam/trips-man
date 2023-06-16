@@ -56,4 +56,7 @@ struct Validation {
     static let hdyPrimaryTravellerName = "Enter primary traveller name"
     static let hdyPrimaryTravellerContact = "Enter primary traveller contact number"
 //    static let hdyPrimaryTaveller
+    
+        //Activity&Meetup
+    static let primaryCustomerDetails = "Enter primary customer details"
 }

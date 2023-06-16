@@ -13,7 +13,6 @@ struct ActivitySummaryManager {
         case customerDetails
         case seperator
         case coupon
-        case reward
         case priceDetails
     }
 
@@ -69,9 +68,6 @@ struct ActivitySummaryManager {
             if coupons != nil {
                 sections?.append(ActivitySummarySection(type: .coupon, count: couponsToShow!.count))
             }
-            if rewardPoint > 0 {
-                sections?.append(ActivitySummarySection(type: .reward, count: 1))
-            }
             sections?.append(ActivitySummarySection(type: .priceDetails, count: activityBookingData!.amountDetails.count))
         } else if meetupBookingData != nil {
             sections = [ActivitySummarySection(type: .summary, count: 1),
@@ -79,9 +75,6 @@ struct ActivitySummaryManager {
             sections?.append(ActivitySummarySection(type: .seperator, count: 1))
             if coupons != nil {
                 sections?.append(ActivitySummarySection(type: .coupon, count: couponsToShow!.count))
-            }
-            if rewardPoint > 0 {
-                sections?.append(ActivitySummarySection(type: .reward, count: 1))
             }
             sections?.append(ActivitySummarySection(type: .priceDetails, count: meetupBookingData!.amountDetails.count))
         }
@@ -121,6 +114,7 @@ struct ActivitySummaryManager {
             } else {
                 couponsToShow = coupons
             }
+            setSections()
         }
     }
     
@@ -130,6 +124,7 @@ struct ActivitySummaryManager {
         if coupon != nil {
             if showSingleCoupon {
                 couponsToShow = [coupon!]
+                setSections()
             }
         } else {
             setCouponsTOShow()

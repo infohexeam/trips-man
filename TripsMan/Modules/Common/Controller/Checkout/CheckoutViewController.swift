@@ -71,9 +71,9 @@ extension CheckoutViewController {
             case .packages:
                 url = "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(bookingID)"
             case .activities:
-                url = "" //TODO: -
+                url = "api/CustomerHoliday/ConfirmCustomerActivityBooking?BookingId=\(bookingID)"
             case .meetups:
-                url = "" //TODO: -
+                url = "api/CustomerMeetup/ConfirmCustomerMeetupBooking?BookingId=\(bookingID)"
             }
         }
         
@@ -107,9 +107,9 @@ extension CheckoutViewController {
             case .packages:
                 url = "api/CustomerHolidayCoupon/ApplyCustomerHolidayRewardPoint"
             case .activities:
-                url = "" //TODO: -
+                url = "api/CustomerActivityCoupon/ApplyCustomerActivityRewardPoint"
             case .meetups:
-                url = "" //TODO: -
+                url = "api/CustomerWebMeetupCoupon/Web/ApplyCustomerMeetupRewardPoint"
             }
         }
         
@@ -149,9 +149,9 @@ extension CheckoutViewController {
             case .packages:
                 url = "api/CustomerHolidayCoupon/RemoveCustomerHolidayRewardPoint"
             case .activities:
-                url = "" //TODO: -
+                url = "api/CustomerActivityCoupon/RemoveCustomerActivityRewardPoint"
             case .meetups:
-                url = "" //TODO: -
+                url = "api/CustomerMeetupCoupon/RemoveCustomerMeetupCoupen"
             }
         }
         

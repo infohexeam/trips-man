@@ -76,9 +76,24 @@ class ActivityBookingViewController: UIViewController {
     
     func isGuestDetailsValid() -> Bool {
         var isValid = false
-        let primary = activityFieldTexts.filter { $0.key == [2,0] }
-        if primary.count != 0 {
-            isValid = true
+        var sect = 0
+        
+        if listType == .activities {
+            sect = activityManager?.getSection(.customerDetails) ?? 0
+        } else if listType == .meetups {
+            sect = meetupManager?.getSection(.customerDetails) ?? 0
+        }
+        let primary = activityFieldTexts.filter { $0.key == [sect, 0] }
+        
+        if primary.count == 0 {
+            self.view.makeToast(Validation.primaryCustomerDetails)
+        } else {
+            let index = IndexPath(row: 0, section: sect)
+            if primary[index]?.name != "" && primary[index]?.countryCode != "" && primary[index]?.contactNumber != "" && primary[index]?.emailID != "" && primary[index]?.gender != "" && primary[index]?.age != "" {
+                isValid = true
+            } else {
+                self.view.makeToast(Validation.primaryCustomerDetails)
+            }
         }
         return isValid
     }
@@ -99,12 +114,13 @@ extension ActivityBookingViewController {
         
         var guests = [[String: Any]]()
         print(activityFieldTexts)
-        let primary = activityFieldTexts.filter { $0.key == [2,0] }
+        let sect = activityManager?.getSection(.customerDetails) ?? 0
+        let primary = activityFieldTexts.filter { $0.key == [sect, 0] }
         
         
         for each in activityFieldTexts {
             guests.append(["id": 0,
-                           "contactNo": each.value.contactNumber,
+                           "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
                            "gender": each.value.gender,
@@ -120,6 +136,7 @@ extension ActivityBookingViewController {
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage(),
+                                     "adultCount": activityFilters.memberCount,
                                      "booking_Guest": guests]
         
         if createdActivityBookingID != nil {
@@ -152,12 +169,13 @@ extension ActivityBookingViewController {
         
         var guests = [[String: Any]]()
         print(activityFieldTexts)
-        let primary = activityFieldTexts.filter { $0.key == [2,0] }
+        let sect = meetupManager?.getSection(.customerDetails) ?? 0
+        let primary = activityFieldTexts.filter { $0.key == [sect,0] }
         
         
         for each in activityFieldTexts {
             guests.append(["id": 0,
-                           "contactNo": each.value.contactNumber,
+                           "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
                            "gender": each.value.gender,
@@ -231,10 +249,14 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activitySummaryCell", for: indexPath) as! ActivitySummaryCollectionViewCell
             
             if let activityDetails = activityManager?.getActivityDetails() {
+                var imageURL = ""
                 let featuredImage = activityDetails.activityImages.filter { $0.isFeatured == 1}
                 if featuredImage.count != 0 {
-                    cell.activityImage.sd_setImage(with: URL(string: featuredImage[0].imageURL), placeholderImage: UIImage(systemName: K.activityPlaceholderImage))
+                    imageURL = featuredImage[0].imageURL
+                } else {
+                    imageURL = activityDetails.activityImages.count > 0 ? activityDetails.activityImages[0].imageURL : ""
                 }
+                cell.activityImage.sd_setImage(with: URL(string: imageURL), placeholderImage: UIImage(systemName: K.activityPlaceholderImage))
                 cell.activityName.text = activityDetails.activityName
                 cell.locationLabel.text = activityDetails.activityLocation
                 if fontSize == nil {
