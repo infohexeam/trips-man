@@ -14,4 +14,30 @@ class ActivityDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailsLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var memberLabel: UILabel!
+    @IBOutlet weak var memberAddButton: UIButton!
+    @IBOutlet weak var memberMinusButton: UIButton!
+    
+    var memberCount = 1
+    var delegate: MemberCountDelegate?
+    
+    @IBAction func memberButtonTapped(_ sender: UIButton) {
+        if sender == memberAddButton {
+            memberCount += 1
+            memberLabel.text = "\(memberCount) Members"
+            delegate?.memberCoundDidChanged(to: memberCount)
+        } else if sender == memberMinusButton {
+            if memberCount > 1 {
+                memberCount -= 1
+                memberLabel.text = "\(memberCount.oneOrMany("Member"))"
+                delegate?.memberCoundDidChanged(to: memberCount)
+            }
+        }
+    }
+}
+
+
+protocol MemberCountDelegate {
+    func memberCoundDidChanged(to count: Int)
 }

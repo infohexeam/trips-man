@@ -10,8 +10,6 @@ import Combine
 
 class ActivityDetailsViewController: UIViewController {
     
-    @IBOutlet weak var memberAddButton: UIButton!
-    @IBOutlet weak var memberMinusButton: UIButton!
     
     @IBOutlet weak var activityCollectionView: UICollectionView! {
         didSet {
@@ -42,7 +40,13 @@ class ActivityDetailsViewController: UIViewController {
         
         getActivityDetails()
         
+        setupView()
     }
+    
+    func setupView() {
+        activityFilters.memberCount = 1
+    }
+    
     
     @IBAction func bookNowTapped(_ sender: UIButton) {
         if activityFilters.activityDate != nil {
@@ -55,6 +59,7 @@ class ActivityDetailsViewController: UIViewController {
     @IBAction func datePickerTapped(_ sender: UIButton) {
         presentDatePicker()
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
@@ -98,6 +103,12 @@ extension ActivityDetailsViewController: DatePickerDelegate {
     func datePickerDoneTapped(date: Date, tag: Int) {
         activityFilters.activityDate = date
         activityCollectionView.reloadSections(IndexSet(integer: (activityManager?.getSection(.activityDetails))!))
+    }
+}
+
+extension ActivityDetailsViewController: MemberCountDelegate {
+    func memberCoundDidChanged(to count: Int) {
+        activityFilters.memberCount = count
     }
 }
 
@@ -155,7 +166,8 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
                 if fontSize == nil {
                     fontSize = cell.priceLabel.font.pointSize
                 }
-                
+                cell.memberCount = activityFilters.memberCount
+                cell.delegate = self
                 cell.activityName.text = details.activityName
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) taxes and fee per person"
