@@ -70,8 +70,8 @@ struct TripListManager {
                     
                 } else if trip.module == "ACT" {
                     let fromDate = trip.checkInDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
-                    let toDate = trip.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
-                    let topLabel = "\(trip.tripStatus) | \(fromDate ?? "") - \(toDate ?? "")"
+//                    let toDate = trip.checkOutDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
+                    let topLabel = "\(trip.tripStatus) | \(fromDate ?? "")"
                     
                     let subLabel = trip.bookedDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMM dd, yyyy") ?? ""
                                         

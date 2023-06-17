@@ -144,6 +144,7 @@ extension HotelDetailsViewController {
                                                         heightDimension: .absolute(25))
                 let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
+                
                 section = NSCollectionLayoutSection(group: group)
                 section.boundarySupplementaryItems = [sectionHeader]
                 section.interGroupSpacing = 0

@@ -171,6 +171,7 @@
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
 		C1EF48432A1727A8002C877A /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EF48422A1727A8002C877A /* SearchData.swift */; };
 		C1EF48452A173340002C877A /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EF48442A173340002C877A /* SearchManager.swift */; };
+		C1F49BBD2A3D84ED008545EC /* ActivityTripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F49BBC2A3D84ED008545EC /* ActivityTripDetails.swift */; };
 		C1F68B622A0A13F2000C0BD7 /* MeetupBookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */; };
 		C1F68B642A0A1D8F000C0BD7 /* MeetupBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */; };
 		C1F77ECE29B1F35200C16E51 /* SeeAllReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */; };
@@ -381,6 +382,7 @@
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
 		C1EF48422A1727A8002C877A /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		C1EF48442A173340002C877A /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		C1F49BBC2A3D84ED008545EC /* ActivityTripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTripDetails.swift; sourceTree = "<group>"; };
 		C1F68B612A0A13F2000C0BD7 /* MeetupBookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupBookingData.swift; sourceTree = "<group>"; };
 		C1F68B632A0A1D8F000C0BD7 /* MeetupBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupBookingManager.swift; sourceTree = "<group>"; };
 		C1F77ECD29B1F35200C16E51 /* SeeAllReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllReviewsViewController.swift; sourceTree = "<group>"; };
@@ -1203,6 +1205,7 @@
 			children = (
 				C101CA20298BDB970051A94F /* HotelTripDetails.swift */,
 				C170B29F2A14C6D4004FA831 /* HolidayTripDetails.swift */,
+				C1F49BBC2A3D84ED008545EC /* ActivityTripDetails.swift */,
 				C101CA1D298B74700051A94F /* MyTrips.swift */,
 				C15D36742A3B050A0051FDD5 /* InvoiceData.swift */,
 			);
@@ -1918,6 +1921,7 @@
 				C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */,
 				C19EF45E29658775008EDD66 /* ImageUploadData.swift in Sources */,
 				C13E75D6298A391E00FBE80B /* CouponData.swift in Sources */,
+				C1F49BBD2A3D84ED008545EC /* ActivityTripDetails.swift in Sources */,
 				C170B2A02A14C6D4004FA831 /* HolidayTripDetails.swift in Sources */,
 				C1D7C6B429939E4600410C7A /* WalletCells.swift in Sources */,
 				C1D0DAD929CB0AC400641491 /* PackageDetailsCollectionViewCell.swift in Sources */,

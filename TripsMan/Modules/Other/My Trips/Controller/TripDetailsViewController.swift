@@ -330,7 +330,12 @@ extension TripDetailsViewController: UICollectionViewDataSource {
                 }
             }
             return cell
-        } else if thisSection.type == .review {
+        } else if thisSection.type == .secondDetails {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "secondDetails", for: indexPath)
+            
+            
+            return cell
+        }  else if thisSection.type == .review {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reviewCell", for: indexPath) as! AddReviewCollectionViewCell
             cell.delegate = self
             cell.ratedView.isHidden = true
@@ -402,6 +407,23 @@ extension TripDetailsViewController {
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
                 
+                
+            } else if thisSection.type == .secondDetails {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(10))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(10))
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+                
+                section = NSCollectionLayoutSection(group: group)
+                
+                
+//                section.interGroupSpacing = 10
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                return section
                 
             } else  if thisSection.type == .priceDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),

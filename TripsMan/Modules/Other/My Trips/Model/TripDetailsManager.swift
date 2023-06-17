@@ -11,6 +11,7 @@ struct TripDetailsManager {
     
     enum SectionTypes {
         case tripDetails
+        case secondDetails
         case priceDetails
         case review
         case action
@@ -25,6 +26,7 @@ struct TripDetailsManager {
     
     var hotelTripDetails: HotelTripDetails?
     var holidayTripDetails: HolidayTripDetails?
+    var activityTripDetails: ActivityTripDetails?
     
     var detailsData: DetailsData?
     
@@ -75,7 +77,7 @@ struct TripDetailsManager {
         var label: String
         var text: String
     }
-        
+    
     init(hotelTripDetails: HotelTripDetails?) {
         self.hotelTripDetails = hotelTripDetails
         self.amountDetails = hotelTripDetails?.amountDetails
@@ -97,6 +99,7 @@ struct TripDetailsManager {
     mutating func setSections() {
         if let hotelTripDetails = hotelTripDetails {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                        TripDetailsSection(type: .secondDetails, count: 3),
                         TripDetailsSection(type: .priceDetails, count: hotelTripDetails.amountDetails.count)]
             if hotelTripDetails.tripStatusValue == 1 {
                 sections?.append(TripDetailsSection(type: .review, count: 1))
@@ -166,7 +169,31 @@ struct TripDetailsManager {
             let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: "", roomType: guestCount, primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
+        } else if let activityTripDetails = activityTripDetails {
+            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID - \(activityTripDetails.bookingNo)", bookedDate: "Booked on \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: "//TODO: -")
+            
+            let secondBox = SecondBox(image: "", name: activityTripDetails.activitydetails[0].activityName, address: activityTripDetails.activitydetails[0].shortDescription)
+            
+            let fromDate = DateLabels(label: "Start Date", date: activityTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
+            //            let toDate = DateLabels(label: "End Date", date: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
+            
+            //            let duration = holidayTripDetails.packagedetails[0].duration
+            //            let guestCount = "\(holidayTripDetails.adultCount.oneOrMany("Adult")), \(holidayTripDetails.childCount.oneOrMany("Child", suffix: "ren"))"
+            //            let primary = holidayTripDetails.packageguest.filter({ $0.isPrimary == 1}).last
+            //            let primaryGuest = PrimaryGuest(label: "Primary Guest", nameText: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", contact: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
+            //            let others = holidayTripDetails.packageguest.filter({ $0.isPrimary == 0})
+            //            var otherGuestText = ""
+            //            for other in others {
+            //                otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
+            //            }
+            //            let otherGuest = OtherGuest(label: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
+            //
+            //            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: "", roomType: guestCount, primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
+            //
+            //            detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
         }
+        
+        
     }
     
     func getDetailsData() -> DetailsData? {
