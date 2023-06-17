@@ -4200,28 +4200,25 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-5m-fzN">
                                                     <rect key="frame" x="0.0" y="0.0" width="396" height="163"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vE6-75-A29">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vE6-75-A29">
                                                             <rect key="frame" x="0.0" y="0.0" width="396" height="103"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Charges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUL-jE-EFk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="103"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="beB-yK-0WT"/>
-                                                                    </constraints>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Charges" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUL-jE-EFk">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="258.66666666666669" height="103"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj2-eg-9yh">
-                                                                    <rect key="frame" x="202" y="0.0" width="194" height="103"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="20" id="iZE-BP-cCG"/>
-                                                                    </constraints>
+                                                                    <rect key="frame" x="266.66666666666669" y="0.0" width="129.33333333333331" height="103"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="YUL-jE-EFk" firstAttribute="width" secondItem="pj2-eg-9yh" secondAttribute="width" multiplier="2:1" id="xFd-K6-980"/>
+                                                            </constraints>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giA-Dl-fy8">
                                                             <rect key="frame" x="0.0" y="123" width="396" height="40"/>

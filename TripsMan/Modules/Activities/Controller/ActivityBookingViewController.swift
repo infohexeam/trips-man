@@ -49,12 +49,17 @@ class ActivityBookingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                                               
+                       
+        activityFieldTexts = [IndexPath:GuestFds]()
+        createdActivityBookingID = nil
+        hideKeyboardOnTap()
+        
         if let activityDetails = activityFilters.activityDetails {
             activityManager = ActivityBookingManager(activityDetails: activityDetails)
         } else if let meetupDetails = meetupFilters.meetupDetails {
             meetupManager = MeetupBookingManager(meetupDetails: meetupDetails)
         }
+        
     }
     
     

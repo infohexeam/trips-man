@@ -39,6 +39,7 @@ class PackageBookingViewController: UIViewController {
         super.viewDidLoad()
         createdPackageBookingID = nil
         packageFieldTexts = [IndexPath:GuestFds]()
+        hideKeyboardOnTap()
         if let packageDetails = packageFilter.packageDetails {
             packageManager = PackageBookingManager(packageDetails: packageDetails)
         }

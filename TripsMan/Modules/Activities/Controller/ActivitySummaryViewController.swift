@@ -296,7 +296,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             if let activityBooking = activityManager?.getActivityBookingSummary() {
                 cell.activityName.text = activityBooking.activityName
                 cell.locationLabel.text = activityBooking.location
-                cell.guestsLabel.text = activityBooking.totalGuest.stringValue()
+                cell.guestsLabel.text = activityBooking.adultCount.stringValue()
                 cell.activityDate.text = activityBooking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
             } else if let meetupBooking = activityManager?.getMeetupBookingSummary() {
                 cell.activityName.text = meetupBooking.meetupName

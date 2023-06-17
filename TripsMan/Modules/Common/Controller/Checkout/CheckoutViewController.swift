@@ -28,6 +28,11 @@ class CheckoutViewController: UIViewController {
     let parser = Parser()
     
     var rewardApplied = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        addBackButton(with: "Checkout")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +76,7 @@ extension CheckoutViewController {
             case .packages:
                 url = "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(bookingID)"
             case .activities:
-                url = "api/CustomerHoliday/ConfirmCustomerActivityBooking?BookingId=\(bookingID)"
+                url = "api/CustomerActivity/ConfirmCustomerActivityBooking?BookingId=\(bookingID)"
             case .meetups:
                 url = "api/CustomerMeetup/ConfirmCustomerMeetupBooking?BookingId=\(bookingID)"
             }
