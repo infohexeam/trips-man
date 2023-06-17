@@ -393,11 +393,6 @@
                             <constraint firstItem="DSo-Fw-hcz" firstAttribute="leading" secondItem="7vI-aq-LAt" secondAttribute="leading" id="nec-qV-0wZ"/>
                             <constraint firstItem="DSo-Fw-hcz" firstAttribute="top" secondItem="7vI-aq-LAt" secondAttribute="top" id="nwg-Ik-wT6"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ODF-Gr-Y2l"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="checkoutCollectionView" destination="DSo-Fw-hcz" id="3pt-Uy-n4i"/>

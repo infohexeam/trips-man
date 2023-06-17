@@ -27,6 +27,18 @@ class ActivitySummaryViewController: UIViewController {
     var activityBookingData: ActivityBooking?
     var meetupBookingData: MeetupBooking?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var title = ""
+        if listType == .activities {
+            title = "Activity Booking Summary"
+        } else if listType == .meetups {
+            title = "Meetup Booking Summary"
+        }
+        addBackButton(with: title)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityManager = ActivitySummaryManager(activityBooking: activityBookingData, meetupBooking: meetupBookingData)
