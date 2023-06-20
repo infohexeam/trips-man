@@ -29,6 +29,7 @@ struct TripDetailsManager {
     var activityTripDetails: ActivityTripDetails?
     
     var detailsData: DetailsData?
+    var moreDetails: [MoreDetails]?
     
     var amountDetails: [AmountDetail]?
     
@@ -78,10 +79,23 @@ struct TripDetailsManager {
         var text: String
     }
     
+    
+    struct MoreDetails {
+        var leftText: MoreDetailsObj?
+        var rightText: MoreDetailsObj?
+    }
+    
+    struct MoreDetailsObj {
+        var title: String?
+        var text: String?
+        var subText: String?
+    }
+    
     init(hotelTripDetails: HotelTripDetails?) {
         self.hotelTripDetails = hotelTripDetails
         self.amountDetails = hotelTripDetails?.amountDetails
         setSections()
+        setMoreDetails()
         setDetailsData()
     }
     
@@ -89,6 +103,7 @@ struct TripDetailsManager {
         self.holidayTripDetails = holidayTripDetails
         self.amountDetails = holidayTripDetails?.amountdetails
         setSections()
+        setMoreDetails()
         setDetailsData()
     }
     
@@ -109,6 +124,7 @@ struct TripDetailsManager {
             }
         } else if let holidayTripDetails = holidayTripDetails {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                        TripDetailsSection(type: .secondDetails, count: 3),
                         TripDetailsSection(type: .priceDetails, count: holidayTripDetails.amountdetails.count)]
         }
         
@@ -196,8 +212,71 @@ struct TripDetailsManager {
         
     }
     
+    
+    mutating func setMoreDetails() {
+        if let hotelTripDetails = hotelTripDetails {
+            moreDetails = [MoreDetails]()
+            
+            let left1 = MoreDetailsObj(title: "Check-in", text: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", subText: hotelTripDetails.hotelDetails.checkInTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
+            let right1 = MoreDetailsObj(title: "Check-out", text: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", subText: hotelTripDetails.hotelDetails.checkOutTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
+            let text1 = MoreDetails(leftText: left1, rightText: right1)
+            
+            
+            let left2 = MoreDetailsObj(text: "\(hotelTripDetails.roomCount.oneOrMany("Room")) for \(hotelTripDetails.adultCount.oneOrMany("Adult")) & \(hotelTripDetails.childCount.oneOrMany("Child", suffix: "ren"))")
+            let right2 = MoreDetailsObj(text: hotelTripDetails.roomDetails.count > 0 ? hotelTripDetails.roomDetails[0].roomType : "", subText: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.numberOfDays(to: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date()).oneOrMany("Night"))
+            let text2 = MoreDetails(leftText: left2, rightText: right2)
+            
+            
+            let primary = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 1}).last
+            let left3 = MoreDetailsObj(title: "Primary Guest", text: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", subText: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
+            var right3: MoreDetailsObj?
+            let others = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 0})
+            if others.count > 0 {
+                var otherGuestText = ""
+                for other in others {
+                    otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
+                }
+                right3 = MoreDetailsObj(title: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
+            }
+            let text3 = MoreDetails(leftText: left3, rightText: right3)
+            
+            moreDetails = [text1, text2, text3]
+            
+        } else if let holidayTripDetails = holidayTripDetails {
+            moreDetails = [MoreDetails]()
+            
+            let left1 = MoreDetailsObj(title: "Start Date", text: holidayTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let right1 = MoreDetailsObj(title: "End Date", text: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let text1 = MoreDetails(leftText: left1, rightText: right1)
+            
+            let left2 = MoreDetailsObj(title: "Travellers", text: "\(holidayTripDetails.adultCount.oneOrMany("Adult")) & \(holidayTripDetails.childCount.oneOrMany("Child", suffix: "ren"))")
+            let right2 = MoreDetailsObj(title: "Duration", text: holidayTripDetails.packagedetails[0].duration)
+            let text2 = MoreDetails(leftText: left2, rightText: right2)
+           
+            
+            let primary = holidayTripDetails.packageguest.filter({ $0.isPrimary == 1}).last
+            let left3 = MoreDetailsObj(title: "Primary Guest", text: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", subText: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
+            var right3: MoreDetailsObj?
+            let others = holidayTripDetails.packageguest.filter({ $0.isPrimary == 0})
+            if others.count > 0 {
+                var otherGuestText = ""
+                for other in others {
+                    otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
+                }
+                right3 = MoreDetailsObj(title: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
+            }
+            let text3 = MoreDetails(leftText: left3, rightText: right3)
+            
+            moreDetails = [text1, text2, text3]
+        }
+    }
+    
     func getDetailsData() -> DetailsData? {
         return detailsData
+    }
+    
+    func getMoreDetails() -> [MoreDetails]? {
+        return moreDetails
     }
     
     func getAmountDetails() -> [AmountDetail]? {

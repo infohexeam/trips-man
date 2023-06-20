@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HkN-Jn-toy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HkN-Jn-toy">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -137,11 +137,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="392" height="41"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-3m-L5N">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-3m-L5N">
                                                     <rect key="frame" x="8" y="8" width="376" height="25"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-rX-NJ2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="94" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="86" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Z5b-96-PmM"/>
                                                             </constraints>
@@ -150,7 +150,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFj-os-10E">
-                                                            <rect key="frame" x="94" y="0.0" width="188" height="25"/>
+                                                            <rect key="frame" x="102" y="0.0" width="172" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="CP9-zQ-4ad"/>
                                                             </constraints>
@@ -159,7 +159,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYW-fL-Meh">
-                                                            <rect key="frame" x="282" y="0.0" width="94" height="25"/>
+                                                            <rect key="frame" x="290" y="0.0" width="86" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Qp0-7r-RAB"/>
                                                             </constraints>
@@ -200,32 +200,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IN0-9F-lqy">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="IN0-9F-lqy">
                                                     <rect key="frame" x="8" y="8" width="377" height="19"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Dec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nkQ-vZ-cNW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="94.333333333333329" height="19"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="rjP-Eo-hSX"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="19"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Referral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43h-wO-u6i">
-                                                            <rect key="frame" x="94.333333333333329" y="0.0" width="188.33333333333337" height="19"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="T81-4J-khd"/>
-                                                            </constraints>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Referral" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43h-wO-u6i">
+                                                            <rect key="frame" x="102.33333333333333" y="0.0" width="172.33333333333337" height="19"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeN-8F-8wq">
-                                                            <rect key="frame" x="282.66666666666669" y="0.0" width="94.333333333333314" height="19"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="49J-CX-hbv"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="290.66666666666669" y="0.0" width="86.333333333333314" height="19"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>

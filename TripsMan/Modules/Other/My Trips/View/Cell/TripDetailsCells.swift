@@ -48,6 +48,16 @@ class TripDetailsCollectionViewCell: UICollectionViewCell {
     
 }
 
+class TripMoreDetailsCell: UICollectionViewCell {
+    @IBOutlet weak var leftTitle: UILabel!
+    @IBOutlet weak var leftText: UILabel!
+    @IBOutlet weak var leftSubText: UILabel!
+    
+    @IBOutlet weak var rightTitle: UILabel!
+    @IBOutlet weak var rightText: UILabel!
+    @IBOutlet weak var rightSubText: UILabel!
+}
+
 
 class AddReviewCollectionViewCell: UICollectionViewCell {
     

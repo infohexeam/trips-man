@@ -331,8 +331,41 @@ extension TripDetailsViewController: UICollectionViewDataSource {
             }
             return cell
         } else if thisSection.type == .secondDetails {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "secondDetails", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moreDetails", for: indexPath) as! TripMoreDetailsCell
+            for each in [cell.leftTitle, cell.leftText, cell.leftSubText, cell.rightTitle, cell.rightText, cell.rightSubText] {
+                each?.isHidden = true
+            }
             
+            if let moreDetails = tripManager?.getMoreDetails()?[indexPath.row] {
+                if let leftText = moreDetails.leftText {
+                    if let title = leftText.title {
+                        cell.leftTitle.text = title
+                        cell.leftTitle.isHidden = false
+                    }
+                    if let text = leftText.text {
+                        cell.leftText.text = text
+                        cell.leftText.isHidden = false
+                    }
+                    if let subText = leftText.subText {
+                        cell.leftSubText.text = subText
+                        cell.leftSubText.isHidden = false
+                    }
+                }
+                if let rightText = moreDetails.rightText {
+                    if let title = rightText.title {
+                        cell.rightTitle.text = title
+                        cell.rightTitle.isHidden = false
+                    }
+                    if let text = rightText.text {
+                        cell.rightText.text = text
+                        cell.rightText.isHidden = false
+                    }
+                    if let subText = rightText.subText {
+                        cell.rightSubText.text = subText
+                        cell.rightSubText.isHidden = false
+                    }
+                }
+            }
             
             return cell
         }  else if thisSection.type == .review {
