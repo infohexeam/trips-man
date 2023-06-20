@@ -40,6 +40,11 @@ class MeetupDetailsViewController: UIViewController {
         
         getmeetupDetails()
 
+        setupView()
+    }
+    
+    func setupView() {
+        meetupFilters.memberCount = 1
     }
     
     @IBAction func bookNowTapped(_ sender: UIButton) {
@@ -50,7 +55,9 @@ class MeetupDetailsViewController: UIViewController {
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {
                 if let tag = sender as? Int {
-                    if let description = meetupManager?.getDescription()?[tag] {
+                    if tag == 102 {
+                        vc.readMore = ReadMore(title: "Terms and Conditions", content: meetupManager?.getMeetupDetails()?.termsAndConditions ?? "")
+                    } else if let description = meetupManager?.getDescription()?[tag] {
                         vc.readMore = ReadMore(title: description.title, content: description.description)
                     }
                 }
@@ -61,6 +68,12 @@ class MeetupDetailsViewController: UIViewController {
             vc.meetupFilters = meetupFilters
             vc.listType = .meetups
         }
+    }
+}
+
+extension MeetupDetailsViewController: MemberCountDelegate {
+    func memberCoundDidChanged(to count: Int) {
+        meetupFilters.memberCount = count
     }
 }
 
@@ -117,7 +130,8 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
                 if fontSize == nil {
                     fontSize = cell.priceLabel.font.pointSize
                 }
-                
+                cell.memberCount = meetupFilters.memberCount
+                cell.delegate = self
                 cell.meetupName.text = details.meetupName
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerAmount, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceCharge) taxes and fee per person"
@@ -132,7 +146,13 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
             if let description = meetupManager?.getDescription() {
                 cell.descDetails.tag = indexPath.row
                 cell.descTitle.text = description[indexPath.row].title
-                cell.descDetails.attributedText = description[indexPath.row].description.attributedHtmlString
+                cell.readMoreView.isHidden = true
+                cell.descDetails.setAttributedHtmlText(description[indexPath.row].description)
+                cell.descDetails.numberOfLines = 0
+                if cell.descDetails.lines() > K.readMoreContentLines {
+                    cell.readMoreView.isHidden = false
+                }
+                cell.descDetails.numberOfLines = K.readMoreContentLines
                 cell.delegate = self
             }
             
@@ -159,7 +179,13 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "termsCell", for: indexPath) as! TermsCollectionViewCell
             if let details = meetupManager?.getMeetupDetails() {
                 cell.delegate = self
+                cell.readMoreView.isHidden = true
                 cell.termsLabel.setAttributedHtmlText(details.termsAndConditions)
+                cell.termsLabel.numberOfLines = 0
+                if cell.termsLabel.lines() > K.readMoreContentLines {
+                    cell.readMoreView.isHidden = false
+                }
+                cell.termsLabel.numberOfLines = K.readMoreContentLines
             }
             
             return cell

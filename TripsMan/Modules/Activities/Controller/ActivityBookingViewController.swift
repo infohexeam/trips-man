@@ -195,6 +195,7 @@ extension ActivityBookingViewController {
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage(),
+                                     "AdultCount": meetupFilters.memberCount,
                                      "booking_Guest": guests]
         
         if createdActivityBookingID != nil {
@@ -204,7 +205,7 @@ extension ActivityBookingViewController {
         
         print("\n\n params: \(params)")
         
-        parser.sendRequestLoggedIn(url: "api/CustomerWebMeetup/Web/CreateCustomerMeetupBooking", http: .post, parameters: params) { (result: MeetupBookingData?, error) in
+        parser.sendRequestLoggedIn(url: "/api/CustomerMeetup/CreateCustomerMeetupBooking", http: .post, parameters: params) { (result: MeetupBookingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

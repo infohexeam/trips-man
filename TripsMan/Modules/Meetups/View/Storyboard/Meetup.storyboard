@@ -162,6 +162,9 @@
                                                                             <color key="tintColor" name="fieldTextColor"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="minus" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="memberButtonTapped:" destination="Awe-OX-Wc0" eventType="touchUpInside" id="XZp-cU-11I"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-KY-BDC">
                                                                             <rect key="frame" x="30" y="0.0" width="1" height="40"/>
@@ -192,6 +195,9 @@
                                                                             <color key="tintColor" name="fieldTextColor"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                             <state key="normal" image="plus" catalog="system"/>
+                                                                            <connections>
+                                                                                <action selector="memberButtonTapped:" destination="Awe-OX-Wc0" eventType="touchUpInside" id="T4f-AO-Em8"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -257,6 +263,9 @@
                                             <outlet property="dateLabel" destination="yoY-RC-hSP" id="Ydj-ci-AdG"/>
                                             <outlet property="detailsLabel" destination="YHO-ly-caP" id="6To-jH-4ur"/>
                                             <outlet property="meetupName" destination="2Ue-8R-LpB" id="ykO-cm-J5P"/>
+                                            <outlet property="memberAddButton" destination="xwm-zc-oOn" id="8s8-xd-LJ2"/>
+                                            <outlet property="memberLabel" destination="Pyx-Lo-qP8" id="yBd-Ha-6iY"/>
+                                            <outlet property="memberMinusButton" destination="jnf-Vq-MDS" id="lcD-8w-0o8"/>
                                             <outlet property="priceLabel" destination="wAw-nv-zLd" id="dqL-82-V95"/>
                                             <outlet property="taxLabel" destination="llg-UA-NQ8" id="vuy-bh-c81"/>
                                         </connections>
@@ -322,6 +331,7 @@
                                         <connections>
                                             <outlet property="descDetails" destination="3Ej-k7-iqd" id="cVo-nC-3oZ"/>
                                             <outlet property="descTitle" destination="pwB-U2-QGZ" id="jbt-q2-hcr"/>
+                                            <outlet property="readMoreView" destination="PUc-Dz-DaT" id="rJB-uG-pgw"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mapCell" id="dkG-5s-nDV" customClass="MeetupMapCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
@@ -437,6 +447,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="readMoreView" destination="Wqd-Ki-vR7" id="BQr-Lj-bnj"/>
                                             <outlet property="termsLabel" destination="zT5-d4-RJL" id="D1r-qE-kDI"/>
                                         </connections>
                                     </collectionViewCell>

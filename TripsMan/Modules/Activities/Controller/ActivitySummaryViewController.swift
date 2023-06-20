@@ -306,14 +306,26 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
         if thisSection.type == .summary {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityBookSummaryCell", for: indexPath) as! ActivityBookSummaryCollectionViewCell
             if let activityBooking = activityManager?.getActivityBookingSummary() {
+                cell.nameKeyLabel.text = "Activity Name"
                 cell.activityName.text = activityBooking.activityName
-                cell.locationLabel.text = activityBooking.location
-                cell.guestsLabel.text = activityBooking.adultCount.stringValue()
+                cell.dateKeyLabel.text = "Activity Date"
                 cell.activityDate.text = activityBooking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
+                cell.guestKeyLabel.text = "Total Customers"
+                cell.guestsLabel.text = activityBooking.adultCount.stringValue()
+                cell.locationKeyLabel.text = "Location"
+                cell.locationLabel.text = activityBooking.location
+                
+                
             } else if let meetupBooking = activityManager?.getMeetupBookingSummary() {
+                cell.nameKeyLabel.text = "Meetup Name"
                 cell.activityName.text = meetupBooking.meetupName
-                //                cell.locationLabel.text = booking.
+                cell.dateKeyLabel.text = "Activity Date"
                 cell.activityDate.text = meetupBooking.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
+                cell.guestKeyLabel.text = "Total Customers"
+                cell.guestsLabel.text = meetupBooking.adultCount.stringValue()
+                cell.locationKeyLabel.text = "Location"
+                cell.locationLabel.text = meetupBooking.address
+                
             }
                         
             return cell

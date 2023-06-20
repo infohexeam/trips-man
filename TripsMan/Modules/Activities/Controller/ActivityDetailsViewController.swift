@@ -183,7 +183,17 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
                 cell.descDetails.tag = indexPath.row
                 cell.descTitle.text = description[indexPath.row].title
                 cell.descDetails.attributedText = description[indexPath.row].description.attributedHtmlString
+                
+                cell.readMoreView.isHidden = true
+                cell.descDetails.setAttributedHtmlText(description[indexPath.row].description)
+                cell.descDetails.numberOfLines = 0
+                if cell.descDetails.lines() > K.readMoreContentLines {
+                    cell.readMoreView.isHidden = false
+                }
+                cell.descDetails.numberOfLines = K.readMoreContentLines
+                
                 cell.delegate = self
+                
             }
             
             return cell
@@ -205,7 +215,13 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "termsCell", for: indexPath) as! TermsCollectionViewCell
             if let terms = activityManager?.getActivityDetails()?.termsAndConditions {
                 cell.delegate = self
+                cell.readMoreView.isHidden = true
                 cell.termsLabel.setAttributedHtmlText(terms)
+                cell.termsLabel.numberOfLines = 0
+                if cell.termsLabel.lines() > K.readMoreContentLines {
+                    cell.readMoreView.isHidden = false
+                }
+                cell.termsLabel.numberOfLines = K.readMoreContentLines
             }
             
             return cell
