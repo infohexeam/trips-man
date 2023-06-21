@@ -51,14 +51,15 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
         hideKeyboardOnTap()
     }
     
-    func getTripDetails() {
+    func getTripDetails(_ isRefresh: Bool = false) {
         if let module = module {
             switch module {
             case .hotel:
-                getHotelBookingDetails()
+                getHotelBookingDetails(isRefresh)
             case .packages:
-                getHolidayBookingDetails()
+                getHolidayBookingDetails(isRefresh)
             case .activities:
+                getActivityBookingDetails(isRefresh)
                 break
             case .meetups:
                 break
@@ -135,6 +136,50 @@ extension TripDetailsViewController {
         }
     }
     
+    func getActivityBookingDetails(_ isRefresh: Bool = false) {
+        showIndicator()
+        parser.sendRequestLoggedIn(url: "api/CustomerActivity/GetCustomerActivityBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: ActivityTripDetailsData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.tripManager = TripDetailsManager(activityTripDetails: result!.data)
+                        self.tripDetailsCollection.reloadData()
+                        if isRefresh {
+                            self.delegate?.refreshTrips()
+                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
+    func getMeetupBookingDetails(_ isRefresh: Bool = false) {
+        showIndicator()
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/GetCustomerMeetupBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: ActivityTripDetailsData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.tripManager = TripDetailsManager(activityTripDetails: result!.data)
+                        self.tripDetailsCollection.reloadData()
+                        if isRefresh {
+                            self.delegate?.refreshTrips()
+                        }
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
+    
     
     func cancelBooking() {
         showIndicator()
@@ -143,7 +188,7 @@ extension TripDetailsViewController {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-//                        self.getTripDetails(true)
+                        self.getTripDetails(true)
                         self.view.makeToast(result!.message)
                     } else {
                         self.view.makeToast(result!.message)

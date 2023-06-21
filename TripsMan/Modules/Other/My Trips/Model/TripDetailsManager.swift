@@ -107,6 +107,14 @@ struct TripDetailsManager {
         setDetailsData()
     }
     
+    init(activityTripDetails: ActivityTripDetails?) {
+        self.activityTripDetails = activityTripDetails
+        self.amountDetails = activityTripDetails?.amountdetails
+        setSections()
+        setMoreDetails()
+        setDetailsData()
+    }
+    
     func getSections() -> [TripDetailsSection]? {
         return sections
     }
@@ -126,7 +134,16 @@ struct TripDetailsManager {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
                         TripDetailsSection(type: .secondDetails, count: 3),
                         TripDetailsSection(type: .priceDetails, count: holidayTripDetails.amountdetails.count)]
+            
+            //TODO: - Cancel Booking
+        } else if let activityTripDetails = activityTripDetails {
+            sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                        TripDetailsSection(type: .secondDetails, count: 2),
+                        TripDetailsSection(type: .priceDetails, count:activityTripDetails.amountdetails.count)]
+            
+            //TODO: - Cancel Booking
         }
+
         
     }
     
@@ -268,6 +285,19 @@ struct TripDetailsManager {
             let text3 = MoreDetails(leftText: left3, rightText: right3)
             
             moreDetails = [text1, text2, text3]
+            
+        } else if let activityTripDetails = activityTripDetails {
+            moreDetails = [MoreDetails()]
+            
+            let left1 = MoreDetailsObj(title: "Activity Date", text: activityTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let right1 = MoreDetailsObj(title: "Total Members", text: activityTripDetails.totalGuest.stringValue())
+            let text1 = MoreDetails(leftText: left1, rightText: right1)
+            
+            let primary = activityTripDetails.activityguest[0]
+            let left2 = MoreDetailsObj(title: "Primary Guest", text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.emailID)\n\(primary.contactNo)")
+            let text2 = MoreDetails(leftText: left2)
+            
+            moreDetails = [text1, text2]
         }
     }
     
