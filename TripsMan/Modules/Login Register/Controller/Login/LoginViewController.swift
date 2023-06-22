@@ -95,8 +95,16 @@ extension LoginViewController {
     func login() {
         showIndicator()
         let params: [String: Any] = ["UserName": userNameField.text!,
-                                     "Password": passwordField.text!]
+                                     "Password": passwordField.text!,
+                                     "DeviceUid": UIDevice.current.identifierForVendor!.uuidString,
+                                     "DeviceModel": UIDevice.modelName,
+                                     "DeviceManufaturer": "Apple",
+                                     "OperatingSystem": UIDevice.current.systemName,
+                                     "OSVersion": UIDevice.current.systemVersion,
+                                     "FirebaseToken": SessionManager.shared.getFcmToken() ?? ""]
+        print("\nLogin with: \(params)")
         
+        return
         parser.sendRequest(url: "api/account/login", http: .post, parameters: params) { (result: LoginData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()

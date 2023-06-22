@@ -89,7 +89,7 @@ struct TripListManager {
                     let bottomLabels = [BottomLabel(icon: "person.fill", text: trip.primaryGuest),
                                         BottomLabel(icon: "person.2.fill", text: trip.adultCount.oneOrMany("Member"))]
                     
-                    tripsToShow?.append(TripsToShow(module: .packages, bookingID: trip.bookingID, tripStatus: trip.tripStatusValue, imageUrl: trip.imageURL ?? "", defaultImage: K.meetupPlaceholderImage, name: trip.name, topLabel: topLabel, subLabel: subLabel, bottomLabels: bottomLabels))
+                    tripsToShow?.append(TripsToShow(module: .meetups, bookingID: trip.bookingID, tripStatus: trip.tripStatusValue, imageUrl: trip.imageURL ?? "", defaultImage: K.meetupPlaceholderImage, name: trip.name, topLabel: topLabel, subLabel: subLabel, bottomLabels: bottomLabels))
                 }
             }
         }

@@ -12,6 +12,7 @@ struct SessionKeys {
     static let loginData = "loginData"
     static let selectedCountry = "selectedCountry"
     static let currency = "currency"
+    static let fcmToken = "fcmToken"
 }
 
 class SessionManager {
@@ -38,7 +39,9 @@ class SessionManager {
     func logout() {
         let keys = defaults.dictionaryRepresentation()
         for each in keys {
-            defaults.removeObject(forKey: each.key)
+            if each.key != SessionKeys.fcmToken {
+                defaults.removeObject(forKey: each.key)
+            }
         }
 
     }
@@ -78,5 +81,16 @@ class SessionManager {
             }
         }
         return "INR"
+    }
+    
+    func saveFcmToken(_ token: String) {
+        defaults.set(token, forKey: SessionKeys.fcmToken)
+    }
+    
+    func getFcmToken() -> String? {
+        if let token = defaults.string(forKey: SessionKeys.fcmToken) {
+            return token
+        }
+        return nil
     }
 }

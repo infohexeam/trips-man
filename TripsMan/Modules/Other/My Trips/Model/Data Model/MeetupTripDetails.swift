@@ -38,6 +38,7 @@ struct MeetupTripDetails: Codable {
 struct Meetupdetails: Codable {
     let meetupID: Int
     let meetupName, countryID: String
+    let meetupDate: String
     let countryName: String
     let shortDescription, termsandConditions: String
     let costPerPerson, status: Int
@@ -48,7 +49,7 @@ struct Meetupdetails: Codable {
         case countryID = "countryId"
         case countryName
         case shortDescription = "short_description"
-        case termsandConditions, costPerPerson, status
+        case termsandConditions, costPerPerson, status, meetupDate
     }
 }
 

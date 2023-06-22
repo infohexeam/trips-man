@@ -39,6 +39,7 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
         super.viewWillAppear(animated)
         
         addBackButton(with: "My Trips")
+        print("\n - \(module)")
         getTripDetails()
         tripDetailsCollection.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
         
@@ -60,8 +61,8 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
                 getHolidayBookingDetails(isRefresh)
             case .activities:
                 getActivityBookingDetails(isRefresh)
-                break
             case .meetups:
+                getMeetupBookingDetails(isRefresh)
                 break
             }
         }
@@ -160,12 +161,12 @@ extension TripDetailsViewController {
     
     func getMeetupBookingDetails(_ isRefresh: Bool = false) {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/GetCustomerMeetupBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: ActivityTripDetailsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/GetCustomerMeetupBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: MeetupTripDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        self.tripManager = TripDetailsManager(activityTripDetails: result!.data)
+                        self.tripManager = TripDetailsManager(meetupTripDetails: result!.data)
                         self.tripDetailsCollection.reloadData()
                         if isRefresh {
                             self.delegate?.refreshTrips()

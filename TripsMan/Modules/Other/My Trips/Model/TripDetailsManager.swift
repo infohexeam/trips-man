@@ -27,6 +27,7 @@ struct TripDetailsManager {
     var hotelTripDetails: HotelTripDetails?
     var holidayTripDetails: HolidayTripDetails?
     var activityTripDetails: ActivityTripDetails?
+    var meetupTripDetails: MeetupTripDetails?
     
     var detailsData: DetailsData?
     var moreDetails: [MoreDetails]?
@@ -115,6 +116,14 @@ struct TripDetailsManager {
         setDetailsData()
     }
     
+    init(meetupTripDetails: MeetupTripDetails?) {
+        self.meetupTripDetails = meetupTripDetails
+        self.amountDetails = meetupTripDetails?.amountDetails
+        setSections()
+        setMoreDetails()
+        setDetailsData()
+    }
+    
     func getSections() -> [TripDetailsSection]? {
         return sections
     }
@@ -140,6 +149,12 @@ struct TripDetailsManager {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
                         TripDetailsSection(type: .secondDetails, count: 2),
                         TripDetailsSection(type: .priceDetails, count:activityTripDetails.amountdetails.count)]
+            
+            //TODO: - Cancel Booking
+        } else if let meetupTripDetails = meetupTripDetails {
+            sections = [TripDetailsSection(type: .tripDetails, count: 1),
+                        TripDetailsSection(type: .secondDetails, count: 2),
+                        TripDetailsSection(type: .priceDetails, count:meetupTripDetails.amountDetails.count)]
             
             //TODO: - Cancel Booking
         }
@@ -294,7 +309,19 @@ struct TripDetailsManager {
             let text1 = MoreDetails(leftText: left1, rightText: right1)
             
             let primary = activityTripDetails.activityguest[0]
-            let left2 = MoreDetailsObj(title: "Primary Guest", text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.emailID)\n\(primary.contactNo)")
+            let left2 = MoreDetailsObj(title: "Primary Customer", text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.emailID)\n\(primary.contactNo)")
+            let text2 = MoreDetails(leftText: left2)
+            
+            moreDetails = [text1, text2]
+        } else if let meetupTripDetails = meetupTripDetails {
+            moreDetails = [MoreDetails()]
+            
+            let left1 = MoreDetailsObj(title: "Meetup Date", text: meetupTripDetails.meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let right1 = MoreDetailsObj(title: "Total Members", text: meetupTripDetails.adultCount.stringValue())
+            let text1 = MoreDetails(leftText: left1, rightText: right1)
+            
+            let primary = meetupTripDetails.meetupGuests[0]
+            let left2 = MoreDetailsObj(title: "Primary Customer", text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.email)\n\(primary.contactNo)")
             let text2 = MoreDetails(leftText: left2)
             
             moreDetails = [text1, text2]
