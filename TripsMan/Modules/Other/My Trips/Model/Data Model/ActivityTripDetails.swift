@@ -23,7 +23,7 @@ struct ActivityTripDetails: Codable {
     let totalGuest: Int
     let bookingID, activityID: Int
     let tripStatusValue: Int
-    let tripStatus: String
+    let tripStatus, tripMessage: String
     let activitydetails: [Activitydetail]
     let activityguest: [Activityguest]
     let amountdetails: [AmountDetail]
@@ -35,7 +35,7 @@ struct ActivityTripDetails: Codable {
         case totalGuest = "total_guest"
         case bookingID = "bookingId"
         case activityID = "activityId"
-        case tripStatusValue, tripStatus, activitydetails, activityguest, amountdetails
+        case tripStatusValue, tripStatus, tripMessage, activitydetails, activityguest, amountdetails
     }
 }
 
@@ -44,7 +44,7 @@ struct Activitydetail: Codable {
     let activityID: Int
     let activityName, countryID: String
     let countryName: String
-    let shortDescription: String
+    let shortDescription, activityImage: String
     let overview: String
 
     enum CodingKeys: String, CodingKey {
@@ -53,7 +53,7 @@ struct Activitydetail: Codable {
         case countryID = "countryId"
         case countryName
         case shortDescription = "short_description"
-        case overview
+        case overview, activityImage
     }
 }
 

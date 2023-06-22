@@ -37,7 +37,6 @@ struct TripDetailsManager {
     struct DetailsData {
         var topBox: TopBox
         var secondBox: SecondBox
-        var thirdBox: ThirdBox
     }
     
     struct TopBox {
@@ -52,34 +51,6 @@ struct TripDetailsManager {
         var name: String
         var address: String
     }
-    
-    struct ThirdBox {
-        var fromDate: DateLabels
-        var toDate: DateLabels?
-        var duration: String?
-        var roomAndGuestCount: String?
-        var roomType: String?
-        var primaryGuest: PrimaryGuest
-        var otherGuests: OtherGuest?
-    }
-    
-    struct DateLabels {
-        var label: String
-        var date: String
-        var time: String?
-    }
-    
-    struct PrimaryGuest {
-        var label: String
-        var nameText: String
-        var contact: String
-    }
-    
-    struct OtherGuest {
-        var label: String
-        var text: String
-    }
-    
     
     struct MoreDetails {
         var leftText: MoreDetailsObj?
@@ -178,67 +149,25 @@ struct TripDetailsManager {
             let topBox = TopBox(tripStatus: hotelTripDetails.tripStatus, bookingNo: "BOOKING ID - \(hotelTripDetails.bookingNo ?? "")", bookedDate: "Booked on \(hotelTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: hotelTripDetails.tripMessage)
             let secondBox = SecondBox(image: hotelTripDetails.imageURL ?? "", name: hotelTripDetails.hotelName, address: hotelTripDetails.hotelDetails.address.capitalizedSentence)
             
-            let fromDate = DateLabels(label: "Check-in", date: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: hotelTripDetails.hotelDetails.checkInTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
-            let toDate = DateLabels(label: "Check-out", date: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: hotelTripDetails.hotelDetails.checkOutTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
-            
-            let duration = hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.numberOfDays(to: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date()).oneOrMany("Night")
-            let roomAndGuestCount = "\(hotelTripDetails.roomCount.oneOrMany("Room")) for \(hotelTripDetails.adultCount.oneOrMany("Adult")), \(hotelTripDetails.childCount.oneOrMany("Child", suffix: "ren"))"
-            let primary = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 1}).last
-            let primaryGuest = PrimaryGuest(label: "Primary Guest", nameText: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", contact: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
-            let others = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 0})
-            var otherGuestText = ""
-            for other in others {
-                otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
-            }
-            let otherGuest = OtherGuest(label: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
-            
-            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: roomAndGuestCount, roomType: hotelTripDetails.roomDetails.count > 0 ? hotelTripDetails.roomDetails[0].roomType : "", primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
-            
-            detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
+            detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
         } else if let holidayTripDetails = holidayTripDetails {
             let topBox = TopBox(tripStatus: holidayTripDetails.tripStatus, bookingNo: "BOOKING ID - \(holidayTripDetails.bookingNo)", bookedDate: "Booked on \(holidayTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: holidayTripDetails.tripMessage)
             
             let secondBox = SecondBox(image: holidayTripDetails.imageUrl, name: holidayTripDetails.packagedetails[0].packageName, address: holidayTripDetails.packagedetails[0].shortDescription)
             
-            let fromDate = DateLabels(label: "Start Date", date: holidayTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
-            let toDate = DateLabels(label: "End Date", date: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
-            
-            let duration = holidayTripDetails.packagedetails[0].duration
-            let guestCount = "\(holidayTripDetails.adultCount.oneOrMany("Adult")), \(holidayTripDetails.childCount.oneOrMany("Child", suffix: "ren"))"
-            let primary = holidayTripDetails.packageguest.filter({ $0.isPrimary == 1}).last
-            let primaryGuest = PrimaryGuest(label: "Primary Guest", nameText: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", contact: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
-            let others = holidayTripDetails.packageguest.filter({ $0.isPrimary == 0})
-            var otherGuestText = ""
-            for other in others {
-                otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
-            }
-            let otherGuest = OtherGuest(label: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
-            
-            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: "", roomType: guestCount, primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
-            
-            detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
+            detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
         } else if let activityTripDetails = activityTripDetails {
-            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID - \(activityTripDetails.bookingNo)", bookedDate: "Booked on \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: "//TODO: -")
+            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID - \(activityTripDetails.bookingNo)", bookedDate: "Booked on \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: activityTripDetails.tripMessage)
             
-            let secondBox = SecondBox(image: "", name: activityTripDetails.activitydetails[0].activityName, address: activityTripDetails.activitydetails[0].shortDescription)
+            let secondBox = SecondBox(image: activityTripDetails.activitydetails[0].activityImage, name: activityTripDetails.activitydetails[0].activityName, address: activityTripDetails.activitydetails[0].shortDescription)
             
-            let fromDate = DateLabels(label: "Start Date", date: activityTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
-            //            let toDate = DateLabels(label: "End Date", date: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", time: "")
+            detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
+        } else if let meetupTripDetails = meetupTripDetails {
+            let topBox = TopBox(tripStatus: meetupTripDetails.tripStatus, bookingNo: "BOOKING ID - \(meetupTripDetails.bookingNo)", bookedDate: "Booked on \(meetupTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: meetupTripDetails.tripMessage)
             
-            //            let duration = holidayTripDetails.packagedetails[0].duration
-            //            let guestCount = "\(holidayTripDetails.adultCount.oneOrMany("Adult")), \(holidayTripDetails.childCount.oneOrMany("Child", suffix: "ren"))"
-            //            let primary = holidayTripDetails.packageguest.filter({ $0.isPrimary == 1}).last
-            //            let primaryGuest = PrimaryGuest(label: "Primary Guest", nameText: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", contact: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
-            //            let others = holidayTripDetails.packageguest.filter({ $0.isPrimary == 0})
-            //            var otherGuestText = ""
-            //            for other in others {
-            //                otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
-            //            }
-            //            let otherGuest = OtherGuest(label: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
-            //
-            //            let thirdBox = ThirdBox(fromDate: fromDate, toDate: toDate, duration: duration, roomAndGuestCount: "", roomType: guestCount, primaryGuest: primaryGuest, otherGuests: otherGuest.text == "" ? nil : otherGuest)
-            //
-            //            detailsData = DetailsData(topBox: topBox, secondBox: secondBox, thirdBox: thirdBox)
+            let secondBox = SecondBox(image: meetupTripDetails.imageUrl ?? "", name: meetupTripDetails.meetupDetails.meetupName, address: meetupTripDetails.meetupDetails.shortDescription)
+            
+            detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
         }
         
         

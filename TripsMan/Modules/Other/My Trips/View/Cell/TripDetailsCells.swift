@@ -20,31 +20,6 @@ class TripDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var address: UILabel!
     
-    //ThirdBox
-    @IBOutlet weak var fromDateView: UIView!
-    @IBOutlet weak var fromDateLabel: UILabel!
-    @IBOutlet weak var fromDateText: UILabel!
-    @IBOutlet weak var fromDateTime: UILabel!
-    
-    @IBOutlet weak var toDateView: UIView!
-    @IBOutlet weak var toDateLabel: UILabel!
-    @IBOutlet weak var toDateText: UILabel!
-    @IBOutlet weak var toDateTime: UILabel!
-    
-    @IBOutlet weak var roomAndGuestLabel: UILabel!
-    @IBOutlet weak var roomTypeLabel: UILabel!
-    
-    @IBOutlet weak var primaryGuestView: UIView!
-    @IBOutlet weak var primaryGuestLabel: UILabel!
-    @IBOutlet weak var primaryGuestName: UILabel!
-    @IBOutlet weak var primaryGuestContact: UILabel!
-    
-    @IBOutlet weak var otherGuestView: UIView!
-    @IBOutlet weak var otherGuestLabel: UILabel!
-    @IBOutlet weak var othterGuestText: UILabel!
-    
-    @IBOutlet weak var daysLabel: UILabel!
-    
     
 }
 

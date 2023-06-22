@@ -319,44 +319,6 @@ extension TripDetailsViewController: UICollectionViewDataSource {
                 cell.address.text = secondBox.address
             }
             
-            if let thirdBox = tripManager?.getDetailsData()?.thirdBox {
-                cell.fromDateLabel.text = thirdBox.fromDate.label
-                cell.fromDateText.text = thirdBox.fromDate.date
-                cell.fromDateTime.text = thirdBox.fromDate.time
-                
-                cell.toDateView.isHidden = true
-                if let toDate = thirdBox.toDate {
-                    cell.toDateView.isHidden = false
-                    cell.toDateLabel.text = toDate.label
-                    cell.toDateText.text = toDate.date
-                    cell.toDateTime.text = toDate.time
-                }
-                
-                cell.roomAndGuestLabel.isHidden = true
-                if let roomAndGuest = thirdBox.roomAndGuestCount {
-                    cell.roomAndGuestLabel.isHidden = false
-                    cell.roomAndGuestLabel.text = roomAndGuest
-                }
-                cell.roomTypeLabel.isHidden = true
-                if let roomType = thirdBox.roomType {
-                    cell.roomTypeLabel.isHidden = false
-                    cell.roomTypeLabel.text = roomType
-                }
-                
-                cell.primaryGuestLabel.text = thirdBox.primaryGuest.label
-                cell.primaryGuestName.text = thirdBox.primaryGuest.nameText
-                cell.primaryGuestContact.text = thirdBox.primaryGuest.contact
-                
-                cell.otherGuestView.isHidden = true
-                if let otherGuest = thirdBox.otherGuests {
-                    cell.otherGuestView.isHidden = false
-                    cell.otherGuestLabel.text = otherGuest.label
-                    cell.othterGuestText.text = otherGuest.text
-                }
-                
-                
-                cell.daysLabel.text = thirdBox.duration
-            }
             
             return cell
         } else if thisSection.type == .priceDetails {

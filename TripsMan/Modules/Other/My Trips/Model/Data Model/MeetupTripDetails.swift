@@ -21,6 +21,7 @@ struct MeetupTripDetails: Codable {
     let bookingID, meetupID: Int
     let adultCount, tripStatusValue: Int
     let tripStatus, tripMessage: String
+    let imageUrl: String?
     let meetupGuests: [MeetupGuest]
     let meetupDetails: Meetupdetails
     let amountDetails: [AmountDetail]
@@ -30,7 +31,7 @@ struct MeetupTripDetails: Codable {
         case totalGuest
         case bookingID = "bookingId"
         case meetupID = "meetupId"
-        case adultCount, tripStatusValue, tripStatus, tripMessage, meetupGuests, meetupDetails, amountDetails
+        case adultCount, tripStatusValue, tripStatus, tripMessage, meetupGuests, meetupDetails, amountDetails, imageUrl
     }
 }
 
