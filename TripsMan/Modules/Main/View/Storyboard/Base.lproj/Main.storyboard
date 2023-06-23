@@ -1432,13 +1432,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ0-oG-tg4">
-                                                <rect key="frame" x="35" y="0.0" width="35" height="33"/>
+                                                <rect key="frame" x="35" y="0.0" width="22" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="language" translatesAutoresizingMaskIntoConstraints="NO" id="hQH-LM-tc4">
-                                                        <rect key="frame" x="4" y="4" width="27" height="25"/>
+                                                        <rect key="frame" x="4" y="4" width="14" height="25"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-gK-2Sq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                     </button>
@@ -1457,13 +1457,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEM-xt-pwa">
-                                                <rect key="frame" x="70" y="0.0" width="22" height="33"/>
+                                                <rect key="frame" x="57" y="0.0" width="35" height="33"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-nav-notification" translatesAutoresizingMaskIntoConstraints="NO" id="xMT-Sz-CFz">
-                                                        <rect key="frame" x="4" y="4" width="14" height="25"/>
+                                                        <rect key="frame" x="4" y="4" width="27" height="25"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-Xz-4cB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="22" height="33"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="33"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain"/>
                                                         <connections>
@@ -1606,46 +1606,46 @@
     </scenes>
     <designables>
         <designable name="0P1-yM-Z0G">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="6gI-UB-Gee">
-            <size key="intrinsicContentSize" width="147" height="31.5"/>
+            <size key="intrinsicContentSize" width="145.5" height="32"/>
         </designable>
         <designable name="7wp-Hs-RPU">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="BeP-6J-yCO">
-            <size key="intrinsicContentSize" width="73.5" height="31.5"/>
+            <size key="intrinsicContentSize" width="72" height="32"/>
         </designable>
         <designable name="G6h-oe-mND">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="GON-Kf-SQR">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="RiR-1C-ha6">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="UJs-Av-qWz">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="Ug7-rm-zHe">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="cvb-5z-Ulb">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="fAB-7v-z1Z">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="prD-Iu-rd1">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="uKM-5p-fF1">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="veT-Tj-0YA">
-            <size key="intrinsicContentSize" width="33" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

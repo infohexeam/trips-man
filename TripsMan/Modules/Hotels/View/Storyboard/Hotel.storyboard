@@ -3602,88 +3602,19 @@ velit esse quam nihil molestiae consequatur.</string>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuR-lZ-2vO">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfc-tj-blt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="721"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title=" "/>
-                                        <connections>
-                                            <action selector="outsiderPickerTapped:" destination="vmJ-tU-cqd" eventType="touchUpInside" id="95i-pp-aDl"/>
-                                        </connections>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Zv-rq-nHg">
-                                        <rect key="frame" x="0.0" y="455" width="414" height="266"/>
-                                        <subviews>
-                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rq3-w3-k1A">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                                <items>
-                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="m6J-cN-dSH"/>
-                                                    <barButtonItem title="Select" id="oQt-Bv-gUm">
-                                                        <color key="tintColor" name="primaryColor"/>
-                                                        <connections>
-                                                            <action selector="pickerSelectTapped:" destination="vmJ-tU-cqd" id="u7e-Hg-Y3f"/>
-                                                        </connections>
-                                                    </barButtonItem>
-                                                </items>
-                                            </toolbar>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYb-bi-dxJ">
-                                                <rect key="frame" x="0.0" y="50" width="414" height="216"/>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="vmJ-tU-cqd" id="rW8-lu-fsO"/>
-                                                    <outlet property="delegate" destination="vmJ-tU-cqd" id="89T-rn-t1x"/>
-                                                </connections>
-                                            </pickerView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="JYb-bi-dxJ" secondAttribute="bottom" id="RX9-Av-cAK"/>
-                                            <constraint firstItem="JYb-bi-dxJ" firstAttribute="leading" secondItem="2Zv-rq-nHg" secondAttribute="leading" id="XRi-ZY-524"/>
-                                            <constraint firstAttribute="trailing" secondItem="Rq3-w3-k1A" secondAttribute="trailing" id="acN-La-KXJ"/>
-                                            <constraint firstItem="Rq3-w3-k1A" firstAttribute="top" secondItem="2Zv-rq-nHg" secondAttribute="top" id="fNQ-RW-rPl"/>
-                                            <constraint firstItem="Rq3-w3-k1A" firstAttribute="leading" secondItem="2Zv-rq-nHg" secondAttribute="leading" id="g4p-T1-tPE"/>
-                                            <constraint firstAttribute="trailing" secondItem="JYb-bi-dxJ" secondAttribute="trailing" id="pig-Xv-MdD"/>
-                                            <constraint firstItem="JYb-bi-dxJ" firstAttribute="top" secondItem="2Zv-rq-nHg" secondAttribute="top" constant="50" id="zuI-4r-Rfq"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.50299345100000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mfc-tj-blt" secondAttribute="trailing" id="1zo-Et-DBa"/>
-                                    <constraint firstItem="2Zv-rq-nHg" firstAttribute="leading" secondItem="fuR-lZ-2vO" secondAttribute="leading" id="8Yo-zN-Vr4"/>
-                                    <constraint firstAttribute="bottom" secondItem="2Zv-rq-nHg" secondAttribute="bottom" id="FvV-y6-gVI"/>
-                                    <constraint firstItem="mfc-tj-blt" firstAttribute="top" secondItem="fuR-lZ-2vO" secondAttribute="top" id="J29-RX-rkF"/>
-                                    <constraint firstItem="mfc-tj-blt" firstAttribute="leading" secondItem="fuR-lZ-2vO" secondAttribute="leading" id="L67-Lg-rKG"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Zv-rq-nHg" secondAttribute="trailing" id="PqK-2m-CV6"/>
-                                    <constraint firstAttribute="bottom" secondItem="mfc-tj-blt" secondAttribute="bottom" id="sTe-Gu-hYV"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5H5-qr-Zhy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5H5-qr-Zhy" firstAttribute="bottom" secondItem="fuR-lZ-2vO" secondAttribute="bottom" id="EHH-Vv-Jur"/>
-                            <constraint firstItem="fuR-lZ-2vO" firstAttribute="leading" secondItem="5H5-qr-Zhy" secondAttribute="leading" id="G6m-YL-LcH"/>
                             <constraint firstItem="5H5-qr-Zhy" firstAttribute="trailing" secondItem="ccR-Gx-4GQ" secondAttribute="trailing" id="J3I-Rh-4V7"/>
                             <constraint firstAttribute="bottom" secondItem="ccR-Gx-4GQ" secondAttribute="bottom" placeholder="YES" id="M7A-xK-ZcC"/>
                             <constraint firstItem="ccR-Gx-4GQ" firstAttribute="top" secondItem="5H5-qr-Zhy" secondAttribute="top" id="NtI-Ha-fXw"/>
-                            <constraint firstItem="5H5-qr-Zhy" firstAttribute="trailing" secondItem="fuR-lZ-2vO" secondAttribute="trailing" id="QUu-Ln-CTX"/>
                             <constraint firstItem="ccR-Gx-4GQ" firstAttribute="leading" secondItem="5H5-qr-Zhy" secondAttribute="leading" id="cWa-R1-mHz"/>
-                            <constraint firstItem="fuR-lZ-2vO" firstAttribute="top" secondItem="5H5-qr-Zhy" secondAttribute="top" id="kRc-wb-EpN"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="fuR-lZ-2vO"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="jFh-9D-8bt"/>
                     <connections>
                         <outlet property="collectionView" destination="ccR-Gx-4GQ" id="Trb-cd-4dj"/>
-                        <outlet property="genderPicker" destination="JYb-bi-dxJ" id="JgB-a2-pH7"/>
-                        <outlet property="pickerContainer" destination="fuR-lZ-2vO" id="1fU-M0-hEz"/>
-                        <outlet property="pickerSelectButton" destination="oQt-Bv-gUm" id="Enl-7J-JuX"/>
                         <segue destination="Nk5-tI-O4s" kind="show" identifier="toRoomSelectionSummary" id="gt7-7r-qKW"/>
                     </connections>
                 </viewController>

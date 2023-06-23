@@ -37,11 +37,11 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        tripDetailsCollection.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
         addBackButton(with: "My Trips")
         print("\n - \(module)")
         getTripDetails()
-        tripDetailsCollection.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+        
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }

@@ -43,6 +43,8 @@ class PackageBookingViewController: UIViewController {
         if let packageDetails = packageFilter.packageDetails {
             packageManager = PackageBookingManager(packageDetails: packageDetails)
         }
+        
+        packageCollectionView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
     }
     
     func presentDatePicker() {

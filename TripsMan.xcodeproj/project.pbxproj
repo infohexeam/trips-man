@@ -1345,8 +1345,8 @@
 			children = (
 				C145C9462A1F238D0002FAF0 /* Room Details */,
 				C1CA192129B9BC5A00CFD04A /* Hotel Details */,
-				C1FFA5A228E54A3400E13D75 /* Room Selection Summary */,
 				C1FFA59D28E3FB3A00E13D75 /* Room Selection */,
+				C1FFA5A228E54A3400E13D75 /* Room Selection Summary */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

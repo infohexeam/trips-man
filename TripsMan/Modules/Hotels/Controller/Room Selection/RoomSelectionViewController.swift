@@ -29,10 +29,7 @@ class RoomSelectionViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var genderPicker: UIPickerView!
-    @IBOutlet weak var pickerContainer: UIView!
     
-    @IBOutlet weak var pickerSelectButton: UIBarButtonItem!
     
     enum SectionTypes {
         case summary
@@ -71,9 +68,6 @@ class RoomSelectionViewController: UIViewController {
         
         textFieldsTexts = [IndexPath:GuestFds]()
         createdBookingID = nil
-        
-        pickerContainer.isHidden = true
-    
         sections = [RoomSelectionSection(type: .summary, count: 1),
                     RoomSelectionSection(type: .primaryFields, count: 1),
                     RoomSelectionSection(type: .actions, count: 1)]

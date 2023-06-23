@@ -1336,7 +1336,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="K7E-nV-0F3" firstAttribute="top" secondItem="99Z-w8-xdi" secondAttribute="top" id="2J3-lo-00F"/>
-                            <constraint firstItem="99Z-w8-xdi" firstAttribute="bottom" secondItem="K7E-nV-0F3" secondAttribute="bottom" id="BIy-yR-Mha"/>
+                            <constraint firstItem="99Z-w8-xdi" firstAttribute="bottom" secondItem="K7E-nV-0F3" secondAttribute="bottom" placeholder="YES" id="BIy-yR-Mha"/>
                             <constraint firstItem="K7E-nV-0F3" firstAttribute="leading" secondItem="99Z-w8-xdi" secondAttribute="leading" id="tu4-FY-6W9"/>
                             <constraint firstItem="99Z-w8-xdi" firstAttribute="trailing" secondItem="K7E-nV-0F3" secondAttribute="trailing" id="uIb-cs-VAy"/>
                         </constraints>

@@ -1181,8 +1181,8 @@
                         <constraints>
                             <constraint firstItem="SIt-5e-0yM" firstAttribute="leading" secondItem="ZWh-G5-WSl" secondAttribute="leading" id="7Pc-xv-c0S"/>
                             <constraint firstItem="SIt-5e-0yM" firstAttribute="top" secondItem="ZWh-G5-WSl" secondAttribute="top" id="NfS-9o-nc5"/>
-                            <constraint firstItem="ZWh-G5-WSl" firstAttribute="bottom" secondItem="SIt-5e-0yM" secondAttribute="bottom" id="coF-H0-bzm"/>
                             <constraint firstItem="ZWh-G5-WSl" firstAttribute="trailing" secondItem="SIt-5e-0yM" secondAttribute="trailing" id="krj-hv-qhg"/>
+                            <constraint firstAttribute="bottom" secondItem="SIt-5e-0yM" secondAttribute="bottom" placeholder="YES" id="vyz-XW-nu1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="poH-In-qaX"/>

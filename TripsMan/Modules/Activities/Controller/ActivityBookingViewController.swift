@@ -60,6 +60,8 @@ class ActivityBookingViewController: UIViewController {
             meetupManager = MeetupBookingManager(meetupDetails: meetupDetails)
         }
         
+        activityCollectionView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+        
     }
     
     
