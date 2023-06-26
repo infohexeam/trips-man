@@ -31,7 +31,10 @@ class CheckoutViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        addBackButton(with: "Checkout")
+        let vc = self.navigationController?.viewControllers
+        if let vc = vc {
+            addBackButton(with: "Checkout", toVc: vc.count-3)
+        }
     }
 
     override func viewDidLoad() {
@@ -156,7 +159,7 @@ extension CheckoutViewController {
             case .activities:
                 url = "api/CustomerActivityCoupon/RemoveCustomerActivityRewardPoint"
             case .meetups:
-                url = "api/CustomerMeetupCoupon/RemoveCustomerMeetupCoupen"
+                url = "api/CustomerMeetupCoupon/RemoveCustomerMeetupRewardPoint"
             }
         }
         

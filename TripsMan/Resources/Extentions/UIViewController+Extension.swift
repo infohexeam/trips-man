@@ -45,13 +45,17 @@ extension UIViewController {
         self.tabBarController?.tabBar.scrollEdgeAppearance = tabBarAppearance
     }
     
-    func addBackButton(with title: String) {
+    func addBackButton(with title: String, toVc: Int? = nil) {
         let logo = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         let logoView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 40))
         logoView.image = UIImage(named: "logo-icon")
         logoView.contentMode = .scaleAspectFit
         logo.customView = logoView
         let backButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(back))
+        if let toVc = toVc {
+            backButton.tag = toVc
+            backButton.action = #selector(backToVc)
+        }
         backButton.image = UIImage(systemName: "chevron.backward")
         self.tabBarController?.navigationItem.leftBarButtonItems = [backButton, logo]
         self.tabBarController?.navigationItem.title = title
@@ -59,6 +63,13 @@ extension UIViewController {
     
     @objc func back() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func backToVc(_ sender: UIButton) {
+        let vc = self.navigationController?.viewControllers[sender.tag]
+        if let vc = vc {
+            self.navigationController?.popToViewController(vc, animated: true)
+        }
     }
     
     @objc func menu() {

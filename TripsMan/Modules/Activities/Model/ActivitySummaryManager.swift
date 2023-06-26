@@ -136,11 +136,6 @@ struct ActivitySummaryManager {
     }
     
     func getAmountDetails() -> [AmountDetail]? {
-        if let activityBookingData = activityBookingData {
-            return activityBookingData.amountDetails
-        } else if let meetupBookingData = meetupBookingData {
-            return meetupBookingData.amountDetails
-        }
-        return nil
+        return amountDetails
     }
 }
