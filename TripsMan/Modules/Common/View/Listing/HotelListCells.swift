@@ -25,6 +25,7 @@ class HotelListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
    
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!

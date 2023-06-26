@@ -17,6 +17,7 @@ struct ListingData: Codable {
     var userRating: UserRating?
     var listName: String
     var secondText: String
+    var desc: String?
     var actualPrice: Double
     var offerPrice: Double
     var taxLabelText: String

@@ -518,6 +518,11 @@ extension ListingViewController: UICollectionViewDataSource {
                 
                 cell.nameLabel.text = data.listName
                 cell.secondLabel.text = data.secondText
+                cell.descLabel.isHidden = true
+                if let desc = data.desc {
+                    cell.descLabel.text = desc
+                    cell.descLabel.isHidden = false
+                }
                 
                 if fontSize == nil {
                     fontSize = cell.priceLabel.font.pointSize
@@ -665,9 +670,6 @@ extension ListingViewController: FilterDelegate {
                 selectedFilters[filters[index.section - 1].filterKey]?.append(filters[index.section - 1].values[index.row].id)
             }
             selectedFilterIndexes = filterIndexes
-            
-//            hotelFilters.filters = selectedFilters
-//            hotelFilters.rate = Rate(from: Int(minimumPrice), to: Int(maximumPrice))
             assignFilters(filters: selectedFilters, rate: Rate(from: Int(minimumPrice), to: Int(maximumPrice)))
 
         }
