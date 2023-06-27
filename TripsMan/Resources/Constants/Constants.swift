@@ -37,6 +37,21 @@ struct K {
     static let otpSentSuccessMessage = "Successfully sent OTP"
     static let otpFailureMessage = "OTP is invalid or expired"
     
+    static let razorpayKey = "rzp_test_wcxqh0E3miedHg"
+    
+    static func getModuleCode(_ listType: ListType) -> String {
+        switch listType {
+        case .hotel:
+            return "HTL"
+        case .packages:
+            return "HDY"
+        case .activities:
+            return "ACT"
+        case .meetups:
+            return "MTP"
+        }
+    }
+    
 }
 
 struct MobileCodes {

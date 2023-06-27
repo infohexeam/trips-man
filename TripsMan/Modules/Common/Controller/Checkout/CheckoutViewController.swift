@@ -6,11 +6,9 @@
 //
 
 import UIKit
+import Razorpay
 
 class CheckoutViewController: UIViewController {
-    
-    @IBOutlet weak var successView: UIView!
-    @IBOutlet weak var successLabel: UILabel!
     
     @IBOutlet weak var checkoutCollectionView: UICollectionView! {
         didSet {
@@ -29,6 +27,9 @@ class CheckoutViewController: UIViewController {
     
     var rewardApplied = false
     
+    var razorpay: RazorpayCheckout!
+    var paymentOrderId: String?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let vc = self.navigationController?.viewControllers
@@ -39,11 +40,11 @@ class CheckoutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        successView.isHidden = true
 
         if let checkoutData = checkoutData {
             checkoutManager = CheckoutManager(checkoutData: checkoutData, amounts: nil)
             checkoutCollectionView.reloadData()
+
         }
     }
     
@@ -57,52 +58,31 @@ class CheckoutViewController: UIViewController {
     }
     
     @IBAction func proceedButtonTapped(_ sender: UIButton) {
-        confirmBooking()
+        if let paymentOrderId = paymentOrderId {
+            openRazorPay(with: paymentOrderId)
+        } else {
+            createPaymentOrder()
+        }
     }
     
     @IBAction func returnHomeButton(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SuccessViewController {
+            if let response = sender as? [AnyHashable: Any] {
+                vc.paymentResponse = response
+                vc.bookingID = bookingID
+                vc.listType = listType
+            }
+        }
     }
 
 }
 
 //MARK: - APICalls
 extension CheckoutViewController {
-    func confirmBooking() {
-        showIndicator()
-        
-        var url = ""
-        if let listType = listType {
-            switch listType {
-            case .hotel:
-                url = "api/CustomerHotelBooking/ConfirmCustomerHotelBooking?BookingId=\(bookingID)"
-            case .packages:
-                url = "api/CustomerHoliday/ConfirmCustomerHolidayBooking?BookingId=\(bookingID)"
-            case .activities:
-                url = "api/CustomerActivity/ConfirmCustomerActivityBooking?BookingId=\(bookingID)"
-            case .meetups:
-                url = "api/CustomerMeetup/ConfirmCustomerMeetupBooking?BookingId=\(bookingID)"
-            }
-        }
-        
-        parser.sendRequestLoggedIn(url: url, http: .post, parameters: nil) { (result: BasicResponse?, error) in
-            DispatchQueue.main.async {
-                self.hideIndicator()
-                if error == nil {
-                    if result!.status == 1 {
-                        self.successView.isHidden = false
-                        self.successLabel.text = result!.message
-                    } else {
-                        self.view.makeToast(result!.message)
-                    }
-                } else {
-                    self.view.makeToast("Something went wrong!")
-                }
-                    
-            }
-        }
-    }
-    
     
     func applyRewardPoint() {
         showIndicator()
@@ -187,6 +167,32 @@ extension CheckoutViewController {
             }
         }
     }
+    
+    
+    func createPaymentOrder() {
+        self.showIndicator()
+        let params: [String: Any] = ["bookingId": bookingID,
+                                     "moduleCode": K.getModuleCode(listType ?? .hotel)]
+        
+        parser.sendRequestLoggedIn(url: "api/Payment/CreateOrder", http: .post, parameters: params) { (result: PaymentData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.paymentOrderId = result!.data
+                        self.openRazorPay(with: result!.data)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+                    
+            }
+        }
+    }
+    
+   
 }
 
 //MARK: - UICollectionView

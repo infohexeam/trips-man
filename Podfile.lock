@@ -4,6 +4,7 @@ PODS:
   - GooglePlaces (7.1.0)
   - "Keyboard+LayoutGuide (1.6.0)"
   - RangeSeekSlider (1.8.0)
+  - razorpay-pod (1.2.5)
   - SDWebImage (5.15.6):
     - SDWebImage/Core (= 5.15.6)
   - SDWebImage/Core (5.15.6)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - GooglePlaces (= 7.1.0)
   - "Keyboard+LayoutGuide"
   - RangeSeekSlider
+  - razorpay-pod (= 1.2.5)
   - SDWebImage
   - SideMenu (~> 6.0)
   - Toast-Swift (~> 5.0.1)
@@ -27,6 +29,7 @@ SPEC REPOS:
     - GooglePlaces
     - "Keyboard+LayoutGuide"
     - RangeSeekSlider
+    - razorpay-pod
     - SDWebImage
     - SideMenu
     - Toast-Swift
@@ -37,10 +40,11 @@ SPEC CHECKSUMS:
   GooglePlaces: 187946335ec3dc624de71c0a9ddcc712f19b0ee1
   "Keyboard+LayoutGuide": db44b1764e2bb5d9824cc9cea9d9006cd4442045
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
+  razorpay-pod: aa2df076ea44baab6cc8296c1ccc715fe2ca818c
   SDWebImage: d47d81bea8a77187896b620dc79c3c528e8906b9
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 14acaed8a095adaee5105dad0c6af4c1434f7f7f
+PODFILE CHECKSUM: a8ae731b274fb9053b27ac768581ff4abd098ba3
 
 COCOAPODS: 1.12.1

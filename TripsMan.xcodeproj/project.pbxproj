@@ -121,6 +121,9 @@
 		C19F813D296BF6A00057119F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F813C296BF6A00057119F /* String+Extension.swift */; };
 		C19F91B72A440FFE00098A0A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C19F91B62A440FFE00098A0A /* FirebaseMessaging */; };
 		C19F91B92A4414EF00098A0A /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19F91B82A4414EF00098A0A /* UIDevice+Extension.swift */; };
+		C1A275792A4AA9BB001ABF95 /* Checkout+Razorpay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A275782A4AA9BB001ABF95 /* Checkout+Razorpay.swift */; };
+		C1A2757B2A4AB3ED001ABF95 /* PaymentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2757A2A4AB3ED001ABF95 /* PaymentData.swift */; };
+		C1A2757E2A4AE7E5001ABF95 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2757D2A4AE7E5001ABF95 /* SuccessViewController.swift */; };
 		C1A2C1BE29793DEF00F34ACF /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2C1BD29793DEF00F34ACF /* Double+Extension.swift */; };
 		C1A2C1C12979499500F34ACF /* HotelDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A2C1C02979499500F34ACF /* HotelDetailsData.swift */; };
 		C1AEB61829F79BF400F3A40A /* ActivityDescriptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AEB61729F79BF400F3A40A /* ActivityDescriptionCollectionViewCell.swift */; };
@@ -335,6 +338,9 @@
 		C19EF45F29659B5F008EDD66 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C19F813C296BF6A00057119F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		C19F91B82A4414EF00098A0A /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		C1A275782A4AA9BB001ABF95 /* Checkout+Razorpay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Checkout+Razorpay.swift"; sourceTree = "<group>"; };
+		C1A2757A2A4AB3ED001ABF95 /* PaymentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentData.swift; sourceTree = "<group>"; };
+		C1A2757D2A4AE7E5001ABF95 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		C1A2C1BD29793DEF00F34ACF /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		C1A2C1C02979499500F34ACF /* HotelDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailsData.swift; sourceTree = "<group>"; };
 		C1AEB61729F79BF400F3A40A /* ActivityDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1106,6 +1112,7 @@
 				C155DF092A04F67000F9ED58 /* MeetupListingData.swift */,
 				C1EF48422A1727A8002C877A /* SearchData.swift */,
 				C140C15A2A27179F0099D707 /* CheckoutData.swift */,
+				C1A2757A2A4AB3ED001ABF95 /* PaymentData.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -1527,6 +1534,8 @@
 			isa = PBXGroup;
 			children = (
 				C1D349522A26104500838609 /* CheckoutViewController.swift */,
+				C1A275782A4AA9BB001ABF95 /* Checkout+Razorpay.swift */,
+				C1A2757D2A4AE7E5001ABF95 /* SuccessViewController.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -1919,6 +1928,7 @@
 				C19EF45929652EFA008EDD66 /* CountryData.swift in Sources */,
 				C177E55328E8426800083012 /* Date+Extension.swift in Sources */,
 				C15E31EE28C6D4E600E209EB /* LoginViewController.swift in Sources */,
+				C1A2757B2A4AB3ED001ABF95 /* PaymentData.swift in Sources */,
 				C14894C229ED0B0400EB559E /* ActivityListingData.swift in Sources */,
 				C1AEB61829F79BF400F3A40A /* ActivityDescriptionCollectionViewCell.swift in Sources */,
 				C1422EA92A06525E005E83D2 /* MeetupDetailsViewController.swift in Sources */,
@@ -1989,6 +1999,7 @@
 				C12D83F72949808F0091B311 /* NotificationViewController.swift in Sources */,
 				C17736662966DBE900845EF7 /* BannerData.swift in Sources */,
 				C165D0112A11ED3A00FF647C /* TripsFilters.swift in Sources */,
+				C1A275792A4AA9BB001ABF95 /* Checkout+Razorpay.swift in Sources */,
 				C15E320828C81DD100E209EB /* ResetPasswordViewController.swift in Sources */,
 				C1F788E029DBF7980019B148 /* PackageActionCollectionViewCell.swift in Sources */,
 				C1DF2D7E29BF2A40000732B7 /* PackageListingData.swift in Sources */,
@@ -2026,6 +2037,7 @@
 				C1E3359529F931A0007FAF32 /* ActivityHeaderView.swift in Sources */,
 				C14B489A290FC21000D8FFBA /* ProfileData.swift in Sources */,
 				C14A983328E15273000C52AA /* HotelDetailsViewController.swift in Sources */,
+				C1A2757E2A4AE7E5001ABF95 /* SuccessViewController.swift in Sources */,
 				C147E6FE299DF2EE00ED4428 /* ListingManager.swift in Sources */,
 				C1FFA59C28E3E08100E13D75 /* HomeCells.swift in Sources */,
 				C1E7E99329FA565A00676237 /* ActivityBookingViewController.swift in Sources */,

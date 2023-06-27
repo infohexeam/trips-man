@@ -286,11 +286,11 @@ class ListingViewController: UIViewController {
         case .hotel:
             getHotels(isPagination: isPagination)
         case .packages:
-            getPackages()
+            getPackages(isPagination: isPagination)
         case .activities:
-            getActivities()
+            getActivities(isPagination: isPagination)
         case .meetups:
-            getMeetups()
+            getMeetups(isPagination: isPagination)
         }
     }
    
@@ -324,15 +324,7 @@ class ListingViewController: UIViewController {
             }
         } else if let vc = segue.destination as? SearchViewController {
             vc.delegate = self
-            if listType == .hotel {
-                vc.module = "HTL"
-            } else if listType == .packages {
-                vc.module = "HDY"
-            } else if listType == .activities {
-                vc.module = "ACT"
-            } else if listType == .meetups {
-                vc.module = "MTP"
-            }
+            vc.module = K.getModuleCode(listType ?? .hotel)
         } else if let vc = segue.destination  as? DefaultFilterViewController {
             vc.hotelFilters = hotelFilters
             vc.packageFilters = packageFilter
@@ -558,14 +550,7 @@ extension ListingViewController: UICollectionViewDataSource {
         if thisSection.type == .list {
             if indexPath.item == (listingManager.getListingData()?.count ?? 0) - 1, currentOffset < totalPages, isLoading == false {
                 if let listType = listType {
-                    //TODO: -
-                    if listType == .hotel {
-                        callListingAPI(of: listType, isPagination: true)
-                    } else {
-                        
-                    }
-                    
-
+                    callListingAPI(of: listType, isPagination: true)
                 }
             }
         }

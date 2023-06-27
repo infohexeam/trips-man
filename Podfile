@@ -14,6 +14,7 @@ pod 'SideMenu', '~> 6.0'
 pod 'Keyboard+LayoutGuide'
 pod 'SDWebImage'
 pod 'RangeSeekSlider'
+pod 'razorpay-pod', '1.2.5'
 #pod 'Firebase/Core'
 #pod 'Firebase/DynamicLinks'
 
