@@ -65,10 +65,6 @@ class CheckoutViewController: UIViewController {
         }
     }
     
-    @IBAction func returnHomeButton(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SuccessViewController {
             if let response = sender as? [AnyHashable: Any] {
@@ -172,7 +168,7 @@ extension CheckoutViewController {
     func createPaymentOrder() {
         self.showIndicator()
         let params: [String: Any] = ["bookingId": bookingID,
-                                     "moduleCode": K.getModuleCode(listType ?? .hotel)]
+                                     "moduleCode": K.getModuleCode(of: listType ?? .hotel)]
         
         parser.sendRequestLoggedIn(url: "api/Payment/CreateOrder", http: .post, parameters: params) { (result: PaymentData?, error) in
             DispatchQueue.main.async {

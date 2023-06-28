@@ -26,3 +26,16 @@ struct Amount: Codable {
     let label: String
     let isTotalAmount: Int
 }
+
+
+// MARK: - ConfirmBookingData
+struct ConfirmBookingData: Codable {
+    let data: ConfirmBooking
+    let status: Int
+    let message: String
+}
+
+// MARK: - ConfirmBooking
+struct ConfirmBooking: Codable {
+    let bookingNo, module: String
+}

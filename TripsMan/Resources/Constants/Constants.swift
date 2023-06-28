@@ -12,6 +12,9 @@ let baseURL = "https://tripsmanadmin.hexeam.in/"
 
 
 struct K {
+    
+    static let razorpayKey = "rzp_test_wcxqh0E3miedHg"
+    
     static let otpTimer = 10
     
     static let minimumPrice: Double = 0
@@ -37,9 +40,16 @@ struct K {
     static let otpSentSuccessMessage = "Successfully sent OTP"
     static let otpFailureMessage = "OTP is invalid or expired"
     
-    static let razorpayKey = "rzp_test_wcxqh0E3miedHg"
     
-    static func getModuleCode(_ listType: ListType) -> String {
+    
+    static let paymentVerifyingMessage = "Authentication your transaction.. Please do not close the app."
+    static let confirmBookingmMessage = "Finalizing your booking. Almost there!"
+    
+    static func getBookingSuccessMessage(for module: String, with bookingNo: String) -> String {
+        return "Your \(getModuleText(of: module)) booking has been successfully confirmed. Enjoy your experience! Booking No: \(bookingNo)"
+    }
+    
+    static func getModuleCode(of listType: ListType) -> String {
         switch listType {
         case .hotel:
             return "HTL"
@@ -49,6 +59,21 @@ struct K {
             return "ACT"
         case .meetups:
             return "MTP"
+        }
+    }
+    
+    static func getModuleText(of moduleCode: String) -> String {
+        switch moduleCode {
+        case "HTL":
+            return "hotel"
+        case "HDY":
+            return "holiday package"
+        case "ACT":
+            return "activity"
+        case "MTP":
+            return "meetup"
+        default:
+            return ""
         }
     }
     

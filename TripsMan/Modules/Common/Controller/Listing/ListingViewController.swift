@@ -324,7 +324,7 @@ class ListingViewController: UIViewController {
             }
         } else if let vc = segue.destination as? SearchViewController {
             vc.delegate = self
-            vc.module = K.getModuleCode(listType ?? .hotel)
+            vc.module = K.getModuleCode(of: listType ?? .hotel)
         } else if let vc = segue.destination  as? DefaultFilterViewController {
             vc.hotelFilters = hotelFilters
             vc.packageFilters = packageFilter

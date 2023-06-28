@@ -12,6 +12,10 @@ class SuccessViewController: UIViewController {
     @IBOutlet weak var successView: UIView!
     @IBOutlet weak var successLabel: UILabel!
     
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingText: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
     var paymentResponse: [AnyHashable: Any]?
     var bookingID = 0
     var listType: ListType?
@@ -31,12 +35,28 @@ class SuccessViewController: UIViewController {
         if let paymentResponse = paymentResponse {
             verifyPayment(with: paymentResponse)
         }
-
     }
+    
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func showLoading(with text: String) {
+        loadingText.text = text
+        loadingIndicator.startAnimating()
+        loadingView.isHidden = false
+    }
+    
+    func hideLoading() {
+        loadingIndicator.stopAnimating()
+        loadingView.isHidden = true
+    }
+    
+    @IBAction func returnHomeButton(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 
 }
@@ -44,15 +64,16 @@ class SuccessViewController: UIViewController {
 
 //MARK: - APICalls
 extension SuccessViewController {
+    
     func verifyPayment(with paymentResponse: [AnyHashable: Any]) {
-        self.showIndicator()
+        showLoading(with: K.paymentVerifyingMessage)
         let params: [String: Any] = ["orderId": paymentResponse["razorpay_order_id"] ?? "",
                                      "paymentId": paymentResponse["razorpay_payment_id"] ?? "",
                                      "signature": paymentResponse["razorpay_signature"] ?? ""]
         
         parser.sendRequestLoggedIn(url: "api/Payment/VerifyPayment", http: .post, parameters: params) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
-                self.hideIndicator()
+                self.hideLoading()
                 if error == nil {
                     if result!.status == 1 {
                         self.confirmBooking()
@@ -69,7 +90,7 @@ extension SuccessViewController {
     
     
     func confirmBooking() {
-        showIndicator()
+        showLoading(with: K.confirmBookingmMessage)
         var url = ""
         if let listType = listType {
             switch listType {
@@ -84,13 +105,13 @@ extension SuccessViewController {
             }
         }
         
-        parser.sendRequestLoggedIn(url: url, http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        parser.sendRequestLoggedIn(url: url, http: .post, parameters: nil) { (result: ConfirmBookingData?, error) in
             DispatchQueue.main.async {
-                self.hideIndicator()
+                self.hideLoading()
                 if error == nil {
                     if result!.status == 1 {
                         self.successView.isHidden = false
-                        self.successLabel.text = result!.message
+                        self.successLabel.text = K.getBookingSuccessMessage(for: result!.data.module, with: result!.data.bookingNo)
                     } else {
                         self.view.makeToast(result!.message)
                     }
