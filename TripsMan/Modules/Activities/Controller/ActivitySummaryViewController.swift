@@ -228,7 +228,7 @@ extension ActivitySummaryViewController {
     func removeMeetupCoupon(with couponCode: String) {
         showIndicator()
         
-        let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
+        let params: [String: Any] = ["bookingId": meetupBookingData!.bookingId,
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry(),
                                      "currency": SessionManager.shared.getCurrency(),
