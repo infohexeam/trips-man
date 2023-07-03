@@ -78,13 +78,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="373" height="117"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The Orion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orf-FM-jQ4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="34.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="44.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="⭑⭑⭑⭑⭑ Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRh-hD-sou">
-                                                            <rect key="frame" x="0.0" y="42.666666666666664" width="373" height="10"/>
+                                                            <rect key="frame" x="0.0" y="52.666666666666664" width="373" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="7GJ-LE-svV"/>
                                                             </constraints>
@@ -93,28 +93,28 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Qa-pxl">
-                                                            <rect key="frame" x="0.0" y="60.666666666666664" width="373" height="14.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="70.666666666666671" width="373" height="14.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-lf-d10">
-                                                            <rect key="frame" x="0.0" y="79" width="373" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="89" width="373" height="0.0"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVm-Om-8yU">
-                                                            <rect key="frame" x="0.0" y="83" width="373" height="25"/>
+                                                            <rect key="frame" x="0.0" y="93" width="373" height="15"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-NL-8Z8">
-                                                                    <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
+                                                                    <rect key="frame" x="-12" y="0.0" width="82.333333333333329" height="15"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="25" id="xBQ-qq-Qi5"/>
+                                                                        <constraint firstAttribute="height" constant="15" id="xBQ-qq-Qi5"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Read more">
-                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                         <color key="baseForegroundColor" name="secondaryColor"/>
                                                                     </buttonConfiguration>
                                                                     <connections>
@@ -125,7 +125,7 @@
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstItem="ext-NL-8Z8" firstAttribute="top" secondItem="gVm-Om-8yU" secondAttribute="top" id="GI5-wa-Itk"/>
-                                                                <constraint firstItem="ext-NL-8Z8" firstAttribute="leading" secondItem="gVm-Om-8yU" secondAttribute="leading" constant="-8" id="cY3-Kn-6er"/>
+                                                                <constraint firstItem="ext-NL-8Z8" firstAttribute="leading" secondItem="gVm-Om-8yU" secondAttribute="leading" constant="-12" id="cY3-Kn-6er"/>
                                                                 <constraint firstAttribute="bottom" secondItem="ext-NL-8Z8" secondAttribute="bottom" id="jq1-Xt-Q53"/>
                                                             </constraints>
                                                         </view>
@@ -1073,30 +1073,30 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="rulesCell" id="jxz-4J-B2B" customClass="PropertyRulesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="879" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4c6-eN-Myz">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-at-vb9">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-at-vb9">
                                                     <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Non-veg food is allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHA-b6-g05">
-                                                            <rect key="frame" x="0.0" y="0.0" width="412" height="192"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Non-veg food is allowed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHA-b6-g05">
+                                                            <rect key="frame" x="0.0" y="0.0" width="412" height="194"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20f-VX-9jR">
-                                                            <rect key="frame" x="0.0" y="192" width="412" height="25"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20f-VX-9jR">
+                                                            <rect key="frame" x="0.0" y="202" width="412" height="15"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypN-rT-HA1">
-                                                                    <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypN-rT-HA1">
+                                                                    <rect key="frame" x="-12" y="0.0" width="82.333333333333329" height="15"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="25" id="LjL-Ss-3Ta"/>
+                                                                        <constraint firstAttribute="height" constant="15" id="LjL-Ss-3Ta"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Read more">
-                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                         <color key="baseForegroundColor" name="secondaryColor"/>
                                                                     </buttonConfiguration>
                                                                     <connections>
@@ -1106,7 +1106,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="ypN-rT-HA1" firstAttribute="leading" secondItem="20f-VX-9jR" secondAttribute="leading" constant="-8" id="2Qj-ws-rhd"/>
+                                                                <constraint firstItem="ypN-rT-HA1" firstAttribute="leading" secondItem="20f-VX-9jR" secondAttribute="leading" constant="-12" id="2Qj-ws-rhd"/>
                                                                 <constraint firstItem="ypN-rT-HA1" firstAttribute="top" secondItem="20f-VX-9jR" secondAttribute="top" id="Tli-9p-Po6"/>
                                                                 <constraint firstAttribute="bottom" secondItem="ypN-rT-HA1" secondAttribute="bottom" id="oVp-Yl-ngv"/>
                                                             </constraints>
@@ -1129,47 +1129,47 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="termsCell" id="W9K-bq-Bfs" customClass="TermsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1106" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vmw-GR-cz8">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ9-5i-Gcb">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BZ9-5i-Gcb">
                                                     <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-S7-7J2">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7w-S7-7J2">
                                                             <rect key="frame" x="0.0" y="0.0" width="412" height="1"/>
                                                             <color key="backgroundColor" name="seperatorColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="oH9-VC-3Be"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-TS-Vwp">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms And Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGi-TS-Vwp">
                                                             <rect key="frame" x="0.0" y="9" width="412" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="9yu-y0-7hI"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-QH-ylH">
-                                                            <rect key="frame" x="0.0" y="37" width="412" height="147"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wy-QH-ylH">
+                                                            <rect key="frame" x="0.0" y="37" width="412" height="157"/>
                                                             <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip commodo</string>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="23h-xX-5cC">
-                                                            <rect key="frame" x="0.0" y="192" width="412" height="25"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23h-xX-5cC">
+                                                            <rect key="frame" x="0.0" y="202" width="412" height="15"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-vL-TLX">
-                                                                    <rect key="frame" x="-8" y="0.0" width="92" height="25"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oye-vL-TLX">
+                                                                    <rect key="frame" x="-12" y="0.0" width="82.333333333333329" height="15"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="25" id="e2J-qD-Dpt"/>
+                                                                        <constraint firstAttribute="height" constant="15" id="e2J-qD-Dpt"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="Read more">
-                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                         <color key="baseForegroundColor" name="secondaryColor"/>
                                                                     </buttonConfiguration>
                                                                     <connections>
@@ -1179,7 +1179,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="oye-vL-TLX" firstAttribute="leading" secondItem="23h-xX-5cC" secondAttribute="leading" constant="-8" id="6vW-3D-g4i"/>
+                                                                <constraint firstItem="oye-vL-TLX" firstAttribute="leading" secondItem="23h-xX-5cC" secondAttribute="leading" constant="-12" id="6vW-3D-g4i"/>
                                                                 <constraint firstItem="oye-vL-TLX" firstAttribute="top" secondItem="23h-xX-5cC" secondAttribute="top" id="8dC-8H-yID"/>
                                                                 <constraint firstAttribute="bottom" secondItem="oye-vL-TLX" secondAttribute="bottom" id="js1-zu-BGs"/>
                                                             </constraints>
@@ -1202,14 +1202,14 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ratingCell" id="QW7-Ct-jGX" customClass="RatingCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1333" width="412" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="zjS-H1-T2Z">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zjS-H1-T2Z">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="132"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DyN-Dc-Sox">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DyN-Dc-Sox">
                                                     <rect key="frame" x="8" y="8" width="396" height="116"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Overall Rating 4.5 (138)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BI-HK-88F">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overall Rating 4.5 (138)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BI-HK-88F">
                                                             <rect key="frame" x="0.0" y="0.0" width="396" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="g88-HV-FpH"/>
@@ -1218,8 +1218,8 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-em-h8L" customClass="CosmosView" customModule="Cosmos">
-                                                            <rect key="frame" x="0.0" y="28" width="145" height="25"/>
+                                                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-em-h8L" customClass="CosmosView" customModule="Cosmos">
+                                                            <rect key="frame" x="0.0" y="28" width="396" height="88"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="k55-L4-UN5"/>
                                                             </constraints>
@@ -1267,11 +1267,11 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="reviewCell" id="GiL-qR-ZTL" customClass="ReviewCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1475" width="412" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="u9C-nn-YBz">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="u9C-nn-YBz">
                                             <rect key="frame" x="0.0" y="0.0" width="412" height="217"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="88f-aH-Kif">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="88f-aH-Kif">
                                                     <rect key="frame" x="8" y="8" width="396" height="201"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXh-wn-dDt">
@@ -1292,13 +1292,13 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                 <constraint firstAttribute="trailing" secondItem="9Rn-Pt-GAP" secondAttribute="trailing" id="unD-x0-SpW"/>
                                                             </constraints>
                                                         </view>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-IA-D1N">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2Eg-IA-D1N">
                                                             <rect key="frame" x="0.0" y="0.0" width="396" height="201"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mbT-z2-PO7">
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mbT-z2-PO7">
                                                                     <rect key="frame" x="0.0" y="0.0" width="396" height="17"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mU0-z2-bnu">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mU0-z2-bnu">
                                                                             <rect key="frame" x="0.0" y="8" width="396" height="1"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
@@ -1313,16 +1313,16 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                         <constraint firstAttribute="trailing" secondItem="mU0-z2-bnu" secondAttribute="trailing" id="g7Z-LK-O3t"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XqD-qF-pYZ">
+                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XqD-qF-pYZ">
                                                                     <rect key="frame" x="0.0" y="25" width="396" height="74.333333333333329"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title Tifl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkt-Fl-lnB">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Tifl" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkt-Fl-lnB">
                                                                             <rect key="frame" x="0.0" y="0.0" width="348" height="28.333333333333332"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                             <color key="textColor" name="primaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zdy-Yr-DKd" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zdy-Yr-DKd" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
                                                                             <rect key="frame" x="356" y="0.0" width="40" height="20"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqG-VP-Vl3">
@@ -1351,28 +1351,28 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                         </view>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIr-jK-cRA">
-                                                                    <rect key="frame" x="0.0" y="107.33333333333334" width="396" height="28.333333333333343"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIr-jK-cRA">
+                                                                    <rect key="frame" x="0.0" y="107.33333333333333" width="396" height="28.333333333333329"/>
                                                                     <string key="text">Quis autem vel eum ire reprehenderit qui in ea voluptate
 velit esse quam nihil molestiae consequatur.</string>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="tertiaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="- Trip Voyager" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCL-iu-94o">
-                                                                    <rect key="frame" x="0.0" y="143.66666666666663" width="396" height="14.333333333333343"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- Trip Voyager" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCL-iu-94o">
+                                                                    <rect key="frame" x="0.0" y="143.66666666666666" width="396" height="14.333333333333343"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                     <color key="textColor" name="primaryLabel"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyc-mo-bPZ">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyc-mo-bPZ">
                                                                     <rect key="frame" x="0.0" y="166" width="396" height="35"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="35" id="eiJ-44-73a"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="plain" title="See all reviews">
-                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                         <color key="baseForegroundColor" name="secondaryColor"/>
                                                                     </buttonConfiguration>
                                                                     <connections>
@@ -1416,7 +1416,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODd-Qj-arO">
                                                     <rect key="frame" x="0.0" y="10" width="393" height="40"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
                                                     <color key="textColor" name="tertiaryLabel"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1443,7 +1443,7 @@ velit esse quam nihil molestiae consequatur.</string>
                                     <rect key="frame" x="0.0" y="1692" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pyS-Lr-WkU">
+                                        <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pyS-Lr-WkU">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                         </pageControl>
                                     </subviews>

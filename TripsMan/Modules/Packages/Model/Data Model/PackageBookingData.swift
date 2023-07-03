@@ -52,7 +52,8 @@ struct PackageBooking: Codable {
 struct SummaryPackageDetails: Codable {
     let packageID: Int
     let packageName, duration: String
-    let costPerPerson, status: Int
+    let costPerPerson: Double
+    let status: Int
     let countryName: String
 
     enum CodingKeys: String, CodingKey {
