@@ -33,6 +33,9 @@ struct K {
     static let activityPlaceholderImage = "activity-default-img"
     static let meetupPlaceholderImage = "meetup-default-img"
     
+    static let adminContactNo = "99XXXXXXXX"
+    static let adminContactEmail = "adminxxxxx@tripsman.com"
+    
     static let defaultRoomCount = 1
     static let defaultAdultCount = 2
     static let defaultChildCount = 0
@@ -47,6 +50,14 @@ struct K {
     
     static func getBookingSuccessMessage(for module: String, with bookingNo: String) -> String {
         return "Your \(getModuleText(of: module)) booking has been successfully confirmed. Enjoy your experience! Booking No: \(bookingNo)"
+    }
+    
+    static func getPaymentWaitingMessage(for module: String, with bookingNo: String) -> String {
+        return "Your \(getModuleText(of: module)) booking has been successfully confirmed. And payment verification is in process. If you have any questions or need assistance, contact our admin at \(adminContactNo) or \(adminContactEmail) Booking No: \(bookingNo)"
+    }
+    
+    static func getBookingFailedMessage() -> String {
+        return "We apologise, but there seems to be an issue with your booking. Unfortunately, the booking could not be confirmed at this time. We recommend contacting our support team for further assistance. We apologize for any inconvenience caused. Contact us at \(adminContactNo) or \(adminContactEmail)"
     }
     
     static func getModuleCode(of listType: ListType) -> String {
@@ -76,7 +87,6 @@ struct K {
             return ""
         }
     }
-    
 }
 
 struct MobileCodes {

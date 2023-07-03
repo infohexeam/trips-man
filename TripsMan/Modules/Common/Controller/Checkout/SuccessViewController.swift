@@ -11,16 +11,27 @@ class SuccessViewController: UIViewController {
     
     @IBOutlet weak var successView: UIView!
     @IBOutlet weak var successLabel: UILabel!
+    @IBOutlet weak var successIcon: UIImageView!
+    @IBOutlet weak var successTitle: UILabel!
     
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingText: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    
     
     var paymentResponse: [AnyHashable: Any]?
     var bookingID = 0
     var listType: ListType?
     
     let parser = Parser()
+    
+    var successStaus: SuccessStatus!
+    
+    struct SuccessStatus {
+        var verifyPayment: Bool = false
+        var confirmBooking: Bool = false
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,10 +46,9 @@ class SuccessViewController: UIViewController {
         if let paymentResponse = paymentResponse {
             verifyPayment(with: paymentResponse)
         }
+        
+        successStaus = SuccessStatus(verifyPayment: false, confirmBooking: false)
     }
-    
-
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationController?.isNavigationBarHidden = false
@@ -53,6 +63,24 @@ class SuccessViewController: UIViewController {
     func hideLoading() {
         loadingIndicator.stopAnimating()
         loadingView.isHidden = true
+    }
+    
+    func showSuccessView(for module: String?, with bookingNo: String?) {
+        
+        if successStaus.verifyPayment == true && successStaus.confirmBooking == true {
+            self.successIcon.image = UIImage(named: "success-check")
+            self.successTitle.text = "Congratulations!"
+            self.successLabel.text = K.getBookingSuccessMessage(for: module!, with: bookingNo!)
+        } else if successStaus.verifyPayment == false && successStaus.confirmBooking == true {
+            self.successIcon.image = UIImage(named: "yellow-checkmark")
+            self.successTitle.text = "Booking Success & Awaiting Payment"
+            self.successLabel.text = K.getPaymentWaitingMessage(for: module!, with: bookingNo!)
+        } else if successStaus.confirmBooking == false { //payment verification success or failure
+            self.successIcon.image = UIImage(named: "warning")
+            self.successTitle.text = "Booking Not Confirmed"
+            self.successLabel.text = K.getBookingFailedMessage()
+        }
+        self.successView.isHidden = false
     }
     
     @IBAction func returnHomeButton(_ sender: UIButton) {
@@ -76,6 +104,7 @@ extension SuccessViewController {
                 self.hideLoading()
                 if error == nil {
                     if result!.status == 1 {
+                        self.successStaus.verifyPayment = true
                         self.confirmBooking()
                     } else {
                         self.view.makeToast(result!.message)
@@ -110,15 +139,15 @@ extension SuccessViewController {
                 self.hideLoading()
                 if error == nil {
                     if result!.status == 1 {
-                        self.successView.isHidden = false
-                        self.successLabel.text = K.getBookingSuccessMessage(for: result!.data.module, with: result!.data.bookingNo)
+                        self.successStaus.confirmBooking = true
+                        self.showSuccessView(for: result!.data.module, with: result!.data.bookingNo)
                     } else {
                         self.view.makeToast(result!.message)
+                        self.showSuccessView(for: nil, with: nil)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.showSuccessView(for: nil, with: nil)
                 }
-                    
             }
         }
     }

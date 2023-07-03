@@ -43,6 +43,12 @@ extension CheckoutViewController: RazorpayPaymentCompletionProtocolWithData {
     
     func onPaymentError(_ code: Int32, description str: String, andData response: [AnyHashable : Any]?) {
         print("\nPaymentError: \(code) \(str)")
+//        0: Network error
+//        1: Initialization failure / Unexpected behaviour
+//        2: Payment cancelled by the user
+        if code == 0 || code == 1 {
+            self.view.makeToast(str)
+        }
     }
     
     func onPaymentSuccess(_ payment_id: String, andData response: [AnyHashable : Any]?) {
