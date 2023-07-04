@@ -387,6 +387,70 @@
                                             <outlet property="itineraryName" destination="tit-z1-2P0" id="jtv-Xk-sV4"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="descriptionCell" id="CGI-YB-8aW" customClass="ActivityDescriptionCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
+                                        <rect key="frame" x="4.666666666666667" y="800" width="384" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="361-SM-IW5">
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="132"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oS2-Xx-RGi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="384" height="132"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SL-PH-8sy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="384" height="16.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="14"/>
+                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOF-eo-Frp">
+                                                            <rect key="frame" x="0.0" y="24.666666666666664" width="384" height="84.333333333333343"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" name="tertiaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKi-TC-mFL">
+                                                            <rect key="frame" x="0.0" y="117" width="384" height="15"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKV-Vm-LPZ">
+                                                                    <rect key="frame" x="-12" y="0.0" width="82.333333333333329" height="15"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="15" id="enu-U1-aqx"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="plain" title="Read more">
+                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
+                                                                        <color key="baseForegroundColor" name="secondaryColor"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="readMoreDidTapped:" destination="CGI-YB-8aW" eventType="touchUpInside" id="53h-Ii-b8t"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="fKV-Vm-LPZ" firstAttribute="top" secondItem="EKi-TC-mFL" secondAttribute="top" id="DcB-y2-9aq"/>
+                                                                <constraint firstItem="fKV-Vm-LPZ" firstAttribute="leading" secondItem="EKi-TC-mFL" secondAttribute="leading" constant="-12" id="ELg-bX-aO8"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fKV-Vm-LPZ" secondAttribute="bottom" id="dcB-JF-XSj"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="oS2-Xx-RGi" secondAttribute="bottom" id="BzK-2H-QwP"/>
+                                                <constraint firstItem="oS2-Xx-RGi" firstAttribute="leading" secondItem="361-SM-IW5" secondAttribute="leading" id="Iuj-57-RaK"/>
+                                                <constraint firstItem="oS2-Xx-RGi" firstAttribute="top" secondItem="361-SM-IW5" secondAttribute="top" id="JHl-Xg-wOW"/>
+                                                <constraint firstAttribute="trailing" secondItem="oS2-Xx-RGi" secondAttribute="trailing" id="O6B-fL-1MY"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="384" height="132"/>
+                                        <connections>
+                                            <outlet property="descDetails" destination="qOF-eo-Frp" id="C8F-qx-hqa"/>
+                                            <outlet property="descTitle" destination="5SL-PH-8sy" id="3Tl-Cp-QLw"/>
+                                            <outlet property="readMoreView" destination="EKi-TC-mFL" id="reT-Fr-q0u"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="detailsHeader" id="jB5-gt-gOC" customClass="PackageDetailsHeaderView" customModule="TripsMan" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -421,10 +485,10 @@
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="packageDetailsFooter" id="gUq-q7-YDn" customClass="PackageDetailsFooterView" customModule="TripsMan" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="790" width="393" height="50"/>
+                                    <rect key="frame" x="0.0" y="932" width="393" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="r9w-Hx-RFl">
+                                        <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="r9w-Hx-RFl">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                             <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -454,11 +518,22 @@
                     <connections>
                         <outlet property="packageCollectionView" destination="LJQ-i7-pbR" id="SJ9-gz-IYA"/>
                         <segue destination="dWR-sJ-cFF" kind="show" identifier="toPackageBooking" id="W6D-Mx-BTO"/>
+                        <segue destination="iG5-0a-ueZ" kind="presentation" identifier="toReadMore" id="qHl-8s-fzn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-103.05343511450381" y="-17.605633802816904"/>
+        </scene>
+        <!--ReadMoreViewController-->
+        <scene sceneID="8xr-rF-MMu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Common" referencedIdentifier="ReadMoreViewController" id="iG5-0a-ueZ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hTn-lq-Hmp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvx-mb-5Ss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-101" y="466"/>
         </scene>
         <!--Package Booking View Controller-->
         <scene sceneID="2qR-Oa-GEb">

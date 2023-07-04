@@ -14,6 +14,7 @@ struct PackageDetailsManager {
         case seperator
         case vendorDetails
         case itinerary
+        case policies
     }
     
     struct PackageDetailsSection {
@@ -39,7 +40,8 @@ struct PackageDetailsManager {
                         PackageDetailsSection(type: .packageDetails, count: 1),
                         PackageDetailsSection(type: .seperator, count: 1),
                         PackageDetailsSection(type: .vendorDetails, count: 1),
-                        PackageDetailsSection(type: .itinerary, count: packageDetails.holidayItinerary.count)]
+                        PackageDetailsSection(type: .itinerary, count: packageDetails.holidayItinerary.count),
+                        PackageDetailsSection(type: .policies, count: 1)]
         }
     }
     

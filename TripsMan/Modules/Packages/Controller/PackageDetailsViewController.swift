@@ -53,6 +53,12 @@ class PackageDetailsViewController: UIViewController {
         if let vc = segue.destination as? PackageBookingViewController {
             packageFilters.packageDetails = packageManager?.getPackageDetails()
             vc.packageFilter = packageFilters
+        } else if let nav = segue.destination as? UINavigationController {
+            if let vc = nav.topViewController as? ReadMoreViewController {
+                if let policies = packageManager?.getPackageDetails()?.policies {
+                    vc.readMore = ReadMore(title: "Policies", content: policies)
+                }
+            }
         }
     }
 
@@ -142,6 +148,24 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
             }
             
             return cell
+        } else if thisSection.type == .policies {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "descriptionCell", for: indexPath) as! ActivityDescriptionCollectionViewCell
+            
+            if let policy = packageManager?.getPackageDetails()?.policies {
+                cell.descDetails.tag = indexPath.row
+                cell.descTitle.text = "Policies"
+                cell.descDetails.attributedText = policy.attributedHtmlString
+                cell.readMoreView.isHidden = true
+                cell.descDetails.numberOfLines = 0
+                if cell.descDetails.lines() > K.readMoreContentLines {
+                    cell.readMoreView.isHidden = false
+                }
+                cell.descDetails.numberOfLines = K.readMoreContentLines
+                
+                cell.delegate = self
+            }
+            
+            return cell
         } else {
             return UICollectionViewCell()
         }
@@ -183,6 +207,14 @@ extension PackageDetailsViewController: UICollectionViewDelegate {
     
 }
 
+//MARK: - ReadMoreDelegate
+extension PackageDetailsViewController: ReadMoreDelegate {
+    func showReadMore(_ tag: Int) {
+        performSegue(withIdentifier: "toReadMore", sender: tag)
+    }
+    
+    
+}
 
 //MARK: - Layout
 extension PackageDetailsViewController {
@@ -289,7 +321,21 @@ extension PackageDetailsViewController {
                 
                 return section
                 
-            }  else {
+            } else if thisSection.type == .policies {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.interGroupSpacing = 30
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                
+            } else {
                 fatalError("Unknown section!")
             }
             
