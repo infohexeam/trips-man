@@ -171,7 +171,6 @@ extension MainViewController {
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
             }
         }
     }

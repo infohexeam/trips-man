@@ -22,6 +22,8 @@ class RoomDetailsViewController: UIViewController {
     var hotelRoom: HotelRoom?
     var delegate: RoomCellDelegate?
     
+    let parser = Parser()
+    
     var index = 0
     
     private let pagingInfoSubject = PassthroughSubject<PagingInfo, Never>()
@@ -35,15 +37,36 @@ class RoomDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let hotelRoom = hotelRoom {
-            print(hotelRoom)
-            roomManager = RoomDetailsManager(roomDetails: hotelRoom)
-            roomCollectionView.reloadData()
+           getRoomDetails()
         }
     }
     
     @IBAction func selectRoomTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: false)
         delegate?.selectTapped(index)
+    }
+}
+
+//MARK: - ApiCalls
+extension RoomDetailsViewController {
+    func getRoomDetails() {
+        showIndicator()
+        
+        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetRoomList?hotelId=\(hotelRoom!.hotelID)&roomId=\(hotelRoom!.roomID)&currency=\(SessionManager.shared.getCurrency())&language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: RoomDetailsData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.roomManager = RoomDetailsManager(roomDetails: result!.data[0])
+                        self.roomCollectionView.reloadData()
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
     }
 }
 
@@ -64,9 +87,7 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
         
         if thisSection.type == .image {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! HotelImageCollectionViewCell
-            print("\n------------")
-            if let image = roomManager?.getRoomDetails()?.roomImages?[indexPath.row] {
-                print("\n++++++++++")
+            if let image = roomManager?.getRoomDetails()?.roomImage[indexPath.row] {
                 cell.hotelImage.sd_setImage(with: URL(string: image.roomImage ?? ""), placeholderImage: UIImage(systemName: K.hotelPlaceHolderImage))
 
             }
@@ -81,11 +102,19 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
             }
             
             return cell
-        } else if thisSection.type == .facilities {
+        } else if thisSection.type == .roomAmenities {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
             if let facilities = roomManager?.getRoomDetails()?.roomFacilities {
                 cell.facilityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon))
                 cell.facilityLabel.text = facilities[indexPath.row].roomFacilityName
+            }
+            
+            return cell
+        } else if thisSection.type == .popularAmenities {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
+            if let amenities = roomManager?.getRoomDetails()?.popularAmenities {
+                cell.facilityIcon.sd_setImage(with: URL(string: amenities[indexPath.row].roomPopularAmenityICon ?? ""))
+                cell.facilityLabel.text = amenities[indexPath.row].roomPopularAmenityName
             }
             
             return cell
@@ -95,11 +124,11 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
                 if details.offerPrice > 0 {
                     cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.offerPrice)"
                 } else {
-                    cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.actualPrice)"
+                    cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.roomPrice)"
                 }
                 cell.taxAndFees.text = "\(SessionManager.shared.getCurrency()) \(details.serviceChargeValue)"
                 
-                let totalAmount = details.actualPrice + details.serviceChargeValue
+                let totalAmount = details.roomPrice + details.serviceChargeValue
                 cell.totalAmount.text = "\(SessionManager.shared.getCurrency()) \(totalAmount)"
             }
             
@@ -112,10 +141,23 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
+        case UICollectionView.elementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "detailsHeader", for: indexPath) as! HotelDetailsHeaderView
+            
+            guard let thisSection = roomManager?.getSections()?[indexPath.section] else { return headerView }
+            
+            if thisSection.type == .roomAmenities {
+                headerView.titleLabel.text = "Room Amenities"
+            }  else if thisSection.type == .popularAmenities {
+                headerView.titleLabel.text = "Popular Amenities"
+            }
+            
+            return headerView
+            
         case UICollectionView.elementKindSectionFooter:
             let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "hotelDetailsFooter", for: indexPath) as! HotelDetailsFooterView
             
-            footerView.configure(with: roomManager?.getRoomDetails()?.roomImages?.count ?? 0)
+            footerView.configure(with: roomManager?.getRoomDetails()?.roomImage.count ?? 0)
             
             footerView.subscribeTo(subject: pagingInfoSubject, for: indexPath.section)
             
@@ -178,21 +220,25 @@ extension RoomDetailsViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
                 
-            } else if thisSection.type == .facilities {
+            } else if thisSection.type == .roomAmenities || thisSection.type == .popularAmenities {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50),
-                                                      heightDimension: .absolute(20))
+                                                      heightDimension: .estimated(60))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(60))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.interItemSpacing = .fixed(20)
+                group.interItemSpacing = .fixed(10)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .absolute(20))
+                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
                 section = NSCollectionLayoutSection(group: group)
                 section.interGroupSpacing = 10
+                section.boundarySupplementaryItems = [sectionHeader]
                 
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                
             } else if thisSection.type == .priceDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(100))

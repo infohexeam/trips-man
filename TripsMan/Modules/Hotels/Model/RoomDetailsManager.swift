@@ -12,7 +12,9 @@ struct RoomDetailsManager {
     enum SectionTypes {
         case image
         case roomDetails
-        case facilities
+        case roomAmenities
+        case popularAmenities
+        case houseRules
         case priceDetails
     }
     
@@ -22,9 +24,9 @@ struct RoomDetailsManager {
     }
     
     var sections: [RoomDetailsSection]? = nil
-    var roomDetails: HotelRoom?
+    var roomDetails: RoomDetails?
     
-    init(roomDetails: HotelRoom) {
+    init(roomDetails: RoomDetails) {
         self.roomDetails = roomDetails
         setSections()
     }
@@ -35,18 +37,19 @@ struct RoomDetailsManager {
     
     mutating func setSections() {
         if let roomDetails = roomDetails {
-            sections = [RoomDetailsSection(type: .image, count: roomDetails.roomImages?.count ?? 0),
+            sections = [RoomDetailsSection(type: .image, count: roomDetails.roomImage.count),
                         RoomDetailsSection(type: .roomDetails, count: 1),
-                        RoomDetailsSection(type: .facilities, count: roomDetails.roomFacilities.count),
+                        RoomDetailsSection(type: .roomAmenities, count: roomDetails.roomFacilities.count),
+                        RoomDetailsSection(type: .popularAmenities, count: roomDetails.popularAmenities.count),
                         RoomDetailsSection(type: .priceDetails, count: 1)]
             
-            if roomDetails.roomImages?.count == 0 {
+            if roomDetails.roomImage.count == 0 {
                 sections?.remove(at: 0)
             }
         }
     }
     
-    func getRoomDetails() -> HotelRoom? {
+    func getRoomDetails() -> RoomDetails? {
         return self.roomDetails
     }
     
