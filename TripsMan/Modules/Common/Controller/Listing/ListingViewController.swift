@@ -212,7 +212,12 @@ class ListingViewController: UIViewController {
     }
     
     func sortHandler(action: UIAction) {
-        assignSort(sorts.filter { $0.name == action.title }.last)
+        if getSortName() == action.title {
+            assignSort(nil)
+        } else {
+            assignSort(sorts.filter { $0.name == action.title }.last)
+        }
+        setupMenus()
     }
     
     func getSortName() -> String? {
