@@ -36,7 +36,7 @@ class RoomDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let hotelRoom = hotelRoom {
+        if hotelRoom != nil {
            getRoomDetails()
         }
     }
@@ -105,7 +105,15 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
         } else if thisSection.type == .roomAmenities {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
             if let facilities = roomManager?.getRoomDetails()?.roomFacilities {
-                cell.facilityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon))
+                cell.facilityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
+                cell.facilityLabel.text = facilities[indexPath.row].roomFacilityName
+            }
+            
+            return cell
+        }  else if thisSection.type == .roomAmenities2 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
+            if let facilities = roomManager?.getRoomDetails()?.roomFacilities {
+                cell.facilityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
                 cell.facilityLabel.text = facilities[indexPath.row].roomFacilityName
             }
             
@@ -113,8 +121,16 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
         } else if thisSection.type == .popularAmenities {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
             if let amenities = roomManager?.getRoomDetails()?.popularAmenities {
-                cell.facilityIcon.sd_setImage(with: URL(string: amenities[indexPath.row].roomPopularAmenityICon ?? ""))
+                cell.facilityIcon.sd_setImage(with: URL(string: amenities[indexPath.row].roomPopularAmenityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
                 cell.facilityLabel.text = amenities[indexPath.row].roomPopularAmenityName
+            }
+            
+            return cell
+        } else if thisSection.type == .houseRules {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "rulesCell", for: indexPath) as! HouseRulesCollectionViewCell
+            
+            if let rules = roomManager?.getRoomDetails()?.roomHouseRules {
+                cell.rulesLabel.text = "• " + rules[indexPath.row].houseRulesName
             }
             
             return cell
@@ -146,10 +162,12 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
             
             guard let thisSection = roomManager?.getSections()?[indexPath.section] else { return headerView }
             
-            if thisSection.type == .roomAmenities {
+            if thisSection.type == .roomAmenities2 {
                 headerView.titleLabel.text = "Room Amenities"
-            }  else if thisSection.type == .popularAmenities {
+            } else if thisSection.type == .popularAmenities {
                 headerView.titleLabel.text = "Popular Amenities"
+            } else if thisSection.type == .houseRules {
+                headerView.titleLabel.text = "House Rules"
             }
             
             return headerView
@@ -220,7 +238,7 @@ extension RoomDetailsViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
                 
-            } else if thisSection.type == .roomAmenities || thisSection.type == .popularAmenities {
+            } else if thisSection.type == .roomAmenities2 || thisSection.type == .popularAmenities {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50),
                                                       heightDimension: .estimated(60))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -238,7 +256,25 @@ extension RoomDetailsViewController {
                 section.interGroupSpacing = 10
                 section.boundarySupplementaryItems = [sectionHeader]
                 
+                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 20, trailing: 8)
+            } else if thisSection.type == .houseRules {
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                      heightDimension: .estimated(100))
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                       heightDimension: .estimated(100))
+                let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .absolute(20))
+                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                
+                
+                section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [sectionHeader]
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
+                
             } else if thisSection.type == .priceDetails {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                       heightDimension: .estimated(100))

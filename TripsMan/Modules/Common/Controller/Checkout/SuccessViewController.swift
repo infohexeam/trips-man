@@ -97,7 +97,9 @@ extension SuccessViewController {
         showLoading(with: K.paymentVerifyingMessage)
         let params: [String: Any] = ["orderId": paymentResponse["razorpay_order_id"] ?? "",
                                      "paymentId": paymentResponse["razorpay_payment_id"] ?? "",
-                                     "signature": paymentResponse["razorpay_signature"] ?? ""]
+                                     "signature": paymentResponse["razorpay_signature"] ?? "",
+                                     "moduleCode": K.getModuleCode(of: listType ?? .hotel),
+                                     "bookingId": bookingID]
         
         parser.sendRequestLoggedIn(url: "api/Payment/VerifyPayment", http: .post, parameters: params) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {

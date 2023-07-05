@@ -104,7 +104,7 @@ struct HotelRoom: Codable {
 struct RoomFacility: Codable {
     let roomFacilityID, roomID: Int
     let roomFacilityName: String
-    let roomFacilityICon: String
+    let roomFacilityICon: String?
 
     enum CodingKeys: String, CodingKey {
         case roomFacilityID

@@ -18,3 +18,7 @@ class RoomPriceDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var taxAndFees: UILabel!
     @IBOutlet weak var totalAmount: UILabel!
 }
+
+class HouseRulesCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var rulesLabel: UILabel!
+}
