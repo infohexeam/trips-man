@@ -21,8 +21,9 @@ struct PackageBooking: Codable {
     let totalAmount: Double
     let bookingFrom, bookingTo, customerCode, customerID: String
     let customerName: String
-    let totalCharge, tax, serviceCharge, discount: Int
-    let totalPrice, totalGuest: Int
+    let totalCharge, tax, serviceCharge, discount: Double
+    let totalPrice: Double
+    let totalGuest: Int
     let primaryGuest, contactNo, emailID, gender: String
     let age, bookingID, packageID, roomID: Int
     let imageURL: String?
