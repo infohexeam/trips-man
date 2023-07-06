@@ -22,3 +22,8 @@ class RoomPriceDetailsCollectionViewCell: UICollectionViewCell {
 class HouseRulesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rulesLabel: UILabel!
 }
+
+class RoomAmenitiesCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var amenityName: UILabel!
+    @IBOutlet weak var amenityIcon: UIImageView!
+}

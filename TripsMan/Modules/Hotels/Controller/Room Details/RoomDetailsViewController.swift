@@ -97,32 +97,24 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roomDetailsCell", for: indexPath) as! RoomDetailsCollectionViewCell
             
             if let details = roomManager?.getRoomDetails() {
-                cell.roomName.text = details.roomType
+                cell.roomName.text = details.hotelName + " | " + details.roomType
                 cell.roomDescription.setAttributedHtmlText(details.roomDescription)
             }
             
             return cell
         } else if thisSection.type == .roomAmenities {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "amenititesCell", for: indexPath) as! RoomAmenitiesCollectionViewCell
             if let facilities = roomManager?.getRoomDetails()?.roomFacilities {
-                cell.facilityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
-                cell.facilityLabel.text = facilities[indexPath.row].roomFacilityName
+                cell.amenityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
+                cell.amenityName.text = facilities[indexPath.row].roomFacilityName
             }
             
             return cell
-        }  else if thisSection.type == .roomAmenities2 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
-            if let facilities = roomManager?.getRoomDetails()?.roomFacilities {
-                cell.facilityIcon.sd_setImage(with: URL(string: facilities[indexPath.row].roomFacilityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
-                cell.facilityLabel.text = facilities[indexPath.row].roomFacilityName
-            }
-            
-            return cell
-        } else if thisSection.type == .popularAmenities {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "facilitiesCell", for: indexPath) as! HotelFacilitiesCollectionViewCell
+        }   else if thisSection.type == .popularAmenities {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "amenititesCell", for: indexPath) as! RoomAmenitiesCollectionViewCell
             if let amenities = roomManager?.getRoomDetails()?.popularAmenities {
-                cell.facilityIcon.sd_setImage(with: URL(string: amenities[indexPath.row].roomPopularAmenityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
-                cell.facilityLabel.text = amenities[indexPath.row].roomPopularAmenityName
+                cell.amenityIcon.sd_setImage(with: URL(string: amenities[indexPath.row].roomPopularAmenityICon ?? ""), placeholderImage: UIImage(systemName: "square.righthalf.fill"))
+                cell.amenityName.text = amenities[indexPath.row].roomPopularAmenityName
             }
             
             return cell
@@ -137,14 +129,16 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "roomPricecell", for: indexPath) as! RoomPriceDetailsCollectionViewCell
             if let details = roomManager?.getRoomDetails() {
+                var totalAmount: Double = 0
                 if details.offerPrice > 0 {
                     cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.offerPrice)"
+                    totalAmount = details.offerPrice + details.serviceChargeValue
                 } else {
                     cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.roomPrice)"
+                    totalAmount = details.roomPrice + details.serviceChargeValue
                 }
                 cell.taxAndFees.text = "\(SessionManager.shared.getCurrency()) \(details.serviceChargeValue)"
                 
-                let totalAmount = details.roomPrice + details.serviceChargeValue
                 cell.totalAmount.text = "\(SessionManager.shared.getCurrency()) \(totalAmount)"
             }
             
@@ -162,7 +156,7 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
             
             guard let thisSection = roomManager?.getSections()?[indexPath.section] else { return headerView }
             
-            if thisSection.type == .roomAmenities2 {
+            if thisSection.type == .roomAmenities {
                 headerView.titleLabel.text = "Room Amenities"
             } else if thisSection.type == .popularAmenities {
                 headerView.titleLabel.text = "Popular Amenities"
@@ -238,15 +232,15 @@ extension RoomDetailsViewController {
                 section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 8, bottom: 10, trailing: 8)
                 
-            } else if thisSection.type == .roomAmenities2 || thisSection.type == .popularAmenities {
+            } else if thisSection.type == .roomAmenities || thisSection.type == .popularAmenities {
                 let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(50),
-                                                      heightDimension: .estimated(60))
+                                                      heightDimension: .estimated(50))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                        heightDimension: .estimated(60))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.interItemSpacing = .fixed(10)
+                group.interItemSpacing = .fixed(20)
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                         heightDimension: .absolute(20))

@@ -13,7 +13,6 @@ struct RoomDetailsManager {
         case image
         case roomDetails
         case roomAmenities
-        case roomAmenities2
         case popularAmenities
         case houseRules
         case priceDetails
@@ -40,9 +39,8 @@ struct RoomDetailsManager {
         if let roomDetails = roomDetails {
             sections = [RoomDetailsSection(type: .image, count: roomDetails.roomImage.count),
                         RoomDetailsSection(type: .roomDetails, count: 1),
-//                        RoomDetailsSection(type: .roomAmenities, count: roomDetails.roomFacilities.count),
+                        RoomDetailsSection(type: .roomAmenities, count: roomDetails.roomFacilities.count),
                         RoomDetailsSection(type: .popularAmenities, count: roomDetails.popularAmenities.count),
-                        RoomDetailsSection(type: .roomAmenities2, count: roomDetails.roomFacilities.count),
                         RoomDetailsSection(type: .houseRules, count: roomDetails.roomHouseRules.count),
                         RoomDetailsSection(type: .priceDetails, count: 1)]
             print("\nroomFaciltiesCount: \(roomDetails.roomFacilities.count)\n roomFacilities: \(roomDetails.roomFacilities)")

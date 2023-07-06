@@ -20,9 +20,9 @@ struct RoomDetails: Codable {
     let hotelName: String
     let hotelImage: String
     let roomCode, roomType, roomDescription: String
-    let roomPrice, offerPrice, serviceChargeValue, roomStatus: Int
+    let roomPrice, offerPrice, serviceChargeValue, roomStatus: Double
     let isDeleted: Int
-    let roomFacilities: [RoomFacility]
+    let roomFacilities: [RoomsFacility]
     let roomHouseRules: [RoomHouseRule]
     let roomImage: [RoomImage]
     let popularAmenities: [PopularAmenity]
@@ -32,6 +32,19 @@ struct RoomDetails: Codable {
         case roomID = "roomId"
         case hotelID = "hotelId"
         case hotelName, hotelImage, roomCode, roomType, roomDescription, roomPrice, offerPrice, serviceChargeValue, roomStatus, isDeleted, roomFacilities, roomHouseRules, roomImage, popularAmenities, roomCount, adultCount, childCount, availableRoomCount
+    }
+}
+
+// MARK: - RoomFacility
+struct RoomsFacility: Codable {
+    let roomFacilityID, roomID: Int
+    let roomFacilityName: String
+    let roomFacilityICon: String?
+
+    enum CodingKeys: String, CodingKey {
+        case roomFacilityID
+        case roomID = "roomId"
+        case roomFacilityName, roomFacilityICon
     }
 }
 
