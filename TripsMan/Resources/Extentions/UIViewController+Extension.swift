@@ -58,11 +58,7 @@ extension UIViewController {
         }
         backButton.image = UIImage(systemName: "chevron.backward")
         self.tabBarController?.navigationItem.leftBarButtonItems = [backButton, logo]
-        if #available(iOS 16.0, *) {
-            self.tabBarController?.navigationItem.rightBarButtonItem?.isHidden = true
-        } else {
-            // Fallback on earlier versions
-        }
+        self.tabBarController?.navigationItem.rightBarButtonItems = nil
         self.tabBarController?.navigationItem.title = title
     }
     
