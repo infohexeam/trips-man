@@ -67,6 +67,9 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         addMenuButton(with: " ")
+        if let myTabBar = self.tabBarController as? TabBarController {
+            myTabBar.addRightBarItems()
+        }
     }
     
     override func viewDidLoad() {

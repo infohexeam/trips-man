@@ -181,7 +181,7 @@ class ListingViewController: UIViewController {
             }
             dateAndGuestLabel.text = dateText
         } else if listType == .meetups {
-            var cityText = meetupFilter.city
+            let cityText = meetupFilter.city
             locationLabel.text = (meetupFilter.country?.name ?? "") + " | " + (cityText ?? "Select city")
             dateAndGuestLabel.isHidden = true
         }
