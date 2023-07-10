@@ -360,7 +360,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             
             if let coupon = activityManager?.getCouponsToShow()?[indexPath.row] {
                 cell.couponCode.text = coupon.couponCode
-                cell.couponDesc.text = "\(coupon.description)\nMin. Order Value: \(coupon.minOrderValue), Discount Amount: \(coupon.discountAmount)"
+                cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount)
                 
                 cell.radioImage.image = UIImage(systemName: "circle")
                 cell.removeButton.isHidden = true

@@ -24,11 +24,11 @@ struct CouponDataClass: Codable {
 struct Coupon: Codable {
     let couponName, couponCode, validFrom: String
     let validTo, description: String
-    let minOrderValue, discountType, discountAmount, status: Int
+    let minOrderValue, discountAmount: Double
     let couponID: Int
 
     enum CodingKeys: String, CodingKey {
-        case couponName, couponCode, validFrom, validTo, description, minOrderValue, discountType, discountAmount, status
+        case couponName, couponCode, validFrom, validTo, description, minOrderValue, discountAmount
         case couponID = "couponId"
     }
 }

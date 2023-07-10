@@ -97,6 +97,10 @@ struct K {
         }
     }
     
+    static func getCouponText(with description: String, minAmount: Double, discount: Double) -> String {
+        return "\(description)\nMin. Order Value: \(SessionManager.shared.getCurrency()) \(minAmount), Discount Amount: \(SessionManager.shared.getCurrency()) \(discount)"
+    }
+    
     
 }
 
