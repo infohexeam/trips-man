@@ -61,19 +61,19 @@ class SessionManager {
         
     }
     
-    func getCountry() -> String {
-        //IND.UAE,OTH
+    func getCountry() -> CountrySelection {
+        //IND.UAE
         if let countryData = defaults.object(forKey: SessionKeys.selectedCountry) as? Data {
             let decoder = JSONDecoder()
             if let country = try? decoder.decode(CountrySelection.self, from: countryData) {
-                return country.countryCode
+                return country
             }
         }
-        return "IND"
+        return K.countries[0]
     }
     
     func getCurrency() -> String {
-        //INR,AED,USD
+        //INR,AED
         if let countryData = defaults.object(forKey: SessionKeys.selectedCountry) as? Data {
             let decoder = JSONDecoder()
             if let country = try? decoder.decode(CountrySelection.self, from: countryData) {

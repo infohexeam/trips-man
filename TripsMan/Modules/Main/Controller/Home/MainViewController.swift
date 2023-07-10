@@ -54,9 +54,6 @@ class MainViewController: UIViewController {
     let parser = Parser()
     var banners = [Banners]() {
         didSet {
-//            if sections?.count == 1 {
-//                sections?.insert(HomeSection(type: .banner, count: banners.count), at: 0)
-//            }
             homeCollection.reloadSections(IndexSet(integer: 0))
         }
     }
@@ -83,14 +80,21 @@ class MainViewController: UIViewController {
                     HomeSection(type: .tiles, count: homeTiles.count)]
         
         
+        //Country Selection w.r.t device's locale identfier.
         let locale = Locale.current
+        var localeIdentifier: String?
         if #available(iOS 16, *) {
-            print("Locale: \(locale.region?.identifier)")
+            print("Locale: \(locale.region?.identifier ?? "")")
+            localeIdentifier = locale.region?.identifier
         } else {
             // Fallback on earlier versions
-            print("Locale (before iOS 16): \(locale.regionCode)")
+            print("Locale (before iOS 16): \(locale.regionCode ?? "")")
+            localeIdentifier = locale.regionCode
         }
+        SessionManager.shared.setCountry(K.countries.filter( { $0.localeIdentifier == localeIdentifier }).last ?? K.countries[0])
         
+        
+        //Apicall
         getBanners()
     }
     

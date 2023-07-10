@@ -148,7 +148,8 @@ class DefaultFilterViewController: UIViewController {
         
         // Specify a filter.
         let filter = GMSAutocompleteFilter()
-        filter.countries = ["IND"]
+        filter.countries = [SessionManager.shared.getCountry().localeIdentifier]
+        
         autocompleteController.autocompleteFilter = filter
         
         // Display the autocomplete view controller.

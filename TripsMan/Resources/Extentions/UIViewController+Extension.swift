@@ -25,7 +25,7 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func addMenuButton(with title: String) {
+    func addMenuButton(with title: String, isHome: Bool = false) {
         let logo = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         let logoView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
         logoView.image = UIImage(named: "logo-icon")
@@ -34,6 +34,9 @@ extension UIViewController {
         let menuButton = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(menu))
         menuButton.image = UIImage(named: "icon-menu")
         self.tabBarController?.navigationItem.leftBarButtonItems = [menuButton, logo]
+        if !isHome {
+            self.tabBarController?.navigationItem.rightBarButtonItems = nil
+        }
         self.tabBarController?.navigationItem.title = title
         
         let tabBarAppearance = UITabBarAppearance()

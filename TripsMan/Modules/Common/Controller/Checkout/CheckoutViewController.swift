@@ -98,7 +98,7 @@ extension CheckoutViewController {
         }
         
         let params: [String: Any] = ["bookingId": bookingID,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -140,7 +140,7 @@ extension CheckoutViewController {
         }
         
         let params: [String: Any] = ["bookingId": bookingID,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         

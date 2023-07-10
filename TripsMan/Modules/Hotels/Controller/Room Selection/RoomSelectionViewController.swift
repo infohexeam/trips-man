@@ -189,7 +189,7 @@ extension RoomSelectionViewController {
                                      "bookingTo": hotelFilters.checkout!.stringValue(format: "yyyy-MM-dd"),
                                      "status": 0,
                                      "userId": SessionManager.shared.getLoginDetails()!.userid!,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage(),
                                      "booking_Guest": guests,

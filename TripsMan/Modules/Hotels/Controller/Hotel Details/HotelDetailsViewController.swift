@@ -349,7 +349,7 @@ extension HotelDetailsViewController {
                                      "RoomCount": hotelFilters.roomCount!,
                                      "HotelRateFrom": hotelFilters.rate!.from,
                                      "HotelRateTo": hotelFilters.rate!.to,
-                                     "Country": SessionManager.shared.getCountry(),
+                                     "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage()]
         

@@ -75,7 +75,7 @@ extension CouponsViewController {
         
         var params: [String: Any] = ["bookingId": bookingID!,
                                      "couponCode": couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         

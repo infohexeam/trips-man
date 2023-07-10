@@ -94,7 +94,7 @@ extension PackBookingSummaryViewController {
         
         let params: [String: Any] = ["bookingId": packBookingData!.bookingID,
                                      "couponCode": coupon.couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -124,7 +124,7 @@ extension PackBookingSummaryViewController {
         
         let params: [String: Any] = ["bookingId": packBookingData!.bookingID,
                                      "couponCode": couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -151,7 +151,7 @@ extension PackBookingSummaryViewController {
     func checkoutBooking() {
         showIndicator()
         let params: [String: Any] = ["bookingId": packBookingData?.bookingID ?? 0,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHolidayCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in

@@ -67,7 +67,7 @@ class WalletViewController: UIViewController {
 extension WalletViewController {
     func getWallet() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/GetCustomerWalletList?Language=\(SessionManager.shared.getLanguage())&Currency=\(SessionManager.shared.getCurrency())&Country=\(SessionManager.shared.getCountry())", http: .get, parameters: nil) { (result: WalletData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/GetCustomerWalletList?Language=\(SessionManager.shared.getLanguage())&Currency=\(SessionManager.shared.getCurrency())&Country=\(SessionManager.shared.getCountry().countryCode)", http: .get, parameters: nil) { (result: WalletData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

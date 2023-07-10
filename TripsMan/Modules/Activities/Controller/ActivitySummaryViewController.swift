@@ -141,7 +141,7 @@ extension ActivitySummaryViewController {
         
         let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
                                      "couponCode": coupon.couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -171,7 +171,7 @@ extension ActivitySummaryViewController {
         
         let params: [String: Any] = ["bookingId": meetupBookingData!.bookingId,
                                      "couponCode": coupon.couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -201,7 +201,7 @@ extension ActivitySummaryViewController {
         
         let params: [String: Any] = ["bookingId": activityBookingData!.bookingId,
                                      "couponCode": couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -230,7 +230,7 @@ extension ActivitySummaryViewController {
         
         let params: [String: Any] = ["bookingId": meetupBookingData!.bookingId,
                                      "couponCode": couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -268,7 +268,7 @@ extension ActivitySummaryViewController {
         }
         
         let params: [String: Any] = ["bookingId": bookingId,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: CheckoutData?, error) in

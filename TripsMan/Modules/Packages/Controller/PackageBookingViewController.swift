@@ -139,7 +139,7 @@ extension PackageBookingViewController {
                                      "bookingFrom": packageFilter.startDate!.stringValue(format: "yyyy-MM-dd"),
                                      "bookingTo": bookingTo!.stringValue(format: "yyyy-MM-dd"),
                                      "userId": SessionManager.shared.getLoginDetails()!.userid!,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage(),
                                      "booking_Guest": guests,

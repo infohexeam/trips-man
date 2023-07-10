@@ -28,6 +28,15 @@ struct K {
     static let countryCodes: [MobileCodes] = [MobileCodes(code: "+91", mobileLength: 10),
                                               MobileCodes(code: "+971", mobileLength: 9)]
     
+    //Country Selection
+    //  localeIdentifier uses in:
+    //      - setting country w.r.t device's locale identifier (MainViewController)
+    //      - Google Maps country filter (DefaultFilterViewController)
+    //  countryCode uses in tripsman apis
+    static let countries = [CountrySelection(name: "India", icon: "country-india", countryCode: "IND", localeIdentifier: "IN", currency: "INR", id: 1),
+                            CountrySelection(name: "UAE", icon: "country-uae", countryCode: "UAE", localeIdentifier: "AE", currency: "AED", id: 2)]
+    static let languages = [LanguageSelection(name: "English", id: 1)]
+    
     static let hotelPlaceHolderImage = "hotel-default-img"
     static let packagePlaceHolderImage = "pack-default-img"
     static let activityPlaceholderImage = "activity-default-img"
@@ -87,6 +96,8 @@ struct K {
             return ""
         }
     }
+    
+    
 }
 
 struct MobileCodes {
@@ -109,4 +120,19 @@ struct Validation {
     
         //Activity&Meetup
     static let primaryCustomerDetails = "Enter primary customer details"
+}
+
+
+struct CountrySelection: Codable {
+    var name: String
+    var icon: String
+    var countryCode: String
+    var localeIdentifier: String
+    var currency: String
+    var id: Int
+}
+
+struct LanguageSelection {
+    var name: String
+    var id: Int
 }

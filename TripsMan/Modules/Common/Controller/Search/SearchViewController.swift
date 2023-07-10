@@ -78,7 +78,7 @@ extension SearchViewController {
         
         let params: [String: Any] = ["Search": searchBar.text!,
                                      "Module": module,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         

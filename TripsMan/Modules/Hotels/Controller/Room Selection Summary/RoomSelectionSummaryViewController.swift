@@ -183,7 +183,7 @@ extension RoomSelectionSummaryViewController {
         
         let params: [String: Any] = ["bookingId": bookedData!.bookingID,
                                      "couponCode": couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -214,7 +214,7 @@ extension RoomSelectionSummaryViewController {
         
         let params: [String: Any] = ["bookingId": bookedData!.bookingID,
                                      "couponCode": couponCode,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
@@ -247,7 +247,7 @@ extension RoomSelectionSummaryViewController {
     func checkoutBooking() {
         showIndicator()
         let params: [String: Any] = ["bookingId": bookedData?.bookingID ?? 0,
-                                     "country": SessionManager.shared.getCountry(),
+                                     "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHotelCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
