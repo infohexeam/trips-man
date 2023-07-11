@@ -31,8 +31,14 @@ struct TripListManager {
         var text: String
     }
     
-    init(myTrips: [MyTrips]?) {
-        self.myTrips = myTrips
+    mutating func setMyTrips(trips: [MyTrips]?, offset: Int) {
+        if offset > 0 {
+            if let trips = trips {
+                myTrips?.append(contentsOf: trips)
+            }
+        } else {
+            myTrips = trips
+        }
         setTripsToShow()
     }
     

@@ -47,13 +47,13 @@ class MyTripsViewController: UIViewController {
     
     var tripFilters = TripsFilters()
     var sorts = [Sortby]()
-    var filters = [String]()
+    var filters = [ModuleFilter]()
     
-    var tripsManager: TripListManager?
+    var tripsManager = TripListManager()
     
     var currentOffset = 0
     var totalPages = 1
-    let recordCount = 100
+    let recordCount = 20
     var isLoading = false
     
     let parser = Parser()
@@ -64,7 +64,7 @@ class MyTripsViewController: UIViewController {
             } else {
                 noBookingsLabel.isHidden = true
             }
-            tripsManager = TripListManager(myTrips: myTrips)
+            tripsManager.setMyTrips(trips: myTrips, offset: currentOffset)
             myTripsCollection.reloadData()
         }
     }
@@ -102,47 +102,47 @@ class MyTripsViewController: UIViewController {
         sorts = [Sortby(name: "Latest first", id: 0),
                  Sortby(name: "Oldest first", id: 1)]
         
-        tripFilters.sortBy = Sortby(name: "DESCDATE", id: 1)
+        tripFilters.sortBy = Sortby(name: "DESCDATE", id: 0)
         
-        filters = ["Hotel", "Holiday Package", "Activities", "Meetups"]
+        filters = [ModuleFilter(moduleCode: "HTL", moduleText: "Hotel"),
+                   ModuleFilter(moduleCode: "HDY", moduleText: "Holiday Package"),
+                   ModuleFilter(moduleCode: "ACT", moduleText: "Activities"),
+                   ModuleFilter(moduleCode: "MTP", moduleText: "Meetups")]
     }
     
     func setupMenus() {
         
-        let sorts = sorts.map { UIAction(title: "\($0.name)", handler: sortHandler) }
+        let sorts = sorts.map { UIAction(title: "\($0.name)", state: $0.id == tripFilters.sortBy?.id ? .on: .off, handler: sortHandler) }
         sortByButton.menu = UIMenu(title: "", children: sorts)
         sortByButton.showsMenuAsPrimaryAction = true
         
-        let filters = filters.map { UIAction(title: "\($0)", handler: filterHandler) }
+        let filters = filters.map { UIAction(title: "\($0.moduleText)", state: $0.moduleText == tripFilters.module?.moduleText ? .on : .off, handler: filterHandler) }
         filterByButton.menu = UIMenu(title: "", children: filters)
         filterByButton.showsMenuAsPrimaryAction = true
     }
     
     func sortHandler(action: UIAction) {
-        
-        let sortBy = sorts.filter { $0.name == action.title }.last
-        if sortBy?.id == 0 {
-            tripFilters.sortBy = Sortby(name: "DESCDATE", id: 1)
-        } else if sortBy?.id == 1 {
-            tripFilters.sortBy = Sortby(name: "ASCDATE", id: 0)
+        if action.state == .off {
+            let sortBy = sorts.filter { $0.name == action.title }.last
+            if sortBy?.id == 0 {
+                tripFilters.sortBy = Sortby(name: "DESCDATE", id: 0)
+            } else if sortBy?.id == 1 {
+                tripFilters.sortBy = Sortby(name: "ASCDATE", id: 1)
+            }
+            
+            setupMenus()
+            getMyTrips()
         }
-        
-        getMyTrips()
     }
     
     func filterHandler(action: UIAction) {
-        
-        let filter = filters.filter { $0 == action.title }.last
-        if filter == "Hotel" {
-            tripFilters.moduleCode = "HTL"
-        } else if filter == "Holiday Package" {
-            tripFilters.moduleCode = "HDY"
-        } else if filter == "Activities" {
-            tripFilters.moduleCode = "ACT"
-        } else if filter == "Meetups" {
-            tripFilters.moduleCode = "MTP"
+        if tripFilters.module?.moduleText == action.title {
+            tripFilters.module = nil
+        } else {
+            let filter = filters.filter { $0.moduleText == action.title }.last
+            tripFilters.module = filter
         }
-        
+        setupMenus()
         getMyTrips()
     }
     
@@ -159,8 +159,8 @@ class MyTripsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? TripDetailsViewController {
             if let index = sender as? Int {
-                vc.bookingId = tripsManager?.getTripsToShow()?[index].bookingID ?? 0
-                vc.module = tripsManager?.getTripsToShow()?[index].module
+                vc.bookingId = tripsManager.getTripsToShow()?[index].bookingID ?? 0
+                vc.module = tripsManager.getTripsToShow()?[index].module
                 vc.delegate = self
             }
         }
@@ -189,7 +189,7 @@ extension MyTripsViewController {
         }
         showIndicator()
         isLoading = true
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset*recordCount)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.module?.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset*recordCount)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 self.refreshControl.endRefreshing()
@@ -224,13 +224,13 @@ extension MyTripsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tripsManager?.getTripsToShow()?.count ?? 0
+        return tripsManager.getTripsToShow()?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "myTripsCell", for: indexPath) as! TripListCell
         
-        if let trip = tripsManager?.getTripsToShow()?[indexPath.row] {
+        if let trip = tripsManager.getTripsToShow()?[indexPath.row] {
             cell.tripImage.sd_setImage(with: URL(string: trip.imageUrl), placeholderImage: UIImage(named: trip.defaultImage))
             
             cell.topLabel.text = trip.topLabel
@@ -246,7 +246,7 @@ extension MyTripsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.item == (tripsManager?.getTripsToShow()?.count ?? 0) - 1, currentOffset < totalPages, isLoading == false {
+        if indexPath.item == (tripsManager.getTripsToShow()?.count ?? 0) - 1, currentOffset < totalPages, isLoading == false {
             getMyTrips(isPagination: true)
         }
     }
