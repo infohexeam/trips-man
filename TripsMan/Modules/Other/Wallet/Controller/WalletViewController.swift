@@ -121,6 +121,11 @@ extension WalletViewController: UICollectionViewDataSource {
                 cell.dateLabel.text = walletList.date.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM")
                 cell.descLabel.text = walletList.description
                 cell.pointLabel.text = "\(walletList.points)"
+                if walletList.points < 0 {
+                    cell.pointLabel.textColor = UIColor(named: "debitLabelColor")
+                } else {
+                    cell.pointLabel.textColor = UIColor(named: "creditLabelColor")
+                }
             }
             
             return cell
