@@ -171,7 +171,7 @@ class DefaultFilterViewController: UIViewController {
         } else if tag == 3 {
             datePickerViewController.minDate = Date().adding(minutes: 1440)
         } else if tag == 4 {
-            datePickerViewController.minDate = Date()
+            datePickerViewController.minDate = Date().adding(minutes: 1440)
         }
                     
         datePickerViewController.modalPresentationStyle = .pageSheet
