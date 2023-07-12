@@ -699,7 +699,7 @@ asdlakd</string>
                                                                                     <color key="textColor" name="primaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After 2.00 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-bt-S5b">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After 2.00 pm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-bt-S5b">
                                                                                     <rect key="frame" x="0.0" y="73" width="181" height="12"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
@@ -832,11 +832,11 @@ klsajdads</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="actionCell" id="QSs-G6-oeO" customClass="TripDetailsActionCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="10" y="1014" width="370" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UZ3-su-eYw">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="UZ3-su-eYw">
                                             <rect key="frame" x="0.0" y="0.0" width="370" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1G-uu-ZBA">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1G-uu-ZBA">
                                                     <rect key="frame" x="8" y="8" width="354" height="34"/>
                                                     <color key="backgroundColor" name="primaryColor"/>
                                                     <constraints>
@@ -1371,19 +1371,13 @@ velit esse quam nihil molestiae consequatur.</string>
     </scenes>
     <designables>
         <designable name="WpO-As-I4K">
-            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
-        </designable>
-        <designable name="Xtb-c1-XTN">
-            <size key="intrinsicContentSize" width="270" height="50"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
         </designable>
         <designable name="fxG-uL-dpA">
-            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
-        </designable>
-        <designable name="rcz-7J-woS">
-            <size key="intrinsicContentSize" width="170" height="30"/>
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
         <designable name="sCQ-PC-LLh">
-            <size key="intrinsicContentSize" width="134.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="138.33333333333334" height="34"/>
         </designable>
     </designables>
     <resources>
