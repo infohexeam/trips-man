@@ -10,6 +10,7 @@ import UIKit
 class PackageDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var packageCode: UILabel!
     @IBOutlet weak var packageName: UILabel!
+    @IBOutlet weak var packageCountry: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
 }

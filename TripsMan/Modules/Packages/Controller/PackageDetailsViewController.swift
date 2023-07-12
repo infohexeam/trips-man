@@ -120,6 +120,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                 
                 cell.packageName.text = packageDetails.packageName + " - " + packageDetails.duration
                 cell.packageCode.text = "Package code: \(packageDetails.packageCode)"
+                cell.packageCountry.text = packageDetails.countryName
                 cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
             }

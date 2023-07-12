@@ -67,7 +67,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="177"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vwB-lU-k8v">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vwB-lU-k8v">
                                                     <rect key="frame" x="0.0" y="8" width="383" height="169"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgp-U5-Ha3">
@@ -80,20 +80,29 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTf-kM-FOo">
-                                                            <rect key="frame" x="0.0" y="23" width="383" height="11"/>
+                                                            <rect key="frame" x="0.0" y="19" width="383" height="11"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JP-wy-xRa">
+                                                            <rect key="frame" x="0.0" y="34" width="383" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="OIJ-yP-sHB"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                            <color key="textColor" name="primaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-zj-QrL">
-                                                            <rect key="frame" x="0.0" y="42" width="383" height="5"/>
+                                                            <rect key="frame" x="0.0" y="58" width="383" height="5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="5" id="jvv-JI-EFh"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJ3-jP-jTG">
-                                                            <rect key="frame" x="0.0" y="55" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="67" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="X8H-LR-gGZ"/>
                                                             </constraints>
@@ -102,7 +111,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imo-kE-lJT">
-                                                            <rect key="frame" x="0.0" y="83" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="91" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="y1u-H8-Noe"/>
                                                             </constraints>
@@ -133,7 +142,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFS-dc-Ib8">
-                                                            <rect key="frame" x="0.0" y="111" width="383" height="10"/>
+                                                            <rect key="frame" x="0.0" y="115" width="383" height="10"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="Bx5-va-6Mv"/>
@@ -177,6 +186,7 @@
                                         <size key="customSize" width="383" height="177"/>
                                         <connections>
                                             <outlet property="packageCode" destination="fgp-U5-Ha3" id="LDw-cm-4Iy"/>
+                                            <outlet property="packageCountry" destination="0JP-wy-xRa" id="Qon-Yf-rTz"/>
                                             <outlet property="packageName" destination="wTf-kM-FOo" id="Hxi-xA-NBM"/>
                                             <outlet property="priceLabel" destination="OJ3-jP-jTG" id="NWb-3m-0Dw"/>
                                             <outlet property="taxLabel" destination="imo-kE-lJT" id="zmP-qb-5t0"/>
@@ -404,7 +414,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" ambiguous="YES" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qOF-eo-Frp">
-                                                            <rect key="frame" x="0.0" y="24.666666666666671" width="384" height="84.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="24.666666666666686" width="384" height="84.333333333333314"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
