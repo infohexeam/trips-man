@@ -86,15 +86,24 @@
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRz-vM-5fY">
+                                                            <rect key="frame" x="0.0" y="54.666666666666657" width="383" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="67j-nW-cPL"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                                            <color key="textColor" name="primaryLabel"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYF-vG-T9X">
-                                                            <rect key="frame" x="0.0" y="54.666666666666664" width="383" height="5"/>
+                                                            <rect key="frame" x="0.0" y="82.666666666666671" width="383" height="5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="5" id="ngJ-WO-D3P"/>
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWY-uT-KYx">
-                                                            <rect key="frame" x="0.0" y="67.666666666666671" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="95.666666666666671" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="1SM-Kd-8bG"/>
                                                             </constraints>
@@ -103,7 +112,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tax" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkG-bH-uBr">
-                                                            <rect key="frame" x="0.0" y="95.666666666666671" width="383" height="20"/>
+                                                            <rect key="frame" x="0.0" y="123.66666666666669" width="383" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="heK-dB-MrD"/>
                                                             </constraints>
@@ -112,7 +121,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ro-Sx-vKD">
-                                                            <rect key="frame" x="0.0" y="123.66666666666669" width="383" height="83.333333333333314"/>
+                                                            <rect key="frame" x="0.0" y="151.66666666666666" width="383" height="55.333333333333343"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
@@ -328,6 +337,8 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="383" height="321"/>
                                         <connections>
+                                            <outlet property="activityCode" destination="obl-T9-zwn" id="bzN-zc-m5L"/>
+                                            <outlet property="activityCountry" destination="mRz-vM-5fY" id="ioT-63-FoX"/>
                                             <outlet property="activityName" destination="N7D-ww-Cs6" id="qwQ-iD-Y6x"/>
                                             <outlet property="dateLabel" destination="VON-jC-Y1l" id="4OX-Jx-lPs"/>
                                             <outlet property="detailsLabel" destination="1Ro-Sx-vKD" id="lRV-hx-uwz"/>

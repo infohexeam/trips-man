@@ -168,7 +168,9 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
                 }
                 cell.memberCount = activityFilters.memberCount
                 cell.delegate = self
-                cell.activityName.text = details.activityName
+                cell.activityCode.text = "Activity code: \(details.activityCode)"
+                cell.activityName.text = details.activityName + " - " + (Int(details.activityDuration)?.oneOrMany("Day") ?? "")
+                cell.activityCountry.text = details.activityLocation
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) taxes and fee per person"
                 cell.detailsLabel.text = details.shortDescription

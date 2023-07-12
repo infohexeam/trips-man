@@ -8,7 +8,9 @@
 import UIKit
 
 class ActivityDetailsCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var activityCode: UILabel!
     @IBOutlet weak var activityName: UILabel!
+    @IBOutlet weak var activityCountry: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!

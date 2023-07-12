@@ -132,11 +132,12 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
                 }
                 cell.memberCount = meetupFilters.memberCount
                 cell.delegate = self
+                cell.meetupCode.text = "Meetup code: \(details.meetupCode)"
                 cell.meetupName.text = details.meetupName
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerAmount, fontSize: fontSize!)
                 cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceCharge) taxes and fee per person"
                 cell.detailsLabel.text = details.shortDescription
-                cell.dateLabel.text = details.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMMM dd")
+                cell.dateLabel.text = details.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMMM dd, yyyy")
             }
             
             return cell

@@ -107,6 +107,14 @@ extension UIViewController {
         intervalFormatter.dateStyle = .medium
         return intervalFormatter.string(from: from, to: to)
     }
+    
+    func getDateRange(from: Date, totalDays: Int) -> String {
+        let intervalFormatter = DateIntervalFormatter()
+        intervalFormatter.timeStyle = .none
+        intervalFormatter.dateStyle = .medium
+        let to = from.adding(minutes: 1440*(totalDays-1))
+        return intervalFormatter.string(from: from, to: to)
+    }
 }
 
 extension UIViewController: UITextFieldDelegate {

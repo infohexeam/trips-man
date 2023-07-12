@@ -9,6 +9,7 @@ import UIKit
 
 class MeetupDetailsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var meetupCode: UILabel!
     @IBOutlet weak var meetupName: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var taxLabel: UILabel!

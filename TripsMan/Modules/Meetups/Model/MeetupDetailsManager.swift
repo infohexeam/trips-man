@@ -42,7 +42,7 @@ struct MeetupDetailsManager {
         if let meetupDetails = meetupDetails {
             sections = [MeetupDetailsSection(type: .image, count: meetupDetails.meetupImages.count),
                         MeetupDetailsSection(type: .meetupDetails, count: 1),
-                        MeetupDetailsSection(type: .description, count: 1),
+                        MeetupDetailsSection(type: .description, count: getDescription()?.count ?? 0),
                         MeetupDetailsSection(type: .map, count: 1),
                         MeetupDetailsSection(type: .termsAndConditions, count: 1)]
         }
@@ -50,7 +50,8 @@ struct MeetupDetailsManager {
     
     func getDescription() -> [MeetupDescription]? {
         if let meetupDetails = meetupDetails {
-            return [MeetupDescription(title: "Overview", description: meetupDetails.shortDescription)]
+            return [MeetupDescription(title: "Overview", description: meetupDetails.shortDescription),
+                    MeetupDescription(title: "Description", description: meetupDetails.details)]
 
         }
         return nil
