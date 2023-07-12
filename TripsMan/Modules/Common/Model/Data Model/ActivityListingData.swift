@@ -18,7 +18,7 @@ struct ActivityListingData: Codable {
 // MARK: - ActivityListingData
 struct Activity: Codable {
     let activityID, isSponsored: Int
-    let activityName, activityCode: String
+    let activityName, activityCode, shortDescription: String
     let activityLocation: String
     let costPerPerson, offerPrice: Double
     let serviceChargeValue: Double?
@@ -29,7 +29,7 @@ struct Activity: Codable {
     enum CodingKeys: String, CodingKey {
         case activityID = "activityId"
         case isSponsored, activityName, activityCode
-        case activityLocation, costPerPerson, offerPrice, serviceChargeValue, activityAmount, activityStatus
+        case activityLocation, costPerPerson, offerPrice, serviceChargeValue, activityAmount, activityStatus, shortDescription
         case activityImages = "activity_Images"
         case activityInclusion
     }
