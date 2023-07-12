@@ -139,6 +139,7 @@ struct PackageSummaryManager {
             } else {
                 couponsToShow = coupons
             }
+            setSections()
         }
     }
     
@@ -148,6 +149,7 @@ struct PackageSummaryManager {
         if coupon != nil {
             if showSingleCoupon {
                 couponsToShow = [coupon!]
+                setSections()
             }
         } else {
             setCouponsTOShow()

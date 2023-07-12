@@ -175,7 +175,7 @@ extension ActivitySummaryViewController {
                                      "currency": SessionManager.shared.getCurrency(),
                                      "language": SessionManager.shared.getLanguage()]
         
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/ApplyCustomerHotelCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/ApplyCustomerMeetupCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -360,7 +360,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             
             if let coupon = activityManager?.getCouponsToShow()?[indexPath.row] {
                 cell.couponCode.text = coupon.couponCode
-                cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount)
+                cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount, discountType: coupon.discountType)
                 
                 cell.radioImage.image = UIImage(systemName: "circle")
                 cell.removeButton.isHidden = true

@@ -97,8 +97,17 @@ struct K {
         }
     }
     
-    static func getCouponText(with description: String, minAmount: Double, discount: Double) -> String {
-        return "\(description)\nMin. Order Value: \(SessionManager.shared.getCurrency()) \(minAmount), Discount Amount: \(SessionManager.shared.getCurrency()) \(discount)"
+    static func getCouponText(with description: String, minAmount: Double, discount: Double, discountType: Int) -> String {
+        // Discount types: 1 - Fixed
+        //                 2 - Percentage
+        var discountText = ""
+        if discountType == 1 {
+            discountText = "\(SessionManager.shared.getCurrency()) \(discount)"
+        } else if discountType == 2 {
+            discountText = "\(discount)%"
+        }
+        
+        return "\(description)\nMin. Order Value: \(SessionManager.shared.getCurrency()) \(minAmount), Discount: \(discountText) "
     }
     
     

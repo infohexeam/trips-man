@@ -279,7 +279,7 @@ extension RoomSelectionSummaryViewController: CouponDelegate {
     }
     
     func couponRemoved(index: Int) {
-        removeCoupon(with: coupons[index].couponCode)
+        removeCoupon(with: showingCoupons[index].couponCode)
     }
 
 }
@@ -347,7 +347,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
             
             let coupon = showingCoupons[indexPath.row]
             cell.couponCode.text = coupon.couponCode
-            cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount)
+            cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount, discountType: coupon.discountType)
             
             cell.radioImage.image = UIImage(systemName: "circle")
             cell.removeButton.isHidden = true

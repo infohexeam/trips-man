@@ -25,10 +25,10 @@ struct Coupon: Codable {
     let couponName, couponCode, validFrom: String
     let validTo, description: String
     let minOrderValue, discountAmount: Double
-    let couponID: Int
+    let couponID, discountType: Int
 
     enum CodingKeys: String, CodingKey {
-        case couponName, couponCode, validFrom, validTo, description, minOrderValue, discountAmount
+        case couponName, couponCode, validFrom, validTo, description, minOrderValue, discountAmount, discountType
         case couponID = "couponId"
     }
 }

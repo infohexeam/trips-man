@@ -136,7 +136,7 @@ extension CouponsViewController: UICollectionViewDataSource {
             
             let coupon = coupons[indexPath.row]
             cell.couponCode.text = coupon.couponCode
-            cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount)
+            cell.couponDesc.text = K.getCouponText(with: coupon.description, minAmount: coupon.minOrderValue, discount: coupon.discountAmount, discountType: coupon.discountType)
             
             cell.radioImage.image = UIImage(systemName: "circle")
             
