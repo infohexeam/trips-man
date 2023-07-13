@@ -634,11 +634,11 @@
             <objects>
                 <viewController storyboardIdentifier="HotelListingViewController" id="1hQ-nZ-hHp" customClass="ListingViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ff-tB-Rvz" customClass="Gradient" customModule="TripsMan" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pb8-46-6Gh">
-                                <rect key="frame" x="0.0" y="59" width="393" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="104"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NSp-DF-SYE">
                                         <rect key="frame" x="8" y="8" width="377" height="88"/>
@@ -915,7 +915,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tyY-m6-oit">
-                                <rect key="frame" x="0.0" y="163" width="393" height="689"/>
+                                <rect key="frame" x="0.0" y="104" width="393" height="738"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fXO-5Z-dJd">
                                     <size key="itemSize" width="300" height="268"/>
@@ -1339,11 +1339,11 @@
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="vNf-y9-esa" customClass="DefaultFilterViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iam-kT-wbN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fof-dc-uUg">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JS-IO-HnO">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="420"/>
@@ -2130,7 +2130,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbc-Fr-vTh">
-                                        <rect key="frame" x="0.0" y="420" width="393" height="432"/>
+                                        <rect key="frame" x="0.0" y="420" width="393" height="422"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -2199,7 +2199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZH-Rn-0hf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="87"/>
+            <point key="canvasLocation" x="2207" y="87"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="acV-KD-Qnr">
@@ -2259,7 +2259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Up-Nk-ezx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2207" y="87"/>
+            <point key="canvasLocation" x="3236" y="87"/>
         </scene>
         <!--Country Listing View Controller-->
         <scene sceneID="gFE-2I-Ftk">
@@ -2353,11 +2353,12 @@
                     <connections>
                         <outlet property="countryCollectionView" destination="evx-kw-Ft9" id="LoY-6m-jQH"/>
                         <outlet property="searchBar" destination="Yf2-9l-Aa1" id="qyU-yh-WF7"/>
+                        <segue destination="1hQ-nZ-hHp" kind="show" identifier="toListing" id="Xmw-K9-gRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sG4-Ib-xJP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3235.8778625954196" y="86.619718309859152"/>
+            <point key="canvasLocation" x="923" y="87"/>
         </scene>
         <!--Search-->
         <scene sceneID="mLH-df-87l">
@@ -2367,7 +2368,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hz1-14-DjE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1547" y="661"/>
+            <point key="canvasLocation" x="1506" y="805"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="5Pf-md-3KK">

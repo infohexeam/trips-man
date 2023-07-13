@@ -53,6 +53,7 @@ class CouponsViewController: UIViewController {
         sections = [CouponsSection(type: .code, count: 1),
                     CouponsSection(type: .list, count: coupons.count)]
         
+        hideKeyboardOnTap()
         
     }
     
@@ -61,10 +62,9 @@ class CouponsViewController: UIViewController {
 //MARK: - CouponCodeDelegate
 extension CouponsViewController: CouponCodeDelegate {
     func couponCodeDidApplied(couponCode: String) {
+        self.view.endEditing(true)
         applyCoupon(with: couponCode)
     }
-    
-    
 }
 
 

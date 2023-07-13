@@ -43,8 +43,15 @@ class CountryListingViewController: UIViewController {
     var listType: ListType?
     var isCity = false
     var countryId: Int?
+    var fromHome = false
     
     let parser = Parser()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addBackButton(with: "Select a country")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +65,15 @@ class CountryListingViewController: UIViewController {
                 getMeetupCities()
             } else {
                 getMeetupCountries()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ListingViewController {
+            if let country = sender as? Country {
+                vc.listType = listType
+                vc.selectedCountry = country
             }
         }
     }
@@ -203,12 +219,16 @@ extension CountryListingViewController: UICollectionViewDataSource {
 
 extension CountryListingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if isCity {
-            delegate?.cityDidSelected(countryManager?.getCities(searchBar.text ?? "")?[indexPath.row].cityName ?? "")
+        if fromHome {
+            performSegue(withIdentifier: "toListing", sender: countryManager?.getCountries(searchBar.text ?? "")?[indexPath.row])
         } else {
-            delegate?.countryDidSelected((countryManager?.getCountries(searchBar.text ?? "")![indexPath.row])!)
+            if isCity {
+                delegate?.cityDidSelected(countryManager?.getCities(searchBar.text ?? "")?[indexPath.row].cityName ?? "")
+            } else {
+                delegate?.countryDidSelected((countryManager?.getCountries(searchBar.text ?? "")![indexPath.row])!)
+            }
+            self.dismiss(animated: true)
         }
-        self.dismiss(animated: true)
     }
 }
 

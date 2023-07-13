@@ -45,6 +45,7 @@ class ListingViewController: UIViewController {
     }
     
    
+    var selectedCountry: Country?    //country selected from country listing screen
     var listType: ListType?
     var pageTitle: String?
     
@@ -90,7 +91,7 @@ class ListingViewController: UIViewController {
         case .none:
             pageTitle = ""
         }
-        addBackButton(with: pageTitle ?? "")
+        addBackButton(with: pageTitle ?? "", toVc: 0)
     }
     
     override func viewDidLoad() {
@@ -123,18 +124,18 @@ class ListingViewController: UIViewController {
             
             hotelFilters.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         } else if listType == .packages {
-            packageFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
+            packageFilter.country = selectedCountry
             packageFilter.adult = K.defaultAdultCount
             packageFilter.child = K.defaultChildCount
             packageFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
             tripTypeMainView.isHidden = true
         } else if listType == .activities {
             tripTypeMainView.isHidden = true
-            activityFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
+            activityFilter.country = selectedCountry
             activityFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         } else if listType == .meetups {
             tripTypeMainView.isHidden = true
-            meetupFilter.country = Country(countryID: 149, name: "India", code: "IND", icon: nil)
+            meetupFilter.country = selectedCountry
             meetupFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         }
         

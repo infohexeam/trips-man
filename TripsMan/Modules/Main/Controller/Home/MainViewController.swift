@@ -73,9 +73,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         homeTiles = [HomeTiles(title: "Hotels", image: "home-cat-icon-Hotels", backgroundImage: "home-cat-Hotels", segue: "toHotelList", listType: .hotel),
-                     HomeTiles(title: "Holiday Packages", image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday", segue: "toHotelList", listType: .packages),
-                     HomeTiles(title: "Activities", image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities", segue: "toHotelList", listType: .activities),
-                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", segue: "toHotelList", listType: .meetups)]
+                     HomeTiles(title: "Holiday Packages", image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday", segue: "toCountryPicker", listType: .packages),
+                     HomeTiles(title: "Activities", image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities", segue: "toCountryPicker", listType: .activities),
+                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", segue: "toCountryPicker", listType: .meetups)]
         sections = [HomeSection(type: .banner, count: banners.count),
                     HomeSection(type: .tiles, count: homeTiles.count)]
         
@@ -149,6 +149,11 @@ class MainViewController: UIViewController {
         if let vc = segue.destination as? ListingViewController {
             if let listType = sender as? ListType {
                 vc.listType = listType
+            }
+        } else if let vc = segue.destination as? CountryListingViewController {
+            if let listType = sender as? ListType {
+                vc.listType = listType
+                vc.fromHome = true
             }
         }
     }

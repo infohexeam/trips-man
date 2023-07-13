@@ -316,6 +316,7 @@
                         <outlet property="homeCollection" destination="pDA-Fe-jAa" id="Zir-qM-6eG"/>
                         <segue destination="F6K-Fv-wZv" kind="presentation" identifier="toLogin" id="Fbm-HF-PPw"/>
                         <segue destination="hpe-tX-H9g" kind="show" identifier="toHotelList" id="VPZ-Va-307"/>
+                        <segue destination="IUL-Ea-N7S" kind="show" identifier="toCountryPicker" id="jof-IK-FYJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -331,6 +332,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42L-Ek-yvc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1030" y="1293"/>
+        </scene>
+        <!--CountryListingViewController-->
+        <scene sceneID="cS9-B7-059">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Common" referencedIdentifier="CountryListingViewController" id="IUL-Ea-N7S" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Td1-xo-097"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5e9-Rf-wX7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1388" y="1292"/>
         </scene>
         <!--LoginModule-->
         <scene sceneID="bQr-q4-YEB">
