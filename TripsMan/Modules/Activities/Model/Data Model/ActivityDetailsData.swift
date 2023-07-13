@@ -25,6 +25,7 @@ struct ActivityDetails: Codable {
     let costPerPerson, offerPrice, serviceChargeValue: Double
     let activityAmount, activityStatus: String
     let isSponsored: Int
+    let latitude, longitude: Double
     let activityImages: [ActivityImage]
     let activityType: [ActivityType]
     let activityInclusion: [ActivityInclusion]
@@ -33,7 +34,7 @@ struct ActivityDetails: Codable {
         case activityID = "activityId"
         case activityName, activityCode
         case countryID = "countryId"
-        case contactPerson, contactName, shortDescription, contactNumber, contactEmail, overview, features, termsAndConditions, activityLocation, highlights, activityDuration, costPerPerson, offerPrice, serviceChargeValue, activityAmount, activityStatus, isSponsored
+        case contactPerson, contactName, shortDescription, contactNumber, contactEmail, overview, features, termsAndConditions, activityLocation, highlights, activityDuration, costPerPerson, offerPrice, serviceChargeValue, activityAmount, activityStatus, isSponsored, latitude, longitude
         case activityImages = "activity_Images"
         case activityType, activityInclusion
     }

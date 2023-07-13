@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import SideMenu
+import CoreLocation
+import MapKit
 
 var activityIndicator = UIActivityIndicatorView()
 var tabBarDelegate: TabBarActionDelegate?
@@ -114,6 +116,22 @@ extension UIViewController {
         intervalFormatter.dateStyle = .medium
         let to = from.adding(minutes: 1440*(totalDays-1))
         return intervalFormatter.string(from: from, to: to)
+    }
+    
+    func openInMap(latitude: Double, longitude: Double, name: String) {
+        let latitude: CLLocationDegrees = latitude
+        let longitude: CLLocationDegrees = longitude
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name
+        mapItem.openInMaps(launchOptions: options)
     }
 }
 

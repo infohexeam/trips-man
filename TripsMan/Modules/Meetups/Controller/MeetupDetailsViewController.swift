@@ -51,6 +51,15 @@ class MeetupDetailsViewController: UIViewController {
         performSegue(withIdentifier: "toActivityBooking", sender: nil)
     }
     
+    @IBAction func openInMapTapped(_ sender: UIButton) {
+        if let meetupDetails = meetupManager?.getMeetupDetails() {
+            if let latitude = Double(meetupDetails.latitude), let longitude = Double(meetupDetails.longitude) {
+                openInMap(latitude: latitude, longitude: longitude, name: meetupDetails.meetupName)
+            }
+            
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {

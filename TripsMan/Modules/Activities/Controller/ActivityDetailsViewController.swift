@@ -60,6 +60,12 @@ class ActivityDetailsViewController: UIViewController {
         presentDatePicker()
     }
     
+    @IBAction func openInMapTapped(_ sender: UIButton) {
+        if let activityDetails = activityManager?.getActivityDetails() {
+            openInMap(latitude: activityDetails.latitude, longitude: activityDetails.longitude, name: activityDetails.activityName)
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {

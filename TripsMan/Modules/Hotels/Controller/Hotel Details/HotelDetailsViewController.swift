@@ -229,19 +229,9 @@ class HotelDetailsViewController: UIViewController {
     
     @IBAction func openInMapTapped(_ sender: UIButton) {
         if let hotelDetails = hotelDetails {
-            let latitude: CLLocationDegrees = Double(hotelDetails.latitude)!
-            let longitude: CLLocationDegrees = Double(hotelDetails.longitude)!
-            let regionDistance:CLLocationDistance = 10000
-            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-            let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-            let options = [
-                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
-            ]
-            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = hotelDetails.hotelName
-            mapItem.openInMaps(launchOptions: options)
+            if let latitude = Double(hotelDetails.latitude), let longitude = Double(hotelDetails.longitude) {
+                openInMap(latitude: latitude, longitude: longitude, name: hotelDetails.hotelName)
+            }
         }
     }
     
