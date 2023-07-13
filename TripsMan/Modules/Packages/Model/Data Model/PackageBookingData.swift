@@ -54,7 +54,7 @@ struct SummaryPackageDetails: Codable {
     let packageID: Int
     let packageName, duration: String
     let costPerPerson: Double
-    let status: Int
+    let status, durationDays: Int
     let countryName: String
 
     enum CodingKeys: String, CodingKey {
@@ -62,7 +62,7 @@ struct SummaryPackageDetails: Codable {
         case packageName, duration
         case costPerPerson = "cost_per_person"
         case status
-        case countryName
+        case countryName, durationDays
     }
 }
 

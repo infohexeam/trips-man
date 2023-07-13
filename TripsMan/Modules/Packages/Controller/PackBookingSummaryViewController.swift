@@ -194,7 +194,7 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
                 cell.country.text = packageDetails.countryName
                 
                 if let booking = packageManager?.getBookingSummary() {
-                    cell.duration.text = "\(getDateRange(from: booking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date(), to: booking.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date())) \(packageDetails.duration)"
+                    cell.duration.text = "\(getDateRange(from: booking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date(), to: booking.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date())) - \(packageDetails.duration)"
                     
                     let vendor = booking.vendorDetails
                     cell.vendorName.text = vendor.vendorName

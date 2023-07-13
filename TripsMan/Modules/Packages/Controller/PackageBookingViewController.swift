@@ -118,7 +118,7 @@ extension PackageBookingViewController {
         print(packageFieldTexts)
         let primary = packageFieldTexts.filter { $0.key == [2,0] }
         
-        let duration = packageFilter.packageDetails?.duration.intValue()
+        let duration = packageFilter.packageDetails?.durationDays
         
         let bookingTo = packageFilter.startDate?.adding(minutes: 1440 * (duration ?? 0))
         
