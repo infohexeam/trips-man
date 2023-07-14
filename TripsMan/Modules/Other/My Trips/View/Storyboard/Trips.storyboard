@@ -467,6 +467,43 @@
             </objects>
             <point key="canvasLocation" x="955" y="433"/>
         </scene>
+        <!--Pdf Viewer View Controller-->
+        <scene sceneID="7ru-lr-L1Y">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9f-OW-3en" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="yni-8p-GTg" customClass="PdfViewerViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MnW-sw-2HV">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Tp-HN-EoB" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="56" width="390" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gd2-2m-7M7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Tp-HN-EoB" firstAttribute="leading" secondItem="gd2-2m-7M7" secondAttribute="leading" id="1xZ-HM-C2s"/>
+                            <constraint firstItem="gd2-2m-7M7" firstAttribute="trailing" secondItem="3Tp-HN-EoB" secondAttribute="trailing" id="PTQ-Qj-YsE"/>
+                            <constraint firstItem="gd2-2m-7M7" firstAttribute="bottom" secondItem="3Tp-HN-EoB" secondAttribute="bottom" id="h1k-i1-S5l"/>
+                            <constraint firstItem="3Tp-HN-EoB" firstAttribute="top" secondItem="gd2-2m-7M7" secondAttribute="top" id="zSQ-QX-HqN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hsr-hV-XOC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wWC-Wf-iCH">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="yni-8p-GTg" id="vpn-hK-c2Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pdfView" destination="3Tp-HN-EoB" id="Eff-bN-1gD"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2753.8461538461538" y="816.82464454976298"/>
+        </scene>
         <!--Trip Details View Controller-->
         <scene sceneID="ilz-fj-qlA">
             <objects>
@@ -537,26 +574,51 @@
                                                                                     <color key="textColor" name="profileKeyLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egU-cR-g09">
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="diw-hL-wei">
                                                                                     <rect key="frame" x="0.0" y="412" width="374" height="40"/>
-                                                                                    <color key="backgroundColor" name="buttonBackgroundColor"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="40" id="vrt-Ct-auT"/>
-                                                                                    </constraints>
-                                                                                    <state key="normal" title="Button"/>
-                                                                                    <buttonConfiguration key="configuration" style="plain" title="Download Invoice">
-                                                                                        <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                                                                        <color key="baseForegroundColor" name="buttonTextColor"/>
-                                                                                    </buttonConfiguration>
-                                                                                    <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                            <real key="value" value="10"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                    </userDefinedRuntimeAttributes>
-                                                                                    <connections>
-                                                                                        <action selector="downloadInvoiceTapped:" destination="vAZ-1Q-jrm" eventType="touchUpInside" id="wcl-4i-G7U"/>
-                                                                                    </connections>
-                                                                                </button>
+                                                                                    <subviews>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egU-cR-g09">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="183" height="40"/>
+                                                                                            <color key="backgroundColor" name="buttonBackgroundColor"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="40" id="vrt-Ct-auT"/>
+                                                                                            </constraints>
+                                                                                            <state key="normal" title="Button"/>
+                                                                                            <buttonConfiguration key="configuration" style="plain" title="Download Invoice">
+                                                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                                                <color key="baseForegroundColor" name="buttonTextColor"/>
+                                                                                            </buttonConfiguration>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                    <real key="value" value="10"/>
+                                                                                                </userDefinedRuntimeAttribute>
+                                                                                            </userDefinedRuntimeAttributes>
+                                                                                            <connections>
+                                                                                                <action selector="downloadInvoiceTapped:" destination="vAZ-1Q-jrm" eventType="touchUpInside" id="wcl-4i-G7U"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWJ-gJ-nf1">
+                                                                                            <rect key="frame" x="191" y="0.0" width="183" height="40"/>
+                                                                                            <color key="backgroundColor" name="buttonBackgroundColor"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="40" id="san-VP-FkG"/>
+                                                                                            </constraints>
+                                                                                            <state key="normal" title="Button"/>
+                                                                                            <buttonConfiguration key="configuration" style="plain" title="Download Ticket">
+                                                                                                <fontDescription key="titleFontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
+                                                                                                <color key="baseForegroundColor" name="buttonTextColor"/>
+                                                                                            </buttonConfiguration>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                    <real key="value" value="10"/>
+                                                                                                </userDefinedRuntimeAttribute>
+                                                                                            </userDefinedRuntimeAttributes>
+                                                                                            <connections>
+                                                                                                <action selector="downloadTicketTapped:" destination="vAZ-1Q-jrm" eventType="touchUpInside" id="fw7-9y-xwc"/>
+                                                                                            </connections>
+                                                                                        </button>
+                                                                                    </subviews>
+                                                                                </stackView>
                                                                             </subviews>
                                                                         </stackView>
                                                                     </subviews>
@@ -657,7 +719,9 @@
                                             <outlet property="bookedDate" destination="aC8-Ao-zqN" id="eDF-SV-Gzo"/>
                                             <outlet property="bookingID" destination="MX8-pz-ucK" id="5ru-pl-6bX"/>
                                             <outlet property="image" destination="Od9-34-Nop" id="Wdl-Jr-hQW"/>
+                                            <outlet property="invoiceButton" destination="egU-cR-g09" id="jAo-F0-ETD"/>
                                             <outlet property="name" destination="exa-RS-XlC" id="GF6-Dn-dMl"/>
+                                            <outlet property="ticketButton" destination="VWJ-gJ-nf1" id="ptK-kx-06y"/>
                                             <outlet property="tripMessage" destination="xXf-w9-QKN" id="yTj-LX-UHB"/>
                                             <outlet property="tripStatus" destination="W5T-da-188" id="OFz-nj-gKr"/>
                                         </connections>
@@ -791,21 +855,21 @@ klsajdads</string>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="priceDetailsCell" id="643-oh-nQe" customClass="PriceDetailsCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
                                         <rect key="frame" x="4.666666666666667" y="931" width="381" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wnV-Iq-AGB">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="wnV-Iq-AGB">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-2T-Rsh">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="w4X-2T-Rsh">
                                                     <rect key="frame" x="0.0" y="4" width="381" height="65"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-pZ-DgH">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-pZ-DgH">
                                                             <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="65"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 2099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H65-qw-ssK">
-                                                            <rect key="frame" x="256.66666666666669" y="0.0" width="124.33333333333331" height="65"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="INR 2099" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H65-qw-ssK">
+                                                            <rect key="frame" x="256.66666666666674" y="0.0" width="124.33333333333331" height="65"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="18"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
@@ -1008,6 +1072,7 @@ klsajdads</string>
                     <connections>
                         <outlet property="tripDetailsCollection" destination="JBu-yx-TmB" id="blE-Zu-CAu"/>
                         <segue destination="hbn-AP-Gom" kind="presentation" identifier="toAddReview" id="PSs-ap-M95"/>
+                        <segue destination="vQR-1N-L0c" kind="presentation" identifier="toPdfView" id="ffP-aT-eWr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMr-Ei-xDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1311,7 +1376,7 @@ velit esse quam nihil molestiae consequatur.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7r7-6H-CRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606.1538461538462" y="816.82464454976298"/>
+            <point key="canvasLocation" x="4535.3846153846152" y="816.82464454976298"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="09o-dv-b9e">
@@ -1366,18 +1431,42 @@ velit esse quam nihil molestiae consequatur.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuR-qR-Vvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676.9230769230767" y="816.82464454976298"/>
+            <point key="canvasLocation" x="3606.1538461538462" y="816.82464454976298"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JX3-LL-7r7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vQR-1N-L0c" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sL4-D3-9yL">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yni-8p-GTg" kind="relationship" relationship="rootViewController" id="emv-YX-Qyr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFr-J8-tVm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1824.6153846153845" y="816.82464454976298"/>
         </scene>
     </scenes>
     <designables>
         <designable name="WpO-As-I4K">
-            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
+        </designable>
+        <designable name="Xtb-c1-XTN">
+            <size key="intrinsicContentSize" width="270" height="50"/>
         </designable>
         <designable name="fxG-uL-dpA">
-            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
+        </designable>
+        <designable name="rcz-7J-woS">
+            <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="sCQ-PC-LLh">
-            <size key="intrinsicContentSize" width="138.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="134.33333333333334" height="34"/>
         </designable>
     </designables>
     <resources>

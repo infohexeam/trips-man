@@ -48,7 +48,12 @@ class MeetupDetailsViewController: UIViewController {
     }
     
     @IBAction func bookNowTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toActivityBooking", sender: nil)
+        if SessionManager.shared.getLoginDetails() == nil {
+            tabBarDelegate?.switchTab(0)
+            tabBarDelegate?.presentVC("toLogin")
+        } else {
+            performSegue(withIdentifier: "toActivityBooking", sender: nil)
+        }
     }
     
     @IBAction func openInMapTapped(_ sender: UIButton) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PDFKit
 
 class TripDetailsViewController: UIViewController, URLSessionDelegate {
     
@@ -83,11 +84,19 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
         invoiceDownload()
     }
     
+    @IBAction func downloadTicketTapped(_ sender: UIButton) {
+        
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? AddReviewViewController {
                 vc.reviewDelegate = self
                 vc.tripDetails = tripDetails
+            } else if let vc = nav.topViewController as? PdfViewerViewController {
+                if let url = sender as? String {
+                    vc.pdfUrl = url
+                }
             }
         }
     }
@@ -205,75 +214,33 @@ extension TripDetailsViewController {
     }
     
     func invoiceDownload() {
-        if module != .hotel {
+        if module == .activities && module == .meetups {
             return
         }
+        
+        var invoiceURL = ""
+        
+        if module == .hotel {
+            invoiceURL = "api/CustomerHotelBooking/CustomerHotelInvoice"
+        } else if module == .packages {
+            invoiceURL = "api/CustomerHoliday/CustomerHolidayInvoice"
+        }
+        
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/CustomerHotelInvoice?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: InvoiceData?, error) in
+        parser.sendRequestLoggedIn(url: "\(invoiceURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: InvoiceData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
                     if result!.status == 1 {
-                        
-                        self.downloadPdf(result!.data.url)
+                        self.performSegue(withIdentifier: "toPdfView", sender: result!.data.url)
                     } else {
                         self.view.makeToast(result!.message)
                     }
                 } else {
                     self.view.makeToast("Something went wrong!")
                 }
-                    
             }
         }
-    }
-    
-    
-    
-    func downloadPdf(_ url: String) {
-        self.showIndicator()
-        let urlString = url
-        let url = URL(string: urlString)
-        let fileName = String((url!.lastPathComponent)) as NSString
-        // Create destination URL
-        let documentsUrl:URL =  (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first as URL?)!
-        let destinationFileUrl = documentsUrl.appendingPathComponent("\(fileName)")
-        //Create URL to the source file you want to download
-        let fileURL = URL(string: urlString)
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        let request = URLRequest(url:fileURL!)
-        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
-            self.hideIndicator()
-            if let tempLocalUrl = tempLocalUrl, error == nil {
-                // Success
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    print("Successfully downloaded. Status code: \(statusCode)")
-                }
-                do {
-                    try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
-                    do {
-                        //Show UIActivityViewController to save the downloaded file
-                        let contents  = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-                        for indexx in 0..<contents.count {
-                            if contents[indexx].lastPathComponent == destinationFileUrl.lastPathComponent {
-                                let activityViewController = UIActivityViewController(activityItems: [contents[indexx]], applicationActivities: nil)
-                                DispatchQueue.main.async {
-                                    self.present(activityViewController, animated: true, completion: nil)
-                                }
-                            }
-                        }
-                    }
-                    catch (let err) {
-                        print("error: \(err)")
-                    }
-                } catch (let writeError) {
-                    print("Error creating a file \(destinationFileUrl) : \(writeError)")
-                }
-            } else {
-                print("Error took place while downloading a file. Error description: \(error?.localizedDescription ?? "")")
-            }
-        }
-        task.resume()
     }
 }
 

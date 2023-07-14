@@ -50,7 +50,12 @@ class ActivityDetailsViewController: UIViewController {
     
     @IBAction func bookNowTapped(_ sender: UIButton) {
         if activityFilters.activityDate != nil {
-            performSegue(withIdentifier: "toActivityBooking", sender: nil)
+            if SessionManager.shared.getLoginDetails() == nil {
+                tabBarDelegate?.switchTab(0)
+                tabBarDelegate?.presentVC("toLogin")
+            } else {
+                performSegue(withIdentifier: "toActivityBooking", sender: nil)
+            }
         } else {
             self.view.makeToast("Select date")
         }

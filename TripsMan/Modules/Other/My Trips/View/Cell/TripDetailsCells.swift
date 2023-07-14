@@ -20,6 +20,9 @@ class TripDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var address: UILabel!
     
+    @IBOutlet weak var invoiceButton: UIButton!
+    @IBOutlet weak var ticketButton: UIButton!
+    
     
 }
 
