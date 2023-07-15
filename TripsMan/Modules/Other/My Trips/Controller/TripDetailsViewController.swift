@@ -85,7 +85,7 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
     }
     
     @IBAction func downloadTicketTapped(_ sender: UIButton) {
-        
+        ticketDownload()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -242,6 +242,33 @@ extension TripDetailsViewController {
             }
         }
     }
+    
+    
+    func ticketDownload() {
+        var ticketURL = ""
+        
+        if module == .meetups {
+            ticketURL = "api/CustomerMeetup/CustomerMeetupTicket"
+        } else if module == .activities {
+            ticketURL = "api/CustomerActivity/CustomerActivityTicket"
+        }
+        
+        showIndicator()
+        parser.sendRequestLoggedIn(url: "\(ticketURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: InvoiceData?, error) in
+            DispatchQueue.main.async {
+                self.hideIndicator()
+                if error == nil {
+                    if result!.status == 1 {
+                        self.performSegue(withIdentifier: "toPdfView", sender: result!.data.url)
+                    } else {
+                        self.view.makeToast(result!.message)
+                    }
+                } else {
+                    self.view.makeToast("Something went wrong!")
+                }
+            }
+        }
+    }
 }
 
 extension TripDetailsViewController: AddReviewDelegate {
@@ -274,6 +301,11 @@ extension TripDetailsViewController: UICollectionViewDataSource {
         if thisSection.type == .tripDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tripDetailsCell", for: indexPath) as! TripDetailsCollectionViewCell
             
+            if module == .hotel || module == .packages {
+                cell.ticketButton.isHidden = true
+            } else {
+                cell.ticketButton.isHidden = false
+            }
             
             if let topBox = tripManager?.getDetailsData()?.topBox {
                 cell.tripStatus.text = topBox.tripStatus
@@ -488,119 +520,6 @@ extension TripDetailsViewController {
             return section
         }
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
-    }
-    
-    func createLayout2() -> UICollectionViewLayout? {
-        var layout: UICollectionViewCompositionalLayout?
-        let sectionLayout = { (sectionIndex: Int) -> UICollectionViewLayout? in
-            
-            
-            //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
-            guard let thisSection = self.tripManager?.getSections()?[sectionIndex] else { return nil }
-            
-            let section: NSCollectionLayoutSection
-            
-            
-            if thisSection.type == .tripDetails {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(10))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(10))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                layout = UICollectionViewCompositionalLayout(section: section)
-                return layout
-                
-                
-            } else if thisSection.type == .secondDetails {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(10))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(10))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-                
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                
-                let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
-                    elementKind: TripDetailsViewController.sectionBackgroundDecorationElementKind)
-                sectionBackgroundDecoration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-                section.decorationItems = [sectionBackgroundDecoration]
-
-                layout = UICollectionViewCompositionalLayout(section: section)
-                layout!.register(
-                    SectionBackgroundDecorationView.self,
-                    forDecorationViewOfKind: TripDetailsViewController.sectionBackgroundDecorationElementKind)
-                return layout
-                
-                
-            } else  if thisSection.type == .priceDetails {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(10))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(10))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                layout = UICollectionViewCompositionalLayout(section: section)
-                return layout
-                
-                
-            }  else  if thisSection.type == .review {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(10))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(10))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                layout = UICollectionViewCompositionalLayout(section: section)
-                return layout
-                
-                
-            } else if thisSection.type == .action {
-                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                      heightDimension: .estimated(10))
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                
-                let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                       heightDimension: .estimated(10))
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                
-                section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
-                section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
-                layout = UICollectionViewCompositionalLayout(section: section)
-                return layout
-            } else {
-                fatalError("Unknown section!")
-            }
-            
-            layout = UICollectionViewCompositionalLayout(section: section)
-            return layout
-        }
-        return layout
     }
 }
 

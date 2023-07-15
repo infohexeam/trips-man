@@ -380,7 +380,10 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == imagesCollectionView {
-            return hotelDetails?.hotelRooms[imageContainer.tag].roomImages?.count ?? 0
+            if hotelDetails?.hotelRooms.count ?? 0 > 0 {
+                return hotelDetails?.hotelRooms[imageContainer.tag].roomImages?.count ?? 0
+            }
+            return 0
         }
         guard let thisSection = sections?[section] else { return 0 }
         

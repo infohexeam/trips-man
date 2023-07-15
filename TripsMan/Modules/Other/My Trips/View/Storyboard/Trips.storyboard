@@ -470,7 +470,6 @@
         <!--Pdf Viewer View Controller-->
         <scene sceneID="7ru-lr-L1Y">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W9f-OW-3en" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="yni-8p-GTg" customClass="PdfViewerViewController" customModule="TripsMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MnW-sw-2HV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
@@ -486,12 +485,12 @@
                         <constraints>
                             <constraint firstItem="3Tp-HN-EoB" firstAttribute="leading" secondItem="gd2-2m-7M7" secondAttribute="leading" id="1xZ-HM-C2s"/>
                             <constraint firstItem="gd2-2m-7M7" firstAttribute="trailing" secondItem="3Tp-HN-EoB" secondAttribute="trailing" id="PTQ-Qj-YsE"/>
-                            <constraint firstItem="gd2-2m-7M7" firstAttribute="bottom" secondItem="3Tp-HN-EoB" secondAttribute="bottom" id="h1k-i1-S5l"/>
+                            <constraint firstAttribute="bottom" secondItem="3Tp-HN-EoB" secondAttribute="bottom" id="uyG-JW-IJ2"/>
                             <constraint firstItem="3Tp-HN-EoB" firstAttribute="top" secondItem="gd2-2m-7M7" secondAttribute="top" id="zSQ-QX-HqN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hsr-hV-XOC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="wWC-Wf-iCH">
+                        <barButtonItem key="rightBarButtonItem" image="square.and.arrow.up" catalog="system" id="wWC-Wf-iCH">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="yni-8p-GTg" id="vpn-hK-c2Q"/>
                             </connections>
@@ -501,6 +500,7 @@
                         <outlet property="pdfView" destination="3Tp-HN-EoB" id="Eff-bN-1gD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9f-OW-3en" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2753.8461538461538" y="816.82464454976298"/>
         </scene>
@@ -1478,6 +1478,7 @@ velit esse quam nihil molestiae consequatur.</string>
         <image name="icon-nav-trips" width="25" height="27.5"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <namedColor name="buttonBackgroundColor">
             <color red="0.015686274509803921" green="0.4823529411764706" blue="0.83137254901960789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
