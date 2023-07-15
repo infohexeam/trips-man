@@ -42,7 +42,6 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
         super.viewWillAppear(animated)
         tripDetailsCollection.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
         addBackButton(with: "My Trips")
-        print("\n - \(module)")
         getTripDetails()
         
         
@@ -194,8 +193,20 @@ extension TripDetailsViewController {
     
     
     func cancelBooking() {
+        var cancelURL = ""
+
+        if module == .hotel {
+            cancelURL = "api/CustomerHotelBooking/CancelCustomerHotelBooking"
+        } else if module == .packages {
+            cancelURL = "api/CustomerHoliday/CancelCustomerHolidayBooking"
+        } else if module == .activities {
+            cancelURL = "api/CustomerActivity/CancelCustomerActivityBooking"
+        } else if module == .meetups {
+            cancelURL = "api/CustomerMeetup/CancelCustomerMeetupBooking"
+        }
+        
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/CancelCustomerHotelBooking?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        parser.sendRequestLoggedIn(url: "\(cancelURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .post, parameters: nil) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -301,17 +312,12 @@ extension TripDetailsViewController: UICollectionViewDataSource {
         if thisSection.type == .tripDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tripDetailsCell", for: indexPath) as! TripDetailsCollectionViewCell
             
-            if module == .hotel || module == .packages {
-                cell.ticketButton.isHidden = true
-            } else {
-                cell.ticketButton.isHidden = false
-            }
-            
             if let topBox = tripManager?.getDetailsData()?.topBox {
                 cell.tripStatus.text = topBox.tripStatus
                 cell.bookingID.text = topBox.bookingNo
                 cell.bookedDate.text = topBox.bookedDate
                 cell.tripMessage.text = topBox.tripMessage
+                cell.ticketButton.isHidden = !topBox.canDownloadTicket
             }
             
             if let secondBox = tripManager?.getDetailsData()?.secondBox {

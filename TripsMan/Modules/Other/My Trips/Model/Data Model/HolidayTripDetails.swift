@@ -23,7 +23,7 @@ struct HolidayTripDetails: Codable {
     let packagedetails: [Packagedetail]
     let packageguest: [Packageguest]
     let amountdetails: [AmountDetail]
-    let adultCount, childCount: Int
+    let adultCount, childCount, tripStatusValue: Int
     let tripStatus, tripMessage, imageUrl: String
 
     enum CodingKeys: String, CodingKey {
@@ -36,7 +36,7 @@ struct HolidayTripDetails: Codable {
         case emailID = "email_id"
         case gender, age
         case bookingID = "bookingId"
-        case packagedetails, packageguest, amountdetails, adultCount, childCount, tripStatus, tripMessage, imageUrl
+        case packagedetails, packageguest, amountdetails, adultCount, childCount, tripStatus, tripMessage, imageUrl, tripStatusValue
         
     }
 }

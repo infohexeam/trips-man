@@ -44,6 +44,7 @@ struct TripDetailsManager {
         var bookingNo: String
         var bookedDate: String
         var tripMessage: String
+        var canDownloadTicket: Bool = false
     }
     
     struct SecondBox {
@@ -100,13 +101,20 @@ struct TripDetailsManager {
     }
     
     mutating func setSections() {
+        //TripStatusValues:
+        //0 - Upcoming
+        //1 - Completed
+        //2 - Ongoing
+        //3 - Cancelled
         if let hotelTripDetails = hotelTripDetails {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
                         TripDetailsSection(type: .secondDetails, count: 3),
                         TripDetailsSection(type: .priceDetails, count: hotelTripDetails.amountDetails.count)]
+            //Add review for completed bookings
             if hotelTripDetails.tripStatusValue == 1 {
                 sections?.append(TripDetailsSection(type: .review, count: 1))
             }
+            //Cancel for upcoming bookings
             if hotelTripDetails.tripStatusValue == 0 {
                 sections?.append(TripDetailsSection(type: .action, count: 1))
             }
@@ -115,19 +123,28 @@ struct TripDetailsManager {
                         TripDetailsSection(type: .secondDetails, count: 3),
                         TripDetailsSection(type: .priceDetails, count: holidayTripDetails.amountdetails.count)]
             
-            //TODO: - Cancel Booking
+            //Cancel for upcoming bookings
+            if holidayTripDetails.tripStatusValue == 0 {
+                sections?.append(TripDetailsSection(type: .action, count: 1))
+            }
         } else if let activityTripDetails = activityTripDetails {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
                         TripDetailsSection(type: .secondDetails, count: 2),
                         TripDetailsSection(type: .priceDetails, count:activityTripDetails.amountdetails.count)]
             
-            //TODO: - Cancel Booking
+            //Cancel for upcoming bookings
+            if activityTripDetails.tripStatusValue == 0 {
+                sections?.append(TripDetailsSection(type: .action, count: 1))
+            }
         } else if let meetupTripDetails = meetupTripDetails {
             sections = [TripDetailsSection(type: .tripDetails, count: 1),
                         TripDetailsSection(type: .secondDetails, count: 2),
                         TripDetailsSection(type: .priceDetails, count:meetupTripDetails.amountDetails.count)]
             
-            //TODO: - Cancel Booking
+            //Cancel for upcoming bookings
+            if meetupTripDetails.tripStatusValue == 0 {
+                sections?.append(TripDetailsSection(type: .action, count: 1))
+            }
         }
 
         
@@ -145,6 +162,11 @@ struct TripDetailsManager {
     }
     
     mutating func setDetailsData() {
+        //TripStatusValues:
+        //0 - Upcoming
+        //1 - Completed
+        //2 - Ongoing
+        //3 - Cancelled
         if let hotelTripDetails = hotelTripDetails {
             let topBox = TopBox(tripStatus: hotelTripDetails.tripStatus, bookingNo: "BOOKING ID - \(hotelTripDetails.bookingNo ?? "")", bookedDate: "Booked on \(hotelTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: hotelTripDetails.tripMessage)
             let secondBox = SecondBox(image: hotelTripDetails.imageURL ?? "", name: hotelTripDetails.hotelName, address: hotelTripDetails.hotelDetails.address.capitalizedSentence)
@@ -157,13 +179,21 @@ struct TripDetailsManager {
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
         } else if let activityTripDetails = activityTripDetails {
-            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID - \(activityTripDetails.bookingNo)", bookedDate: "Booked on \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: activityTripDetails.tripMessage)
+            var canDownloadTicket = true
+            if activityTripDetails.tripStatusValue == 3 {
+                canDownloadTicket = false
+            }
+            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID - \(activityTripDetails.bookingNo)", bookedDate: "Booked on \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: activityTripDetails.tripMessage, canDownloadTicket: canDownloadTicket)
             
             let secondBox = SecondBox(image: activityTripDetails.activitydetails[0].activityImage, name: activityTripDetails.activitydetails[0].activityName, address: activityTripDetails.activitydetails[0].shortDescription)
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
         } else if let meetupTripDetails = meetupTripDetails {
-            let topBox = TopBox(tripStatus: meetupTripDetails.tripStatus, bookingNo: "BOOKING ID - \(meetupTripDetails.bookingNo)", bookedDate: "Booked on \(meetupTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: meetupTripDetails.tripMessage)
+            var canDownloadTicket = true
+            if meetupTripDetails.tripStatusValue == 3 {
+                canDownloadTicket = false
+            }
+            let topBox = TopBox(tripStatus: meetupTripDetails.tripStatus, bookingNo: "BOOKING ID - \(meetupTripDetails.bookingNo)", bookedDate: "Booked on \(meetupTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: meetupTripDetails.tripMessage, canDownloadTicket: canDownloadTicket)
             
             let secondBox = SecondBox(image: meetupTripDetails.imageUrl ?? "", name: meetupTripDetails.meetupDetails.meetupName, address: meetupTripDetails.meetupDetails.shortDescription)
             
