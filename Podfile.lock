@@ -1,7 +1,21 @@
 PODS:
   - Alamofire (5.6.4)
+  - AppAuth (1.6.2):
+    - AppAuth/Core (= 1.6.2)
+    - AppAuth/ExternalUserAgent (= 1.6.2)
+  - AppAuth/Core (1.6.2)
+  - AppAuth/ExternalUserAgent (1.6.2):
+    - AppAuth/Core
   - Cosmos (23.0.0)
   - GooglePlaces (7.1.0)
+  - GoogleSignIn (7.0.0):
+    - AppAuth (~> 1.5)
+    - GTMAppAuth (< 3.0, >= 1.3)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.1)
+  - GTMAppAuth (2.0.0):
+    - AppAuth/Core (~> 1.6)
+    - GTMSessionFetcher/Core (< 4.0, >= 1.5)
+  - GTMSessionFetcher/Core (3.1.1)
   - "Keyboard+LayoutGuide (1.6.0)"
   - RangeSeekSlider (1.8.0)
   - razorpay-pod (1.2.5)
@@ -15,6 +29,7 @@ DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 23.0)
   - GooglePlaces (= 7.1.0)
+  - GoogleSignIn
   - "Keyboard+LayoutGuide"
   - RangeSeekSlider
   - razorpay-pod (= 1.2.5)
@@ -25,8 +40,12 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AppAuth
     - Cosmos
     - GooglePlaces
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
     - "Keyboard+LayoutGuide"
     - RangeSeekSlider
     - razorpay-pod
@@ -36,8 +55,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   GooglePlaces: 187946335ec3dc624de71c0a9ddcc712f19b0ee1
+  GoogleSignIn: b232380cf495a429b8095d3178a8d5855b42e842
+  GTMAppAuth: 99fb010047ba3973b7026e45393f51f27ab965ae
+  GTMSessionFetcher: e8647203b65cee28c5f73d0f473d096653945e72
   "Keyboard+LayoutGuide": db44b1764e2bb5d9824cc9cea9d9006cd4442045
   RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
   razorpay-pod: aa2df076ea44baab6cc8296c1ccc715fe2ca818c
@@ -45,6 +68,6 @@ SPEC CHECKSUMS:
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: a8ae731b274fb9053b27ac768581ff4abd098ba3
+PODFILE CHECKSUM: d48b2b96ae138102c76c022ed0cfcbe1f0a79d49
 
 COCOAPODS: 1.12.1

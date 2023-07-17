@@ -224,17 +224,17 @@ extension TripDetailsViewController {
         }
     }
     
-    func invoiceDownload() {
-        if module == .activities && module == .meetups {
-            return
-        }
-        
+    func invoiceDownload() {        
         var invoiceURL = ""
         
         if module == .hotel {
             invoiceURL = "api/CustomerHotelBooking/CustomerHotelInvoice"
         } else if module == .packages {
             invoiceURL = "api/CustomerHoliday/CustomerHolidayInvoice"
+        } else if module == .activities {
+            invoiceURL = "api/CustomerActivity/CustomerActivityInvoice"
+        } else if module == .meetups {
+            invoiceURL = "api/CustomerMeetup/CustomerMeetupInvoice"
         }
         
         showIndicator()

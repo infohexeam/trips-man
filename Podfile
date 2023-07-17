@@ -15,6 +15,7 @@ pod 'Keyboard+LayoutGuide'
 pod 'SDWebImage'
 pod 'RangeSeekSlider'
 pod 'razorpay-pod', '1.2.5'
+pod 'GoogleSignIn'
 #pod 'Firebase/Core'
 #pod 'Firebase/DynamicLinks'
 

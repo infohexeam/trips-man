@@ -15,6 +15,8 @@ struct K {
     
     static let razorpayKey = "rzp_test_wcxqh0E3miedHg"
     
+    static let bundleIdentifier = "com.hexeam.tripsman"
+    
     static let otpTimer = 10
     
     static let minimumPrice: Double = 0

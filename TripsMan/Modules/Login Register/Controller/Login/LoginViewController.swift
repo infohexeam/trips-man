@@ -7,6 +7,8 @@
 
 import UIKit
 import Toast_Swift
+import AuthenticationServices
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -19,7 +21,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: DisableButton!
     @IBOutlet weak var signupGoogleButton: UIButton!
-    @IBOutlet weak var signupAppleButton: UIButton!
+    @IBOutlet weak var signupAppleButton: ASAuthorizationAppleIDButton!
     @IBOutlet weak var signupAccountButton: UIButton!
     
     @IBOutlet weak var eyeButton: UIButton!
@@ -55,6 +57,32 @@ class LoginViewController: UIViewController {
         passwordField.text = ""
     }
     
+    func signUpWithapple() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    func signInWithGoogle() {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+
+            print("Google Sign in success - \(signInResult?.user)")
+          }
+    }
+    
+    private func saveUserInKeychain(_ userIdentifier: String) {
+        do {
+            try KeychainItem(service: K.bundleIdentifier, account: "userIdentifier").saveItem(userIdentifier)
+        } catch {
+            print("Unable to save userIdentifier to keychain.")
+        }
+    }
+    
  
     //MARK: UIButton Actions
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
@@ -66,7 +94,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signupTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "toRegister", sender: nil)
+        if sender == signupAppleButton {
+            signUpWithapple()
+        } else if sender == signupGoogleButton {
+            signInWithGoogle()
+        } else if sender == signupAccountButton {
+            performSegue(withIdentifier: "toRegister", sender: nil)
+        }
+        
     }
     
     @IBAction func eyeButtonTapped(_ sender: UIButton) {
@@ -104,7 +139,6 @@ extension LoginViewController {
                                      "FirebaseToken": SessionManager.shared.getFcmToken() ?? ""]
         print("\nLogin with: \(params)")
         
-        return
         parser.sendRequest(url: "api/account/login", http: .post, parameters: params) { (result: LoginData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -193,5 +227,29 @@ extension LoginViewController {
         }
         
         loginButton.isEnabled = isFormValid
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
+        let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+        let email = appleIDCredential.email
+        print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))") }
+        
+        
+        
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    /// - Tag: provide_presentation_anchor
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
 }

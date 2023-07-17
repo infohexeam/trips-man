@@ -190,6 +190,7 @@
 		C1F89CFA29FCD5C300EB370B /* ActivityBookSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F89CF929FCD5C300EB370B /* ActivityBookSummaryCollectionViewCell.swift */; };
 		C1F89CFE29FCF30C00EB370B /* ActivityBookingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F89CFD29FCF30C00EB370B /* ActivityBookingData.swift */; };
 		C1FB4FCC294C7947001302A0 /* TripDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FB4FCB294C7947001302A0 /* TripDetailsViewController.swift */; };
+		C1FEE5BE2A651FED0082701E /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FEE5BD2A651FED0082701E /* KeychainItem.swift */; };
 		C1FFA59C28E3E08100E13D75 /* HomeCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA59B28E3E08100E13D75 /* HomeCells.swift */; };
 		C1FFA59F28E3FB5900E13D75 /* RoomSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA59E28E3FB5900E13D75 /* RoomSelectionViewController.swift */; };
 		C1FFA5A128E3FDF400E13D75 /* RoomSelectionCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA5A028E3FDF400E13D75 /* RoomSelectionCells.swift */; };
@@ -409,6 +410,7 @@
 		C1F89CF929FCD5C300EB370B /* ActivityBookSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1F89CFD29FCF30C00EB370B /* ActivityBookingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookingData.swift; sourceTree = "<group>"; };
 		C1FB4FCB294C7947001302A0 /* TripDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsViewController.swift; sourceTree = "<group>"; };
+		C1FEE5BD2A651FED0082701E /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
 		C1FFA59B28E3E08100E13D75 /* HomeCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCells.swift; sourceTree = "<group>"; };
 		C1FFA59E28E3FB5900E13D75 /* RoomSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionViewController.swift; sourceTree = "<group>"; };
 		C1FFA5A028E3FDF400E13D75 /* RoomSelectionCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionCells.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				C15E31FD28C74F4C00E209EB /* Designables */,
 				C18FFEC5295BF95000F29EC9 /* Keyboard */,
 				C15E31FE28C74F5E00E209EB /* Extentions */,
+				C1FEE5BC2A651FCA0082701E /* Keychain */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1606,6 +1609,14 @@
 			path = "Activity Summary";
 			sourceTree = "<group>";
 		};
+		C1FEE5BC2A651FCA0082701E /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				C1FEE5BD2A651FED0082701E /* KeychainItem.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
 		C1FFA59D28E3FB3A00E13D75 /* Room Selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -2042,6 +2053,7 @@
 				C19F91B92A4414EF00098A0A /* UIDevice+Extension.swift in Sources */,
 				C15E31FC28C7020000E209EB /* DisableButton.swift in Sources */,
 				C1E3359529F931A0007FAF32 /* ActivityHeaderView.swift in Sources */,
+				C1FEE5BE2A651FED0082701E /* KeychainItem.swift in Sources */,
 				C17492AB2A53FBB70027BD42 /* RoomDetailsData.swift in Sources */,
 				C14B489A290FC21000D8FFBA /* ProfileData.swift in Sources */,
 				C14A983328E15273000C52AA /* HotelDetailsViewController.swift in Sources */,

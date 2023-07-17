@@ -20,6 +20,17 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+    <key>GIDClientID</key>
+    <string>949180237411-p1k938peuinjmtio7tnk7qrvodv2ni1a.apps.googleusercontent.com</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>com.googleusercontent.apps.949180237411-p1k938peuinjmtio7tnk7qrvodv2ni1a</string>
+        </array>
+      </dict>
+    </array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

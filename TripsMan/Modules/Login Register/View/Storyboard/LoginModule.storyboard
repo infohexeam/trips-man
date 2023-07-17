@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="roboto.bold.ttf">
+        <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
         <array key="roboto.regular.ttf">
@@ -469,7 +469,7 @@
                         <outlet property="passwordField" destination="BOT-6R-f2l" id="hHp-je-vR9"/>
                         <outlet property="passwordValidationLabel" destination="PAb-zr-anv" id="cbS-bE-lQO"/>
                         <outlet property="signupAccountButton" destination="lpG-tm-O4c" id="nN4-m7-G6f"/>
-                        <outlet property="signupAppleButton" destination="V09-6a-Wkm" id="7Uq-tH-gQf"/>
+                        <outlet property="signupAppleButton" destination="V09-6a-Wkm" id="Mt8-F8-rxS"/>
                         <outlet property="signupGoogleButton" destination="f8O-5G-Zvu" id="1qA-0A-xaV"/>
                         <outlet property="userNameField" destination="h2K-n6-3wN" id="M4l-xP-hoh"/>
                         <outlet property="userNameValidationLabel" destination="lns-KW-I3e" id="gZ2-BE-GXJ"/>
@@ -1741,31 +1741,31 @@
             <size key="intrinsicContentSize" width="80.666666666666671" height="31.666666666666668"/>
         </designable>
         <designable name="4os-9S-fdu">
-            <size key="intrinsicContentSize" width="159.33333333333334" height="18"/>
+            <size key="intrinsicContentSize" width="154.33333333333334" height="18"/>
         </designable>
         <designable name="9Po-ig-ee2">
             <size key="intrinsicContentSize" width="64" height="31.666666666666668"/>
         </designable>
         <designable name="Ayb-GD-EZk">
-            <size key="intrinsicContentSize" width="50" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="40" height="19.333333333333332"/>
         </designable>
         <designable name="BOT-6R-f2l">
             <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
         </designable>
         <designable name="C6Y-nE-vp2">
-            <size key="intrinsicContentSize" width="55.333333333333336" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="45.333333333333336" height="19.333333333333332"/>
         </designable>
         <designable name="JII-LL-2jZ">
-            <size key="intrinsicContentSize" width="156" height="18"/>
+            <size key="intrinsicContentSize" width="151" height="18"/>
         </designable>
         <designable name="JPo-wp-HRo">
-            <size key="intrinsicContentSize" width="39" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="28.666666666666668" height="19.333333333333332"/>
         </designable>
         <designable name="KoI-ur-ScI">
-            <size key="intrinsicContentSize" width="163.33333333333334" height="18"/>
+            <size key="intrinsicContentSize" width="158.33333333333334" height="18"/>
         </designable>
         <designable name="L7u-XZ-X75">
-            <size key="intrinsicContentSize" width="106.33333333333333" height="18"/>
+            <size key="intrinsicContentSize" width="101.33333333333333" height="18"/>
         </designable>
         <designable name="P0O-zJ-SPj">
             <size key="intrinsicContentSize" width="72.333333333333329" height="31.666666666666668"/>
@@ -1780,16 +1780,16 @@
             <size key="intrinsicContentSize" width="153.33333333333334" height="19.333333333333332"/>
         </designable>
         <designable name="jtk-JQ-1FB">
-            <size key="intrinsicContentSize" width="140" height="18"/>
+            <size key="intrinsicContentSize" width="135" height="18"/>
         </designable>
         <designable name="o0w-dZ-VOW">
-            <size key="intrinsicContentSize" width="106" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="96" height="19.333333333333332"/>
         </designable>
         <designable name="od1-00-bLl">
             <size key="intrinsicContentSize" width="61.666666666666664" height="31.666666666666668"/>
         </designable>
         <designable name="phs-Z4-ZMh">
-            <size key="intrinsicContentSize" width="47.333333333333336" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="37.333333333333336" height="19.333333333333332"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
