@@ -141,7 +141,7 @@ extension PackageBookingViewController {
                                      "userId": SessionManager.shared.getLoginDetails()!.userid!,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage(),
+                                     "language": SessionManager.shared.getLanguage().code,
                                      "booking_Guest": guests,
                                      "adultCount": packageFilter.adult!,
                                      "childCount": packageFilter.child!]

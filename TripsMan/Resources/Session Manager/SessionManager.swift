@@ -11,6 +11,7 @@ import UIKit
 struct SessionKeys {
     static let loginData = "loginData"
     static let selectedCountry = "selectedCountry"
+    static let selectedLanguage = "selectedLanguage"
     static let currency = "currency"
     static let fcmToken = "fcmToken"
 }
@@ -43,13 +44,50 @@ class SessionManager {
                 defaults.removeObject(forKey: each.key)
             }
         }
-
+    }
+    
+    func setLanguage(_ language: LanguageSelection) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(language) {
+            defaults.set(encoded, forKey: SessionKeys.selectedLanguage)
+            defaults.set(language.code, forKey: "AppleLanguage")
+            
+            if language.code == "ar" {
+                UIView.appearance().semanticContentAttribute = .forceRightToLeft
+            } else {
+                UIView.appearance().semanticContentAttribute = .forceLeftToRight
+            }
+            defaults.synchronize()
+            
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+            guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+            let mainRootController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            window.rootViewController = mainRootController
+            window.makeKeyAndVisible()
+            print("------------aaa")
+//            if let mainWindow = appDelegate.window {
+                print("------------bbb")
+            UIView.transition(with: window, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
+                }) { (finished) -> Void in
+                }
+//            }
+            ///
+            ///
+            
+        }
     }
     
     
-    func getLanguage() -> String {
+    func getLanguage() -> LanguageSelection {
         //EN,AR
-        return "EN"
+        if let languageData = defaults.object(forKey: SessionKeys.selectedLanguage) as? Data {
+            let decoder = JSONDecoder()
+            if let language = try? decoder.decode(LanguageSelection.self, from: languageData) {
+                return language
+            }
+        }
+        return K.languages[0]
     }
     
     func setCountry(_ country: CountrySelection) {
@@ -57,8 +95,6 @@ class SessionManager {
         if let encoded = try? encoder.encode(country) {
             defaults.set(encoded, forKey: SessionKeys.selectedCountry)
         }
-        
-        
     }
     
     func getCountry() -> CountrySelection {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 let baseURLAuth = "https://tripsmanauth.hexeam.in/"
 let baseURL = "https://tripsmanadmin.hexeam.in/"
@@ -37,7 +38,7 @@ struct K {
     //  countryCode uses in tripsman apis
     static let countries = [CountrySelection(name: "India", icon: "country-india", countryCode: "IND", localeIdentifier: "IN", currency: "INR", id: 1),
                             CountrySelection(name: "UAE", icon: "country-uae", countryCode: "UAE", localeIdentifier: "AE", currency: "AED", id: 2)]
-    static let languages = [LanguageSelection(name: "English", id: 1)]
+    static let languages = [LanguageSelection(name: "English", id: 1, code: "en"), LanguageSelection(name: "عربي", id: 2, code: "ar")]
     
     static let hotelPlaceHolderImage = "hotel-default-img"
     static let packagePlaceHolderImage = "pack-default-img"
@@ -147,7 +148,8 @@ struct CountrySelection: Codable {
     var id: Int
 }
 
-struct LanguageSelection {
+struct LanguageSelection: Codable {
     var name: String
     var id: Int
+    var code: String
 }

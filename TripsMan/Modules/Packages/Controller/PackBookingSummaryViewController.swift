@@ -71,7 +71,7 @@ class PackBookingSummaryViewController: UIViewController {
 extension PackBookingSummaryViewController {
     func getCoupons() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/GetCustomerHolidayCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/GetCustomerHolidayCouponList?Language=\(SessionManager.shared.getLanguage().code)&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -96,7 +96,7 @@ extension PackBookingSummaryViewController {
                                      "couponCode": coupon.couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/ApplyCustomerHolidayCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
@@ -126,7 +126,7 @@ extension PackBookingSummaryViewController {
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerHolidayCoupon/RemoveCustomerHolidayCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
             DispatchQueue.main.async {
@@ -153,7 +153,7 @@ extension PackBookingSummaryViewController {
         let params: [String: Any] = ["bookingId": packBookingData?.bookingID ?? 0,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHolidayCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()

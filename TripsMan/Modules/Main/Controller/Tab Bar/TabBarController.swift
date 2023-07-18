@@ -26,7 +26,6 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
     
             
     func addRightBarItems() {
-        print("addRightBarItems called")
         //Country Button
         let countryImage = SessionManager.shared.getCountry().icon
         let countryButton = UIButton(type: .custom)
@@ -91,16 +90,20 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
     func countryHandler(action: UIAction) {
         if SessionManager.shared.getCountry().name != action.title {
             self.view.makeToast("Country changed to \(action.title)")
-        }
-        let selectedCountry = K.countries.filter { $0.name == action.title }.last
-        if selectedCountry != nil {
-            SessionManager.shared.setCountry(selectedCountry!)
-            addRightBarItems()
+            let selectedCountry = K.countries.filter { $0.name == action.title }.last
+            if let selectedCountry = selectedCountry {
+                SessionManager.shared.setCountry(selectedCountry)
+                addRightBarItems()
+            }
         }
     }
     
     func languageHandler(action: UIAction) {
-        //TODO: -
+        let selectedLanguage = K.languages.filter { $0.name == action.title }.last
+        if let selectedLanguage = selectedLanguage {
+            SessionManager.shared.setLanguage(selectedLanguage)
+        }
+        
     }
 }
 

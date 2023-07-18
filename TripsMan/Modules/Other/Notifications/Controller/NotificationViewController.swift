@@ -65,7 +65,7 @@ class NotificationViewController: UIViewController {
 extension NotificationViewController {
     func getNotifications() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotel/GetNotifationList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: NotificationData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotel/GetNotifationList?Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: NotificationData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

@@ -341,7 +341,7 @@ extension HotelDetailsViewController {
                                      "HotelRateTo": hotelFilters.rate!.to,
                                      "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
-                                     "Language": SessionManager.shared.getLanguage()]
+                                     "Language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHotelDetails", http: .post, parameters: params) { (result: HotelDetailsData?, error) in
             DispatchQueue.main.async {

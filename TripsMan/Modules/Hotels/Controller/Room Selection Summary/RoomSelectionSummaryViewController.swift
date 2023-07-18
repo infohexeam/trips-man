@@ -157,7 +157,7 @@ class RoomSelectionSummaryViewController: UIViewController {
 extension RoomSelectionSummaryViewController {
     func getCoupons() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/GetCustomerHotelCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerCoupon/GetCustomerHotelCouponList?Language=\(SessionManager.shared.getLanguage().code)&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -185,7 +185,7 @@ extension RoomSelectionSummaryViewController {
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerCoupon/ApplyCustomerHotelCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
@@ -216,7 +216,7 @@ extension RoomSelectionSummaryViewController {
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerCoupon/RemoveCustomerHotelCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
             DispatchQueue.main.async {
@@ -249,7 +249,7 @@ extension RoomSelectionSummaryViewController {
         let params: [String: Any] = ["bookingId": bookedData?.bookingID ?? 0,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         parser.sendRequestLoggedIn(url: "api/CustomerCoupon/CustomerHotelCheckOut", http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()

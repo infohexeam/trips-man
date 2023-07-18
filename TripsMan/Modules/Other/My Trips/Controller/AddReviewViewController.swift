@@ -74,7 +74,7 @@ extension AddReviewViewController {
                                      "title": titleField.text ?? "",
                                      "review": reviewText.text ?? "",
                                      "userId": SessionManager.shared.getLoginDetails()?.userid ?? "",
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/AddReviewCustomerHotelBooking", http: .post, parameters: params) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -103,7 +103,7 @@ extension AddReviewViewController {
                                      "title": titleField.text ?? "",
                                      "review": reviewText.text ?? "",
                                      "userId": SessionManager.shared.getLoginDetails()?.userid ?? "",
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/UpdateReviewCustomerHotelBooking", http: .post, parameters: params) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()

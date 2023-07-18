@@ -100,7 +100,7 @@ extension CheckoutViewController {
         let params: [String: Any] = ["bookingId": bookingID,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: RewardPointsData?, error) in
             DispatchQueue.main.async {
@@ -142,7 +142,7 @@ extension CheckoutViewController {
         let params: [String: Any] = ["bookingId": bookingID,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: RewardPointsData?, error) in
             DispatchQueue.main.async {

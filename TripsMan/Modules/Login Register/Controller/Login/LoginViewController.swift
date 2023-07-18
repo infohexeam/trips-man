@@ -95,9 +95,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupTapped(_ sender: UIButton) {
         if sender == signupAppleButton {
-            signUpWithapple()
+//            signUpWithapple()
         } else if sender == signupGoogleButton {
-            signInWithGoogle()
+//            signInWithGoogle()
         } else if sender == signupAccountButton {
             performSegue(withIdentifier: "toRegister", sender: nil)
         }

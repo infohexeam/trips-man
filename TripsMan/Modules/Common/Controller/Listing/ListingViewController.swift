@@ -81,7 +81,7 @@ class ListingViewController: UIViewController {
         
         switch listType {
         case .hotel:
-            pageTitle = "Hotels"
+            pageTitle = "Hotels".localized()
         case .packages:
             pageTitle = "Packages"
         case .meetups:
@@ -146,7 +146,7 @@ class ListingViewController: UIViewController {
     func assignValues() {
         
         if listType == .hotel {
-            locationLabel.text = hotelFilters.location?.name ?? "Select location"
+            locationLabel.text = hotelFilters.location?.name ?? "Select location".localized()
             let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
             var roomText = "\(hotelFilters.roomCount!) Rooms"
             if hotelFilters.roomCount == 1 {

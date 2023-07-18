@@ -52,7 +52,7 @@ extension RoomDetailsViewController {
     func getRoomDetails() {
         showIndicator()
         
-        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetRoomList?hotelId=\(hotelRoom!.hotelID)&roomId=\(hotelRoom!.roomID)&currency=\(SessionManager.shared.getCurrency())&language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: RoomDetailsData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetRoomList?hotelId=\(hotelRoom!.hotelID)&roomId=\(hotelRoom!.roomID)&currency=\(SessionManager.shared.getCurrency())&language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: RoomDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

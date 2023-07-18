@@ -11,7 +11,7 @@ import Foundation
 extension ListingViewController {
     func getFilters() {
         showIndicator()
-        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHoteFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHoteFilterlList?Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: FilterResp?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -34,7 +34,7 @@ extension ListingViewController {
     
     func getPackageFilters() {
         showIndicator()
-        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerHoliday/GetCustomerHolidayFilterlList?Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: FilterResp?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -55,7 +55,7 @@ extension ListingViewController {
     
     func getActivityFilters() {
         showIndicator()
-        parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerActivity/GetCustomerActivityFilterlList?Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: FilterResp?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -76,7 +76,7 @@ extension ListingViewController {
     
     func getMeetupFilters() {
         showIndicator()
-        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup//GetCustomerMeetupFilterlList?Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: FilterResp?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup//GetCustomerMeetupFilterlList?Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: FilterResp?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -111,7 +111,7 @@ extension ListingViewController {
                                      "RoomCount": hotelFilters.roomCount!,
                                      "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
-                                     "Language": SessionManager.shared.getLanguage(),
+                                     "Language": SessionManager.shared.getLanguage().code,
                                      "HotelRateFrom": hotelFilters.rate!.from,
                                      "HotelRateTo": hotelFilters.rate!.to,
                                      "HotelFilters": hotelFilters.filters ?? [String: [Any]](),
@@ -169,7 +169,7 @@ extension ListingViewController {
                                      "countryName": packageFilter.country?.code ?? "",
                                      "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
-                                     "Language": SessionManager.shared.getLanguage(),
+                                     "Language": SessionManager.shared.getLanguage().code,
                                      "minimumBudget": packageFilter.rate!.from,
                                      "maximumBudget": packageFilter.rate!.to,
                                      "holidayFilters": packageFilter.filters ?? [String: [Any]](),
@@ -221,7 +221,7 @@ extension ListingViewController {
                                      "activityCountry": activityFilter.country?.code ?? 0,
                                      "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
-                                     "Language": SessionManager.shared.getLanguage(),
+                                     "Language": SessionManager.shared.getLanguage().code,
                                      "budgetFrom": activityFilter.rate!.from,
                                      "budgetTo": activityFilter.rate!.to,
                                      "activityFilters": activityFilter.filters ?? [String: [Any]]()]
@@ -271,7 +271,7 @@ extension ListingViewController {
                                      "MeetupCountry": meetupFilter.country?.code ?? 0,
                                      "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
-                                     "Language": SessionManager.shared.getLanguage(),
+                                     "Language": SessionManager.shared.getLanguage().code,
                                      "budgetFrom": meetupFilter.rate!.from,
                                      "budgetTo": meetupFilter.rate!.to,
                                      "meetupFilters": meetupFilter.filters ?? [String: [Any]]()]

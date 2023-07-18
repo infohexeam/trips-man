@@ -98,7 +98,7 @@ class ActivitySummaryViewController: UIViewController {
 extension ActivitySummaryViewController {
     func getActivityCoupons() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/GetCustomerActivityCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/GetCustomerActivityCouponList?Language=\(SessionManager.shared.getLanguage().code)&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -118,7 +118,7 @@ extension ActivitySummaryViewController {
     
     func getMeetupCoupons() {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/GetCustomerMeetupCouponList?Language=\(SessionManager.shared.getLanguage())&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/GetCustomerMeetupCouponList?Language=\(SessionManager.shared.getLanguage().code)&currency=\(SessionManager.shared.getCurrency())", http: .get, parameters: nil) { (result: CouponData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -143,7 +143,7 @@ extension ActivitySummaryViewController {
                                      "couponCode": coupon.couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/ApplyCustomerActivityCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
@@ -173,7 +173,7 @@ extension ActivitySummaryViewController {
                                      "couponCode": coupon.couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/ApplyCustomerMeetupCoupen", http: .post, parameters: params) { (result: ApplyCouponData?, error) in
             DispatchQueue.main.async {
@@ -203,7 +203,7 @@ extension ActivitySummaryViewController {
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerActivityCoupon/RemoveCustomerActivityCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
             DispatchQueue.main.async {
@@ -232,7 +232,7 @@ extension ActivitySummaryViewController {
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestLoggedIn(url: "api/CustomerMeetupCoupon/RemoveCustomerMeetupCoupen", http: .post, parameters: params) { (result: RemoveCouponData?, error) in
             DispatchQueue.main.async {
@@ -270,7 +270,7 @@ extension ActivitySummaryViewController {
         let params: [String: Any] = ["bookingId": bookingId,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         parser.sendRequestLoggedIn(url: url, http: .post, parameters: params) { (result: CheckoutData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()

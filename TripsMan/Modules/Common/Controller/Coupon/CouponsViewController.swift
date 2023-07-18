@@ -77,7 +77,7 @@ extension CouponsViewController {
                                      "couponCode": couponCode,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         var url = "api/CustomerCoupon/ApplyCustomerHotelCoupen"
         

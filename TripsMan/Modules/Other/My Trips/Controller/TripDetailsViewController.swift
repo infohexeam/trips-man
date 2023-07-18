@@ -106,7 +106,7 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
 extension TripDetailsViewController {
     func getHotelBookingDetails(_ isRefresh: Bool = false) {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerHotelBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: HotelTripDetailsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerHotelBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: HotelTripDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -127,7 +127,7 @@ extension TripDetailsViewController {
     
     func getHolidayBookingDetails(_ isRefresh: Bool = false) {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/GetCustomerHolidayBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: HolidayTripDetailsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHoliday/GetCustomerHolidayBookingById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: HolidayTripDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -149,7 +149,7 @@ extension TripDetailsViewController {
     
     func getActivityBookingDetails(_ isRefresh: Bool = false) {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerActivity/GetCustomerActivityBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: ActivityTripDetailsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerActivity/GetCustomerActivityBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: ActivityTripDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -171,7 +171,7 @@ extension TripDetailsViewController {
     
     func getMeetupBookingDetails(_ isRefresh: Bool = false) {
         showIndicator()
-        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/GetCustomerMeetupBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: MeetupTripDetailsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerMeetup/GetCustomerMeetupBookingListById?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: MeetupTripDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -206,7 +206,7 @@ extension TripDetailsViewController {
         }
         
         showIndicator()
-        parser.sendRequestLoggedIn(url: "\(cancelURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .post, parameters: nil) { (result: BasicResponse?, error) in
+        parser.sendRequestLoggedIn(url: "\(cancelURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .post, parameters: nil) { (result: BasicResponse?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -238,7 +238,7 @@ extension TripDetailsViewController {
         }
         
         showIndicator()
-        parser.sendRequestLoggedIn(url: "\(invoiceURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: InvoiceData?, error) in
+        parser.sendRequestLoggedIn(url: "\(invoiceURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: InvoiceData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {
@@ -265,7 +265,7 @@ extension TripDetailsViewController {
         }
         
         showIndicator()
-        parser.sendRequestLoggedIn(url: "\(ticketURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: InvoiceData?, error) in
+        parser.sendRequestLoggedIn(url: "\(ticketURL)?BookingId=\(bookingId)&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: InvoiceData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

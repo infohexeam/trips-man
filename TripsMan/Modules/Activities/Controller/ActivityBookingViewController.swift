@@ -142,7 +142,7 @@ extension ActivityBookingViewController {
                                      "userId": SessionManager.shared.getLoginDetails()!.userid!,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage(),
+                                     "language": SessionManager.shared.getLanguage().code,
                                      "adultCount": activityFilters.memberCount,
                                      "booking_Guest": guests]
         
@@ -196,7 +196,7 @@ extension ActivityBookingViewController {
                                      "userId": SessionManager.shared.getLoginDetails()!.userid!,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage(),
+                                     "language": SessionManager.shared.getLanguage().code,
                                      "AdultCount": meetupFilters.memberCount,
                                      "booking_Guest": guests]
         

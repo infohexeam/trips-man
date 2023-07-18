@@ -18,6 +18,7 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let gcmMessageIDKey = "gcm.message_id"
+    var window: UIWindow?
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -28,6 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyBI5pFIiLp7OEN7JCX5q1Bad852kUMpQmk")
         FirebaseApp.configure()
         
+        SessionManager.shared.setLanguage(SessionManager.shared.getLanguage())
+        Bundle.swizzleLocalization()
+        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let mainRootController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarNavController")
+//        appDelegate.window?.rootViewController = mainRootController
         
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self

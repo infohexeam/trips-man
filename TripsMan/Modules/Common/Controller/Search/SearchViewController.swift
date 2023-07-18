@@ -80,7 +80,7 @@ extension SearchViewController {
                                      "Module": module,
                                      "country": SessionManager.shared.getCountry().countryCode,
                                      "currency": SessionManager.shared.getCurrency(),
-                                     "language": SessionManager.shared.getLanguage()]
+                                     "language": SessionManager.shared.getLanguage().code]
         
         parser.sendRequestWithStaticKey(url: "api/CustomerHotel/GetCustomerHotelSearch", http: .post, parameters: params) { (result: SearchData?, error) in
             DispatchQueue.main.async {

@@ -97,7 +97,7 @@ extension MeetupDetailsViewController {
     func getmeetupDetails() {
         showIndicator()
         
-        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupById?MeetupId=\(meetupID)&Currency=\(SessionManager.shared.getCurrency())&Language=\(SessionManager.shared.getLanguage())", http: .get, parameters: nil) { (result: MeetupDetailsData?, error) in
+        parser.sendRequestWithStaticKey(url: "api/CustomerMeetup/GetCustomerMeetupById?MeetupId=\(meetupID)&Currency=\(SessionManager.shared.getCurrency())&Language=\(SessionManager.shared.getLanguage().code)", http: .get, parameters: nil) { (result: MeetupDetailsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 if error == nil {

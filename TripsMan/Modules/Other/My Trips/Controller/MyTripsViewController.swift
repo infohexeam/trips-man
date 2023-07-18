@@ -189,7 +189,7 @@ extension MyTripsViewController {
         }
         showIndicator()
         isLoading = true
-        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage())&module_code=\(tripFilters.module?.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset*recordCount)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
+        parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/GetCustomerBookingListAll?language=\(SessionManager.shared.getLanguage().code)&module_code=\(tripFilters.module?.moduleCode ?? "")&search_text=\(tripFilters.searchText ?? "")&booking_status=\(tripFilters.bookingStatus?.status ?? "")&sortby=\(tripFilters.sortBy?.name ?? "")&offset=\(currentOffset*recordCount)&recordCount=\(recordCount)", http: .get, parameters: nil) { (result: MyTripsData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
                 self.refreshControl.endRefreshing()
