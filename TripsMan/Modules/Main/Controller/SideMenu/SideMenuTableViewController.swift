@@ -33,12 +33,12 @@ class SideMenuTableViewController: UITableViewController {
     
     func loadSideMenu() {
         if SessionManager.shared.getLoginDetails() != nil {
-            menuItems = [SideMenuItems(imageName: "person.circle", imageType: .systemImg, title: "Hi, \(SessionManager.shared.getLoginDetails()!.fullName!)", menuSubText: SessionManager.shared.getLoginDetails()?.username, action: .switchTab, index: 3),
-                         SideMenuItems(imageName: "briefcase", imageType: .systemImg, title: "My Trips", menuSubText: "View your trips", action: .switchTab, index: 1),
-                         SideMenuItems(imageName: "logout", imageType: .savedImg, title: "Logout", action: .logout)]
+            menuItems = [SideMenuItems(imageName: "person.circle", imageType: .systemImg, title: "Hi,".localized() + " \(SessionManager.shared.getLoginDetails()!.fullName!)", menuSubText: SessionManager.shared.getLoginDetails()?.username, action: .switchTab, index: 3),
+                         SideMenuItems(imageName: "briefcase", imageType: .systemImg, title: "My Trips".localized(), menuSubText: "View your trips".localized(), action: .switchTab, index: 1),
+                         SideMenuItems(imageName: "logout", imageType: .savedImg, title: "Logout".localized(), action: .logout)]
         } else {
-            menuItems = [SideMenuItems(imageName: "person.circle", imageType: .systemImg, title: "Login / Sign Up Now", titleColor: "secondaryColor", menuSubText: "Login for best deals", action: .presentVC, identifier: "toLogin"),
-                         SideMenuItems(imageName: "briefcase", imageType: .systemImg, title: "My Trips", menuSubText: "View your trips", action: .presentVC, identifier: "toLogin")]
+            menuItems = [SideMenuItems(imageName: "person.circle", imageType: .systemImg, title: "Login / Sign Up Now".localized(), titleColor: "secondaryColor", menuSubText: "Login for best deals".localized(), action: .presentVC, identifier: "toLogin"),
+                         SideMenuItems(imageName: "briefcase", imageType: .systemImg, title: "My Trips".localized(), menuSubText: "View your trips".localized(), action: .presentVC, identifier: "toLogin")]
         }
         
         sideMenuTable.reloadData()
@@ -86,9 +86,9 @@ class SideMenuTableViewController: UITableViewController {
         } else if item.action == .switchTab {
             tabBarDelegate?.switchTab(item.index!)
         } else if item.action == .logout {
-            let alert = UIAlertController(title: "Logout", message: "Are you sure you want to Logout?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            let alert = UIAlertController(title: "Logout".localized(), message: "Are you sure you want to Logout?".localized(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel))
+            alert.addAction(UIAlertAction(title: "Yes".localized(), style: .default, handler: { action in
                 SessionManager.shared.logout()
                 tabBarDelegate?.switchTab(0)
             }))

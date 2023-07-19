@@ -121,7 +121,7 @@ class HotelDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Hotel Details")
+        addBackButton(with: "Hotel Details".localized())
     }
     
     override func viewDidLoad() {
@@ -305,9 +305,9 @@ class HotelDetailsViewController: UIViewController {
                         if tag == 100 { //HotelDetails
                             vc.readMore = ReadMore(title: hotelDetails.hotelName, content: hotelDetails.description)
                         } else if tag == 101 { //Property Rule
-                            vc.readMore = ReadMore(title: "Property Rules", content: hotelDetails.propertyRules)
+                            vc.readMore = ReadMore(title: "Property Rules".localized(), content: hotelDetails.propertyRules)
                         } else if tag == 102 {
-                            vc.readMore = ReadMore(title: "Terms and Conditions", content: hotelDetails.termsAndCondition)
+                            vc.readMore = ReadMore(title: "Terms and Conditions".localized(), content: hotelDetails.termsAndCondition)
                         }
                     }
                     
@@ -354,7 +354,7 @@ extension HotelDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -478,7 +478,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                         cell.moreView.isHidden = false
                         cell.facilityIcon.image = UIImage(systemName: "plus")
                         cell.facilityIcon.tintColor = .tintColor
-                        cell.facilityLabel.text = "More"
+                        cell.facilityLabel.text = "More".localized()
                         cell.facilityLabel.textColor = .tintColor
                     }
                 }
@@ -496,15 +496,10 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 cell.hotelNameLabel.text = hotelDetails.hotelName
                 
                 let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
-                var roomText = "\(hotelFilters.roomCount!) Rooms"
-                if hotelFilters.roomCount == 1 {
-                    roomText = "\(hotelFilters.roomCount!) Room"
-                }
+                
+                let roomText = hotelFilters.roomCount!.oneOrMany("Room")
                 let guests = hotelFilters.adult! + hotelFilters.child!
-                var guestText = "\(guests) Guests"
-                if guests == 1 {
-                    guestText = "\(guests) Guest"
-                }
+                let guestText = guests.oneOrMany("Guest")
                 
                 cell.secondLabel.text = dateText + " | " + roomText + " | " + guestText
                 
@@ -526,10 +521,10 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(rooms.actualPrice, rooms.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(rooms.serviceChargeValue)\ntaxes & fee per night"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(rooms.serviceChargeValue)\n" + "taxes & fee per night".localized()
                 cell.offLabel.isHidden = true
                 if rooms.offerPrice > 0 {
-                    cell.offLabel.text = " " + "\(rooms.offerPrice.percentage(rooms.actualPrice)) % off" + " "
+                    cell.offLabel.text = " " + "\(rooms.offerPrice.percentage(rooms.actualPrice)) % " + "off".localized() + " "
                     cell.offLabel.isHidden = false
                 }
                 
@@ -594,11 +589,11 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             
             if let hotelDetails = hotelDetails {
                 if hotelDetails.userRatingCount > 0 {
-                    cell.ratingLabel.text = "Overall Rating \(hotelDetails.userRating) (\(hotelDetails.userRatingCount))"
+                    cell.ratingLabel.text = "Overall Rating".localized() + " \(hotelDetails.userRating) (\(hotelDetails.userRatingCount))"
                     cell.rating.isHidden = false
                     cell.rating.rating = hotelDetails.userRating
                 } else {
-                    cell.ratingLabel.text = "No ratings"
+                    cell.ratingLabel.text = "No ratings".localized()
                     cell.rating.isHidden = true
                 }
             }
@@ -613,7 +608,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                 cell.review.text = review.hotelReview
                 cell.reviewTitle.text = review.reviewTitle
                 cell.ratingLabel.text = review.hotelRating?.stringValue()
-                cell.customerName.text = "- Reviewed by \(review.customerName) on \(review.reviewDate.date("MM/dd/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")"
+                cell.customerName.text = L.reviewedByText(by: review.customerName, on: review.reviewDate.date("MM/dd/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")
                 
                 if reviews.count > 2 && indexPath.row == 1 {
                     cell.seeAllreviewButton.isHidden = false
@@ -634,11 +629,11 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
             guard let thisSection = sections?[indexPath.section] else { return headerView }
             
             if thisSection.type == .hotelAddrress {
-                headerView.titleLabel.text = "Address"
+                headerView.titleLabel.text = "Address".localized()
             } else if thisSection.type == .facilities {
-                headerView.titleLabel.text = "Amenities"
+                headerView.titleLabel.text = "Amenities".localized()
             } else if thisSection.type == .rules {
-                headerView.titleLabel.text = "Property Rules"
+                headerView.titleLabel.text = "Property Rules".localized()
             }
             
             return headerView

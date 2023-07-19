@@ -121,7 +121,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addMenuButton(with: "My Profile")
+        addMenuButton(with: "My Profile".localized())
         if SessionManager.shared.getLoginDetails() == nil {
             tabBarDelegate?.switchTab(0)
             tabBarDelegate?.presentVC("toLogin")
@@ -285,7 +285,7 @@ extension ProfileViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -304,7 +304,7 @@ extension ProfileViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -333,13 +333,12 @@ extension ProfileViewController {
             self.hideIndicator()
             if response.error == nil {
                 if response.value!.status == 1 {
-                    print("responseMessage: \(response.value!.message)")
                     self.selectedImageURL = response.value!.data.url
                 } else {
                     self.view.makeToast(response.value!.message)
                 }
             } else {
-                self.view.makeToast("Something went wrong!")
+                self.view.makeToast(K.apiErrorMessage)
             }
             
         }
@@ -394,7 +393,7 @@ extension ProfileViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -412,7 +411,7 @@ extension ProfileViewController {
         
         if text.count == 0 {
             if textField == customerNameField {
-                return (false, "This field cannot be empty.")
+                return (false, Validation.emptyFieldMessage)
             }
         } else {
             if textField == customerNameField {
@@ -468,7 +467,6 @@ extension ProfileViewController {
                 if valid {
                     nameValidationLabel.isHidden = true
                 } else {
-                    print("\n\n isFormValid? false")
                     isFormValid = false
                     nameValidationLabel.text = message
                 }
@@ -562,7 +560,6 @@ extension ProfileViewController: ImagePickerDelegate {
                 uploadImage(imgData: imgData)
 
             }
-//            profileImage.image = image
         }
     }
 }

@@ -57,7 +57,7 @@ class RoomSelectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Room Selection")
+        addBackButton(with: "Room Selection".localized())
     }
     
     
@@ -125,11 +125,7 @@ extension RoomSelectionViewController {
         let guests = sections?.filter { $0.type == .guestFields }
         let totalGuests = (hotelFilters.adult ?? 0) + (hotelFilters.child ?? 0)
         if (guests?.count ?? 0) >= totalGuests - 1 {
-            if totalGuests == 1 {
-                self.view.makeToast("You have selected only 1 person")
-            } else {
-                self.view.makeToast("You have selected only \(totalGuests) people")
-            }
+            self.view.makeToast(L.addGuestValidationMessage(guestCount: totalGuests))
         } else {
             let sectionCount = sections?.count ?? 1
             sections?.insert(RoomSelectionSection(type: .guestFields, count: 1), at: sectionCount - 1)

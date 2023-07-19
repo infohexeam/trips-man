@@ -1,0 +1,66 @@
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "13E-Qy-32E"; */
+"13E-Qy-32E.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "3uU-8T-0gu"; */
+"3uU-8T-0gu.text" = "دولة";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "5T1-pG-boF"; */
+"5T1-pG-boF.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "5dF-lO-cP2"; */
+"5dF-lO-cP2.text" = "جنس";
+
+/* Class = "UILabel"; text = "DOB"; ObjectID = "5pb-BR-eYw"; */
+"5pb-BR-eYw.text" = "تاريخ الميلاد";
+
+/* Class = "UIButton"; configuration.title = "Change Password"; ObjectID = "6gI-UB-Gee"; */
+"6gI-UB-Gee.configuration.title" = "تغيير كلمة المرور";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "6rh-oL-Dsu"; */
+"6rh-oL-Dsu.text" = "بريد إلكتروني";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "BA6-kq-KB9"; */
+"BA6-kq-KB9.configuration.title" = " ";
+
+/* Class = "UIButton"; configuration.title = "Update"; ObjectID = "BeP-6J-yCO"; */
+"BeP-6J-yCO.configuration.title" = "تحديث";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "DiC-Kb-hFb"; */
+"DiC-Kb-hFb.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Customer Name"; ObjectID = "Eg5-rc-okM"; */
+"Eg5-rc-okM.text" = "اسم الزبون";
+
+/* Class = "UILabel"; text = "Customer Code"; ObjectID = "ObX-Zq-gNY"; */
+"ObX-Zq-gNY.text" = "كود العميل";
+
+/* Class = "UILabel"; text = "Email Validation"; ObjectID = "UeS-dp-gZn"; */
+"UeS-dp-gZn.text" = "Email Validation";
+
+/* Class = "UILabel"; text = "State"; ObjectID = "a98-BI-KGv"; */
+"a98-BI-KGv.text" = "ولاية";
+
+/* Class = "UILabel"; text = "Address Line 1"; ObjectID = "bi3-gQ-w4I"; */
+"bi3-gQ-w4I.text" = "العنوان سطر 1";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "bsS-V5-hw1"; */
+"bsS-V5-hw1.title" = "منتهي";
+
+/* Class = "UILabel"; text = "Hotels"; ObjectID = "cyj-mz-B62"; */
+"cyj-mz-B62.text" = "الفنادق";
+
+/* Class = "UILabel"; text = "Mobile"; ObjectID = "fbK-f2-fEi"; */
+"fbK-f2-fEi.text" = "متحرك";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "g3C-wq-cXr"; */
+"g3C-wq-cXr.text" = "مدينة";
+
+/* Class = "UILabel"; text = "Address Line 2"; ObjectID = "hBQ-9i-5Mh"; */
+"hBQ-9i-5Mh.text" = "سطر العنوان 2";
+
+/* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "hb4-EZ-mbI"; */
+"hb4-EZ-mbI.title" = "يختار";
+
+/* Class = "UILabel"; text = "Pincode"; ObjectID = "q7p-eN-pOv"; */
+"q7p-eN-pOv.text" = "الرمز السري";

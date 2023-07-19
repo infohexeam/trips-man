@@ -89,7 +89,7 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
     
     func countryHandler(action: UIAction) {
         if SessionManager.shared.getCountry().name != action.title {
-            self.view.makeToast("Country changed to \(action.title)")
+            self.view.makeToast("Country changed to".localized() + " \(action.title)")
             let selectedCountry = K.countries.filter { $0.name == action.title }.last
             if let selectedCountry = selectedCountry {
                 SessionManager.shared.setCountry(selectedCountry)

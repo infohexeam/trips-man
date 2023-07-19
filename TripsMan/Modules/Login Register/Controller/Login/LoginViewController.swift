@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
             guard error == nil else { return }
 
-            print("Google Sign in success - \(signInResult?.user)")
+            print("Google Sign in success - \(String(describing: signInResult?.user))")
           }
     }
     
@@ -137,7 +137,6 @@ extension LoginViewController {
                                      "OperatingSystem": UIDevice.current.systemName,
                                      "OSVersion": UIDevice.current.systemVersion,
                                      "FirebaseToken": SessionManager.shared.getFcmToken() ?? ""]
-        print("\nLogin with: \(params)")
         
         parser.sendRequest(url: "api/account/login", http: .post, parameters: params) { (result: LoginData?, error) in
             DispatchQueue.main.async {
@@ -158,7 +157,7 @@ extension LoginViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -173,7 +172,7 @@ extension LoginViewController {
         }
         
         if text.count == 0 {
-            return (false, "This field cannot be empty.")
+            return (false, Validation.emptyFieldMessage)
         }
         
         if textField == userNameField {
@@ -238,7 +237,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         let email = appleIDCredential.email
         print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))") }
         
-        
+        //TODO: -
         
     }
     

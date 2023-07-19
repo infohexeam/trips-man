@@ -31,12 +31,12 @@ class OtpViewController: UIViewController {
         setupView()
         hideKeyboardOnTap()
         if isMobile {
-            messageLabel.text = "Please enter the OTP sent to your mobile number"
-            verifyButton.setTitle("Verify Mobile", for: .normal)
+            messageLabel.text = "Please enter the OTP sent to your mobile number".localized()
+            verifyButton.setTitle("Verify Mobile".localized(), for: .normal)
             generateOTP()
         } else {
-            messageLabel.text = "Please enter the OTP sent to your email"
-            verifyButton.setTitle("Verify Email", for: .normal)
+            messageLabel.text = "Please enter the OTP sent to your email".localized()
+            verifyButton.setTitle("Verify Email".localized(), for: .normal)
             generateEmailOTP()
         }
         
@@ -75,7 +75,7 @@ class OtpViewController: UIViewController {
     
     func handleTimer(_ timer: Timer) {
         otpTime -= 1
-        resendText.text = "Resend OTP in \(otpTime)"
+        resendText.text = "Resend OTP in".localized() + " \(otpTime)"
         guard otpTime >= 0 else {
             otpTime = K.otpTimer
             resendText.isHidden = true
@@ -124,7 +124,7 @@ extension OtpViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -148,7 +148,7 @@ extension OtpViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -170,7 +170,7 @@ extension OtpViewController {
                         self.view.makeToast(K.otpFailureMessage)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -192,7 +192,7 @@ extension OtpViewController {
                         self.view.makeToast(K.otpFailureMessage)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -207,7 +207,7 @@ extension OtpViewController {
         }
         
         if text.count == 0 {
-            return (false, "Invalid otp.")
+            return (false, Validation.invalidOtpMessage)
         }
         
         if textField == otpField {

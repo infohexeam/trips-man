@@ -1,0 +1,113 @@
+
+/* Class = "UIButton"; configuration.title = "Register"; ObjectID = "0Tx-uP-4eS"; */
+"0Tx-uP-4eS.configuration.title" = "يسجل";
+
+/* Class = "UILabel"; text = "OTP VERIFICATION"; ObjectID = "1aP-CK-b9g"; */
+"1aP-CK-b9g.text" = "التحقق من كلمة المرور لمرة واحدة";
+
+/* Class = "UITextField"; placeholder = "Current Password"; ObjectID = "4os-9S-fdu"; */
+"4os-9S-fdu.placeholder" = "كلمة السر الحالية";
+
+/* Class = "UIButton"; configuration.title = "Forgot Password?"; ObjectID = "5xn-Nr-cYg"; */
+"5xn-Nr-cYg.configuration.title" = "هل نسيت كلمة السر؟";
+
+/* Class = "UILabel"; text = "RESET PASSWORD"; ObjectID = "9Ma-Lc-5fl"; */
+"9Ma-Lc-5fl.text" = "إعادة تعيين كلمة المرور";
+
+/* Class = "UIButton"; configuration.title = "Verify"; ObjectID = "9Po-ig-ee2"; */
+"9Po-ig-ee2.configuration.title" = "يؤكد";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "Ayb-GD-EZk"; */
+"Ayb-GD-EZk.placeholder" = "اسم";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "BOT-6R-f2l"; */
+"BOT-6R-f2l.placeholder" = "كلمة المرور";
+
+/* Class = "UITextField"; placeholder = "Mobile"; ObjectID = "C6Y-nE-vp2"; */
+"C6Y-nE-vp2.placeholder" = "متحرك";
+
+/* Class = "UILabel"; text = "FORGOT PASSWORD"; ObjectID = "GQl-R5-Oyb"; */
+"GQl-R5-Oyb.text" = "هل نسيت كلمة السر";
+
+/* Class = "UITextField"; placeholder = "Retype Password"; ObjectID = "JII-LL-2jZ"; */
+"JII-LL-2jZ.placeholder" = "أعد إدخال كلمة السر";
+
+/* Class = "UITextField"; placeholder = "OTP"; ObjectID = "JPo-wp-HRo"; */
+"JPo-wp-HRo.placeholder" = "كلمة السر لمرة واحدة";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "KoI-ur-ScI"; */
+"KoI-ur-ScI.placeholder" = "تأكيد كلمة المرور";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "L7u-XZ-X75"; */
+"L7u-XZ-X75.placeholder" = "كلمة المرور";
+
+/* Class = "UILabel"; text = "Signin with Google"; ObjectID = "Lmk-YO-G93"; */
+"Lmk-YO-G93.text" = "تسجيل الدخول
+مع
+جوجل";
+
+/* Class = "UILabel"; text = "Create an Account"; ObjectID = "Nwb-qg-Qyj"; */
+"Nwb-qg-Qyj.text" = "يخلق
+حساب";
+
+/* Class = "UIButton"; configuration.title = "Submit"; ObjectID = "P0O-zJ-SPj"; */
+"P0O-zJ-SPj.configuration.title" = "يُقدِّم";
+
+/* Class = "UIButton"; configuration.title = "Submit"; ObjectID = "PGo-Y2-236"; */
+"PGo-Y2-236.configuration.title" = "يُقدِّم";
+
+/* Class = "UILabel"; text = "Please enter your registered email id. The password reset link will be sent to your email."; ObjectID = "SlE-VV-UyA"; */
+"SlE-VV-UyA.text" = "الرجاء إدخال معرف البريد الإلكتروني المسجل الخاص بك. سيتم إرسال رابط إعادة تعيين كلمة المرور إلى بريدك الإلكتروني.";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "V09-6a-Wkm"; */
+"V09-6a-Wkm.configuration.title" = " ";
+
+/* Class = "UIButton"; configuration.title = "Resend OTP"; ObjectID = "aox-CU-tWZ"; */
+"aox-CU-tWZ.configuration.title" = "إعادة إرسال";
+
+/* Class = "UIButton"; configuration.title = "Clear"; ObjectID = "e1s-RA-cRC"; */
+"e1s-RA-cRC.configuration.title" = "واضح";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "f8O-5G-Zvu"; */
+"f8O-5G-Zvu.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Signin with Apple"; ObjectID = "gKn-JK-uN6"; */
+"gKn-JK-uN6.text" = "تسجيل الدخول
+مع
+تفاحة";
+
+/* Class = "UILabel"; text = "Resend OTP in"; ObjectID = "glU-39-F5X"; */
+"glU-39-F5X.text" = "إعادة الإرسال";
+
+/* Class = "UILabel"; text = "or"; ObjectID = "h0L-bz-wQR"; */
+"h0L-bz-wQR.text" = "أو";
+
+/* Class = "UITextField"; placeholder = "Email / Mobile Number"; ObjectID = "h2K-n6-3wN"; */
+"h2K-n6-3wN.placeholder" = "البريد الإلكتروني / رقم الهاتف المحمول";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "jtk-JQ-1FB"; */
+"jtk-JQ-1FB.placeholder" = "كلمة المرور الجديدة";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "lpG-tm-O4c"; */
+"lpG-tm-O4c.configuration.title" = " ";
+
+/* Class = "UIButton"; configuration.title = "Back to Login"; ObjectID = "mSK-DV-o8M"; */
+"mSK-DV-o8M.configuration.title" = "العودة إلى تسجيل الدخول";
+
+/* Class = "UILabel"; text = "Please enter the OTP sent to"; ObjectID = "n6L-AF-wdf"; */
+"n6L-AF-wdf.text" = "الرجاء إدخال كلمة المرور لمرة واحدة المرسلة إلى";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "o0w-dZ-VOW"; */
+"o0w-dZ-VOW.placeholder" = "بريد إلكتروني";
+
+/* Class = "UILabel"; text = "REGISTER"; ObjectID = "oG9-se-Mwi"; */
+"oG9-se-Mwi.text" = "يسجل";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "od1-00-bLl"; */
+"od1-00-bLl.configuration.title" = "تسجيل الدخول";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "phs-Z4-ZMh"; */
+"phs-Z4-ZMh.placeholder" = "بريد إلكتروني";
+
+/* Class = "UILabel"; text = "LOGIN"; ObjectID = "xPn-VY-Xto"; */
+"xPn-VY-Xto.text" = "تسجيل الدخول";

@@ -43,7 +43,6 @@ struct RoomDetailsManager {
                         RoomDetailsSection(type: .popularAmenities, count: roomDetails.popularAmenities.count),
                         RoomDetailsSection(type: .houseRules, count: roomDetails.roomHouseRules.count),
                         RoomDetailsSection(type: .priceDetails, count: 1)]
-            print("\nroomFaciltiesCount: \(roomDetails.roomFacilities.count)\n roomFacilities: \(roomDetails.roomFacilities)")
             if roomDetails.roomImage.count == 0 {
                 sections?.remove(at: 0)
             }

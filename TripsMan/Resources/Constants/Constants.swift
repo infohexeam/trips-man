@@ -31,7 +31,7 @@ struct K {
     static let countryCodes: [MobileCodes] = [MobileCodes(code: "+91", mobileLength: 10),
                                               MobileCodes(code: "+971", mobileLength: 9)]
     
-    //Country Selection
+    //  Country Selection
     //  localeIdentifier uses in:
     //      - setting country w.r.t device's locale identifier (MainViewController)
     //      - Google Maps country filter (DefaultFilterViewController)
@@ -55,7 +55,7 @@ struct K {
     static let otpSentSuccessMessage = "Successfully sent OTP"
     static let otpFailureMessage = "OTP is invalid or expired"
     
-    
+    static let apiErrorMessage = "Something went wrong!"
     
     static let paymentVerifyingMessage = "Authentication your transaction.. Please do not close the app."
     static let confirmBookingmMessage = "Finalizing your booking. Almost there!"
@@ -112,8 +112,6 @@ struct K {
         
         return "\(description)\nMin. Order Value: \(SessionManager.shared.getCurrency()) \(minAmount), Discount: \(discountText) "
     }
-    
-    
 }
 
 struct MobileCodes {
@@ -123,6 +121,10 @@ struct MobileCodes {
 
 //Validation Messages
 struct Validation {
+    
+    static let emptyFieldMessage = "This field cannot be empty."
+    static let invalidOtpMessage = "Invalid otp."
+    
     //HOTEL
     static let htlPrimaryGuestDetails = "Enter primary guest details"
 //    static let htlGuestDetails

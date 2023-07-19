@@ -72,10 +72,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        homeTiles = [HomeTiles(title: "Hotels", image: "home-cat-icon-Hotels", backgroundImage: "home-cat-Hotels", segue: "toHotelList", listType: .hotel),
-                     HomeTiles(title: "Holiday Packages", image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday", segue: "toCountryPicker", listType: .packages),
-                     HomeTiles(title: "Activities", image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities", segue: "toCountryPicker", listType: .activities),
-                     HomeTiles(title: "Meetups", image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", segue: "toCountryPicker", listType: .meetups)]
+        homeTiles = [HomeTiles(title: "Hotels".localized(), image: "home-cat-icon-Hotels", backgroundImage: "home-cat-Hotels", segue: "toHotelList", listType: .hotel),
+                     HomeTiles(title: "Holiday Packages".localized(), image: "home-cat-icon-Holiday", backgroundImage: "home-cat-Holiday", segue: "toCountryPicker", listType: .packages),
+                     HomeTiles(title: "Activities".localized(), image: "home-cat-icon-Activities", backgroundImage: "home-cat-Activities", segue: "toCountryPicker", listType: .activities),
+                     HomeTiles(title: "Meetups".localized(), image: "home-cat-icon-Meetups", backgroundImage: "home-cat-Meetups", segue: "toCountryPicker", listType: .meetups)]
         sections = [HomeSection(type: .banner, count: banners.count),
                     HomeSection(type: .tiles, count: homeTiles.count)]
         
@@ -84,11 +84,9 @@ class MainViewController: UIViewController {
         let locale = Locale.current
         var localeIdentifier: String?
         if #available(iOS 16, *) {
-            print("Locale: \(locale.region?.identifier ?? "")")
             localeIdentifier = locale.region?.identifier
         } else {
             // Fallback on earlier versions
-            print("Locale (before iOS 16): \(locale.regionCode ?? "")")
             localeIdentifier = locale.regionCode
         }
         SessionManager.shared.setCountry(K.countries.filter( { $0.localeIdentifier == localeIdentifier }).last ?? K.countries[0])
@@ -100,49 +98,6 @@ class MainViewController: UIViewController {
     
     @objc func refresh(_ sender: AnyObject) {
         getBanners()
-    }
-    
-    func testURL() {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "tripsmanhexeam.page.link"
-        components.path = "/resetPassword"
-        
-        let tokenQueryItem = URLQueryItem(name: "token", value: "abakjfbak282892jakwdn82nduka")
-        let emailQueryItem = URLQueryItem(name: "email", value: "test@test.com")
-        components.queryItems = [tokenQueryItem, emailQueryItem]
-        
-        guard let linkParameter = components.url else { return }
-        print("I am sharing \(linkParameter.absoluteString)")
-        
-        //DynamicLink
-        guard let shareLink = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: "https://tripsmanhexeam.page.link") else {
-            print("Couldn't create FDL components")
-            return
-        }
-        
-        if let myBundleID = Bundle.main.bundleIdentifier {
-            shareLink.iOSParameters = DynamicLinkIOSParameters(bundleID: myBundleID)
-        }
-        shareLink.iOSParameters?.appStoreID = "6444074382"
-        
-        shareLink.androidParameters = DynamicLinkAndroidParameters(packageName: "com.hexeam.tripsman")
-        
-        guard let longURL = shareLink.url else { return }
-        print("The long dynamic link is \(longURL.absoluteURL)")
-        
-        shareLink.shorten { (url, warning, error) in
-            if let error = error {
-                print("FDL error \(error)")
-                return
-            }
-            if let warning = warning {
-                print("FDL warning \(warning)")
-            }
-            guard let url = url else { return }
-            print("Shorten url is \(url.absoluteString)")
-        }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -181,7 +136,7 @@ extension MainViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -325,3 +280,48 @@ extension MainViewController {
         return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
     }
 }
+
+
+//Deeplinking test
+//func testURL() {
+//    var components = URLComponents()
+//    components.scheme = "https"
+//    components.host = "tripsmanhexeam.page.link"
+//    components.path = "/resetPassword"
+//
+//    let tokenQueryItem = URLQueryItem(name: "token", value: "abakjfbak282892jakwdn82nduka")
+//    let emailQueryItem = URLQueryItem(name: "email", value: "test@test.com")
+//    components.queryItems = [tokenQueryItem, emailQueryItem]
+//
+//    guard let linkParameter = components.url else { return }
+//    print("I am sharing \(linkParameter.absoluteString)")
+//
+//    //DynamicLink
+//    guard let shareLink = DynamicLinkComponents.init(link: linkParameter, domainURIPrefix: "https://tripsmanhexeam.page.link") else {
+//        print("Couldn't create FDL components")
+//        return
+//    }
+//
+//    if let myBundleID = Bundle.main.bundleIdentifier {
+//        shareLink.iOSParameters = DynamicLinkIOSParameters(bundleID: myBundleID)
+//    }
+//    shareLink.iOSParameters?.appStoreID = "6444074382"
+//
+//    shareLink.androidParameters = DynamicLinkAndroidParameters(packageName: "com.hexeam.tripsman")
+//
+//    guard let longURL = shareLink.url else { return }
+//    print("The long dynamic link is \(longURL.absoluteURL)")
+//
+//    shareLink.shorten { (url, warning, error) in
+//        if let error = error {
+//            print("FDL error \(error)")
+//            return
+//        }
+//        if let warning = warning {
+//            print("FDL warning \(warning)")
+//        }
+//        guard let url = url else { return }
+//        print("Shorten url is \(url.absoluteString)")
+//    }
+//
+//}

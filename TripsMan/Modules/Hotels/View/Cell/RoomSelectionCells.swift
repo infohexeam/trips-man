@@ -80,7 +80,6 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
     }
     
     @IBAction func valueChanged(_ sender: UITextField) {
-        print("value change: \(sender.text)")
         cvcDelegate?.collectionViewCell(valueChangedIn: sender, delegatedFrom: self)
     }
     
@@ -116,7 +115,7 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
         }
         
         if text.count == 0 {
-            return (false, "This field cannot be empty.")
+            return (false, Validation.emptyFieldMessage)
         }
         
         if textField == primayGuestField {
@@ -125,10 +124,6 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
             return MobileValidator().validate(text)
         } else if textField == emailField {
             return EmailValidator().validate(text)
-            //        } else if textField == genderField {
-            //            return PasswordValidator().validate(text)
-            //        } else if textField == ageField {
-            //            return PasswordValidator().retypeValidate(passwordField.text ?? "", text)
         }
         
         return (true, nil)
@@ -236,7 +231,6 @@ class GuestFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
     }
     
     @IBAction func valueChanged(_ sender: UITextField) {
-        print("value change: \(sender.text)")
         cvcDelegate?.collectionViewCell(valueChangedIn: sender, delegatedFrom: self)
     }
     
@@ -267,7 +261,7 @@ class GuestFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         }
         
         if text.count == 0 {
-            return (false, "This field cannot be empty.")
+            return (false, Validation.emptyFieldMessage)
         }
         
         if textField == guestNameField {

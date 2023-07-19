@@ -1,0 +1,171 @@
+
+/* Class = "UILabel"; text = "Coupon Code"; ObjectID = "07b-fA-brN"; */
+"07b-fA-brN.text" = "رمز الكوبون";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "3SX-Y9-0ph"; */
+"3SX-Y9-0ph.text" = "عنوان";
+
+/* Class = "UILabel"; text = "Contact No"; ObjectID = "6Xl-dt-6p3"; */
+"6Xl-dt-6p3.text" = "رقم الاتصال";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "6hH-RT-3Z9"; */
+"6hH-RT-3Z9.configuration.title" = " ";
+
+/* Class = "UIButton"; configuration.title = "Select"; ObjectID = "7hY-o0-bsH"; */
+"7hY-o0-bsH.configuration.title" = "يختار";
+
+/* Class = "UILabel"; text = "Check-out"; ObjectID = "8Ab-c6-hY1"; */
+"8Ab-c6-hY1.text" = "الدفع";
+
+/* Class = "UILabel"; text = "Check-in"; ObjectID = "BBA-N2-Bfj"; */
+"BBA-N2-Bfj.text" = "تحقق في";
+
+/* Class = "UILabel"; text = "Primary Guest Name"; ObjectID = "Bke-60-SET"; */
+"Bke-60-SET.text" = "اسم الضيف الأساسي";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "Bvx-i3-1sW"; */
+"Bvx-i3-1sW.text" = "وصف";
+
+/* Class = "UIButton"; configuration.title = "Cancel"; ObjectID = "C2B-WJ-ipW"; */
+"C2B-WJ-ipW.configuration.title" = "يلغي";
+
+/* Class = "UIButton"; configuration.title = "Search"; ObjectID = "Ddb-2Q-fEE"; */
+"Ddb-2Q-fEE.configuration.title" = "يبحث";
+
+/* Class = "UITextField"; placeholder = "Check-out"; ObjectID = "E40-EL-yGQ"; */
+"E40-EL-yGQ.placeholder" = "الدفع";
+
+/* Class = "UILabel"; text = "COUPON CODE"; ObjectID = "FEC-wF-ATm"; */
+"FEC-wF-ATm.text" = "رمز الكوبون";
+
+/* Class = "UIButton"; configuration.title = "Continue"; ObjectID = "LbU-2H-dXZ"; */
+"LbU-2H-dXZ.configuration.title" = "يكمل";
+
+/* Class = "UIButton"; configuration.title = "Return Home"; ObjectID = "MUK-JB-YgZ"; */
+"MUK-JB-YgZ.configuration.title" = "العودة للمنزل";
+
+/* Class = "UIButton"; configuration.title = "Add Guest"; ObjectID = "NGN-fA-oyt"; */
+"NGN-fA-oyt.configuration.title" = "إضافة ضيف";
+
+/* Class = "UILabel"; text = "Check-in"; ObjectID = "NfU-6g-U0F"; */
+"NfU-6g-U0F.text" = "تحقق في";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "ODd-Qj-arO"; */
+"ODd-Qj-arO.text" = "عنوان";
+
+/* Class = "UIButton"; configuration.title = "View More"; ObjectID = "Ox8-NM-Fij"; */
+"Ox8-NM-Fij.configuration.title" = "عرض المزيد";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "P28-2p-wby"; */
+"P28-2p-wby.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Guest Name"; ObjectID = "PdJ-EW-7dt"; */
+"PdJ-EW-7dt.text" = "اسم الضيف";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "QYj-9h-sw7"; */
+"QYj-9h-sw7.text" = "عمر";
+
+/* Class = "UILabel"; text = "Check-out"; ObjectID = "R72-yS-7Cf"; */
+"R72-yS-7Cf.text" = "الدفع";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "RHW-Kp-3gL"; */
+"RHW-Kp-3gL.text" = "عنوان";
+
+/* Class = "UILabel"; text = "Email id"; ObjectID = "SJC-1e-fIF"; */
+"SJC-1e-fIF.text" = "عنوان الايميل";
+
+/* Class = "UIButton"; configuration.title = "Apply"; ObjectID = "T9U-34-y1u"; */
+"T9U-34-y1u.configuration.title" = "يتقدم";
+
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "Teu-HL-riH"; */
+"Teu-HL-riH.text" = "المبلغ الإجمالي";
+
+/* Class = "UIButton"; configuration.title = "See all reviews"; ObjectID = "Uyc-mo-bPZ"; */
+"Uyc-mo-bPZ.configuration.title" = "انظر جميع الاستعراضات";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "VzP-PL-UPu"; */
+"VzP-PL-UPu.text" = "جنس";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "X3c-2I-lPM"; */
+"X3c-2I-lPM.text" = "عمر";
+
+/* Class = "UILabel"; text = "Check-in"; ObjectID = "YNc-IF-Xgp"; */
+"YNc-IF-Xgp.text" = "تحقق في";
+
+/* Class = "UILabel"; text = "Room Charges"; ObjectID = "YUL-jE-EFk"; */
+"YUL-jE-EFk.text" = "رسوم الغرفة";
+
+/* Class = "UIButton"; configuration.title = "Back"; ObjectID = "YkP-Cz-2GD"; */
+"YkP-Cz-2GD.configuration.title" = "خلف";
+
+/* Class = "UIButton"; configuration.title = "Select Room"; ObjectID = "ZDW-ro-0mz"; */
+"ZDW-ro-0mz.configuration.title" = "اختر الغرفة";
+
+/* Class = "UILabel"; text = "Check-out"; ObjectID = "aD3-CJ-X6g"; */
+"aD3-CJ-X6g.text" = "الدفع";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "amt-Vo-zw6"; */
+"amt-Vo-zw6.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Check-out"; ObjectID = "b5e-v8-X4V"; */
+"b5e-v8-X4V.text" = "الدفع";
+
+/* Class = "UILabel"; text = "Sold Out"; ObjectID = "bdq-8U-7I1"; */
+"bdq-8U-7I1.text" = "نفذ";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "cHC-c3-CNq"; */
+"cHC-c3-CNq.text" = "Location";
+
+/* Class = "UILabel"; text = "Room"; ObjectID = "eOu-MH-wNa"; */
+"eOu-MH-wNa.text" = "غرفة";
+
+/* Class = "UIButton"; configuration.title = "Continue"; ObjectID = "giA-Dl-fy8"; */
+"giA-Dl-fy8.configuration.title" = "يكمل";
+
+/* Class = "UIButton"; configuration.title = "Open in map"; ObjectID = "hdI-M6-gSI"; */
+"hdI-M6-gSI.configuration.title" = "فتح في الخريطة";
+
+/* Class = "UILabel"; text = "Price Per Night"; ObjectID = "jPG-HF-gEz"; */
+"jPG-HF-gEz.text" = "سعر الليلة الواحدة";
+
+/* Class = "UILabel"; text = "Rooms & Guests"; ObjectID = "jVi-u7-Yui"; */
+"jVi-u7-Yui.text" = "الغرف والضيوف";
+
+/* Class = "UIButton"; configuration.title = "Edit"; ObjectID = "kHi-aI-PaQ"; */
+"kHi-aI-PaQ.configuration.title" = "يحرر";
+
+/* Class = "UILabel"; text = "Room Booked Successfully!"; ObjectID = "mPF-9t-3Ed"; */
+"mPF-9t-3Ed.text" = "تم حجز الغرفة بنجاح!";
+
+/* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "mVD-gR-fKs"; */
+"mVD-gR-fKs.title" = "يختار";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "neQ-wc-AgP"; */
+"neQ-wc-AgP.text" = "موقع";
+
+/* Class = "UITextField"; placeholder = "Check-in"; ObjectID = "pKV-qF-j9S"; */
+"pKV-qF-j9S.placeholder" = "تحقق في";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "qhR-nn-8D2"; */
+"qhR-nn-8D2.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "s0q-sY-SOq"; */
+"s0q-sY-SOq.text" = "جنس";
+
+/* Class = "UILabel"; text = "Check-in"; ObjectID = "tnf-UJ-Z4J"; */
+"tnf-UJ-Z4J.text" = "تحقق في";
+
+/* Class = "UIButton"; configuration.title = "Have a coupon code?"; ObjectID = "uH1-aG-fzW"; */
+"uH1-aG-fzW.configuration.title" = "هل لديك رمز القسيمة؟";
+
+/* Class = "UILabel"; text = "Taxes & Fees"; ObjectID = "vzP-ji-vIF"; */
+"vzP-ji-vIF.text" = "الضرائب والرسوم";
+
+/* Class = "UILabel"; text = "Terms And Conditions"; ObjectID = "xGi-TS-Vwp"; */
+"xGi-TS-Vwp.text" = "الأحكام والشروط";
+
+/* Class = "UIButton"; configuration.title = "Remove"; ObjectID = "xse-qN-HSs"; */
+"xse-qN-HSs.configuration.title" = "يزيل";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "ypN-rT-HA1"; */
+"ypN-rT-HA1.configuration.title" = "اقرأ أكثر";

@@ -133,6 +133,7 @@ class DefaultFilterViewController: UIViewController {
             counterMainView.isHidden = true
             
             countryField.text = meetupFilters.country?.name
+            cityField.text = meetupFilters.city
         }
     }
     

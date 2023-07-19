@@ -269,6 +269,7 @@ extension ListingViewController {
                                      "offset": currentOffset*recordCount,
                                      "recordCount": recordCount,
                                      "MeetupCountry": meetupFilter.country?.code ?? 0,
+                                     "MeetupCity": meetupFilter.city ?? "",
                                      "Country": SessionManager.shared.getCountry().countryCode,
                                      "Currency": SessionManager.shared.getCurrency(),
                                      "Language": SessionManager.shared.getLanguage().code,

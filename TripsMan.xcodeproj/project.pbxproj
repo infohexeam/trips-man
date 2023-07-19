@@ -11,7 +11,6 @@
 		82DDCBD5E9F781D03B665813 /* Pods_TripsMan_TripsManUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B0731A7AC0B382F96BE298D /* Pods_TripsMan_TripsManUITests.framework */; };
 		C101CA1E298B74700051A94F /* MyTrips.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101CA1D298B74700051A94F /* MyTrips.swift */; };
 		C101CA21298BDB970051A94F /* HotelTripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C101CA20298BDB970051A94F /* HotelTripDetails.swift */; };
-		C109360F29BADE5800C5E8BD /* Hotel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C109360E29BADE5800C5E8BD /* Hotel.storyboard */; };
 		C10D2BC12900C7EA00029F51 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D2BC02900C7EA00029F51 /* ProfileViewController.swift */; };
 		C1179EF02A43145700BF4EC9 /* MeetupTripDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1179EEF2A43145700BF4EC9 /* MeetupTripDetails.swift */; };
 		C118651F29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C118651E29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift */; };
@@ -179,6 +178,8 @@
 		C1E7E9A029FA828F00676237 /* ActivityBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */; };
 		C1E97DD229A796EE0025B03F /* SearchCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD129A796EE0025B03F /* SearchCells.swift */; };
 		C1E97DD429AC878B0025B03F /* ReadMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */; };
+		C1E9A2912A67D8BC0076032B /* Hotel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1E9A2932A67D8BC0076032B /* Hotel.storyboard */; };
+		C1E9A2972A67FB270076032B /* LocalizationStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E9A2962A67FB270076032B /* LocalizationStrings.swift */; };
 		C1EF48432A1727A8002C877A /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EF48422A1727A8002C877A /* SearchData.swift */; };
 		C1EF48452A173340002C877A /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EF48442A173340002C877A /* SearchManager.swift */; };
 		C1F04B6B2A611B970090E076 /* PdfViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F04B6A2A611B970090E076 /* PdfViewerViewController.swift */; };
@@ -229,7 +230,6 @@
 		A092D2645AE4435B31CF4AF3 /* Pods_TripsMan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripsMan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C101CA1D298B74700051A94F /* MyTrips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrips.swift; sourceTree = "<group>"; };
 		C101CA20298BDB970051A94F /* HotelTripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelTripDetails.swift; sourceTree = "<group>"; };
-		C109360E29BADE5800C5E8BD /* Hotel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Hotel.storyboard; sourceTree = "<group>"; };
 		C10D2BC02900C7EA00029F51 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C1179EEF2A43145700BF4EC9 /* MeetupTripDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupTripDetails.swift; sourceTree = "<group>"; };
 		C118651E29D2E0CB00EED029 /* PackageHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -382,10 +382,8 @@
 		C1DCEE6C2A665B3500FB9239 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1DCEE6E2A665B8500FB9239 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1DCEE712A66681400FB9239 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
-		C1DCEE732A6699FF00FB9239 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ar; path = ar.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1DCEE742A669BB300FB9239 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1DCEE762A66ABE800FB9239 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LoginModule.storyboard; sourceTree = "<group>"; };
-		C1DCEE7A2A66AD0200FB9239 /* ar */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ar; path = ar.lproj/LoginModule.storyboard; sourceTree = "<group>"; };
 		C1DDD11028CAEBA30032FA12 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		C1DF2D7D29BF2A40000732B7 /* PackageListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageListingData.swift; sourceTree = "<group>"; };
 		C1E25CED2A08A73B00AC328A /* MeetupDescriptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDescriptionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -405,6 +403,11 @@
 		C1E7E99F29FA828F00676237 /* ActivityBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBookingManager.swift; sourceTree = "<group>"; };
 		C1E97DD129A796EE0025B03F /* SearchCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCells.swift; sourceTree = "<group>"; };
 		C1E97DD329AC878B0025B03F /* ReadMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreViewController.swift; sourceTree = "<group>"; };
+		C1E9A28E2A6790550076032B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LoginModule.strings; sourceTree = "<group>"; };
+		C1E9A2902A67B0A80076032B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		C1E9A2922A67D8BC0076032B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Hotel.storyboard; sourceTree = "<group>"; };
+		C1E9A2952A67D8C10076032B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Hotel.strings; sourceTree = "<group>"; };
+		C1E9A2962A67FB270076032B /* LocalizationStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationStrings.swift; sourceTree = "<group>"; };
 		C1EF48422A1727A8002C877A /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		C1EF48442A173340002C877A /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		C1F04B6A2A611B970090E076 /* PdfViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfViewerViewController.swift; sourceTree = "<group>"; };
@@ -1400,7 +1403,7 @@
 		C1CA191E29B9BB8D00CFD04A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C109360E29BADE5800C5E8BD /* Hotel.storyboard */,
+				C1E9A2932A67D8BC0076032B /* Hotel.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1579,6 +1582,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D8F6BF2907725700C6CBBA /* Constants.swift */,
+				C1E9A2962A67FB270076032B /* LocalizationStrings.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1783,7 +1787,7 @@
 				C158276F295D53F800516FD6 /* SideMenu.storyboard in Resources */,
 				C1DCEE752A66ABE800FB9239 /* LoginModule.storyboard in Resources */,
 				C12D83F92949872D0091B311 /* Trips.storyboard in Resources */,
-				C109360F29BADE5800C5E8BD /* Hotel.storyboard in Resources */,
+				C1E9A2912A67D8BC0076032B /* Hotel.storyboard in Resources */,
 				C1CA192E29B9FE1B00CFD04A /* Common.storyboard in Resources */,
 				C1DCEE6D2A665B8500FB9239 /* Localizable.strings in Resources */,
 				C15E31C028C5F13300E209EB /* LaunchScreen.storyboard in Resources */,
@@ -1966,6 +1970,7 @@
 				C177E55328E8426800083012 /* Date+Extension.swift in Sources */,
 				C15E31EE28C6D4E600E209EB /* LoginViewController.swift in Sources */,
 				C1A2757B2A4AB3ED001ABF95 /* PaymentData.swift in Sources */,
+				C1E9A2972A67FB270076032B /* LocalizationStrings.swift in Sources */,
 				C14894C229ED0B0400EB559E /* ActivityListingData.swift in Sources */,
 				C1AEB61829F79BF400F3A40A /* ActivityDescriptionCollectionViewCell.swift in Sources */,
 				C1422EA92A06525E005E83D2 /* MeetupDetailsViewController.swift in Sources */,
@@ -2166,7 +2171,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C15E31B728C5F13100E209EB /* Base */,
-				C1DCEE732A6699FF00FB9239 /* ar */,
+				C1E9A2902A67B0A80076032B /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2193,9 +2198,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				C1DCEE762A66ABE800FB9239 /* Base */,
-				C1DCEE7A2A66AD0200FB9239 /* ar */,
+				C1E9A28E2A6790550076032B /* ar */,
 			);
 			name = LoginModule.storyboard;
+			sourceTree = "<group>";
+		};
+		C1E9A2932A67D8BC0076032B /* Hotel.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1E9A2922A67D8BC0076032B /* Base */,
+				C1E9A2952A67D8C10076032B /* ar */,
+			);
+			name = Hotel.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

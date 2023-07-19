@@ -63,7 +63,7 @@ extension RoomDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -157,11 +157,11 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
             guard let thisSection = roomManager?.getSections()?[indexPath.section] else { return headerView }
             
             if thisSection.type == .roomAmenities {
-                headerView.titleLabel.text = "Room Amenities"
+                headerView.titleLabel.text = "Room Amenities".localized()
             } else if thisSection.type == .popularAmenities {
-                headerView.titleLabel.text = "Popular Amenities"
+                headerView.titleLabel.text = "Popular Amenities".localized()
             } else if thisSection.type == .houseRules {
-                headerView.titleLabel.text = "House Rules"
+                headerView.titleLabel.text = "House Rules".localized()
             }
             
             return headerView

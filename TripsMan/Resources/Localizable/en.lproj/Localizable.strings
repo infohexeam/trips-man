@@ -6,6 +6,57 @@
   
 */
 
-//MainViewController
-"Hotels" = "bbbbbbbb";
-"Select location" = "Select bbbbbbbb";
+
+//LoginRegister
+"Please enter the OTP sent to your mobile number" = "Please enter the OTP sent to your mobile number";
+"Verify Mobile" = "Verify Mobile";
+"Please enter the OTP sent to your email" = "Please enter the OTP sent to your email";
+"Verify Email" = "Verify Email";
+"Resend OTP in" = "Resend OTP in";
+"CHANGE PASSWORD" = "CHANGE PASSWORD";
+"RESET PASSWORD" = "RESET PASSWORD";
+
+//Main
+"Hotels" = "Hotels";
+"Holiday Packages" = "Holiday Packages";
+"Activities" = "Activities";
+"Meetups" = "Meetups";
+"Country changed to" = "Country changed to";
+"Male" = "Male";
+"My Profile" = "My Profile";
+"Hi," = "Hi,";
+"My Trips" = "My Trips";
+"View your trips" = "View your trips";
+"Logout" = "Logout";
+"Login / Sign Up Now" = "Login / Sign Up Now";
+"Login for best deals" = "Login for best deals";
+"My Trips" = "My Trips";
+"View your trips" = "View your trips";
+"Are you sure you want to Logout?" = "Are you sure you want to Logout?";
+"Cancel" = "Cancel";
+"Yes" = "Yes";
+
+
+//Hotel
+"Room" = "Room";
+"Room" = "Rooms";
+"Adult" = "Adult";
+"Adults" = "Adults";
+"Room Amenities" = "Room Amenities";
+"Popular Amenities" = "Popular Amenities";
+"House Rules" = "House Rules";
+"Hotel Details" = "Hotel Details";
+"Property Rules" = "Property Rules";
+"Terms and Conditions" = "Terms and Conditions";
+"More" = "More";
+"taxes & fee per night" = "taxes & fee per night";
+"off" = "taxes & fee per night";
+"Overall Rating" = "Overall Rating";
+"No ratings" = "No ratings";
+"Reviewed by" = "Reviewed by";
+"on" = "on";
+"Address" = "Address";
+"Amenities" = "Amenities";
+"Property Rules" = "Property Rules";
+"Room Selection" = "Room Selection";
+"You have selected only 1 person" = "You have selected only 1 person";

@@ -59,9 +59,9 @@ class ResetPasswordViewController: UIViewController {
         
         //Page Title
         if isChangePassword {
-            pageTitle.text = "CHANGE PASSWORD"
+            pageTitle.text = "CHANGE PASSWORD".localized()
         } else {
-            pageTitle.text = "RESET PASSWORD"
+            pageTitle.text = "RESET PASSWORD".localized()
             currentPasswordView.isHidden = true
         }
         
@@ -123,7 +123,7 @@ extension ResetPasswordViewController {
                     }
                 } else {
                     self.hideIndicator()
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -150,7 +150,7 @@ extension ResetPasswordViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -165,7 +165,7 @@ extension ResetPasswordViewController {
         }
         
         if text.count == 0 {
-            return (false, "This field cannot be empty.")
+            return (false, Validation.emptyFieldMessage)
         }
         
         if textField == newPasswordField {

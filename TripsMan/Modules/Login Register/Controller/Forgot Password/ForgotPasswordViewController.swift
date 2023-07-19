@@ -65,7 +65,7 @@ extension ForgotPasswordViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -80,7 +80,7 @@ extension ForgotPasswordViewController {
         }
         
         if text.count == 0 {
-            return (false, "This field cannot be empty.")
+            return (false, Validation.emptyFieldMessage)
         }
         
         if textField == emailField {

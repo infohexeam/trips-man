@@ -40,11 +40,11 @@ extension Double {
 
 extension Int {
     func oneOrMany(_ word: String, suffix: String = "s") -> String {
-            if self == 1 {
-                return "\(self) \(word)"
-            } else {
-                return "\(self) \(word)\(suffix)"
-            }
+        if self == 1 {
+            return "\(self) " + word.localized()
+        } else {
+            return "\(self) "  + "\(word)\(suffix)".localized()
+        }
     }
     
     func stringValue() -> String {
