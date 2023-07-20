@@ -26,7 +26,7 @@ struct K {
     static let couponToShow = 4
     static let readMoreContentLines = 5
     
-    static let genders = ["Male", "Female", "Prefer not to say"]
+    static let genders = ["Male".localized(), "Female".localized(), "Prefer not to say".localized()]
     
     static let countryCodes: [MobileCodes] = [MobileCodes(code: "+91", mobileLength: 10),
                                               MobileCodes(code: "+971", mobileLength: 9)]
@@ -36,8 +36,8 @@ struct K {
     //      - setting country w.r.t device's locale identifier (MainViewController)
     //      - Google Maps country filter (DefaultFilterViewController)
     //  countryCode uses in tripsman apis
-    static let countries = [CountrySelection(name: "India", icon: "country-india", countryCode: "IND", localeIdentifier: "IN", currency: "INR", id: 1),
-                            CountrySelection(name: "UAE", icon: "country-uae", countryCode: "UAE", localeIdentifier: "AE", currency: "AED", id: 2)]
+    static let countries = [CountrySelection(name: "India".localized(), icon: "country-india", countryCode: "IND", localeIdentifier: "IN", currency: "INR", id: 1),
+                            CountrySelection(name: "UAE".localized(), icon: "country-uae", countryCode: "UAE", localeIdentifier: "AE", currency: "AED", id: 2)]
     static let languages = [LanguageSelection(name: "English", id: 1, code: "en"), LanguageSelection(name: "عربي", id: 2, code: "ar")]
     
     static let hotelPlaceHolderImage = "hotel-default-img"
@@ -52,25 +52,14 @@ struct K {
     static let defaultAdultCount = 2
     static let defaultChildCount = 0
     
-    static let otpSentSuccessMessage = "Successfully sent OTP"
-    static let otpFailureMessage = "OTP is invalid or expired"
+    static let otpSentSuccessMessage = "Successfully sent OTP".localized()
+    static let otpFailureMessage = "OTP is invalid or expired".localized()
     
-    static let apiErrorMessage = "Something went wrong!"
+    static let apiErrorMessage = "Something went wrong!".localized()
     
-    static let paymentVerifyingMessage = "Authentication your transaction.. Please do not close the app."
-    static let confirmBookingmMessage = "Finalizing your booking. Almost there!"
+    static let paymentVerifyingMessage = "Authenticating your transaction.. Please do not close the app.".localized()
+    static let confirmBookingmMessage = "Finalizing your booking. Almost there!".localized()
     
-    static func getBookingSuccessMessage(for module: String, with bookingNo: String) -> String {
-        return "Your \(getModuleText(of: module)) booking has been successfully confirmed. Enjoy your experience! Booking No: \(bookingNo)"
-    }
-    
-    static func getPaymentWaitingMessage(for module: String, with bookingNo: String) -> String {
-        return "Your \(getModuleText(of: module)) booking has been successfully confirmed. And payment verification is in process. If you have any questions or need assistance, contact our admin at \(adminContactNo) or \(adminContactEmail) Booking No: \(bookingNo)"
-    }
-    
-    static func getBookingFailedMessage() -> String {
-        return "We apologise, but there seems to be an issue with your booking. Unfortunately, the booking could not be confirmed at this time. We recommend contacting our support team for further assistance. We apologize for any inconvenience caused. Contact us at \(adminContactNo) or \(adminContactEmail)"
-    }
     
     static func getModuleCode(of listType: ListType) -> String {
         switch listType {
@@ -122,15 +111,15 @@ struct MobileCodes {
 //Validation Messages
 struct Validation {
     
-    static let emptyFieldMessage = "This field cannot be empty."
-    static let invalidOtpMessage = "Invalid otp."
+    static let emptyFieldMessage = "This field cannot be empty.".localized()
+    static let invalidOtpMessage = "Invalid otp.".localized()
     
     //HOTEL
-    static let htlPrimaryGuestDetails = "Enter primary guest details"
+    static let htlPrimaryGuestDetails = "Enter primary guest details".localized()
 //    static let htlGuestDetails
     
     //Holiday Package
-    static let hdyStartDateSelection = "Select start date"
+    static let hdyStartDateSelection = "Select start date".localized()
     static let hdyPrimaryTravellerDetails = "Enter primary traveller details"
     static let hdyPrimaryTravellerName = "Enter primary traveller name"
     static let hdyPrimaryTravellerContact = "Enter primary traveller contact number"

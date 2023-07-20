@@ -43,4 +43,16 @@ struct L {
             return "Redeem \(percentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(maxAmount)"
         }
     }
+    
+    static func bookingSuccessMessage(for module: String, with bookingNo: String) -> String {
+        return "Your \(K.getModuleText(of: module)) booking has been successfully confirmed. Enjoy your experience! Booking No: \(bookingNo)"
+    }
+    
+    static func paymentWaitingMessage(for module: String, with bookingNo: String) -> String {
+        return "Your \(K.getModuleText(of: module)) booking has been successfully confirmed. And payment verification is in process. If you have any questions or need assistance, contact our admin at \(K.adminContactNo) or \(K.adminContactEmail) Booking No: \(bookingNo)"
+    }
+    
+    static func bookingFailedMessage() -> String {
+        return "We apologise, but there seems to be an issue with your booking. Unfortunately, the booking could not be confirmed at this time. We recommend contacting our support team for further assistance. We apologize for any inconvenience caused. Contact us at \(K.adminContactNo) or \(K.adminContactEmail)"
+    }
 }

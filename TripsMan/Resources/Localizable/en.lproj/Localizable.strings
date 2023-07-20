@@ -175,3 +175,18 @@
 "Edit Review" = "Edit Review";
 "Add Review" = "Add Review";
 "Reviews" = "Reviews";
+
+//Constants
+"Male" = "Male";
+"Female" = "Female";
+"Prefer not to say" = "Prefer not to say";
+"India" = "India";
+"UAE" = "UAE";
+"Successfully sent OTP" = "Successfully sent OTP";
+"OTP is invalid or expired" = "OTP is invalid or expired";
+"Something went wrong!" = "Something went wrong!";
+"Authenticating your transaction.. Please do not close the app." = "Authenticating your transaction.. Please do not close the app.";
+"Finalizing your booking. Almost there!" = "inalizing your booking. Almost there!";
+"This field cannot be empty." = "This field cannot be empty.";
+"Invalid otp." = "Invalid otp.";
+"Enter primary guest details" = "Enter primary guest details";
