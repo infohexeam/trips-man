@@ -66,3 +66,14 @@
 "Coupon Codes" = "Coupon Codes";
 "See all coupons" = "See all coupons";
 "Have a coupon code?" = "Have a coupon code?";
+
+
+//Package
+"Package Details" = "Package Details";
+"Policies" = "Policies";
+"Package code" = "Package code";
+"Itinerary" = "Itinerary";
+"Vendor" = "Vendor";
+"Package Booking" = "Package Booking";
+"Primary Traveller" = "Primary Traveller";
+"Other Travellers" = "Other Travellers";

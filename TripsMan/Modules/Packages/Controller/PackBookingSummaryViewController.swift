@@ -82,7 +82,7 @@ extension PackBookingSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -112,7 +112,7 @@ extension PackBookingSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -141,7 +141,7 @@ extension PackBookingSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -164,7 +164,7 @@ extension PackBookingSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -285,11 +285,11 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
             guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return headerView }
             
             if thisSection.type == .primaryTraveller {
-                headerView.headerLabel.text = "Primary Traveller"
+                headerView.headerLabel.text = "Primary Traveller".localized()
             } else if thisSection.type == .otherTravellers {
-                headerView.headerLabel.text = "Other Travellers"
+                headerView.headerLabel.text = "Other Travellers".localized()
             } else if thisSection.type == .coupon {
-                headerView.headerLabel.text = "Coupon Codes"
+                headerView.headerLabel.text = "Coupon Codes".localized()
             }
             
             return headerView
@@ -300,9 +300,10 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
             guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return footerView }
             if thisSection.type == .coupon {
                 if packageManager!.coupons!.count > packageManager!.getCouponsToShow()!.count {
-                    footerView.footerButton.setTitle("See all coupons (\(packageManager!.coupons!.count))", for: .normal)
+                    let title = "See all coupons".localized() + " packageManager!.coupons!.count"
+                    footerView.footerButton.setTitle(title, for: .normal)
                 } else {
-                    footerView.footerButton.setTitle("Have a coupon code?", for: .normal)
+                    footerView.footerButton.setTitle("Have a coupon code?".localized(), for: .normal)
                 }
                 footerView.footerButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 15)
                 

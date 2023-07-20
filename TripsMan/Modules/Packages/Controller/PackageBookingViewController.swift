@@ -32,7 +32,7 @@ class PackageBookingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Package Booking")
+        addBackButton(with: "Package Booking".localized())
     }
     
     override func viewDidLoad() {
@@ -98,7 +98,6 @@ class PackageBookingViewController: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-//        performSegue(withIdentifier: "toPackBookingSummary", sender: nil)
         if isTravellerDetailsValid() {
             createBooking()
         }
@@ -150,9 +149,6 @@ extension PackageBookingViewController {
             params["bookingType"] = "update"
             params["bookingId"] = createdPackageBookingID
         }
-        
-        print("\n\n params: \(params)")
-        
         parser.sendRequestLoggedIn(url: "api/CustomerHoliday/CreateCustomerHolidayBooking", http: .post, parameters: params) { (result: PackageBookingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -165,7 +161,7 @@ extension PackageBookingViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -201,7 +197,7 @@ extension PackageBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.packagePrice.font.pointSize
                 }
                 cell.packagePrice.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) " + "taxes and fee per person".localized()
                 
                 cell.startDate.text = packageFilter.startDate?.stringValue(format: "dd-MM-yyyy")
             }
@@ -261,7 +257,6 @@ extension PackageBookingViewController: CollectionViewCellDelegate {
             } else if textField.tag == 6 {
                 packageFieldTexts[indexPath] = GuestFds(name: packageFieldTexts[indexPath]?.name ?? "", countryCode: text, contactNumber: packageFieldTexts[indexPath]?.contactNumber ?? "", emailID: packageFieldTexts[indexPath]?.emailID ?? "", gender: packageFieldTexts[indexPath]?.gender ?? "", age: packageFieldTexts[indexPath]?.age ?? "")
             }
-            print("\n text changed: \(packageFieldTexts[indexPath])")
         }
     }
     

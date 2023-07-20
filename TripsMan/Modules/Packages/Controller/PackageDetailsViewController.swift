@@ -31,7 +31,7 @@ class PackageDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Package Details")
+        addBackButton(with: "Package Details".localized())
     }
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class PackageDetailsViewController: UIViewController {
         } else if let nav = segue.destination as? UINavigationController {
             if let vc = nav.topViewController as? ReadMoreViewController {
                 if let policies = packageManager?.getPackageDetails()?.policies {
-                    vc.readMore = ReadMore(title: "Policies", content: policies)
+                    vc.readMore = ReadMore(title: "Policies".localized(), content: policies)
                 }
             }
         }
@@ -81,7 +81,7 @@ extension PackageDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -119,10 +119,10 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                 }
                 
                 cell.packageName.text = packageDetails.packageName + " - " + packageDetails.duration
-                cell.packageCode.text = "Package code: \(packageDetails.packageCode)"
+                cell.packageCode.text = "Package code".localized() + ": \(packageDetails.packageCode)"
                 cell.packageCountry.text = packageDetails.countryName
                 cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) taxes and fee per person"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) " + "taxes and fee per person".localized()
             }
             
             return cell
@@ -154,7 +154,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
             
             if let policy = packageManager?.getPackageDetails()?.policies {
                 cell.descDetails.tag = indexPath.row
-                cell.descTitle.text = "Policies"
+                cell.descTitle.text = "Policies".localized()
                 cell.descDetails.attributedText = policy.attributedHtmlString
                 cell.readMoreView.isHidden = true
                 cell.descDetails.numberOfLines = 0
@@ -181,9 +181,9 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
             guard let thisSection = packageManager?.getSections()?[indexPath.section] else { return headerView }
             
             if thisSection.type == .itinerary {
-                headerView.titleLabel.text = "Itinerary"
+                headerView.titleLabel.text = "Itinerary".localized()
             } else if thisSection.type == .vendorDetails {
-                headerView.titleLabel.text = "Vendor"
+                headerView.titleLabel.text = "Vendor".localized()
             }
             return headerView
             
@@ -197,7 +197,6 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
             return footerView
         default:
             return UICollectionReusableView()
-            //            assert(false, "Invalid Element Type")
         }
     }
     

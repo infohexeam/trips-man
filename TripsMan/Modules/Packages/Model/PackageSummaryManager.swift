@@ -73,35 +73,6 @@ struct PackageSummaryManager {
                 sections?.append(PackageSummarySection(type: .coupon, count: couponsToShow!.count))
             }
             sections?.append(PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count))
-//            if coupons == nil {
-//                if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
-//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-//                                PackageSummarySection(type: .primaryTraveller, count: 1),
-//                                PackageSummarySection(type: .otherTravellers, count: others.count),
-//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-//                } else {
-//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-//                                PackageSummarySection(type: .primaryTraveller, count: 1),
-//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-//                }
-//
-//            } else {
-//                if let others = bookingData?.holidayGuests.filter({ $0.isPrimary == 0 }) {
-//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-//                                PackageSummarySection(type: .primaryTraveller, count: 1),
-//                                PackageSummarySection(type: .otherTravellers, count: others.count),
-//                                PackageSummarySection(type: .seperator, count: 1),
-//                                PackageSummarySection(type: .coupon, count: coupons!.count),
-//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-//                } else {
-//                    sections = [PackageSummarySection(type: .packageSummary, count: 1),
-//                                PackageSummarySection(type: .primaryTraveller, count: 1),
-//                                PackageSummarySection(type: .seperator, count: 1),
-//                                PackageSummarySection(type: .coupon, count: coupons!.count),
-//                                PackageSummarySection(type: .bottomView, count: bookingData!.amountDetails.count)]
-//                }
-//
-//            }
         }
     }
     
