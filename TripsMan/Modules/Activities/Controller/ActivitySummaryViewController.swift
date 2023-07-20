@@ -32,9 +32,9 @@ class ActivitySummaryViewController: UIViewController {
         
         var title = ""
         if listType == .activities {
-            title = "Activity Booking Summary"
+            title = "Activity Booking Summary".localized()
         } else if listType == .meetups {
-            title = "Meetup Booking Summary"
+            title = "Meetup Booking Summary".localized()
         }
         addBackButton(with: title)
     }
@@ -60,10 +60,6 @@ class ActivitySummaryViewController: UIViewController {
     
     @IBAction func seeAllCouponsTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toCoupons", sender: nil)
-    }
-    
-    @IBAction func applyrewardButtonTapped(_sender: UIButton) {
-        
     }
     
     
@@ -109,7 +105,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -129,7 +125,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -159,7 +155,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -189,7 +185,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -218,7 +214,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -247,7 +243,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -281,7 +277,7 @@ extension ActivitySummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -306,24 +302,24 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
         if thisSection.type == .summary {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "activityBookSummaryCell", for: indexPath) as! ActivityBookSummaryCollectionViewCell
             if let activityBooking = activityManager?.getActivityBookingSummary() {
-                cell.nameKeyLabel.text = "Activity Name"
+                cell.nameKeyLabel.text = "Activity Name".localized()
                 cell.activityName.text = activityBooking.activityName
-                cell.dateKeyLabel.text = "Activity Date"
+                cell.dateKeyLabel.text = "Activity Date".localized()
                 cell.activityDate.text = activityBooking.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
-                cell.guestKeyLabel.text = "Total Customers"
+                cell.guestKeyLabel.text = "Total Customers".localized()
                 cell.guestsLabel.text = activityBooking.adultCount.stringValue()
-                cell.locationKeyLabel.text = "Location"
+                cell.locationKeyLabel.text = "Location".localized()
                 cell.locationLabel.text = activityBooking.location
                 
                 
             } else if let meetupBooking = activityManager?.getMeetupBookingSummary() {
-                cell.nameKeyLabel.text = "Meetup Name"
+                cell.nameKeyLabel.text = "Meetup Name".localized()
                 cell.activityName.text = meetupBooking.meetupName
-                cell.dateKeyLabel.text = "Activity Date"
+                cell.dateKeyLabel.text = "Meetup Date".localized()
                 cell.activityDate.text = meetupBooking.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy")
-                cell.guestKeyLabel.text = "Total Customers"
+                cell.guestKeyLabel.text = "Total Customers".localized()
                 cell.guestsLabel.text = meetupBooking.adultCount.stringValue()
-                cell.locationKeyLabel.text = "Location"
+                cell.locationKeyLabel.text = "Location".localized()
                 cell.locationLabel.text = meetupBooking.address
                 
             }
@@ -407,9 +403,9 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return headerView }
             
             if thisSection.type == .customerDetails {
-                headerView.headerLabel.text = "Customer Details"
+                headerView.headerLabel.text = "Customer Details".localized()
             } else if thisSection.type == .coupon {
-                headerView.headerLabel.text = "Coupon Codes"
+                headerView.headerLabel.text = "Coupon Codes".localized()
             }
             
             return headerView
@@ -420,9 +416,10 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
             guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return footerView }
             if thisSection.type == .coupon {
                 if activityManager!.coupons!.count > activityManager!.getCouponsToShow()!.count {
-                    footerView.footerButton.setTitle("See all coupons (\(activityManager!.coupons!.count))", for: .normal)
+                    let title = "See all coupons".localized() + " \(activityManager!.coupons!.count)"
+                    footerView.footerButton.setTitle(title, for: .normal)
                 } else {
-                    footerView.footerButton.setTitle("Have a coupon code?", for: .normal)
+                    footerView.footerButton.setTitle("Have a coupon code?".localized(), for: .normal)
                 }
                 footerView.footerButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 15)
                 

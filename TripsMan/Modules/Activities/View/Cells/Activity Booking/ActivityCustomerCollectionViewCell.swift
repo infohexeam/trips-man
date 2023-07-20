@@ -64,7 +64,6 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
     }
     
     @IBAction func valueChanged(_ sender: UITextField) {
-        print("value change: \(sender.text)")
         cvcDelegate?.collectionViewCell(valueChangedIn: sender, delegatedFrom: self)
     }
     
@@ -91,7 +90,7 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
         }
         
         if text.count == 0 {
-            return (false, "This field cannot be empty.")
+            return (false, Validation.emptyFieldMessage)
         }
         
         if textField == customerField {
@@ -100,12 +99,7 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
             return MobileValidator().validate(text)
         } else if textField == emailField {
             return EmailValidator().validate(text)
-            //        } else if textField == genderField {
-            //            return PasswordValidator().validate(text)
-            //        } else if textField == ageField {
-            //            return PasswordValidator().retypeValidate(passwordField.text ?? "", text)
         }
-        
         return (true, nil)
     }
     

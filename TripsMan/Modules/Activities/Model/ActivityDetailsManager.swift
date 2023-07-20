@@ -52,9 +52,9 @@ struct ActivityDetailsManager {
     
     func getDescription() -> [ActivityDescription]? {
         if let activityDetails = activityDetails {
-            return [ActivityDescription(title: "Overview", description: activityDetails.overview),
-                    ActivityDescription(title: "Features", description: activityDetails.features),
-                    ActivityDescription(title: "Highlights", description: activityDetails.highlights)]
+            return [ActivityDescription(title: "Overview".localized(), description: activityDetails.overview),
+                    ActivityDescription(title: "Features".localized(), description: activityDetails.features),
+                    ActivityDescription(title: "Highlights".localized(), description: activityDetails.highlights)]
 
         }
         return nil

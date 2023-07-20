@@ -40,9 +40,9 @@ class ActivityBookingViewController: UIViewController {
         
         var title = ""
         if listType == .activities {
-            title = "Activity Booking"
+            title = "Activity Booking".localized()
         } else if listType == .meetups {
-            title = "Meetup Booking"
+            title = "Meetup Booking".localized()
         }
         addBackButton(with: title)
     }
@@ -72,8 +72,6 @@ class ActivityBookingViewController: UIViewController {
             } else {
                 createMeetupBooking()
             }
-        } else {
-            print("\n\nerrrrror")
         }
     }
     
@@ -150,9 +148,6 @@ extension ActivityBookingViewController {
             params["bookingType"] = "update"
             params["bookingId"] = createdActivityBookingID
         }
-        
-        print("\n\n params: \(params)")
-        
         parser.sendRequestLoggedIn(url: "api/CustomerActivity/CreateCustomerActivityBooking", http: .post, parameters: params) { (result: ActivityBookingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -165,7 +160,7 @@ extension ActivityBookingViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -204,9 +199,7 @@ extension ActivityBookingViewController {
             params["bookingType"] = "update"
             params["bookingId"] = createdActivityBookingID
         }
-        
-        print("\n\n params: \(params)")
-        
+                
         parser.sendRequestLoggedIn(url: "/api/CustomerMeetup/CreateCustomerMeetupBooking", http: .post, parameters: params) { (result: MeetupBookingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -219,7 +212,7 @@ extension ActivityBookingViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -271,7 +264,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(activityDetails.costPerPerson, activityDetails.offerPrice, fontSize: fontSize!)
-                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(activityDetails.serviceChargeValue) taxes and fee per person"
+                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(activityDetails.serviceChargeValue) " + "taxes and fee per person".localized()
                 
                 cell.dateLabel.text = activityFilters.activityDate!.stringValue(format: "EEEE\ndd-MM-yyyy")
             }
@@ -287,7 +280,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(meetupDetails.costPerPerson, meetupDetails.offerAmount, fontSize: fontSize!)
-                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(meetupDetails.serviceCharge) taxes and fee per person"
+                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(meetupDetails.serviceCharge) " + "taxes and fee per person".localized()
                 
                 cell.dateLabel.text = meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "EEEE\ndd-MM-yyyy")
             }
@@ -347,7 +340,6 @@ extension ActivityBookingViewController: CollectionViewCellDelegate {
             } else if textField.tag == 6 {
                 activityFieldTexts[indexPath] = GuestFds(name: activityFieldTexts[indexPath]?.name ?? "", countryCode: text, contactNumber: activityFieldTexts[indexPath]?.contactNumber ?? "", emailID: activityFieldTexts[indexPath]?.emailID ?? "", gender: activityFieldTexts[indexPath]?.gender ?? "", age: activityFieldTexts[indexPath]?.age ?? "")
             }
-            print("\n text changed: \(activityFieldTexts[indexPath])")
         }
     }
 

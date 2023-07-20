@@ -68,7 +68,7 @@
 "Have a coupon code?" = "Have a coupon code?";
 
 
-//Package
+//Packages
 "Package Details" = "Package Details";
 "Policies" = "Policies";
 "Package code" = "Package code";
@@ -77,3 +77,30 @@
 "Package Booking" = "Package Booking";
 "Primary Traveller" = "Primary Traveller";
 "Other Travellers" = "Other Travellers";
+"taxes & fee per night" = "taxes & fee per night";
+
+
+//Activities
+"Overview" = "Overview";
+"Features" = "Features";
+"Highlights" = "Highlights";
+"Members" = "Members";
+"Member" = "Member";
+"Activity Details" = "Activity Details";
+"Select date" = "Select date";
+"Terms and Conditions" = "Terms and Conditions";
+"Activity code" = "Activity code";
+"Day" = "Day";
+"Days" = "Days";
+"Inclusions" = "Inclusions";
+"Activity Booking" = "Activity Booking";
+"Meetup Booking" = "Meetup Booking";
+"Activity Booking Summary" = "Activity Booking Summary";
+"Meetup Booking Summary" = "Meetup Booking Summary";
+"Activity Name" = "Activity Name";
+"Activity Date" = "Activity Date";
+"Total Customers" = "Total Customers";
+"Location" = "Location";
+"Meetup Name" = "Meetup Name";
+"Meetup Date" = "Meetup Date";
+"Customer Details" = "Customer Details";

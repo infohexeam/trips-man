@@ -32,7 +32,7 @@ class ActivityDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Activity Details")
+        addBackButton(with: "Activity Details".localized())
     }
 
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ class ActivityDetailsViewController: UIViewController {
                 performSegue(withIdentifier: "toActivityBooking", sender: nil)
             }
         } else {
-            self.view.makeToast("Select date")
+            self.view.makeToast("Select date".localized())
         }
     }
     
@@ -77,7 +77,7 @@ class ActivityDetailsViewController: UIViewController {
             if let vc = nav.topViewController as? ReadMoreViewController {
                 if let tag = sender as? Int {
                     if tag == 102 {
-                        vc.readMore = ReadMore(title: "Terms and Conditions", content: activityManager?.getActivityDetails()?.termsAndConditions ?? "")
+                        vc.readMore = ReadMore(title: "Terms and Conditions".localized(), content: activityManager?.getActivityDetails()?.termsAndConditions ?? "")
                     } else {
                         if let description = activityManager?.getDescription()?[tag] {
                             vc.readMore = ReadMore(title: description.title, content: description.description)
@@ -140,7 +140,7 @@ extension ActivityDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -179,11 +179,11 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
                 }
                 cell.memberCount = activityFilters.memberCount
                 cell.delegate = self
-                cell.activityCode.text = "Activity code: \(details.activityCode)"
+                cell.activityCode.text = "Activity code" + ": \(details.activityCode)"
                 cell.activityName.text = details.activityName + " - " + (Int(details.activityDuration)?.oneOrMany("Day") ?? "")
                 cell.activityCountry.text = details.activityLocation
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) taxes and fee per person"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) " + "taxes and fee per person".localized()
                 cell.detailsLabel.text = details.shortDescription
                 cell.dateLabel.text = activityFilters.activityDate?.stringValue(format: "dd MMM yyyy")
             }
@@ -249,10 +249,7 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "activityHeader", for: indexPath) as! ActivityHeaderView
             
-            headerView.headerLabel.text = "Inclusions"
-
-//            guard let thisSection = activityManager?.getSections()?[indexPath.section] else { return headerView }
-
+            headerView.headerLabel.text = "Inclusions".localized()
 
             return headerView
             

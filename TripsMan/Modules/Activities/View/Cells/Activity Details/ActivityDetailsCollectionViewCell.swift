@@ -27,7 +27,7 @@ class ActivityDetailsCollectionViewCell: UICollectionViewCell {
     @IBAction func memberButtonTapped(_ sender: UIButton) {
         if sender == memberAddButton {
             memberCount += 1
-            memberLabel.text = "\(memberCount) Members"
+            memberLabel.text = "\(memberCount) " + "Members".localized()
             delegate?.memberCoundDidChanged(to: memberCount)
         } else if sender == memberMinusButton {
             if memberCount > 1 {
