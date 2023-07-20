@@ -129,23 +129,15 @@ extension RoomSelectionViewController {
         } else {
             let sectionCount = sections?.count ?? 1
             sections?.insert(RoomSelectionSection(type: .guestFields, count: 1), at: sectionCount - 1)
-            print("\n\ninserting...1")
-//            collectionView.insertSections(IndexSet(integer: sectionCount - 1))
-//            print("\n\ninserting...2")
-//            collectionView.reloadSections(IndexSet(integer: sectionCount - 1))
             collectionView.reloadData()
-            print("\n\ninserting...3")
         }
     }
     
     @IBAction func continueTapped(_ sender: UIButton) {
         print(textFieldsTexts)
-//        self.performSegue(withIdentifier: "toRoomSelectionSummary", sender: nil)
         if isGuestDetailsValid() {
-            print("\n\nSuccess")
             createBooking()
         }
-        
     }
     
     @IBAction func backTapped(_ sender: UIButton) {
@@ -198,11 +190,6 @@ extension RoomSelectionViewController {
             params["bookingId"] = createdBookingID
         }
         
-        
-        
-        print("\n\n params: \(params)")
-        
-        
         parser.sendRequestLoggedIn(url: "api/CustomerHotelBooking/CreateCustomerHotelBooking", http: .post, parameters: params) { (result: CreateBookingData?, error) in
             DispatchQueue.main.async {
                 self.hideIndicator()
@@ -215,13 +202,11 @@ extension RoomSelectionViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
     }
-    
-    
 }
 
 
@@ -248,7 +233,6 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
                 fontSize = cell.priceLabel.font.pointSize
             }
             if let hotelDetails = hotelDetails {
-//                cell.hotelImage.sd_setImage(with: URL(string: hotelDetails.hotelImages[0]))
                 if hotelDetails.userRatingCount > 0 {
                     cell.ratingText.text = "\(hotelDetails.userRating)/5"
                     cell.ratingView.isHidden = false
@@ -268,7 +252,7 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
                 }
                 
                 cell.priceLabel.addPriceString(room.actualPrice, room.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(room.serviceChargeValue)\ntaxes & fee per night"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(room.serviceChargeValue)\n" + "taxes & fee per night".localized()
             }
             return cell
             
@@ -318,8 +302,6 @@ extension RoomSelectionViewController: CollectionViewCellDelegate {
     func collectionViewCell(deleteTappedFrom cell: UICollectionViewCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
             sections?.remove(at: indexPath.section)
-//            collectionView.deleteSections(IndexSet(integer: indexPath.section))
-//            collectionView.reloadData()
             textFieldsTexts.removeValue(forKey: indexPath)
             UIView.performWithoutAnimation {
                 collectionView.reloadData()
@@ -343,13 +325,10 @@ extension RoomSelectionViewController: CollectionViewCellDelegate {
             } else if textField.tag == 6 {
                 textFieldsTexts[indexPath] = GuestFds(name: textFieldsTexts[indexPath]?.name ?? "", countryCode: text, contactNumber: textFieldsTexts[indexPath]?.contactNumber ?? "", emailID: textFieldsTexts[indexPath]?.emailID ?? "", gender: textFieldsTexts[indexPath]?.gender ?? "", age: textFieldsTexts[indexPath]?.age ?? "")
             }
-            
-            print("\n text changed: \(textFieldsTexts[indexPath])")
         }
     }
     
     func collectionViewCell(textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String, delegatedFrom cell: UICollectionViewCell) -> Bool {
-        print("Validation action in textField from cell: \(String(describing: collectionView.indexPath(for: cell)))")
         return true
     }
     
@@ -359,7 +338,6 @@ extension RoomSelectionViewController: CollectionViewCellDelegate {
 extension RoomSelectionViewController: DynamicCellHeightDelegate {
     func updateHeight() {
         collectionView.collectionViewLayout.invalidateLayout()
-        print("----*****")
     }
     
     
@@ -369,9 +347,7 @@ extension RoomSelectionViewController: DynamicCellHeightDelegate {
 extension RoomSelectionViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-//            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
@@ -441,9 +417,7 @@ extension RoomSelectionViewController {
     
     func updateLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-//            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection

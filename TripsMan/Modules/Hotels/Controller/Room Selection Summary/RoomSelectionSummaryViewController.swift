@@ -80,7 +80,7 @@ class RoomSelectionSummaryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Summary")
+        addBackButton(with: "Summary".localized())
     }
     
     
@@ -97,13 +97,6 @@ class RoomSelectionSummaryViewController: UIViewController {
                         SelectionSummarySection(type: .coupon, count: 0),
                         SelectionSummarySection(type: .bottomView, count: bookedData.amountDetails.count)]
         }
-        
-//        sections = [SelectionSummarySection(type: .summary, count: 1),
-//                    SelectionSummarySection(type: .primaryGuest, count: 1),
-//                    SelectionSummarySection(type: .otherGuest, count: 1),
-//                    SelectionSummarySection(type: .seperator, count: 1),
-//                    SelectionSummarySection(type: .seperator, count: 1),
-//                    SelectionSummarySection(type: .bottomView, count: 1)]
         
         getCoupons()
     }
@@ -138,10 +131,6 @@ class RoomSelectionSummaryViewController: UIViewController {
         checkoutBooking()
     }
     
-    @IBAction func applyRewardTapped(_ sender: UIButton) {
-        
-    }
-    
     @IBAction func seeAllCouponsTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "toCoupons", sender: nil)
     }
@@ -171,7 +160,7 @@ extension RoomSelectionSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -202,7 +191,7 @@ extension RoomSelectionSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -237,7 +226,7 @@ extension RoomSelectionSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -260,7 +249,7 @@ extension RoomSelectionSummaryViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -311,7 +300,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 cell.hotelImage.sd_setImage(with: URL(string: bookedData.imageUrl ?? ""), placeholderImage: UIImage(named: K.hotelPlaceHolderImage))
                 cell.roomType.text = bookedData.roomDetails[0].roomType
                 cell.addressLabel.text = bookedData.hotelDetails.address.capitalizedSentence
-                let roomAndGuestCount = "\(bookedData.roomCount.oneOrMany("Room")) for \(bookedData.adultCount.oneOrMany("Adult")) and \(bookedData.childCount.oneOrMany("Child", suffix: "ren"))"
+                let roomAndGuestCount = L.roomAndGuestCountText(roomCount: bookedData.roomCount, adultCount: bookedData.adultCount, childCount: bookedData.childCount)
                 cell.guestLabel.text = roomAndGuestCount
             }
             
@@ -393,11 +382,11 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
             guard let thisSection = sections?[indexPath.section] else { return headerView }
             
             if thisSection.type == .primaryGuest {
-                headerView.titleLabel.text = "Primary Guest"
+                headerView.titleLabel.text = "Primary Guest".localized()
             } else if thisSection.type == .otherGuest {
-                headerView.titleLabel.text = "Other Guests"
+                headerView.titleLabel.text = "Other Guests".localized()
             } else if thisSection.type == .coupon {
-                headerView.titleLabel.text = "Coupon Codes"
+                headerView.titleLabel.text = "Coupon Codes".localized()
             }
             
             return headerView
@@ -408,9 +397,10 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
             guard let thisSection = sections?[indexPath.section] else { return footerView }
             if thisSection.type == .coupon {
                 if coupons.count > showingCoupons.count {
-                    footerView.footerButton.setTitle("See all coupons (\(coupons.count))", for: .normal)
+                    let title = "See all coupons".localized() + " \(coupons.count)"
+                    footerView.footerButton.setTitle(title, for: .normal)
                 } else {
-                    footerView.footerButton.setTitle("Have a coupon code?", for: .normal)
+                    footerView.footerButton.setTitle("Have a coupon code?".localized(), for: .normal)
                 }
                 footerView.footerButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 15)
                 
@@ -419,7 +409,6 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
             return footerView
         default:
             return UICollectionReusableView()
-//            assert(false, "Invalid Element Type")
         }
     }
     
@@ -433,7 +422,6 @@ extension RoomSelectionSummaryViewController: UICollectionViewDelegate {
             if selectedCoupon != showingCoupons[indexPath.row].couponCode {
                 applyCoupon(with: showingCoupons[indexPath.row].couponCode)
             }
-            
         }
     }
 }
@@ -442,9 +430,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDelegate {
 extension RoomSelectionSummaryViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-//            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection

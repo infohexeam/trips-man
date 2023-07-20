@@ -17,10 +17,22 @@ struct L {
     }
     
     static func addGuestValidationMessage(guestCount: Int) -> String {
-        if guestCount == 1 {
-            self.view.makeToast("You have selected only 1 person".localized())
+        if SessionManager.shared.getLanguage().code == "ar" {
+            return ""
         } else {
-            self.view.makeToast("You have selected only \(totalGuests) people")
+            if guestCount == 1 {
+                return "You have selected only 1 person"
+            } else {
+                return "You have selected only \(guestCount) people"
+            }
+        }
+    }
+    
+    static func roomAndGuestCountText(roomCount: Int, adultCount: Int, childCount: Int) -> String {
+        if SessionManager.shared.getLanguage().code == "ar" {
+            return ""
+        } else {
+            return "\(roomCount.oneOrMany("Room")) for \(adultCount.oneOrMany("Adult")) and \(childCount.oneOrMany("Child", suffix: "ren"))"
         }
     }
 }
