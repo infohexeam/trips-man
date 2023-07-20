@@ -32,7 +32,7 @@ class MeetupDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Meetup Details")
+        addBackButton(with: "Meetup Details".localized())
     }
 
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ class MeetupDetailsViewController: UIViewController {
             if let vc = nav.topViewController as? ReadMoreViewController {
                 if let tag = sender as? Int {
                     if tag == 102 {
-                        vc.readMore = ReadMore(title: "Terms and Conditions", content: meetupManager?.getMeetupDetails()?.termsAndConditions ?? "")
+                        vc.readMore = ReadMore(title: "Terms and Conditions".localized(), content: meetupManager?.getMeetupDetails()?.termsAndConditions ?? "")
                     } else if let description = meetupManager?.getDescription()?[tag] {
                         vc.readMore = ReadMore(title: description.title, content: description.description)
                     }
@@ -108,7 +108,7 @@ extension MeetupDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -146,10 +146,10 @@ extension MeetupDetailsViewController: UICollectionViewDataSource {
                 }
                 cell.memberCount = meetupFilters.memberCount
                 cell.delegate = self
-                cell.meetupCode.text = "Meetup code: \(details.meetupCode)"
+                cell.meetupCode.text = "Meetup code" + ": \(details.meetupCode)"
                 cell.meetupName.text = details.meetupName
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerAmount, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceCharge) taxes and fee per person"
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceCharge) " + "taxes and fee per person".localized()
                 cell.detailsLabel.text = details.shortDescription
                 cell.dateLabel.text = details.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "MMMM dd, yyyy")
             }

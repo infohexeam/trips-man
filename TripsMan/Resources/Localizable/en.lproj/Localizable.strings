@@ -104,3 +104,10 @@
 "Meetup Name" = "Meetup Name";
 "Meetup Date" = "Meetup Date";
 "Customer Details" = "Customer Details";
+
+
+//Meetup
+"Overview" = "Overview";
+"Description" = "Description";
+"Meetup Details" = "Meetup Details";
+"Meetup code" = "Meetup code";

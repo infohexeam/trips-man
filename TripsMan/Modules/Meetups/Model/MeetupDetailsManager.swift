@@ -50,8 +50,8 @@ struct MeetupDetailsManager {
     
     func getDescription() -> [MeetupDescription]? {
         if let meetupDetails = meetupDetails {
-            return [MeetupDescription(title: "Overview", description: meetupDetails.shortDescription),
-                    MeetupDescription(title: "Description", description: meetupDetails.details)]
+            return [MeetupDescription(title: "Overview".localized(), description: meetupDetails.shortDescription),
+                    MeetupDescription(title: "Description".localized(), description: meetupDetails.details)]
 
         }
         return nil
