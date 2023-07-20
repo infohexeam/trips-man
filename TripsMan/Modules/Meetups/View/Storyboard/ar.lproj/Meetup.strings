@@ -1,0 +1,36 @@
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "5hQ-PK-y0u"; */
+"5hQ-PK-y0u.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "9vS-3t-9qR"; */
+"9vS-3t-9qR.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "Ath-QZ-mUy"; */
+"Ath-QZ-mUy.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Book Now"; ObjectID = "ER4-yW-ToO"; */
+"ER4-yW-ToO.configuration.title" = "احجز الآن";
+
+/* Class = "UILabel"; text = "Terms And Conditions"; ObjectID = "F5T-2O-rGa"; */
+"F5T-2O-rGa.text" = "الأحكام والشروط";
+
+/* Class = "UILabel"; text = "1 Member"; ObjectID = "Pyx-Lo-qP8"; */
+"Pyx-Lo-qP8.text" = "1 عضو";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "e2C-Ha-oLr"; */
+"e2C-Ha-oLr.text" = "عنوان";
+
+/* Class = "UILabel"; text = "Activity Name"; ObjectID = "gH3-Cb-CDn"; */
+"gH3-Cb-CDn.text" = "اسم النشاط";
+
+/* Class = "UIButton"; configuration.title = "Open in map"; ObjectID = "hBM-2A-PN9"; */
+"hBM-2A-PN9.configuration.title" = "فتح في الخريطة";
+
+/* Class = "UILabel"; text = "Activity Name"; ObjectID = "pwB-U2-QGZ"; */
+"pwB-U2-QGZ.text" = "اسم النشاط";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "wAw-nv-zLd"; */
+"wAw-nv-zLd.text" = "سعر";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "yoY-RC-hSP"; */
+"yoY-RC-hSP.text" = "تاريخ";

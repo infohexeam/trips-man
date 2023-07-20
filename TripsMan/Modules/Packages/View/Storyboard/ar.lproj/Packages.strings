@@ -1,0 +1,108 @@
+
+/* Class = "UILabel"; text = "Activity Name"; ObjectID = "5SL-PH-8sy"; */
+"5SL-PH-8sy.text" = "اسم النشاط";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "6FQ-hp-8S7"; */
+"6FQ-hp-8S7.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Itinerary"; ObjectID = "85l-Y6-Imh"; */
+"85l-Y6-Imh.text" = "مسار الرحلة";
+
+/* Class = "UILabel"; text = "Contact No"; ObjectID = "8JO-Vk-DMW"; */
+"8JO-Vk-DMW.text" = "رقم الاتصال";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "8e7-0g-3nM"; */
+"8e7-0g-3nM.text" = "عنوان";
+
+/* Class = "UILabel"; text = "Travel Vendor"; ObjectID = "8wx-io-Brp"; */
+"8wx-io-Brp.text" = "بائع السفر";
+
+/* Class = "UILabel"; text = "Package Name"; ObjectID = "Bxg-cY-Kla"; */
+"Bxg-cY-Kla.text" = "اسم الحزمة";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "Dju-Rc-NTb"; */
+"Dju-Rc-NTb.text" = "دولة";
+
+/* Class = "UIButton"; configuration.title = "Continue"; ObjectID = "Ecd-mE-xJa"; */
+"Ecd-mE-xJa.configuration.title" = "يكمل";
+
+/* Class = "UILabel"; text = "Vendor Name"; ObjectID = "Esp-A1-7Qm"; */
+"Esp-A1-7Qm.text" = "اسم البائع";
+
+/* Class = "UILabel"; text = "Traveller Details"; ObjectID = "FLU-pK-ia2"; */
+"FLU-pK-ia2.text" = "تفاصيل المسافر";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "FTb-Ek-PLR"; */
+"FTb-Ek-PLR.text" = "مدة";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "GwC-Hz-pVT"; */
+"GwC-Hz-pVT.text" = "جنس";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "Jts-XL-Mtl"; */
+"Jts-XL-Mtl.text" = "عمر";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "K45-EE-Gl5"; */
+"K45-EE-Gl5.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Curated By"; ObjectID = "LjR-4z-a5m"; */
+"LjR-4z-a5m.text" = "برعاية";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "OJ3-jP-jTG"; */
+"OJ3-jP-jTG.text" = "سعر";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "RSK-Ef-gGa"; */
+"RSK-Ef-gGa.text" = "وصف";
+
+/* Class = "UIButton"; configuration.title = "Have a coupon code?"; ObjectID = "S3M-l2-bFf"; */
+"S3M-l2-bFf.configuration.title" = "هل لديك رمز القسيمة؟";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "TZX-Ix-XMb"; */
+"TZX-Ix-XMb.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UILabel"; text = "COUPON CODE"; ObjectID = "Upj-3P-pVH"; */
+"Upj-3P-pVH.text" = "رمز الكوبون";
+
+/* Class = "UIButton"; configuration.title = "Book Now"; ObjectID = "WNN-gX-v9b"; */
+"WNN-gX-v9b.configuration.title" = "احجز الآن";
+
+/* Class = "UIButton"; configuration.title = "Add Guest"; ObjectID = "WWY-xF-Hy0"; */
+"WWY-xF-Hy0.configuration.title" = "إضافة ضيف";
+
+/* Class = "UILabel"; text = "Primary Traveller Name"; ObjectID = "Zko-d3-pK6"; */
+"Zko-d3-pK6.text" = "اسم المسافر الأساسي";
+
+/* Class = "UILabel"; text = "Coupon Code"; ObjectID = "bJI-6g-P1n"; */
+"bJI-6g-P1n.text" = "رمز الكوبون";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "fKV-Vm-LPZ"; */
+"fKV-Vm-LPZ.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UILabel"; text = "tax"; ObjectID = "imo-kE-lJT"; */
+"imo-kE-lJT.text" = "ضريبة";
+
+/* Class = "UIButton"; configuration.title = "Proceed to Payment"; ObjectID = "jCF-Ha-iyh"; */
+"jCF-Ha-iyh.configuration.title" = "الشروع في دفع";
+
+/* Class = "UILabel"; text = "Email id"; ObjectID = "jXw-Fi-Uyf"; */
+"jXw-Fi-Uyf.text" = "عنوان الايميل";
+
+/* Class = "UIButton"; configuration.title = "Back"; ObjectID = "kFw-qH-U0F"; */
+"kFw-qH-U0F.configuration.title" = "خلف";
+
+/* Class = "UILabel"; text = "Room Charges"; ObjectID = "o7l-2i-K6I"; */
+"o7l-2i-K6I.text" = "رسوم الغرفة";
+
+/* Class = "UIButton"; configuration.title = "Remove"; ObjectID = "oy9-K6-X5o"; */
+"oy9-K6-X5o.configuration.title" = "يزيل";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "tit-z1-2P0"; */
+"tit-z1-2P0.text" = "سعر";
+
+/* Class = "UILabel"; text = "Start date"; ObjectID = "uP9-OA-3X5"; */
+"uP9-OA-3X5.text" = "تاريخ البدء";
+
+/* Class = "UILabel"; text = "Package Name"; ObjectID = "wTf-kM-FOo"; */
+"wTf-kM-FOo.text" = "اسم الحزمة";
+
+/* Class = "UIButton"; configuration.title = "Apply"; ObjectID = "xZk-tA-0IC"; */
+"xZk-tA-0IC.configuration.title" = "يتقدم";

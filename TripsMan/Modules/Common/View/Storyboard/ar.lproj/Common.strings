@@ -1,0 +1,105 @@
+
+/* Class = "UITextField"; placeholder = "Filter by"; ObjectID = "1T9-G6-MSm"; */
+"1T9-G6-MSm.placeholder" = "مصنف بواسطة";
+
+/* Class = "UILabel"; text = "Verifying payment. Do not close the app."; ObjectID = "2jb-kF-9eH"; */
+"2jb-kF-9eH.text" = "التحقق من الدفع. لا تغلق التطبيق.";
+
+/* Class = "UITextField"; placeholder = "Trip type"; ObjectID = "5EU-Lt-ZKv"; */
+"5EU-Lt-ZKv.placeholder" = "نوع الرحلة";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "7bD-ch-dOM"; */
+"7bD-ch-dOM.text" = "وصف";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "Alw-UP-Ici"; */
+"Alw-UP-Ici.configuration.title" = " ";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "C1U-WW-LsI"; */
+"C1U-WW-LsI.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "CJh-k5-bg2"; */
+"CJh-k5-bg2.text" = "موقع";
+
+/* Class = "UILabel"; text = "Country"; ObjectID = "CSH-Ub-yNi"; */
+"CSH-Ub-yNi.text" = "دولة";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "F0p-9k-4nR"; */
+"F0p-9k-4nR.text" = "موقع";
+
+/* Class = "UIButton"; configuration.title = "Edit"; ObjectID = "G6b-BH-oL6"; */
+"G6b-BH-oL6.configuration.title" = "يحرر";
+
+/* Class = "UILabel"; text = "Country Name"; ObjectID = "Gjo-J4-5F9"; */
+"Gjo-J4-5F9.text" = "اسم الدولة";
+
+/* Class = "UILabel"; text = "Pay using Razor Pay"; ObjectID = "IbZ-PR-PEO"; */
+"IbZ-PR-PEO.text" = "ادفع باستخدام Razor Pay";
+
+/* Class = "UITextField"; placeholder = "Sort by"; ObjectID = "LEA-Xo-Gm1"; */
+"LEA-Xo-Gm1.placeholder" = "ترتيب حسب";
+
+/* Class = "UIButton"; configuration.title = "Apply"; ObjectID = "LKK-Cq-HYu"; */
+"LKK-Cq-HYu.configuration.title" = "يتقدم";
+
+/* Class = "UIButton"; configuration.title = "Apply"; ObjectID = "LuT-BN-FcK"; */
+"LuT-BN-FcK.configuration.title" = "يتقدم";
+
+/* Class = "UIButton"; configuration.title = "Cancel"; ObjectID = "Mda-6w-jXT"; */
+"Mda-6w-jXT.configuration.title" = "يلغي";
+
+/* Class = "UILabel"; text = "City"; ObjectID = "N4d-8P-GAL"; */
+"N4d-8P-GAL.text" = "مدينة";
+
+/* Class = "UILabel"; text = "Room Charges"; ObjectID = "NXF-EK-1ks"; */
+"NXF-EK-1ks.text" = "رسوم الغرفة";
+
+/* Class = "UILabel"; text = "Congratulations!"; ObjectID = "O0I-5G-f2r"; */
+"O0I-5G-f2r.text" = "تهانينا!";
+
+/* Class = "UILabel"; text = "Check-in"; ObjectID = "PyC-Ky-m67"; */
+"PyC-Ky-m67.text" = "تحقق في";
+
+/* Class = "UILabel"; text = "Fiter Type"; ObjectID = "XVd-s8-SgO"; */
+"XVd-s8-SgO.text" = "نوع فيتر";
+
+/* Class = "UIButton"; configuration.title = "Proceed to Payment"; ObjectID = "Y1Q-Uy-1cY"; */
+"Y1Q-Uy-1cY.configuration.title" = "الشروع في دفع";
+
+/* Class = "UIBarButtonItem"; title = "Reset"; ObjectID = "ZK2-Yd-KMb"; */
+"ZK2-Yd-KMb.title" = "إعادة ضبط";
+
+/* Class = "UILabel"; text = "Check-out"; ObjectID = "czY-Jk-65Z"; */
+"czY-Jk-65Z.text" = "الدفع";
+
+/* Class = "UIBarButtonItem"; title = "Select"; ObjectID = "eke-Wt-ddV"; */
+"eke-Wt-ddV.title" = "يختار";
+
+/* Class = "UILabel"; text = "Sponsored"; ObjectID = "iKa-MR-vs8"; */
+"iKa-MR-vs8.text" = "برعاية";
+
+/* Class = "UILabel"; text = "No results found!"; ObjectID = "j2Q-5V-ReF"; */
+"j2Q-5V-ReF.text" = "لم يتم العثور على نتائج!";
+
+/* Class = "UIButton"; configuration.title = "Return Home"; ObjectID = "lQn-J8-VL6"; */
+"lQn-J8-VL6.configuration.title" = "العودة للمنزل";
+
+/* Class = "UIButton"; configuration.title = "Search"; ObjectID = "nmu-6H-t9i"; */
+"nmu-6H-t9i.configuration.title" = "يبحث";
+
+/* Class = "UILabel"; text = "Coupon Code"; ObjectID = "pQC-kZ-ltm"; */
+"pQC-kZ-ltm.text" = "رمز الكوبون";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "vMp-Ev-DFX"; */
+"vMp-Ev-DFX.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Country Name"; ObjectID = "xG0-gl-mfN"; */
+"xG0-gl-mfN.text" = "اسم الدولة";
+
+/* Class = "UILabel"; text = "Start date"; ObjectID = "xHN-VA-CeU"; */
+"xHN-VA-CeU.text" = "تاريخ البدء";
+
+/* Class = "UILabel"; text = "COUPON CODE"; ObjectID = "xyZ-jt-1Gs"; */
+"xyZ-jt-1Gs.text" = "رمز الكوبون";
+
+/* Class = "UILabel"; text = "Payment Method"; ObjectID = "yzx-mr-Wai"; */
+"yzx-mr-Wai.text" = "طريقة الدفع او السداد";

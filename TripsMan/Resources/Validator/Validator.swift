@@ -30,7 +30,7 @@ struct UserNameValidator {
             isValid = true
         }
         
-        return (isValid, "Invalid email / mobile number")
+        return (isValid, "Invalid email / mobile number".localized())
     }
 }
 
@@ -54,54 +54,54 @@ struct PasswordValidator {
         if password.count >= 7 && capitalPred.evaluate(with: password) && smallPred.evaluate(with: password) && numberPred.evaluate(with: password) && specialPred.evaluate(with: password) {
             isValid = true
         }
-        return (isValid, "Password should contain at least 1 lowercase letter, 1 uppercase letter, 1 special character, 1 number and a minimum length of 8 characters")
+        return (isValid, "Password should contain at least 1 lowercase letter, 1 uppercase letter, 1 special character, 1 number and a minimum length of 8 characters".localized())
     }
     
     func retypeValidate(_ password: String, _ retype: String) -> (Bool, String) {
-        return (password == retype, "Password mismatch")
+        return (password == retype, "Password mismatch".localized())
     }
 }
 
 struct NameValidator {
     func validate(_ name: String) -> (Bool, String) {
-        return (name.count >= 3, "Your name is too short")
+        return (name.count >= 3, "Your name is too short".localized())
     }
 }
 
 
 struct MobileValidator {
     func validate(_ mobile: String) -> (Bool, String) {
-        return (mobile.count >= 9, "Invalid mobile number")
+        return (mobile.count >= 9, "Invalid mobile number".localized())
     }
 }
 
 struct OTPValidator {
     func validate(_ otp: String) -> (Bool, String) {
-        return (otp.count >= 4, "Invalid otp")
+        return (otp.count >= 4, "Invalid otp".localized())
     }
 }
 
 struct AddressValidator {
     func validate(_ address: String) -> (Bool, String) {
-        return (address.count >= 3, "Your address is too short")
+        return (address.count >= 3, "Your address is too short".localized())
     }
 }
 
 struct CityValidator {
     func validate(_ city: String) -> (Bool, String) {
-        return (city.count >= 3, "Your city name is too short")
+        return (city.count >= 3, "Your city name is too short".localized())
     }
 }
 
 struct StateValidator {
     func validate(_ state: String) -> (Bool, String) {
-        return (state.count >= 2, "Your state name is too short")
+        return (state.count >= 2, "Your state name is too short".localized())
     }
 }
 
 struct PinCodeValidator {
     func validate(_ pin: String) -> (Bool, String) {
-        return (pin.count == 6, "Invalid pin code")
+        return (pin.count == 6, "Invalid pin code".localized())
     }
 }
 

@@ -190,3 +190,20 @@
 "This field cannot be empty." = "This field cannot be empty.";
 "Invalid otp." = "Invalid otp.";
 "Enter primary guest details" = "Enter primary guest details";
+"Enter primary traveller details" = "Enter primary traveller details";
+"Enter primary traveller name" = "Enter primary traveller name";
+"Enter primary traveller contact number" = "Enter primary traveller contact number";
+"Enter primary customer details" = "Enter primary customer details";
+
+
+//Validator
+"Invalid email / mobile number" = "Invalid email / mobile number";
+"Password should contain at least 1 lowercase letter, 1 uppercase letter, 1 special character, 1 number and a minimum length of 8 characters" = "Password should contain at least 1 lowercase letter, 1 uppercase letter, 1 special character, 1 number and a minimum length of 8 characters";
+"Password mismatch" = "Password mismatch";
+"Your name is too short" = "Your name is too short";
+"Invalid mobile number" = "Invalid mobile number";
+"Invalid otp" = "Invalid otp";
+"Your address is too short" = "Your address is too short";
+"Your city name is too short" = "Your city name is too short";
+"Your state name is too short" = "Your state name is too short";
+"Invalid pin code" = "Invalid pin code";

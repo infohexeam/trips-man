@@ -1454,19 +1454,13 @@ velit esse quam nihil molestiae consequatur.</string>
     </scenes>
     <designables>
         <designable name="WpO-As-I4K">
-            <size key="intrinsicContentSize" width="61.666666666666664" height="34"/>
-        </designable>
-        <designable name="Xtb-c1-XTN">
-            <size key="intrinsicContentSize" width="270" height="50"/>
+            <size key="intrinsicContentSize" width="65.666666666666671" height="34"/>
         </designable>
         <designable name="fxG-uL-dpA">
-            <size key="intrinsicContentSize" width="66.666666666666671" height="34"/>
-        </designable>
-        <designable name="rcz-7J-woS">
-            <size key="intrinsicContentSize" width="170" height="30"/>
+            <size key="intrinsicContentSize" width="70.666666666666671" height="34"/>
         </designable>
         <designable name="sCQ-PC-LLh">
-            <size key="intrinsicContentSize" width="134.33333333333334" height="34"/>
+            <size key="intrinsicContentSize" width="138.33333333333334" height="34"/>
         </designable>
     </designables>
     <resources>

@@ -10,7 +10,7 @@ import Foundation
 struct L {
     static func reviewedByText(by customerName: String, on reviewDate: String) -> String {
         if SessionManager.shared.getLanguage().code == "ar" {
-            return ""
+            return "- تمت المراجعة بواسطة \(customerName) بتاريخ \(reviewDate)-"
         } else {
             return "- Reviewed by \(customerName) on \(reviewDate)"
         }
@@ -18,7 +18,7 @@ struct L {
     
     static func addGuestValidationMessage(guestCount: Int) -> String {
         if SessionManager.shared.getLanguage().code == "ar" {
-            return ""
+            return "لقد اخترت \(guestCount) شخصًا فقط"
         } else {
             if guestCount == 1 {
                 return "You have selected only 1 person"
@@ -30,7 +30,7 @@ struct L {
     
     static func roomAndGuestCountText(roomCount: Int, adultCount: Int, childCount: Int) -> String {
         if SessionManager.shared.getLanguage().code == "ar" {
-            return ""
+            return "\(roomCount.oneOrMany("Room")) مقابل \(adultCount.oneOrMany("Adult")) و \(childCount.oneOrMany("Child", suffix: "ren"))"
         } else {
             return "\(roomCount.oneOrMany("Room")) for \(adultCount.oneOrMany("Adult")) and \(childCount.oneOrMany("Child", suffix: "ren"))"
         }

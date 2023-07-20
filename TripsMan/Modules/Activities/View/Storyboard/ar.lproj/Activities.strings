@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "Terms And Conditions"; ObjectID = "06f-6R-vh0"; */
+"06f-6R-vh0.text" = "Terms And Conditions";
+
+/* Class = "UILabel"; text = "Customer Details"; ObjectID = "47F-eH-Z6G"; */
+"47F-eH-Z6G.text" = "تفاصيل العميل";
+
+/* Class = "UILabel"; text = "Activity Name"; ObjectID = "5Rd-vN-qvI"; */
+"5Rd-vN-qvI.text" = "اسم النشاط";
+
+/* Class = "UIButton"; configuration.title = "Continue"; ObjectID = "6Xy-v6-aFT"; */
+"6Xy-v6-aFT.configuration.title" = "يكمل";
+
+/* Class = "UIButton"; configuration.title = "Continue"; ObjectID = "8s6-Hz-43u"; */
+"8s6-Hz-43u.configuration.title" = "يكمل";
+
+/* Class = "UILabel"; text = "Primary Guest Name"; ObjectID = "A2D-ld-ATk"; */
+"A2D-ld-ATk.text" = "اسم الضيف الأساسي";
+
+/* Class = "UILabel"; text = "Age"; ObjectID = "AGV-Dc-CfX"; */
+"AGV-Dc-CfX.text" = "عمر";
+
+/* Class = "UILabel"; text = "Gender"; ObjectID = "CJy-sT-vxT"; */
+"CJy-sT-vxT.text" = "جنس";
+
+/* Class = "UILabel"; text = "COUPON CODE"; ObjectID = "Ce9-ww-ZzI"; */
+"Ce9-ww-ZzI.text" = "رمز الكوبون";
+
+/* Class = "UILabel"; text = "Total Customers"; ObjectID = "CgV-wQ-kqX"; */
+"CgV-wQ-kqX.text" = "إجمالي العملاء";
+
+/* Class = "UIButton"; configuration.title = "Add Guest"; ObjectID = "Csf-ca-dlO"; */
+"Csf-ca-dlO.configuration.title" = "إضافة ضيف";
+
+/* Class = "UILabel"; text = "Contact No"; ObjectID = "DSk-HX-oan"; */
+"DSk-HX-oan.text" = "رقم الاتصال";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "DWY-uT-KYx"; */
+"DWY-uT-KYx.text" = "سعر";
+
+/* Class = "UIButton"; configuration.title = "Open in map"; ObjectID = "FyP-0U-dE8"; */
+"FyP-0U-dE8.configuration.title" = "فتح في الخريطة";
+
+/* Class = "UIButton"; configuration.title = "Back"; ObjectID = "Hfs-EB-cs0"; */
+"Hfs-EB-cs0.configuration.title" = "خلف";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "JMa-zP-9v0"; */
+"JMa-zP-9v0.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Activity Name"; ObjectID = "N7D-ww-Cs6"; */
+"N7D-ww-Cs6.text" = "اسم النشاط";
+
+/* Class = "UIButton"; configuration.title = " "; ObjectID = "O94-Og-E1K"; */
+"O94-Og-E1K.configuration.title" = " ";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "QXM-2E-YGC"; */
+"QXM-2E-YGC.text" = "اسم النشاط";
+
+/* Class = "UILabel"; text = "Room Charges"; ObjectID = "Tct-5d-VR1"; */
+"Tct-5d-VR1.text" = "رسوم الغرفة";
+
+/* Class = "UIButton"; configuration.title = "Apply"; ObjectID = "VkC-Sj-MbA"; */
+"VkC-Sj-MbA.configuration.title" = "يتقدم";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "X9e-tO-00A"; */
+"X9e-tO-00A.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Have a coupon code?"; ObjectID = "aqS-rx-ttj"; */
+"aqS-rx-ttj.configuration.title" = "هل لديك رمز القسيمة؟";
+
+/* Class = "UILabel"; text = "Duration"; ObjectID = "o0a-nD-SHm"; */
+"o0a-nD-SHm.text" = "مدة";
+
+/* Class = "UIButton"; configuration.title = "Remove"; ObjectID = "o5t-2o-BWd"; */
+"o5t-2o-BWd.configuration.title" = "يزيل";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "off-jN-3Fp"; */
+"off-jN-3Fp.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "q0t-IT-0PA"; */
+"q0t-IT-0PA.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "qSW-4S-u5Y"; */
+"qSW-4S-u5Y.text" = "موقع";
+
+/* Class = "UILabel"; text = "Email id"; ObjectID = "tGv-YI-fc9"; */
+"tGv-YI-fc9.text" = "عنوان الايميل";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "ucd-e8-QyI"; */
+"ucd-e8-QyI.text" = "تاريخ";
+
+/* Class = "UILabel"; text = "Coupon Code"; ObjectID = "vIf-0t-q0d"; */
+"vIf-0t-q0d.text" = "رمز الكوبون";
+
+/* Class = "UILabel"; text = "Activity Name"; ObjectID = "xRk-IN-lmW"; */
+"xRk-IN-lmW.text" = "اسم النشاط";
+
+/* Class = "UIButton"; configuration.title = "Book Now"; ObjectID = "z2P-hC-SX5"; */
+"z2P-hC-SX5.configuration.title" = "احجز الآن";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "zzo-gk-iLR"; */
+"zzo-gk-iLR.text" = "عنوان";

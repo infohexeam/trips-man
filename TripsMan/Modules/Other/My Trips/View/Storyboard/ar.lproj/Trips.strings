@@ -1,0 +1,81 @@
+
+/* Class = "UILabel"; text = "Review"; ObjectID = "3JK-Ht-Qie"; */
+"3JK-Ht-Qie.text" = "مراجعة";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "47X-2q-LPb"; */
+"47X-2q-LPb.title" = "يلغي";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "7ZJ-o5-GTp"; */
+"7ZJ-o5-GTp.text" = "تاريخ";
+
+/* Class = "UILabel"; text = "Your review"; ObjectID = "D3i-ex-rzu"; */
+"D3i-ex-rzu.text" = "مراجعتك";
+
+/* Class = "UITextField"; placeholder = "Title"; ObjectID = "FKC-9V-EId"; */
+"FKC-9V-EId.placeholder" = "عنوان";
+
+/* Class = "UIButton"; configuration.title = "Add Review"; ObjectID = "J2V-9v-qi7"; */
+"J2V-9v-qi7.configuration.title" = "إضافة مراجعة";
+
+/* Class = "UIButton"; configuration.title = "Edit Review"; ObjectID = "Mr5-bq-q26"; */
+"Mr5-bq-q26.configuration.title" = "تحرير المراجعة";
+
+/* Class = "UILabel"; text = "Write a review"; ObjectID = "NUq-Ym-dnH"; */
+"NUq-Ym-dnH.text" = "أكتب مراجعة";
+
+/* Class = "UIButton"; configuration.title = "Cancel Booking"; ObjectID = "R1G-uu-ZBA"; */
+"R1G-uu-ZBA.configuration.title" = "إلغاء الحجز";
+
+/* Class = "UILabel"; text = "Check-out"; ObjectID = "VGC-da-yo0"; */
+"VGC-da-yo0.text" = "الدفع";
+
+/* Class = "UIButton"; configuration.title = "Download Ticket"; ObjectID = "VWJ-gJ-nf1"; */
+"VWJ-gJ-nf1.configuration.title" = "تنزيل التذكرة";
+
+/* Class = "UILabel"; text = "Trip Completed"; ObjectID = "W5T-da-188"; */
+"W5T-da-188.text" = "اكتملت الرحلة";
+
+/* Class = "UITextField"; placeholder = "Sort by"; ObjectID = "WpO-As-I4K"; */
+"WpO-As-I4K.placeholder" = "ترتيب حسب";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "Wzl-zq-ioF"; */
+"Wzl-zq-ioF.title" = "يغلق";
+
+/* Class = "UINavigationItem"; title = "Add Review"; ObjectID = "X6i-8K-vmR"; */
+"X6i-8K-vmR.title" = "إضافة مراجعة";
+
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "XPD-pZ-DgH"; */
+"XPD-pZ-DgH.text" = "المبلغ الإجمالي";
+
+/* Class = "UIButton"; configuration.title = "Submit Review"; ObjectID = "YtN-Nl-I8q"; */
+"YtN-Nl-I8q.configuration.title" = "Submit Review";
+
+/* Class = "UILabel"; text = "No bookings found!"; ObjectID = "dMq-hN-P4G"; */
+"dMq-hN-P4G.text" = "لم يتم العثور على حجوزات!";
+
+/* Class = "UIButton"; configuration.title = "Download Invoice"; ObjectID = "egU-cR-g09"; */
+"egU-cR-g09.configuration.title" = "تحميل فاتورة";
+
+/* Class = "UITextField"; placeholder = "Filter by"; ObjectID = "fxG-uL-dpA"; */
+"fxG-uL-dpA.placeholder" = "مصنف بواسطة";
+
+/* Class = "UISegmentedControl"; osC-wX-iUG.segmentTitles[0] = "All"; ObjectID = "osC-wX-iUG"; */
+"osC-wX-iUG.segmentTitles[0]" = "الجميع";
+
+/* Class = "UISegmentedControl"; osC-wX-iUG.segmentTitles[1] = "Upcoming"; ObjectID = "osC-wX-iUG"; */
+"osC-wX-iUG.segmentTitles[1]" = "القادمة";
+
+/* Class = "UISegmentedControl"; osC-wX-iUG.segmentTitles[2] = "Completed"; ObjectID = "osC-wX-iUG"; */
+"osC-wX-iUG.segmentTitles[2]" = "مكتمل";
+
+/* Class = "UISegmentedControl"; osC-wX-iUG.segmentTitles[3] = "Cancelled"; ObjectID = "osC-wX-iUG"; */
+"osC-wX-iUG.segmentTitles[3]" = "ألغيت";
+
+/* Class = "UITextField"; placeholder = "Search for a booking"; ObjectID = "sCQ-PC-LLh"; */
+"sCQ-PC-LLh.placeholder" = "ابحث عن حجز";
+
+/* Class = "UILabel"; text = "Check-in"; ObjectID = "w2i-jG-Ms5"; */
+"w2i-jG-Ms5.text" = "تحقق في";
+
+/* Class = "UILabel"; text = "Rate your experience"; ObjectID = "xQj-Fo-NCd"; */
+"xQj-Fo-NCd.text" = "قيم تجربتك";

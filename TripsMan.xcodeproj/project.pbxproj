@@ -18,7 +18,6 @@
 		C12CCAA92907672F005359A7 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCAA82907672F005359A7 /* UILabel+Extension.swift */; };
 		C12D83F4294836570091B311 /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D83F3294836570091B311 /* WalletViewController.swift */; };
 		C12D83F72949808F0091B311 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D83F62949808F0091B311 /* NotificationViewController.swift */; };
-		C12D83F92949872D0091B311 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C12D83F82949872D0091B311 /* Trips.storyboard */; };
 		C12D83FC294999A70091B311 /* MyTripsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12D83FB294999A70091B311 /* MyTripsViewController.swift */; };
 		C132E48828DC55BD00D980D1 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132E48728DC55BD00D980D1 /* Gradient.swift */; };
 		C13DAD02295D673600DAF734 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13DAD01295D673600DAF734 /* SideMenuModel.swift */; };
@@ -30,7 +29,6 @@
 		C140C1572A2715B80099D707 /* PaymentMethodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C1562A2715B80099D707 /* PaymentMethodCollectionViewCell.swift */; };
 		C140C1592A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C1582A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift */; };
 		C140C15B2A27179F0099D707 /* CheckoutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C140C15A2A27179F0099D707 /* CheckoutData.swift */; };
-		C1422EA72A0651D7005E83D2 /* Meetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1422EA62A0651D7005E83D2 /* Meetup.storyboard */; };
 		C1422EA92A06525E005E83D2 /* MeetupDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EA82A06525E005E83D2 /* MeetupDetailsViewController.swift */; };
 		C1422EAB2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EAA2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift */; };
 		C1422EAD2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1422EAC2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift */; };
@@ -56,7 +54,6 @@
 		C150766429DD8032008DAFE2 /* PackBookingSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150766329DD8032008DAFE2 /* PackBookingSummaryViewController.swift */; };
 		C150766629DD8B0B008DAFE2 /* PackageSummaryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C150766529DD8B0B008DAFE2 /* PackageSummaryManager.swift */; };
 		C152B3C029EFEA9900031516 /* ActivityDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C152B3BF29EFEA9900031516 /* ActivityDetailsCollectionViewCell.swift */; };
-		C153B4AF29EE9F0400399C58 /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C153B4AE29EE9F0400399C58 /* Activities.storyboard */; };
 		C153B4B129EEA0E500399C58 /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B4B029EEA0E500399C58 /* ActivityDetailsViewController.swift */; };
 		C153B4B329EEA4B300399C58 /* ActivityDetailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B4B229EEA4B300399C58 /* ActivityDetailsManager.swift */; };
 		C153B4B629EEBB9E00399C58 /* ActivityDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C153B4B529EEBB9E00399C58 /* ActivityDetailsData.swift */; };
@@ -130,13 +127,9 @@
 		C1BE3D4529CD621800812226 /* PackageBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE3D4429CD621800812226 /* PackageBookingViewController.swift */; };
 		C1BE3D4729CD62F100812226 /* PackageSummaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE3D4629CD62F100812226 /* PackageSummaryCollectionViewCell.swift */; };
 		C1BE3D4929CD68EE00812226 /* PackageBookingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BE3D4829CD68EE00812226 /* PackageBookingManager.swift */; };
-		C1CA192929B9D65F00CFD04A /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA192829B9D65F00CFD04A /* Wallet.storyboard */; };
-		C1CA192B29B9D66D00CFD04A /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA192A29B9D66D00CFD04A /* Notifications.storyboard */; };
-		C1CA192E29B9FE1B00CFD04A /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CA192D29B9FE1B00CFD04A /* Common.storyboard */; };
 		C1CA2C452977B21C00648A45 /* NotificationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA2C442977B21C00648A45 /* NotificationData.swift */; };
 		C1CA2C482977B60600648A45 /* NotificationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA2C472977B60600648A45 /* NotificationsCollectionViewCell.swift */; };
 		C1CA2C4A2977B92000648A45 /* HotelListingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1CA2C492977B92000648A45 /* HotelListingData.swift */; };
-		C1D0DACB29CAAF4200641491 /* Packages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D0DACA29CAAF4200641491 /* Packages.storyboard */; };
 		C1D0DACD29CAB00D00641491 /* PackageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */; };
 		C1D0DACF29CAC30B00641491 /* PackageDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DACE29CAC30B00641491 /* PackageDetailsData.swift */; };
 		C1D0DAD229CACAD900641491 /* PackageDetailsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */; };
@@ -200,6 +193,13 @@
 		C1FFA5A428E54A5300E13D75 /* RoomSelectionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA5A328E54A5300E13D75 /* RoomSelectionSummaryViewController.swift */; };
 		C1FFA5A628E5559F00E13D75 /* RoomSelectionSummaryCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFA5A528E5559F00E13D75 /* RoomSelectionSummaryCells.swift */; };
 		CE87B3802A382D6B006409F1 /* NoDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE87B37F2A382D6B006409F1 /* NoDataCollectionViewCell.swift */; };
+		CE98488F2A69A486000192C4 /* Packages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9848912A69A486000192C4 /* Packages.storyboard */; };
+		CE9848942A69A6CC000192C4 /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9848962A69A6CC000192C4 /* Activities.storyboard */; };
+		CE9848992A69A9F2000192C4 /* Meetup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE98489B2A69A9F2000192C4 /* Meetup.storyboard */; };
+		CE98489E2A69ACD7000192C4 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9848A02A69ACD7000192C4 /* Common.storyboard */; };
+		CE9848A32A69AFA4000192C4 /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9848A52A69AFA4000192C4 /* Wallet.storyboard */; };
+		CE9848A82A69B02B000192C4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9848AA2A69B02B000192C4 /* Notifications.storyboard */; };
+		CE9848AD2A69B170000192C4 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE9848AF2A69B170000192C4 /* Trips.storyboard */; };
 		DFE8A636E2CF65EFF2ABC951 /* Pods_TripsManTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E26BCA0740EA055A45ABAC32 /* Pods_TripsManTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -237,7 +237,6 @@
 		C12CCAA82907672F005359A7 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C12D83F3294836570091B311 /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		C12D83F62949808F0091B311 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		C12D83F82949872D0091B311 /* Trips.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trips.storyboard; sourceTree = "<group>"; };
 		C12D83FB294999A70091B311 /* MyTripsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTripsViewController.swift; sourceTree = "<group>"; };
 		C132E48728DC55BD00D980D1 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		C1394B5C28FD0D84003AE512 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
@@ -250,7 +249,6 @@
 		C140C1562A2715B80099D707 /* PaymentMethodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodCollectionViewCell.swift; sourceTree = "<group>"; };
 		C140C1582A2715F20099D707 /* CheckoutRewardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRewardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C140C15A2A27179F0099D707 /* CheckoutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutData.swift; sourceTree = "<group>"; };
-		C1422EA62A0651D7005E83D2 /* Meetup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Meetup.storyboard; sourceTree = "<group>"; };
 		C1422EA82A06525E005E83D2 /* MeetupDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDetailsViewController.swift; sourceTree = "<group>"; };
 		C1422EAA2A0667E2005E83D2 /* MeetupImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1422EAC2A066AEB005E83D2 /* MeetupDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetupDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 		C150766329DD8032008DAFE2 /* PackBookingSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackBookingSummaryViewController.swift; sourceTree = "<group>"; };
 		C150766529DD8B0B008DAFE2 /* PackageSummaryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSummaryManager.swift; sourceTree = "<group>"; };
 		C152B3BF29EFEA9900031516 /* ActivityDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
-		C153B4AE29EE9F0400399C58 /* Activities.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		C153B4B029EEA0E500399C58 /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		C153B4B229EEA4B300399C58 /* ActivityDetailsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsManager.swift; sourceTree = "<group>"; };
 		C153B4B529EEBB9E00399C58 /* ActivityDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsData.swift; sourceTree = "<group>"; };
@@ -353,13 +350,9 @@
 		C1BE3D4429CD621800812226 /* PackageBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageBookingViewController.swift; sourceTree = "<group>"; };
 		C1BE3D4629CD62F100812226 /* PackageSummaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageSummaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1BE3D4829CD68EE00812226 /* PackageBookingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageBookingManager.swift; sourceTree = "<group>"; };
-		C1CA192829B9D65F00CFD04A /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
-		C1CA192A29B9D66D00CFD04A /* Notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
-		C1CA192D29B9FE1B00CFD04A /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		C1CA2C442977B21C00648A45 /* NotificationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationData.swift; sourceTree = "<group>"; };
 		C1CA2C472977B60600648A45 /* NotificationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1CA2C492977B92000648A45 /* HotelListingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelListingData.swift; sourceTree = "<group>"; };
-		C1D0DACA29CAAF4200641491 /* Packages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Packages.storyboard; sourceTree = "<group>"; };
 		C1D0DACC29CAB00D00641491 /* PackageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsViewController.swift; sourceTree = "<group>"; };
 		C1D0DACE29CAC30B00641491 /* PackageDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsData.swift; sourceTree = "<group>"; };
 		C1D0DAD129CACAD900641491 /* PackageDetailsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageDetailsManager.swift; sourceTree = "<group>"; };
@@ -428,6 +421,20 @@
 		C1FFA5A328E54A5300E13D75 /* RoomSelectionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionSummaryViewController.swift; sourceTree = "<group>"; };
 		C1FFA5A528E5559F00E13D75 /* RoomSelectionSummaryCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionSummaryCells.swift; sourceTree = "<group>"; };
 		CE87B37F2A382D6B006409F1 /* NoDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE9848902A69A486000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Packages.storyboard; sourceTree = "<group>"; };
+		CE9848932A69A48C000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Packages.strings; sourceTree = "<group>"; };
+		CE9848952A69A6CC000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Activities.storyboard; sourceTree = "<group>"; };
+		CE9848982A69A6D2000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Activities.strings; sourceTree = "<group>"; };
+		CE98489A2A69A9F2000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Meetup.storyboard; sourceTree = "<group>"; };
+		CE98489D2A69A9F7000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Meetup.strings; sourceTree = "<group>"; };
+		CE98489F2A69ACD7000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Common.storyboard; sourceTree = "<group>"; };
+		CE9848A22A69ACDB000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Common.strings; sourceTree = "<group>"; };
+		CE9848A42A69AFA4000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Wallet.storyboard; sourceTree = "<group>"; };
+		CE9848A72A69AFAC000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Wallet.strings; sourceTree = "<group>"; };
+		CE9848A92A69B02B000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notifications.storyboard; sourceTree = "<group>"; };
+		CE9848AC2A69B030000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Notifications.strings; sourceTree = "<group>"; };
+		CE9848AE2A69B170000192C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trips.storyboard; sourceTree = "<group>"; };
+		CE9848B12A69B176000192C4 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Trips.strings; sourceTree = "<group>"; };
 		E238A545805F3BE2C4B6FA4E /* Pods-TripsMan-TripsManUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TripsMan-TripsManUITests.debug.xcconfig"; path = "Target Support Files/Pods-TripsMan-TripsManUITests/Pods-TripsMan-TripsManUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E26BCA0740EA055A45ABAC32 /* Pods_TripsManTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TripsManTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -548,7 +555,7 @@
 		C1422EA22A065192005E83D2 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C1422EA62A0651D7005E83D2 /* Meetup.storyboard */,
+				CE98489B2A69A9F2000192C4 /* Meetup.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -640,7 +647,7 @@
 		C153B4AD29EE9EF000399C58 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C153B4AE29EE9F0400399C58 /* Activities.storyboard */,
+				CE9848962A69A6CC000192C4 /* Activities.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1141,7 +1148,7 @@
 			isa = PBXGroup;
 			children = (
 				C1DC9DB8299F7A29004AA17E /* Search.storyboard */,
-				C1CA192D29B9FE1B00CFD04A /* Common.storyboard */,
+				CE9848A02A69ACD7000192C4 /* Common.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1253,7 +1260,7 @@
 		C1CA190D29B9B94800CFD04A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C12D83F82949872D0091B311 /* Trips.storyboard */,
+				CE9848AF2A69B170000192C4 /* Trips.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1358,7 +1365,7 @@
 		C1CA191929B9BB5000CFD04A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C1CA192829B9D65F00CFD04A /* Wallet.storyboard */,
+				CE9848A52A69AFA4000192C4 /* Wallet.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1490,7 +1497,7 @@
 		C1CA192C29B9D6A800CFD04A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C1CA192A29B9D66D00CFD04A /* Notifications.storyboard */,
+				CE9848AA2A69B02B000192C4 /* Notifications.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1528,7 +1535,7 @@
 		C1D0DAC929CAAF2400641491 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				C1D0DACA29CAAF4200641491 /* Packages.storyboard */,
+				CE9848912A69A486000192C4 /* Packages.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1786,24 +1793,24 @@
 			files = (
 				C158276F295D53F800516FD6 /* SideMenu.storyboard in Resources */,
 				C1DCEE752A66ABE800FB9239 /* LoginModule.storyboard in Resources */,
-				C12D83F92949872D0091B311 /* Trips.storyboard in Resources */,
+				CE9848AD2A69B170000192C4 /* Trips.storyboard in Resources */,
 				C1E9A2912A67D8BC0076032B /* Hotel.storyboard in Resources */,
-				C1CA192E29B9FE1B00CFD04A /* Common.storyboard in Resources */,
+				CE98489E2A69ACD7000192C4 /* Common.storyboard in Resources */,
 				C1DCEE6D2A665B8500FB9239 /* Localizable.strings in Resources */,
 				C15E31C028C5F13300E209EB /* LaunchScreen.storyboard in Resources */,
 				C19EF46029659B5F008EDD66 /* GoogleService-Info.plist in Resources */,
 				C14A983528E15424000C52AA /* TestAssets.xcassets in Resources */,
-				C1D0DACB29CAAF4200641491 /* Packages.storyboard in Resources */,
+				CE98488F2A69A486000192C4 /* Packages.storyboard in Resources */,
 				C15E31F028C6DD0000E209EB /* Color.xcassets in Resources */,
-				C1CA192929B9D65F00CFD04A /* Wallet.storyboard in Resources */,
+				CE9848A32A69AFA4000192C4 /* Wallet.storyboard in Resources */,
 				C15E31BD28C5F13300E209EB /* Assets.xcassets in Resources */,
 				C15E31B828C5F13100E209EB /* Main.storyboard in Resources */,
-				C153B4AF29EE9F0400399C58 /* Activities.storyboard in Resources */,
+				CE9848942A69A6CC000192C4 /* Activities.storyboard in Resources */,
 				C15E31F428C6DFA200E209EB /* roboto.bold.ttf in Resources */,
-				C1CA192B29B9D66D00CFD04A /* Notifications.storyboard in Resources */,
+				CE9848A82A69B02B000192C4 /* Notifications.storyboard in Resources */,
 				C15E31F528C6DFA200E209EB /* roboto.regular.ttf in Resources */,
 				C1DC9DB9299F7A29004AA17E /* Search.storyboard in Resources */,
-				C1422EA72A0651D7005E83D2 /* Meetup.storyboard in Resources */,
+				CE9848992A69A9F2000192C4 /* Meetup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2210,6 +2217,69 @@
 				C1E9A2952A67D8C10076032B /* ar */,
 			);
 			name = Hotel.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9848912A69A486000192C4 /* Packages.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9848902A69A486000192C4 /* Base */,
+				CE9848932A69A48C000192C4 /* ar */,
+			);
+			name = Packages.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9848962A69A6CC000192C4 /* Activities.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9848952A69A6CC000192C4 /* Base */,
+				CE9848982A69A6D2000192C4 /* ar */,
+			);
+			name = Activities.storyboard;
+			sourceTree = "<group>";
+		};
+		CE98489B2A69A9F2000192C4 /* Meetup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE98489A2A69A9F2000192C4 /* Base */,
+				CE98489D2A69A9F7000192C4 /* ar */,
+			);
+			name = Meetup.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9848A02A69ACD7000192C4 /* Common.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE98489F2A69ACD7000192C4 /* Base */,
+				CE9848A22A69ACDB000192C4 /* ar */,
+			);
+			name = Common.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9848A52A69AFA4000192C4 /* Wallet.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9848A42A69AFA4000192C4 /* Base */,
+				CE9848A72A69AFAC000192C4 /* ar */,
+			);
+			name = Wallet.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9848AA2A69B02B000192C4 /* Notifications.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9848A92A69B02B000192C4 /* Base */,
+				CE9848AC2A69B030000192C4 /* ar */,
+			);
+			name = Notifications.storyboard;
+			sourceTree = "<group>";
+		};
+		CE9848AF2A69B170000192C4 /* Trips.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE9848AE2A69B170000192C4 /* Base */,
+				CE9848B12A69B176000192C4 /* ar */,
+			);
+			name = Trips.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

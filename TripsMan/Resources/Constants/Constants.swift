@@ -120,13 +120,13 @@ struct Validation {
     
     //Holiday Package
     static let hdyStartDateSelection = "Select start date".localized()
-    static let hdyPrimaryTravellerDetails = "Enter primary traveller details"
-    static let hdyPrimaryTravellerName = "Enter primary traveller name"
-    static let hdyPrimaryTravellerContact = "Enter primary traveller contact number"
+    static let hdyPrimaryTravellerDetails = "Enter primary traveller details".localized()
+    static let hdyPrimaryTravellerName = "Enter primary traveller name".localized()
+    static let hdyPrimaryTravellerContact = "Enter primary traveller contact number".localized()
 //    static let hdyPrimaryTaveller
     
         //Activity&Meetup
-    static let primaryCustomerDetails = "Enter primary customer details"
+    static let primaryCustomerDetails = "Enter primary customer details".localized()
 }
 
 

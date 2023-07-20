@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "OFj-os-10E"; */
+"OFj-os-10E.text" = "وصف";
+
+/* Class = "UILabel"; text = "Points"; ObjectID = "YYW-fL-Meh"; */
+"YYW-fL-Meh.text" = "نقاط";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "k5U-rX-NJ2"; */
+"k5U-rX-NJ2.text" = "تاريخ";
+
+/* Class = "UILabel"; text = "Total Points"; ObjectID = "r29-Fp-xOG"; */
+"r29-Fp-xOG.text" = "مجمل النقاط";
