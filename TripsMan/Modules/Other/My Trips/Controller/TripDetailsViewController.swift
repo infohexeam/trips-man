@@ -41,7 +41,7 @@ class TripDetailsViewController: UIViewController, URLSessionDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tripDetailsCollection.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
-        addBackButton(with: "My Trips")
+        addBackButton(with: "My Trips".localized())
         getTripDetails()
         
         
@@ -119,7 +119,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -141,7 +141,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -163,7 +163,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -185,7 +185,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -217,7 +217,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -248,7 +248,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -275,7 +275,7 @@ extension TripDetailsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
             }
         }
@@ -396,7 +396,7 @@ extension TripDetailsViewController: UICollectionViewDataSource {
                 cell.rating.rating = tripDetails?.rating ?? 1
                 cell.reviewLabel.text = review
                 cell.reviewTitleLabel.text = tripDetails?.reviewTitle
-                cell.dateLabel.text = "Reviewed on " + (tripDetails?.reviewDate?.date("MM/dd/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")
+                cell.dateLabel.text = "Reviewed on".localized() + " " + (tripDetails?.reviewDate?.date("MM/dd/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")
                 
                 if review == "" {
                     cell.reviewLabel.isHidden = true
@@ -432,9 +432,6 @@ extension TripDetailsViewController: UICollectionViewDataSource {
 extension TripDetailsViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
             guard let thisSection = self.tripManager?.getSections()?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
@@ -451,7 +448,6 @@ extension TripDetailsViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
                 
@@ -485,7 +481,6 @@ extension TripDetailsViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
                 
@@ -501,7 +496,6 @@ extension TripDetailsViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
                 
@@ -516,7 +510,6 @@ extension TripDetailsViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
             } else {

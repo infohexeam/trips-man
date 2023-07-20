@@ -69,15 +69,15 @@ class SuccessViewController: UIViewController {
         
         if successStaus.verifyPayment == true && successStaus.confirmBooking == true {
             self.successIcon.image = UIImage(named: "success-check")
-            self.successTitle.text = "Congratulations!"
+            self.successTitle.text = "Congratulations!".localized()
             self.successLabel.text = K.getBookingSuccessMessage(for: module!, with: bookingNo!)
         } else if successStaus.verifyPayment == false && successStaus.confirmBooking == true {
             self.successIcon.image = UIImage(named: "yellow-checkmark")
-            self.successTitle.text = "Booking Success & Awaiting Payment"
+            self.successTitle.text = "Booking Success & Awaiting Payment".localized()
             self.successLabel.text = K.getPaymentWaitingMessage(for: module!, with: bookingNo!)
         } else if successStaus.confirmBooking == false { //payment verification success or failure
             self.successIcon.image = UIImage(named: "warning")
-            self.successTitle.text = "Booking Not Confirmed"
+            self.successTitle.text = "Booking Not Confirmed".localized()
             self.successLabel.text = K.getBookingFailedMessage()
         }
         self.successView.isHidden = false
@@ -112,7 +112,7 @@ extension SuccessViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }

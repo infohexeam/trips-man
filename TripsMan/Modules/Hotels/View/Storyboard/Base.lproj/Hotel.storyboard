@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="roboto.bold.ttf">
+        <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
         <array key="roboto.regular.ttf">
@@ -78,13 +78,13 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="373" height="117"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The Orion" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Orf-FM-jQ4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="45"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="373" height="44.666666666666664"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
                                                             <color key="textColor" name="primaryLabel"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="⭑⭑⭑⭑⭑ Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRh-hD-sou">
-                                                            <rect key="frame" x="0.0" y="53" width="373" height="10"/>
+                                                            <rect key="frame" x="0.0" y="52.666666666666664" width="373" height="10"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="10" id="7GJ-LE-svV"/>
                                                             </constraints>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" ambiguous="YES" text="detail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Qa-pxl">
-                                                            <rect key="frame" x="0.0" y="71" width="373" height="14"/>
+                                                            <rect key="frame" x="0.0" y="70.666666666666671" width="373" height="14.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                             <color key="textColor" name="tertiaryLabel"/>
                                                             <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                                             <rect key="frame" x="0.0" y="93" width="373" height="15"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ext-NL-8Z8">
-                                                                    <rect key="frame" x="-12" y="0.0" width="83" height="15"/>
+                                                                    <rect key="frame" x="-12" y="0.0" width="82.333333333333329" height="15"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="xBQ-qq-Qi5"/>
                                                                     </constraints>
@@ -180,7 +180,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-M6-gSI">
-                                                    <rect key="frame" x="254.33333333333334" y="65.333333333333329" width="110.66666666666666" height="31.666666666666671"/>
+                                                    <rect key="frame" x="256.66666666666669" y="65.333333333333329" width="108.33333333333331" height="31.666666666666671"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" name="secondaryColor"/>
                                                     <state key="normal" title="Button"/>
@@ -213,17 +213,17 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="facilitiesCell" id="sRf-6y-sth" customClass="HotelFacilitiesCollectionViewCell" customModule="TripsMan" customModuleProvider="target">
-                                        <rect key="frame" x="145.33333333333334" y="529" width="102.33333333333334" height="30"/>
+                                        <rect key="frame" x="144.66666666666666" y="529" width="103.66666666666666" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NZN-er-dCi">
-                                            <rect key="frame" x="0.0" y="0.0" width="102.33333333333334" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="103.66666666666666" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9L-AS-y2W" customClass="Gradient" customModule="TripsMan" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="102.33333333333333" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="30"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctO-We-QnO" customClass="CustomView" customModule="TripsMan" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="102.33333333333333" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="30"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -238,7 +238,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GOH-O8-1et">
-                                                            <rect key="frame" x="8" y="4" width="86.333333333333329" height="22"/>
+                                                            <rect key="frame" x="8" y="4" width="87.666666666666671" height="22"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ci6-Rn-XOX">
                                                                     <rect key="frame" x="0.0" y="2.3333333333333321" width="22" height="17.666666666666668"/>
@@ -248,7 +248,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free wifi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA8-AL-z2e">
-                                                                    <rect key="frame" x="30.000000000000004" y="0.0" width="56.333333333333343" height="22"/>
+                                                                    <rect key="frame" x="29.999999999999996" y="0.0" width="57.666666666666657" height="22"/>
                                                                     <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -683,16 +683,16 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                     <rect key="frame" x="4" y="4" width="480" height="32"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9rE-Xn-YbS">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="32"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="32"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHC-c3-CNq">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="194.66666666666666" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="14"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="fieldTextColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02 Feb - 03 Feb | 1 Room | 3 Guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fq1-Wo-TgS">
-                                                                                    <rect key="frame" x="0.0" y="18" width="194.66666666666666" height="14"/>
+                                                                                    <rect key="frame" x="0.0" y="18" width="187.66666666666666" height="14"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="tertiaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
@@ -700,11 +700,11 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                             </subviews>
                                                                         </stackView>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MRq-hL-mnc">
-                                                                            <rect key="frame" x="194.66666666666663" y="0.0" width="236" height="32"/>
+                                                                            <rect key="frame" x="187.66666666666663" y="0.0" width="236" height="32"/>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         </view>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHi-aI-PaQ">
-                                                                            <rect key="frame" x="430.66666666666669" y="0.0" width="49.333333333333314" height="32"/>
+                                                                            <rect key="frame" x="423.66666666666669" y="0.0" width="56.333333333333314" height="32"/>
                                                                             <color key="tintColor" name="buttonBackgroundColor"/>
                                                                             <state key="normal" title="Button"/>
                                                                             <buttonConfiguration key="configuration" style="plain" image="pencil.line" catalog="system" imagePlacement="top" title="Edit">
@@ -791,7 +791,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 25% off " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClJ-wz-j0E">
-                                                                            <rect key="frame" x="8.0000000000000036" y="8" width="49.333333333333343" height="14"/>
+                                                                            <rect key="frame" x="8" y="8" width="47" height="14.333333333333336"/>
                                                                             <color key="backgroundColor" systemColor="systemRedColor"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="12"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -886,7 +886,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Joy-fB-360">
-                                                                                    <rect key="frame" x="0.0" y="28" width="244" height="34"/>
+                                                                                    <rect key="frame" x="0.0" y="28.000000000000004" width="244" height="34.333333333333343"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INR 1099" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="BYP-8A-0KC">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="244" height="20"/>
@@ -898,7 +898,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mp-gr-vgP">
-                                                                                            <rect key="frame" x="0.0" y="20" width="244" height="14"/>
+                                                                                            <rect key="frame" x="0.0" y="20" width="244" height="14.333333333333336"/>
                                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                             <color key="textColor" name="tertiaryLabel"/>
                                                                                             <nil key="highlightedColor"/>
@@ -906,7 +906,7 @@ Market, Gopalbari, Jaipur, Rajasthan 302006</string>
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-e8-iqa">
-                                                                                    <rect key="frame" x="0.0" y="70" width="244" height="52"/>
+                                                                                    <rect key="frame" x="0.0" y="70.333333333333329" width="244" height="51.666666666666671"/>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                                 </view>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TF-rp-5DJ">
@@ -2694,13 +2694,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot No. 9 opp. ITC Rajputana Sheraton Fateh Singh Market, Go- palbari, Jaipur, Rajasthan 302006" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9C-Cb-3N3">
-                                                                            <rect key="frame" x="0.0" y="80" width="195" height="42"/>
+                                                                            <rect key="frame" x="0.0" y="80" width="195" height="42.333333333333343"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                             <color key="textColor" name="tertiaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHn-47-0Pm">
-                                                                            <rect key="frame" x="0.0" y="130" width="195" height="32"/>
+                                                                            <rect key="frame" x="0.0" y="130.33333333333334" width="195" height="31.666666666666657"/>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </view>
                                                                     </subviews>
@@ -2728,13 +2728,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deluxe AC Room" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q48-5d-FX1">
-                                                                            <rect key="frame" x="72" y="0.0" width="115.33333333333331" height="64"/>
+                                                                            <rect key="frame" x="72" y="0.0" width="112.66666666666669" height="64"/>
                                                                             <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
                                                                             <color key="textColor" name="primaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-O4-fOB">
-                                                                            <rect key="frame" x="195.33333333333334" y="0.0" width="19.333333333333343" height="64"/>
+                                                                            <rect key="frame" x="192.66666666666666" y="0.0" width="22" height="64"/>
                                                                         </view>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="u9K-L7-gsa">
                                                                             <rect key="frame" x="222.66666666666663" y="0.0" width="159.33333333333337" height="64"/>
@@ -2750,13 +2750,13 @@ velit esse quam nihil molestiae consequatur.</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 room per night| asa" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAk-Ha-plb">
-                                                                                    <rect key="frame" x="0.0" y="18" width="159.33333333333334" height="28"/>
+                                                                                    <rect key="frame" x="0.0" y="18" width="159.33333333333334" height="28.333333333333329"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="tertiaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVR-4L-bZb">
-                                                                                    <rect key="frame" x="0.0" y="46" width="159.33333333333334" height="18"/>
+                                                                                    <rect key="frame" x="0.0" y="46.333333333333343" width="159.33333333333334" height="17.666666666666671"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 </view>
                                                                             </subviews>
@@ -4430,61 +4430,61 @@ Market, Gopalbari, Jaipur, Rajasthan 302006 aldkafanflacalkcnala kasdlrinaskcnal
     </scenes>
     <designables>
         <designable name="7hY-o0-bsH">
-            <size key="intrinsicContentSize" width="66" height="31.666666666666668"/>
+            <size key="intrinsicContentSize" width="66.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="A8V-hy-zhN">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="AZb-BY-4aD">
-            <size key="intrinsicContentSize" width="59" height="34"/>
+            <size key="intrinsicContentSize" width="58" height="34"/>
         </designable>
         <designable name="C4c-c3-dU7">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="E40-EL-yGQ">
-            <size key="intrinsicContentSize" width="80.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="78" height="34"/>
         </designable>
         <designable name="Gkn-em-h8L">
             <size key="intrinsicContentSize" width="145" height="25"/>
         </designable>
         <designable name="Kwa-kK-EHa">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="MLE-vc-H1r">
-            <size key="intrinsicContentSize" width="28" height="34"/>
+            <size key="intrinsicContentSize" width="27" height="34"/>
         </designable>
         <designable name="NGN-fA-oyt">
-            <size key="intrinsicContentSize" width="96" height="31.666666666666668"/>
+            <size key="intrinsicContentSize" width="94.333333333333329" height="31.666666666666668"/>
         </designable>
         <designable name="NrR-L7-ovE">
-            <size key="intrinsicContentSize" width="29" height="34"/>
-        </designable>
-        <designable name="Wn9-7U-E5X">
-            <size key="intrinsicContentSize" width="29" height="34"/>
-        </designable>
-        <designable name="cHi-bc-b3Q">
             <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
+        <designable name="Wn9-7U-E5X">
+            <size key="intrinsicContentSize" width="28" height="34"/>
+        </designable>
+        <designable name="cHi-bc-b3Q">
+            <size key="intrinsicContentSize" width="27" height="34"/>
+        </designable>
         <designable name="e1m-tf-f3H">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="eEc-JR-W2C">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="gQ2-fD-uJS">
-            <size key="intrinsicContentSize" width="14" height="15.666666666666666"/>
+            <size key="intrinsicContentSize" width="13" height="16"/>
         </designable>
         <designable name="nQu-z5-QbP">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="oLc-Ge-pLn">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
         <designable name="pKV-qF-j9S">
-            <size key="intrinsicContentSize" width="72.666666666666671" height="34"/>
+            <size key="intrinsicContentSize" width="70" height="34"/>
         </designable>
         <designable name="y8m-ur-04i">
-            <size key="intrinsicContentSize" width="29" height="34"/>
+            <size key="intrinsicContentSize" width="28" height="34"/>
         </designable>
     </designables>
     <resources>

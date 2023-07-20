@@ -34,7 +34,7 @@ class CheckoutViewController: UIViewController {
         super.viewWillAppear(animated)
         let vc = self.navigationController?.viewControllers
         if let vc = vc {
-            addBackButton(with: "Checkout", toVc: vc.count-3)
+            addBackButton(with: "Checkout".localized(), toVc: vc.count-3)
         }
     }
 
@@ -115,7 +115,7 @@ extension CheckoutViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -157,7 +157,7 @@ extension CheckoutViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -181,7 +181,7 @@ extension CheckoutViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -242,10 +242,8 @@ extension CheckoutViewController: UICollectionViewDataSource {
                     cell.rewardButton.setImage(UIImage(systemName: "square"), for: .normal)
                     cell.rewardButton.isSelected = self.rewardApplied
                     
-                    cell.rewardText.text = "Redeem \(details.redeamPercentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(details.maximumRedeamAmount)"
+                    cell.rewardText.text = L.redeemRewardPointText(percentage: details.redeamPercentage, maxAmount: details.maximumRedeamAmount)
                 }
-                
-                
             }
             
             return cell

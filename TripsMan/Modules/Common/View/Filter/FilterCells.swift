@@ -17,7 +17,6 @@ class FilterListCollectionViewCell: UICollectionViewCell {
         
         let view = UIView(frame: bounds)
         view.backgroundColor = UIColor(named: "seperatorColor")
- //       view.backgroundColor = UIColor.red
         view.layer.cornerRadius = 10
         self.backgroundView = view
         
@@ -30,16 +29,6 @@ class FilterListCollectionViewCell: UICollectionViewCell {
 
 class FilterRangeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rangeSlider: RangeSeekSlider!
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        rangeSlider.layoutIfNeeded()
-//        rangeSlider.updateLayerFramesAndPositions()
-//    }
-//    open override func layoutSubviews() {
-//        super.layoutSubviews()
-//        rangeSlide()
-//    }
 }
 
 //Header

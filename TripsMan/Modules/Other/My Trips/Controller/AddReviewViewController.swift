@@ -25,7 +25,7 @@ class AddReviewViewController: UIViewController {
         
         hideKeyboardOnTap()
         if reviewManager.isEdit(tripDetails) {
-            self.title = "Edit Review"
+            self.title = "Edit Review".localized()
             
             if let tripDetails = tripDetails {
                 rating.rating = tripDetails.rating ?? 0
@@ -34,7 +34,7 @@ class AddReviewViewController: UIViewController {
             }
             
         } else {
-            self.title = "Add Review"
+            self.title = "Add Review".localized()
         }
     }
 }
@@ -86,7 +86,7 @@ extension AddReviewViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -115,7 +115,7 @@ extension AddReviewViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }

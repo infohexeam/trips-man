@@ -107,7 +107,7 @@ extension CouponsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -177,9 +177,7 @@ extension CouponsViewController: UICollectionViewDelegate {
 extension CouponsViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
@@ -207,16 +205,7 @@ extension CouponsViewController {
                                                        heightDimension: .estimated(44))
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
                 
-//                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                                        heightDimension: .estimated(44))
-//                let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-//
-//                let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                                        heightDimension: .estimated(44))
-//                let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
-                
                 section = NSCollectionLayoutSection(group: group)
-//                section.boundarySupplementaryItems = [sectionHeader, sectionFooter]
                 section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 0, trailing: 8)
             } else {

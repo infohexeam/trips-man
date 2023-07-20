@@ -47,8 +47,8 @@ class NotificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Notifications")
-        self.title = "Notifications"
+        addBackButton(with: "Notifications".localized())
+        self.title = "Notifications".localized()
     }
 
     override func viewDidLoad() {
@@ -75,7 +75,7 @@ extension NotificationViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -121,9 +121,7 @@ extension NotificationViewController: UICollectionViewDataSource {
 extension NotificationViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
@@ -140,7 +138,6 @@ extension NotificationViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-//                section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
                 

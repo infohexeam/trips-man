@@ -47,13 +47,13 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if module == "HTL" {
-            self.searchBar.placeholder = "Search hotels.."
+            self.searchBar.placeholder = "Search hotels..".localized()
         } else if module == "HDY" {
-            self.searchBar.placeholder = "Search packages.."
+            self.searchBar.placeholder = "Search packages..".localized()
         } else if module == "ACT" {
-            self.searchBar.placeholder = "Search activities.."
+            self.searchBar.placeholder = "Search activities..".localized()
         } else if module == "MTP" {
-            self.searchBar.placeholder = "Search meetup.."
+            self.searchBar.placeholder = "Search meetup..".localized()
         }
     }
 }
@@ -92,7 +92,7 @@ extension SearchViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                     
             }
@@ -136,9 +136,7 @@ extension SearchViewController: UICollectionViewDelegate {
 extension SearchViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-//            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection

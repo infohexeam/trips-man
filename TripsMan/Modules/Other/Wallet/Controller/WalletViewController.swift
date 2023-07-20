@@ -14,7 +14,6 @@ class WalletViewController: UIViewController {
             walletCollection.collectionViewLayout = createLayout()
             walletCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             walletCollection.dataSource = self
-            //            walletCollection.delegate = self
         }
     }
     
@@ -46,7 +45,7 @@ class WalletViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addMenuButton(with: "My Wallet")
+        addMenuButton(with: "My Wallet".localized())
         if SessionManager.shared.getLoginDetails() == nil {
             tabBarDelegate?.switchTab(0)
             tabBarDelegate?.presentVC("toLogin")
@@ -77,7 +76,7 @@ extension WalletViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
@@ -141,9 +140,7 @@ extension WalletViewController: UICollectionViewDataSource {
 extension WalletViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            //            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
-            
+                        
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
             
             let section: NSCollectionLayoutSection
@@ -160,7 +157,6 @@ extension WalletViewController {
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
                 
                 section = NSCollectionLayoutSection(group: group)
-                //                section.interGroupSpacing = 10
                 section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 8, bottom: 10, trailing: 8)
                 return section
                 

@@ -114,16 +114,16 @@ struct ListingManager {
                 
                 var ratingText = ""
                 if hotel.userRating >= 4.5 {
-                    ratingText = "Excellent\n"
+                    ratingText = "Excellent".localized() + "\n"
                 } else if hotel.userRating >= 4 {
-                    ratingText = "Very Good\n"
+                    ratingText = "Very Good" + "\n"
                 } else if hotel.userRating >= 3 {
-                    ratingText = "Good\n"
+                    ratingText = "Good" + "\n"
                 }
                 
                 let userRating = UserRating(ratingCount: hotel.userRatingCount, rating: "\(hotel.userRating.rounded)/5", ratingText: "\(ratingText)(\(hotel.userRatingCount.oneOrMany("rating")))")
                 
-                listingData?.append(ListingData(type: .hotel, id: hotel.hotelID, listImage: hotel.imageUrl, placeHolderImage: K.hotelPlaceHolderImage, isSponsored: hotel.isSponsored, starRatingText: "\(starRating) \(hotel.hotelType)", userRating: userRating, listName: hotel.hotelName, secondText: hotel.hotelAddress.capitalizedSentence, desc: hotel.shortDescription, actualPrice: hotel.actualPrice, offerPrice: hotel.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(hotel.serviceChargeValue)\ntaxes & fee per night"))
+                listingData?.append(ListingData(type: .hotel, id: hotel.hotelID, listImage: hotel.imageUrl, placeHolderImage: K.hotelPlaceHolderImage, isSponsored: hotel.isSponsored, starRatingText: "\(starRating) \(hotel.hotelType)", userRating: userRating, listName: hotel.hotelName, secondText: hotel.hotelAddress.capitalizedSentence, desc: hotel.shortDescription, actualPrice: hotel.actualPrice, offerPrice: hotel.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(hotel.serviceChargeValue)\n" + "taxes & fee per night".localized()))
             }
             
         case .packages:
@@ -134,7 +134,7 @@ struct ListingManager {
                         packageImage = package.holidayImage[0].imageURL
                     }
                 }
-                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: packageImage, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", desc: package.shortDescription, actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.serviceCharge)\ntaxes & fee per person"))
+                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: packageImage, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", desc: package.shortDescription, actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.serviceCharge)\n" + "taxes & fee per person".localized()))
             }
         case .activities:
             for activity in activities! {
@@ -144,7 +144,7 @@ struct ListingManager {
                         activityImage = activity.activityImages[0].imageURL
                     }
                 }
-                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activityImage, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, desc: activity.shortDescription, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\ntaxes & fee per person"))
+                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activityImage, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, desc: activity.shortDescription, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\n" + "taxes & fee per person".localized()))
             }
         case .meetups:
             for meetup in meetups! {
@@ -154,7 +154,7 @@ struct ListingManager {
                         meetupImage = meetup.meetupImages[0].imageURL
                     }
                 }
-                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetupImage, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", desc: meetup.shortDescription, actualPrice: meetup.costPerPerson, offerPrice: meetup.offerAmount, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(meetup.serviceCharge)\ntaxes & fee per person"))
+                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetupImage, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", desc: meetup.shortDescription, actualPrice: meetup.costPerPerson, offerPrice: meetup.offerAmount, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(meetup.serviceCharge)\n" + "taxes & fee per person".localized()))
             }
             break
         }
@@ -163,13 +163,13 @@ struct ListingManager {
     func getNoDataString(of type: ListType) -> String {
         switch type {
         case .hotel:
-            return "No available hotels match your search. Try using fewer filters."
+            return "No available hotels match your search. Try using fewer filters.".localized()
         case .packages:
-            return "No available holiday packages match your search. Try using fewer filters."
+            return "No available holiday packages match your search. Try using fewer filters.".localized()
         case .activities:
-            return "No available activities match your search. Try using fewer filters."
+            return "No available activities match your search. Try using fewer filters.".localized()
         case .meetups:
-            return "No available meetup match your search. Try using fewer filters."
+            return "No available meetups match your search. Try using fewer filters.".localized()
         }
     }
     

@@ -47,7 +47,7 @@ class FilterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = "Filter by"
+        self.title = "Filter by".localized()
     }
 
     override func viewDidLoad() {
@@ -153,7 +153,7 @@ extension FilterViewController: UICollectionViewDataSource {
                 let data = filters[indexPath.section - 1]
                 headerView.titleLabel.text = data.title
             } else if thisSection.type == .range {
-                headerView.titleLabel.text = "Price Range"
+                headerView.titleLabel.text = "Price Range".localized()
             }
             
             return headerView
@@ -182,8 +182,6 @@ extension FilterViewController: UICollectionViewDelegate {
 extension FilterViewController {
     func createLayout() -> UICollectionViewLayout {
         let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-
-            let containerWidth = layoutEnvironment.container.effectiveContentSize.width
 
             guard let thisSection = self.sections?[sectionIndex] else { return nil }
 

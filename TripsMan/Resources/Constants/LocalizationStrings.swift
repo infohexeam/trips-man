@@ -35,4 +35,12 @@ struct L {
             return "\(roomCount.oneOrMany("Room")) for \(adultCount.oneOrMany("Adult")) and \(childCount.oneOrMany("Child", suffix: "ren"))"
         }
     }
+    
+    static func redeemRewardPointText(percentage: Double, maxAmount: Double) -> String {
+        if SessionManager.shared.getLanguage().code == "ar" {
+            return ""
+        } else {
+            return "Redeem \(percentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(maxAmount)"
+        }
+    }
 }

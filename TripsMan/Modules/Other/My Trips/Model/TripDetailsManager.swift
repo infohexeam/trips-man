@@ -168,12 +168,12 @@ struct TripDetailsManager {
         //2 - Ongoing
         //3 - Cancelled
         if let hotelTripDetails = hotelTripDetails {
-            let topBox = TopBox(tripStatus: hotelTripDetails.tripStatus, bookingNo: "BOOKING ID - \(hotelTripDetails.bookingNo ?? "")", bookedDate: "Booked on \(hotelTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: hotelTripDetails.tripMessage)
+            let topBox = TopBox(tripStatus: hotelTripDetails.tripStatus, bookingNo: "BOOKING ID".localized() + " - \(hotelTripDetails.bookingNo ?? "")", bookedDate: "Booked on" + " \(hotelTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: hotelTripDetails.tripMessage)
             let secondBox = SecondBox(image: hotelTripDetails.imageURL ?? "", name: hotelTripDetails.hotelName, address: hotelTripDetails.hotelDetails.address.capitalizedSentence)
             
             detailsData = DetailsData(topBox: topBox, secondBox: secondBox)
         } else if let holidayTripDetails = holidayTripDetails {
-            let topBox = TopBox(tripStatus: holidayTripDetails.tripStatus, bookingNo: "BOOKING ID - \(holidayTripDetails.bookingNo)", bookedDate: "Booked on \(holidayTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: holidayTripDetails.tripMessage)
+            let topBox = TopBox(tripStatus: holidayTripDetails.tripStatus, bookingNo: "BOOKING ID".localized() + " - \(holidayTripDetails.bookingNo)", bookedDate: "Booked on".localized() + " \(holidayTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: holidayTripDetails.tripMessage)
             
             let secondBox = SecondBox(image: holidayTripDetails.imageUrl, name: holidayTripDetails.packagedetails[0].packageName, address: holidayTripDetails.packagedetails[0].shortDescription)
             
@@ -183,7 +183,7 @@ struct TripDetailsManager {
             if activityTripDetails.tripStatusValue == 3 {
                 canDownloadTicket = false
             }
-            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID - \(activityTripDetails.bookingNo)", bookedDate: "Booked on \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: activityTripDetails.tripMessage, canDownloadTicket: canDownloadTicket)
+            let topBox = TopBox(tripStatus: activityTripDetails.tripStatus, bookingNo: "BOOKING ID".localized() + " - \(activityTripDetails.bookingNo)", bookedDate: "Booked on".localized() + " \(activityTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: activityTripDetails.tripMessage, canDownloadTicket: canDownloadTicket)
             
             let secondBox = SecondBox(image: activityTripDetails.activitydetails[0].activityImage, name: activityTripDetails.activitydetails[0].activityName, address: activityTripDetails.activitydetails[0].shortDescription)
             
@@ -193,7 +193,7 @@ struct TripDetailsManager {
             if meetupTripDetails.tripStatusValue == 3 {
                 canDownloadTicket = false
             }
-            let topBox = TopBox(tripStatus: meetupTripDetails.tripStatus, bookingNo: "BOOKING ID - \(meetupTripDetails.bookingNo)", bookedDate: "Booked on \(meetupTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: meetupTripDetails.tripMessage, canDownloadTicket: canDownloadTicket)
+            let topBox = TopBox(tripStatus: meetupTripDetails.tripStatus, bookingNo: "BOOKING ID".localized() + " - \(meetupTripDetails.bookingNo)", bookedDate: "Booked on".localized() + " \(meetupTripDetails.bookingDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", tripMessage: meetupTripDetails.tripMessage, canDownloadTicket: canDownloadTicket)
             
             let secondBox = SecondBox(image: meetupTripDetails.imageUrl ?? "", name: meetupTripDetails.meetupDetails.meetupName, address: meetupTripDetails.meetupDetails.shortDescription)
             
@@ -208,18 +208,18 @@ struct TripDetailsManager {
         if let hotelTripDetails = hotelTripDetails {
             moreDetails = [MoreDetails]()
             
-            let left1 = MoreDetailsObj(title: "Check-in", text: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", subText: hotelTripDetails.hotelDetails.checkInTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
-            let right1 = MoreDetailsObj(title: "Check-out", text: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", subText: hotelTripDetails.hotelDetails.checkOutTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
+            let left1 = MoreDetailsObj(title: "Check-in".localized(), text: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", subText: hotelTripDetails.hotelDetails.checkInTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
+            let right1 = MoreDetailsObj(title: "Check-out".localized(), text: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "", subText: hotelTripDetails.hotelDetails.checkOutTime?.date("HH:mm:ss")?.stringValue(format: "HH:mm: a"))
             let text1 = MoreDetails(leftText: left1, rightText: right1)
             
             
-            let left2 = MoreDetailsObj(text: "\(hotelTripDetails.roomCount.oneOrMany("Room")) for \(hotelTripDetails.adultCount.oneOrMany("Adult")) & \(hotelTripDetails.childCount.oneOrMany("Child", suffix: "ren"))")
+            let left2 = MoreDetailsObj(text: L.roomAndGuestCountText(roomCount: hotelTripDetails.roomCount, adultCount: hotelTripDetails.adultCount, childCount: hotelTripDetails.childCount))
             let right2 = MoreDetailsObj(text: hotelTripDetails.roomDetails.count > 0 ? hotelTripDetails.roomDetails[0].roomType : "", subText: hotelTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.numberOfDays(to: hotelTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss") ?? Date()).oneOrMany("Night"))
             let text2 = MoreDetails(leftText: left2, rightText: right2)
             
             
             let primary = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 1}).last
-            let left3 = MoreDetailsObj(title: "Primary Guest", text: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", subText: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
+            let left3 = MoreDetailsObj(title: "Primary Guest".localized(), text: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", subText: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
             var right3: MoreDetailsObj?
             let others = hotelTripDetails.hotelGuests.filter({ $0.isPrimary == 0})
             if others.count > 0 {
@@ -227,7 +227,7 @@ struct TripDetailsManager {
                 for other in others {
                     otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
                 }
-                right3 = MoreDetailsObj(title: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
+                right3 = MoreDetailsObj(title: "Other Guests".localized(), text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
             }
             let text3 = MoreDetails(leftText: left3, rightText: right3)
             
@@ -236,17 +236,17 @@ struct TripDetailsManager {
         } else if let holidayTripDetails = holidayTripDetails {
             moreDetails = [MoreDetails]()
             
-            let left1 = MoreDetailsObj(title: "Start Date", text: holidayTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
-            let right1 = MoreDetailsObj(title: "End Date", text: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let left1 = MoreDetailsObj(title: "Start Date".localized(), text: holidayTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let right1 = MoreDetailsObj(title: "End Date".localized(), text: holidayTripDetails.bookingTo.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
             let text1 = MoreDetails(leftText: left1, rightText: right1)
             
-            let left2 = MoreDetailsObj(title: "Travellers", text: "\(holidayTripDetails.adultCount.oneOrMany("Adult")) & \(holidayTripDetails.childCount.oneOrMany("Child", suffix: "ren"))")
-            let right2 = MoreDetailsObj(title: "Duration", text: holidayTripDetails.packagedetails[0].duration)
+            let left2 = MoreDetailsObj(title: "Travellers".localized(), text: "\(holidayTripDetails.adultCount.oneOrMany("Adult")) & \(holidayTripDetails.childCount.oneOrMany("Child", suffix: "ren"))")
+            let right2 = MoreDetailsObj(title: "Duration".localized(), text: holidayTripDetails.packagedetails[0].duration)
             let text2 = MoreDetails(leftText: left2, rightText: right2)
            
             
             let primary = holidayTripDetails.packageguest.filter({ $0.isPrimary == 1}).last
-            let left3 = MoreDetailsObj(title: "Primary Guest", text: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", subText: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
+            let left3 = MoreDetailsObj(title: "Primary Guest".localized(), text: "\(primary?.guestName ?? ""), \(primary?.gender ?? ""), \(primary?.age.intValue().oneOrMany("yr") ?? "")", subText: "\(primary?.email ?? "")\n\(primary?.contactNo ?? "")")
             var right3: MoreDetailsObj?
             let others = holidayTripDetails.packageguest.filter({ $0.isPrimary == 0})
             if others.count > 0 {
@@ -254,7 +254,7 @@ struct TripDetailsManager {
                 for other in others {
                     otherGuestText += "\(other.guestName), \(other.gender) \(other.age.intValue().oneOrMany("yr"))\n"
                 }
-                right3 = MoreDetailsObj(title: "Other Guests", text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
+                right3 = MoreDetailsObj(title: "Other Guests".localized(), text: otherGuestText.trimmingCharacters(in: .whitespacesAndNewlines))
             }
             let text3 = MoreDetails(leftText: left3, rightText: right3)
             
@@ -263,24 +263,24 @@ struct TripDetailsManager {
         } else if let activityTripDetails = activityTripDetails {
             moreDetails = [MoreDetails()]
             
-            let left1 = MoreDetailsObj(title: "Activity Date", text: activityTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
-            let right1 = MoreDetailsObj(title: "Total Members", text: activityTripDetails.totalGuest.stringValue())
+            let left1 = MoreDetailsObj(title: "Activity Date".localized(), text: activityTripDetails.bookingFrom.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let right1 = MoreDetailsObj(title: "Total Members".localized(), text: activityTripDetails.totalGuest.stringValue())
             let text1 = MoreDetails(leftText: left1, rightText: right1)
             
             let primary = activityTripDetails.activityguest[0]
-            let left2 = MoreDetailsObj(title: "Primary Customer", text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.emailID)\n\(primary.contactNo)")
+            let left2 = MoreDetailsObj(title: "Primary Customer".localized(), text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.emailID)\n\(primary.contactNo)")
             let text2 = MoreDetails(leftText: left2)
             
             moreDetails = [text1, text2]
         } else if let meetupTripDetails = meetupTripDetails {
             moreDetails = [MoreDetails()]
             
-            let left1 = MoreDetailsObj(title: "Meetup Date", text: meetupTripDetails.meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
-            let right1 = MoreDetailsObj(title: "Total Members", text: meetupTripDetails.adultCount.stringValue())
+            let left1 = MoreDetailsObj(title: "Meetup Date".localized(), text: meetupTripDetails.meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "E, dd MMM yyyy") ?? "")
+            let right1 = MoreDetailsObj(title: "Total Members".localized(), text: meetupTripDetails.adultCount.stringValue())
             let text1 = MoreDetails(leftText: left1, rightText: right1)
             
             let primary = meetupTripDetails.meetupGuests[0]
-            let left2 = MoreDetailsObj(title: "Primary Customer", text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.email)\n\(primary.contactNo)")
+            let left2 = MoreDetailsObj(title: "Primary Customer".localized(), text: "\(primary.guestName), \(primary.gender), \(primary.age.intValue().oneOrMany("yr"))", subText: "\(primary.email)\n\(primary.contactNo)")
             let text2 = MoreDetails(leftText: left2)
             
             moreDetails = [text1, text2]

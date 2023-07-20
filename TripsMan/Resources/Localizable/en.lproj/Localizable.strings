@@ -111,3 +111,67 @@
 "Description" = "Description";
 "Meetup Details" = "Meetup Details";
 "Meetup code" = "Meetup code";
+
+
+//Common
+"Excellent" = "Excellent";
+"Very Good" = "Very Good";
+"Good" = "Good";
+"rating" = "rating";
+"ratings" = "rating";
+"No available hotels match your search. Try using fewer filters." = "No available hotels match your search. Try using fewer filters.";
+"No available holiday packages match your search. Try using fewer filters." = "No available holiday packages match your search. Try using fewer filters.";
+"No available activities match your search. Try using fewer filters." = "No available activities match your search. Try using fewer filters.";
+"No available meetups match your search. Try using fewer filters." = "No available meetups match your search. Try using fewer filters.";
+"Checkout" = "Checkout";
+"Congratulations!" = "Congratulations!";
+"Booking Success & Awaiting Payment" = "Booking Success & Awaiting Payment";
+"Booking Not Confirmed" = "Booking Not Confirmed";
+"Select a country" = "Select a country";
+"Hotels" = "Hotels";
+"Packages" = "Packages";
+"Meetups" = "Meetups";
+"Activities" = "Activities";
+"Select location" = "Select location";
+"Guest" = "Guest";
+"Guests" = "Guest";
+"Add start date" = "Add start date";
+"Child" = "Child";
+"Children" = "Children";
+"Select city" = "Select city";
+"Filter by" = "Filter by";
+"Price Range" = "Price Range";
+"Search hotels.." = "Search hotels..";
+"Search packages.." = "Search packages..";
+"Search activities.." = "Search activities..";
+"Search meetup.." = "Search meetup..";
+"My Wallet" = "My Wallet";
+
+
+//Others
+"Notifications" = "Notifications";
+"Please add a rating" = "Please add a rating";
+"Please enter your review" = "Please enter your review";
+"Please enter review title" = "Please enter review title";
+"BOOKING ID" = "BOOKING ID";
+"Booked on" = "Booked on";
+"Check-in" = "Check-in";
+"Check-out" = "Check-out";
+"Night" = "Night";
+"Nights" = "Nights";
+"yr" = "yr";
+"yrs" = "yrs";
+"Start Date" = "Start Date";
+"Travellers" = "Travellers";
+"Duration" = "Duration";
+"Total Members" = "Total Members";
+"Primary Customer" = "Primary Customer";
+"Upcoming" = "Upcoming";
+"Completed" = "Completed";
+"Cancelled" = "Cancelled";
+"Latest first" = "Latest first";
+"Oldest first" = "Oldest first";
+"Reviewed on" = "Reviewed on";
+"Edit Review" = "Edit Review";
+"Add Review" = "Add Review";
+"Reviews" = "Reviews";

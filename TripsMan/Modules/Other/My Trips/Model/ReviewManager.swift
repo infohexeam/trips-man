@@ -20,13 +20,13 @@ struct ReviewManager {
         
         if review.rating == 0 {
             isValid = false
-            message = "Please add a rating"
+            message = "Please add a rating".localized()
         } else if review.reviewTitle != "" && review.reviewText == "" {
             isValid = false
-            message = "Please enter your review"
+            message = "Please enter your review".localized()
         } else if review.reviewTitle == "" && review.reviewText != "" {
             isValid = false
-            message = "Please enter review title"
+            message = "Please enter review title".localized()
         }
         
         return (isValid, message)

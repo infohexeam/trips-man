@@ -83,11 +83,11 @@ class ListingViewController: UIViewController {
         case .hotel:
             pageTitle = "Hotels".localized()
         case .packages:
-            pageTitle = "Packages"
+            pageTitle = "Packages".localized()
         case .meetups:
-            pageTitle = "Meetups"
+            pageTitle = "Meetups".localized()
         case .activities:
-            pageTitle = "Activities"
+            pageTitle = "Activities".localized()
         case .none:
             pageTitle = ""
         }
@@ -99,11 +99,8 @@ class ListingViewController: UIViewController {
         setupView()
         
         locationManager.delegate = self
-        //        locationManagerDidChangeAuthorization(locationManager)
-        //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        //        locationManager.startUpdatingLocation()
         
         
         if let listType = listType {
@@ -148,22 +145,15 @@ class ListingViewController: UIViewController {
         if listType == .hotel {
             locationLabel.text = hotelFilters.location?.name ?? "Select location".localized()
             let dateText = "\(hotelFilters.checkin!.stringValue(format: "dd MMM")) - \(hotelFilters.checkout!.stringValue(format: "dd MMM"))"
-            var roomText = "\(hotelFilters.roomCount!) Rooms"
-            if hotelFilters.roomCount == 1 {
-                roomText = "\(hotelFilters.roomCount!) Room"
-            }
+            let roomText = hotelFilters.roomCount!.oneOrMany("Room")
             let guests = hotelFilters.adult! + hotelFilters.child!
-            var guestText = "\(guests) Guests"
-            if guests == 1 {
-                guestText = "\(guests) Guest"
-            }
+            let guestText = guests.oneOrMany("Guest")
             dateAndGuestLabel.text = dateText + " | " + roomText + " | " + guestText
         } else if listType == .packages {
             locationLabel.text = packageFilter.country?.name
             var dateText = packageFilter.startDate?.stringValue(format: "dd MMM")
             if dateText == nil {
-                dateText = "Add start date"
-                
+                dateText = "Add start date".localized()
             }
             let adultText = packageFilter.adult?.oneOrMany("Adult")
             
@@ -178,12 +168,12 @@ class ListingViewController: UIViewController {
             locationLabel.text = activityFilter.country?.name
             var dateText = activityFilter.activityDate?.stringValue(format: "dd MMM")
             if dateText == nil {
-                dateText = "Select date"
+                dateText = "Select date".localized()
             }
             dateAndGuestLabel.text = dateText
         } else if listType == .meetups {
             let cityText = meetupFilter.city
-            locationLabel.text = (meetupFilter.country?.name ?? "") + " | " + (cityText ?? "Select city")
+            locationLabel.text = (meetupFilter.country?.name ?? "") + " | " + (cityText ?? "Select city".localized())
             dateAndGuestLabel.isHidden = true
         }
         

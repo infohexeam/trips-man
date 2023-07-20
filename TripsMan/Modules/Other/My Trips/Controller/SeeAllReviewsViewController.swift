@@ -23,7 +23,7 @@ class SeeAllReviewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Reviews"
+        self.title = "Reviews".localized()
 
         if let reviews = reviews {
             reviewManager = AllReviewsManager(reviews: reviews)
@@ -56,7 +56,7 @@ extension SeeAllReviewsViewController: UICollectionViewDataSource {
                 cell.reviewTitle.text = review.reviewTitle
                 cell.reviewText.text = review.hotelReview
                 cell.ratingLabel.text = review.hotelRating?.stringValue()
-                cell.dateAndName.text = " - Reviewed by \(review.customerName) on \(review.reviewDate.date("dd/MM/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")"
+                cell.dateAndName.text = " " + L.reviewedByText(by: review.customerName, on: review.reviewDate.date("dd/MM/yyyy HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")
             }
             
             

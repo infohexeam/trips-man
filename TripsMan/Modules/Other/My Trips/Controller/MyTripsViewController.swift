@@ -35,11 +35,11 @@ class MyTripsViewController: UIViewController {
             if selectedIndex == 0 {
                 tripFilters.bookingStatus = BookingStatus(id: 0, status: "")
             } else if selectedIndex == 1 {
-                tripFilters.bookingStatus = BookingStatus(id: 1, status: "Upcoming")
+                tripFilters.bookingStatus = BookingStatus(id: 1, status: "Upcoming".localized())
             } else if selectedIndex == 2 {
-                tripFilters.bookingStatus = BookingStatus(id: 2, status: "Completed")
+                tripFilters.bookingStatus = BookingStatus(id: 2, status: "Completed".localized())
             } else if selectedIndex == 3 {
-                tripFilters.bookingStatus = BookingStatus(id: 3, status: "Cancelled")
+                tripFilters.bookingStatus = BookingStatus(id: 3, status: "Cancelled".localized())
             }
             getMyTrips()
         }
@@ -72,7 +72,7 @@ class MyTripsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addMenuButton(with: "My Trips")
+        addMenuButton(with: "My Trips".localized())
         if SessionManager.shared.getLoginDetails() == nil {
             tabBarDelegate?.switchTab(0)
             tabBarDelegate?.presentVC("toLogin")
@@ -99,15 +99,15 @@ class MyTripsViewController: UIViewController {
     }
     
     func assignValues() {
-        sorts = [Sortby(name: "Latest first", id: 0),
-                 Sortby(name: "Oldest first", id: 1)]
+        sorts = [Sortby(name: "Latest first".localized(), id: 0),
+                 Sortby(name: "Oldest first".localized(), id: 1)]
         
         tripFilters.sortBy = Sortby(name: "DESCDATE", id: 0)
         
-        filters = [ModuleFilter(moduleCode: "HTL", moduleText: "Hotel"),
-                   ModuleFilter(moduleCode: "HDY", moduleText: "Holiday Package"),
-                   ModuleFilter(moduleCode: "ACT", moduleText: "Activities"),
-                   ModuleFilter(moduleCode: "MTP", moduleText: "Meetups")]
+        filters = [ModuleFilter(moduleCode: "HTL", moduleText: "Hotels".localized()),
+                   ModuleFilter(moduleCode: "HDY", moduleText: "Holiday Packages".localized()),
+                   ModuleFilter(moduleCode: "ACT", moduleText: "Activities".localized()),
+                   ModuleFilter(moduleCode: "MTP", moduleText: "Meetups".localized())]
     }
     
     func setupMenus() {
@@ -203,7 +203,7 @@ extension MyTripsViewController {
                         self.view.makeToast(result!.message)
                     }
                 } else {
-                    self.view.makeToast("Something went wrong!")
+                    self.view.makeToast(K.apiErrorMessage)
                 }
                 
             }
