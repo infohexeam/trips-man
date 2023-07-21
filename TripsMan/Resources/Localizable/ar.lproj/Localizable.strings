@@ -6,6 +6,204 @@
   
 */
 
-//MainViewController
-"Hotels" = "ABCD";
-"Select location" = "Select locationasdadad";
+
+//LoginRegister
+"Please enter the OTP sent to your mobile number" = "الرجاء إدخال كلمة المرور لمرة واحدة المرسلة إلى رقم هاتفك المحمول";
+"Verify Mobile" = "تحقق من الهاتف المحمول";
+"Please enter the OTP sent to your email" = "الرجاء إدخال كلمة المرور لمرة واحدة المرسلة إلى بريدك الإلكتروني";
+"Verify Email" = "التحقق من البريد الإلكتروني";
+"Resend OTP in" = "أعد إرسال كلمة المرور لمرة واحدة بتنسيق";
+"CHANGE PASSWORD" = "تغيير كلمة المرور";
+"RESET PASSWORD" = "إعادة تعيين كلمة المرور";
+
+//Main
+"Hotels" = "الفنادق";
+"Holiday Packages" = "حزم العطلة";
+"Activities" = "أنشطة";
+"Meetups" = "لقاءات";
+"Country changed to" = "تم تغيير البلد إلى";
+"Male" = "ذكر";
+"My Profile" = "ملفي";
+"Hi," = "أهلاً،";
+"My Trips" = "رحلاتي";
+"View your trips" = "عرض رحلاتك";
+"Logout" = "تسجيل خروج";
+"Login / Sign Up Now" = "تسجيل الدخول / التسجيل الآن";
+"Login for best deals" = "تسجيل الدخول للحصول على أفضل الصفقات";
+"My Trips" = "رحلاتي";
+"View your trips" = "عرض رحلاتك";
+"Are you sure you want to Logout?" = "هل أنت متأكد أنك تريد تسجيل الخروج؟";
+"Cancel" = "يلغي";
+"Yes" = "نعم";
+
+
+//Hotel
+"Room" = "غرفة";
+"Room" = "غرف";
+"Adult" = "الكبار";
+"Adults" = "الكبار";
+"Room Amenities" = "وسائل الراحة في الغرفة";
+"Popular Amenities" = "وسائل الراحة الشعبية";
+"House Rules" = "قواعد المنزل";
+"Hotel Details" = "تفاصيل الفندق";
+"Property Rules" = "قواعد الملكية";
+"Terms and Conditions" = "الأحكام والشروط";
+"More" = "أكثر";
+"taxes & fee per night" = "الضرائب والرسوم لكل ليلة";
+"off" = "الضرائب والرسوم لكل ليلة";
+"Overall Rating" = "تقييم عام";
+"No ratings" = "بدون تقييم";
+"Reviewed by" = "تمت مراجعته من قبل";
+"on" = "على";
+"Address" = "عنوان";
+"Amenities" = "وسائل الراحة";
+"Property Rules" = "قواعد الملكية";
+"Room Selection" = "اختيار الغرفة";
+"You have selected only 1 person" = "لقد قمت بتحديد شخص واحد فقط";
+"Summary" = "ملخص";
+"Primary Guest" = "الضيف الأساسي";
+"Other Guests" = "ضيوف آخرون";
+"Coupon Codes" = "رموز القسيمة";
+"See all coupons" = "انظر جميع القسائم";
+"Have a coupon code?" = "هل لديك رمز القسيمة؟";
+
+
+//Packages
+"Package Details" = "حزمة من التفاصيل";
+"Policies" = "سياسات";
+"Package code" = "كود الحزمة";
+"Itinerary" = "مسار الرحلة";
+"Vendor" = "بائع";
+"Package Booking" = "حجز الطرود";
+"Primary Traveller" = "المسافر الأساسي";
+"Other Travellers" = "المسافرون الآخرون";
+"taxes & fee per night" = "الضرائب والرسوم لكل ليلة";
+
+
+//Activities
+"Overview" = "ملخص";
+"Features" = "سمات";
+"Highlights" = "يسلط الضوء";
+"Members" = "أعضاء";
+"Member" = "عضو";
+"Activity Details" = "تفاصيل النشاط";
+"Select date" = "حدد تاريخ";
+"Terms and Conditions" = "الأحكام والشروط";
+"Activity code" = "رمز النشاط";
+"Day" = "يوم";
+"Days" = "أيام";
+"Inclusions" = "الادراج";
+"Activity Booking" = "حجز النشاط";
+"Meetup Booking" = "حجز لقاء";
+"Activity Booking Summary" = "ملخص حجز النشاط";
+"Meetup Booking Summary" = "ملخص حجز اللقاء";
+"Activity Name" = "اسم النشاط";
+"Activity Date" = "تاريخ النشاط";
+"Total Customers" = "إجمالي العملاء";
+"Location" = "موقع";
+"Meetup Name" = "اسم اللقاء";
+"Meetup Date" = "تاريخ اللقاء";
+"Customer Details" = "تفاصيل العميل";
+
+
+//Meetup
+"Overview" = "ملخص";
+"Description" = "وصف";
+"Meetup Details" = "تفاصيل اللقاء";
+"Meetup code" = "رمز اللقاء";
+
+
+//Common
+"Excellent" = "ممتاز";
+"Very Good" = "جيد جدًا";
+"Good" = "جيد";
+"rating" = "تقييم";
+"ratings" = "التقييمات";
+"No available hotels match your search. Try using fewer filters." = "لا توجد فنادق تطابق بحثك. حاول استخدام عدد أقل من الفلاتر.";
+"No available holiday packages match your search. Try using fewer filters." = "لا توجد حزم عطلة متوفرة تطابق بحثك. حاول استخدام عدد أقل من الفلاتر.";
+"No available activities match your search. Try using fewer filters." = "لا توجد أنشطة متاحة تطابق بحثك. حاول استخدام عدد أقل من الفلاتر.";
+"No available meetups match your search. Try using fewer filters." = "لا توجد لقاءات متاحة تطابق بحثك. حاول استخدام عدد أقل من الفلاتر.";
+"Checkout" = "الدفع";
+"Congratulations!" = "تهانينا!";
+"Booking Success & Awaiting Payment" = "نجاح الحجز وانتظار الدفع";
+"Booking Not Confirmed" = "الحجز غير مؤكد";
+"Select a country" = "اختر دولة";
+"Hotels" = "الفنادق";
+"Packages" = "الحزم";
+"Meetups" = "لقاءات";
+"Activities" = "أنشطة";
+"Select location" = "اختر موقعا";
+"Guest" = "ضيف";
+"Guests" = "ضيوف";
+"Add start date" = "أضف تاريخ البدء";
+"Child" = "طفل";
+"Children" = "أطفال";
+"Select city" = "اختر مدينة";
+"Filter by" = "مصنف بواسطة";
+"Price Range" = "نطاق السعر";
+"Search hotels.." = "البحث عن الفنادق ..";
+"Search packages.." = "حزم البحث ..";
+"Search activities.." = "أنشطة البحث ..";
+"Search meetup.." = "البحث عن لقاء ..";
+"My Wallet" = "محفظتى";
+
+
+//Others
+"Notifications" = "إشعارات";
+"Please add a rating" = "الرجاء إضافة تصنيف";
+"Please enter your review" = "الرجاء إدخال رأيك";
+"Please enter review title" = "الرجاء إدخال عنوان المراجعة";
+"BOOKING ID" = "معرف الحجز";
+"Booked on" = "تم الحجز";
+"Check-in" = "تحقق في";
+"Check-out" = "الدفع";
+"Night" = "ليلة";
+"Nights" = "ليالي";
+"yr" = "سنة";
+"yrs" = "سنين";
+"Start Date" = "تاريخ البدء";
+"Travellers" = "مسافرين";
+"Duration" = "مدة";
+"Total Members" = "إجمالي الأعضاء";
+"Primary Customer" = "العميل الأساسي";
+"Upcoming" = "القادمة";
+"Completed" = "مكتمل";
+"Cancelled" = "ألغيت";
+"Latest first" = "الأحدث أولاً";
+"Oldest first" = "الأقدم أولا";
+"Reviewed on" = "تمت المراجعة في";
+"Edit Review" = "تحرير المراجعة";
+"Add Review" = "إضافة مراجعة";
+"Reviews" = "المراجعات";
+
+//Constants
+"Male" = "ذكر";
+"Female" = "أنثى";
+"Prefer not to say" = "افضل عدم القول";
+"India" = "الهند";
+"UAE" = "الإمارات العربية المتحدة";
+"Successfully sent OTP" = "تم إرسال كلمة المرور لمرة واحدة بنجاح";
+"OTP is invalid or expired" = "كلمة المرور لمرة واحدة غير صالحة أو منتهية الصلاحية";
+"Something went wrong!" = "هناك خطأ ما!";
+"Authenticating your transaction.. Please do not close the app." = "مصادقة معاملتك .. من فضلك لا تغلق التطبيق.";
+"Finalizing your booking. Almost there!" = "إنهاء الحجز الخاص بك. اوشكت على الوصول!";
+"This field cannot be empty." = "هذا الحقل لا يمكن ان يكون فارغا.";
+"Invalid otp." = "كلمة مرور صالحة لمرة واحدة.";
+"Enter primary guest details" = "أدخل تفاصيل الضيف الأساسية";
+"Enter primary traveller details" = "أدخل تفاصيل المسافر الأساسية";
+"Enter primary traveller name" = "أدخل اسم المسافر الأساسي";
+"Enter primary traveller contact number" = "أدخل رقم الاتصال الأساسي للمسافر";
+"Enter primary customer details" = "أدخل تفاصيل العميل الأساسية";
+
+
+//Validator
+"Invalid email / mobile number" = "البريد الإلكتروني / رقم الهاتف المحمول غير صالح";
+"Password should contain at least 1 lowercase letter, 1 uppercase letter, 1 special character, 1 number and a minimum length of 8 characters" = "يجب أن تحتوي كلمة المرور على حرف واحد صغير على الأقل وحرف كبير وحرف خاص واحد ورقم واحد وطول لا يقل عن 8 أحرف";
+"Password mismatch" = "كلمة المرور غير متطابقة";
+"Your name is too short" = "اسمك قصير جدا";
+"Invalid mobile number" = "رقم الجوال غير صالح";
+"Invalid otp" = "كلمة مرور صالحة لمرة واحدة";
+"Your address is too short" = "عنوانك قصير جدا";
+"Your city name is too short" = "اسم مدينتك قصير جدًا";
+"Your state name is too short" = "اسم دولتك قصير جدًا";
+"Invalid pin code" = "الرمز البريدي غير صالح";

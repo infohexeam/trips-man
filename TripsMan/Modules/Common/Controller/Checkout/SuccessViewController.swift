@@ -70,15 +70,15 @@ class SuccessViewController: UIViewController {
         if successStaus.verifyPayment == true && successStaus.confirmBooking == true {
             self.successIcon.image = UIImage(named: "success-check")
             self.successTitle.text = "Congratulations!".localized()
-            self.successLabel.text = K.getBookingSuccessMessage(for: module!, with: bookingNo!)
+            self.successLabel.text = L.bookingSuccessMessage(for: module!, with: bookingNo!)
         } else if successStaus.verifyPayment == false && successStaus.confirmBooking == true {
             self.successIcon.image = UIImage(named: "yellow-checkmark")
             self.successTitle.text = "Booking Success & Awaiting Payment".localized()
-            self.successLabel.text = K.getPaymentWaitingMessage(for: module!, with: bookingNo!)
+            self.successLabel.text = L.paymentWaitingMessage(for: module!, with: bookingNo!)
         } else if successStaus.confirmBooking == false { //payment verification success or failure
             self.successIcon.image = UIImage(named: "warning")
             self.successTitle.text = "Booking Not Confirmed".localized()
-            self.successLabel.text = K.getBookingFailedMessage()
+            self.successLabel.text = L.bookingFailedMessage()
         }
         self.successView.isHidden = false
     }

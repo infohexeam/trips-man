@@ -93,7 +93,7 @@ extension CheckoutViewController {
             case .activities:
                 url = "api/CustomerActivityCoupon/ApplyCustomerActivityRewardPoint"
             case .meetups:
-                url = "api/CustomerWebMeetupCoupon/Web/ApplyCustomerMeetupRewardPoint"
+                url = "api/CustomerMeetupCoupon/ApplyCustomerMeetupRewardPoint"
             }
         }
         
