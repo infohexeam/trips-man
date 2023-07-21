@@ -135,6 +135,11 @@ class DefaultFilterViewController: UIViewController {
             countryField.text = meetupFilters.country?.name
             cityField.text = meetupFilters.city
         }
+        
+        //Align Fields w.r.t language
+        for each in [locationField, countryField, cityField, checkinField, checkoutField, startDateField] {
+            each?.alignForLanguage()
+        }
     }
     
     func presentGMSAutoCompleteVC() {

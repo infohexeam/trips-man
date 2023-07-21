@@ -21,7 +21,7 @@ struct HotelDetails: Codable {
     let hotelID: Int
     let hotelName, description, address, latitude: String
     let longitude, email, phone, shortDescription: String
-    let propertyRules, propertyType, starRating, termsAndCondition: String
+    let propertyRules, starRating, termsAndCondition: String
     let userRatingCount, status: Int
     let hotelFacilities: [HotelFacility]
     let hotelImages: [HotelImage]
@@ -34,7 +34,7 @@ struct HotelDetails: Codable {
 
     enum CodingKeys: String, CodingKey {
         case hotelID = "hotelId"
-        case hotelName, description, address, latitude, longitude, email, phone, shortDescription, propertyRules, propertyType, starRating, termsAndCondition, userRating, userRatingCount, status, featuredImage, hotelType, hotelStar
+        case hotelName, description, address, latitude, longitude, email, phone, shortDescription, propertyRules, starRating, termsAndCondition, userRating, userRatingCount, status, featuredImage, hotelType, hotelStar
         case hotelFacilities = "hotel_Facilities"
         case hotelImages = "hotel_Images"
         case hotelRooms = "hotel_Rooms"

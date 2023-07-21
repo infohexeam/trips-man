@@ -131,6 +131,10 @@ class HotelDetailsViewController: UIViewController {
         imageContainer.isHidden = true
         filterContainer.isHidden = true
         
+        locationField.alignForLanguage()
+        checkinField.alignForLanguage()
+        checkoutField.alignForLanguage()
+        
         getHotelDetails()
         
     }

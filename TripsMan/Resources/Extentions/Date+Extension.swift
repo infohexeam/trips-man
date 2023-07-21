@@ -11,6 +11,7 @@ extension Date {
     func stringValue(format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+//        dateFormatter.locale = Locale(identifier: "ar")
         return dateFormatter.string(from: self)
     }
     

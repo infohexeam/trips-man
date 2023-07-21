@@ -63,7 +63,11 @@ class TabBarController: UITabBarController, TabBarActionDelegate {
         let vc = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenu") as! SideMenuTableViewController
         let menu = SideMenuNavigationController(rootViewController: vc)
         menu.presentationStyle = .menuSlideIn
-        menu.leftSide = true
+        if SessionManager.shared.getLanguage().code == "ar" {
+            menu.leftSide = false
+        } else {
+            menu.leftSide = true
+        }
         present(menu, animated: true)
     }
     

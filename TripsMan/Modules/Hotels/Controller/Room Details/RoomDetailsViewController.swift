@@ -31,7 +31,7 @@ class RoomDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addBackButton(with: "Room Details")
+        addBackButton(with: "Room Details".localized())
     }
 
     override func viewDidLoad() {

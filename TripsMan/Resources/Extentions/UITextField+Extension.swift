@@ -20,4 +20,12 @@ extension UITextField {
         self.rightView = paddingView
         self.rightViewMode = .always
     }
+    
+    func alignForLanguage() {
+        if SessionManager.shared.getLanguage().code == "ar" {
+            self.textAlignment = .right
+        } else {
+            self.textAlignment = .left
+        }
+    }
 }

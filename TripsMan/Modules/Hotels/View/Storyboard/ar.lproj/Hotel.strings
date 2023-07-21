@@ -77,8 +77,8 @@
 /* Class = "UIButton"; configuration.title = "Apply"; ObjectID = "T9U-34-y1u"; */
 "T9U-34-y1u.configuration.title" = "يتقدم";
 
-/* Class = "UILabel"; text = "Total Amount"; ObjectID = "Teu-HL-riH"; */
-"Teu-HL-riH.text" = "المبلغ الإجمالي";
+/* Class = "UILabel"; text = "Total Amount"; ObjectID = "hag-PW-BZC"; */
+"hag-PW-BZC.text" = "المبلغ الإجمالي";
 
 /* Class = "UIButton"; configuration.title = "See all reviews"; ObjectID = "Uyc-mo-bPZ"; */
 "Uyc-mo-bPZ.configuration.title" = "انظر جميع الاستعراضات";
@@ -169,3 +169,11 @@
 
 /* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "ypN-rT-HA1"; */
 "ypN-rT-HA1.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "ext-NL-8Z8"; */
+"ext-NL-8Z8.configuration.title" = "اقرأ أكثر";
+
+/* Class = "UIButton"; configuration.title = "Read more"; ObjectID = "oye-vL-TLX"; */
+"oye-vL-TLX.configuration.title" = "اقرأ أكثر";
+
+

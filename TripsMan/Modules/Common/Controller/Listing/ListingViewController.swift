@@ -136,6 +136,12 @@ class ListingViewController: UIViewController {
             meetupFilter.rate = Rate(from: Int(K.minimumPrice), to: Int(K.maximumPrice))
         }
         
+        //AlignFields
+        tripTypeField.alignForLanguage()
+        filterByField.alignForLanguage()
+        sortByField.alignForLanguage()
+        
+        
         assignValues()
         
     }

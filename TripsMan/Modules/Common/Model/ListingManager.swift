@@ -116,9 +116,9 @@ struct ListingManager {
                 if hotel.userRating >= 4.5 {
                     ratingText = "Excellent".localized() + "\n"
                 } else if hotel.userRating >= 4 {
-                    ratingText = "Very Good" + "\n"
+                    ratingText = "Very Good".localized() + "\n"
                 } else if hotel.userRating >= 3 {
-                    ratingText = "Good" + "\n"
+                    ratingText = "Good".localized() + "\n"
                 }
                 
                 let userRating = UserRating(ratingCount: hotel.userRatingCount, rating: "\(hotel.userRating.rounded)/5", ratingText: "\(ratingText)(\(hotel.userRatingCount.oneOrMany("rating")))")

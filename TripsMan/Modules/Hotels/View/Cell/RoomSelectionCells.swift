@@ -49,8 +49,11 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
     func setupView() {
         for each in textFields {
             each.delegate = self
+            each.alignForLanguage()
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         }
+        checkinField.alignForLanguage()
+        checkoutField.alignForLanguage()
         
         for each in [nameValidationLabel, phoneValidationLabel, emailValidationLabel, genderValidationLabel, ageValidationLabel] {
             each?.isHidden = true
