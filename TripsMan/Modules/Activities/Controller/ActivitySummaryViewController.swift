@@ -379,7 +379,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
                 
                 let amount = amountDetails[indexPath.row]
                 cell.keyLabel.text = amount.label
-                cell.valueLabel.text = "\(SessionManager.shared.getCurrency()) \(amount.amount)"
+                cell.valueLabel.text = amount.amount.attachCurrency
                 
                 if amount.isTotalAmount == 1 {
                     cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 15)

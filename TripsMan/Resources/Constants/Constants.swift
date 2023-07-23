@@ -94,12 +94,12 @@ struct K {
         //                 2 - Percentage
         var discountText = ""
         if discountType == 1 {
-            discountText = "\(SessionManager.shared.getCurrency()) \(discount)"
+            discountText = discount.attachCurrency
         } else if discountType == 2 {
             discountText = "\(discount)%"
         }
         
-        return "\(description)\nMin. Order Value: \(SessionManager.shared.getCurrency()) \(minAmount), Discount: \(discountText) "
+        return "\(description)\nMin. Order Value: \(minAmount.attachCurrency), Discount: \(discountText) "
     }
 }
 

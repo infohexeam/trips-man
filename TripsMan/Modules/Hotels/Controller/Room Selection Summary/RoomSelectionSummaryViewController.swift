@@ -358,7 +358,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 
                 let amount = amountDetails[indexPath.row]
                 cell.keyLabel.text = amount.label
-                cell.valueLabel.text = "\(SessionManager.shared.getCurrency()) \(amount.amount)"
+                cell.valueLabel.text = amount.amount.attachCurrency
                 
                 
                 if amount.isTotalAmount == 1 {

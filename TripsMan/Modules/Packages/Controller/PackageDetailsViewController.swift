@@ -122,7 +122,7 @@ extension PackageDetailsViewController: UICollectionViewDataSource {
                 cell.packageCode.text = "Package code".localized() + ": \(packageDetails.packageCode)"
                 cell.packageCountry.text = packageDetails.countryName
                 cell.priceLabel.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) " + "taxes & fee per person".localized()
+                cell.taxLabel.text = "+ \(packageDetails.serviceCharge.attachCurrency) " + "taxes & fee per person".localized()
             }
             
             return cell

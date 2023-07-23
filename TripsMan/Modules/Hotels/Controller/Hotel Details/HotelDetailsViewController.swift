@@ -525,7 +525,7 @@ extension HotelDetailsViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(rooms.actualPrice, rooms.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(rooms.serviceChargeValue)\n" + "taxes & fee per night".localized()
+                cell.taxLabel.text = "+ \(rooms.serviceChargeValue.attachCurrency)\n" + "taxes & fee per night".localized()
                 cell.offLabel.isHidden = true
                 if rooms.offerPrice > 0 {
                     cell.offLabel.text = " " + "\(rooms.offerPrice.percentage(rooms.actualPrice)) % " + "off".localized() + " "

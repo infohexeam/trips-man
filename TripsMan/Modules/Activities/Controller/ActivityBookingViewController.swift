@@ -268,7 +268,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(activityDetails.costPerPerson, activityDetails.offerPrice, fontSize: fontSize!)
-                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(activityDetails.serviceChargeValue) " + "taxes & fee per person".localized()
+                cell.taxlabel.text = "+ \(activityDetails.serviceChargeValue.attachCurrency) " + "taxes & fee per person".localized()
                 
                 cell.dateLabel.text = activityFilters.activityDate!.stringValue(format: "EEEE\ndd-MM-yyyy")
             }
@@ -284,7 +284,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(meetupDetails.costPerPerson, meetupDetails.offerAmount, fontSize: fontSize!)
-                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(meetupDetails.serviceCharge) " + "taxes & fee per person".localized()
+                cell.taxlabel.text = "+ \(meetupDetails.serviceCharge.attachCurrency) " + "taxes & fee per person".localized()
                 
                 cell.dateLabel.text = meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "EEEE\ndd-MM-yyyy")
             }

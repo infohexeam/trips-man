@@ -337,7 +337,7 @@ extension TripDetailsViewController: UICollectionViewDataSource {
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 
                 cell.keyLabel.text = amountDetails.label
-                cell.valueLabel.text = "\(SessionManager.shared.getCurrency()) \(amountDetails.amount)"
+                cell.valueLabel.text = amountDetails.amount.attachCurrency
                 
                 if amountDetails.isTotalAmount == 1 {
                     cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 15)

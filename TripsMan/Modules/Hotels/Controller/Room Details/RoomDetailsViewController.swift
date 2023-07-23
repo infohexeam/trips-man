@@ -131,15 +131,15 @@ extension RoomDetailsViewController: UICollectionViewDataSource {
             if let details = roomManager?.getRoomDetails() {
                 var totalAmount: Double = 0
                 if details.offerPrice > 0 {
-                    cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.offerPrice)"
+                    cell.pricePerNight.text = details.offerPrice.attachCurrency
                     totalAmount = details.offerPrice + details.serviceChargeValue
                 } else {
-                    cell.pricePerNight.text = "\(SessionManager.shared.getCurrency()) \(details.roomPrice)"
+                    cell.pricePerNight.text = details.roomPrice.attachCurrency
                     totalAmount = details.roomPrice + details.serviceChargeValue
                 }
-                cell.taxAndFees.text = "\(SessionManager.shared.getCurrency()) \(details.serviceChargeValue)"
+                cell.taxAndFees.text = details.serviceChargeValue.attachCurrency
                 
-                cell.totalAmount.text = "\(SessionManager.shared.getCurrency()) \(totalAmount)"
+                cell.totalAmount.text = totalAmount.attachCurrency
             }
             
             return cell

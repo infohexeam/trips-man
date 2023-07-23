@@ -123,7 +123,7 @@ struct ListingManager {
                 
                 let userRating = UserRating(ratingCount: hotel.userRatingCount, rating: "\(hotel.userRating.rounded)/5", ratingText: "\(ratingText)(\(hotel.userRatingCount.oneOrMany("rating")))")
                 
-                listingData?.append(ListingData(type: .hotel, id: hotel.hotelID, listImage: hotel.imageUrl, placeHolderImage: K.hotelPlaceHolderImage, isSponsored: hotel.isSponsored, starRatingText: "\(starRating) \(hotel.hotelType)", userRating: userRating, listName: hotel.hotelName, secondText: hotel.hotelAddress.capitalizedSentence, desc: hotel.shortDescription, actualPrice: hotel.actualPrice, offerPrice: hotel.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(hotel.serviceChargeValue)\n" + "taxes & fee per night".localized()))
+                listingData?.append(ListingData(type: .hotel, id: hotel.hotelID, listImage: hotel.imageUrl, placeHolderImage: K.hotelPlaceHolderImage, isSponsored: hotel.isSponsored, starRatingText: "\(starRating) \(hotel.hotelType)", userRating: userRating, listName: hotel.hotelName, secondText: hotel.hotelAddress.capitalizedSentence, desc: hotel.shortDescription, actualPrice: hotel.actualPrice, offerPrice: hotel.offerPrice, taxLabelText: "+ \(hotel.serviceChargeValue.attachCurrency)\n" + "taxes & fee per night".localized()))
             }
             
         case .packages:
@@ -134,7 +134,7 @@ struct ListingManager {
                         packageImage = package.holidayImage[0].imageURL
                     }
                 }
-                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: packageImage, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", desc: package.shortDescription, actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(package.serviceCharge)\n" + "taxes & fee per person".localized()))
+                listingData?.append(ListingData(type: .packages, id: package.packageID, listImage: packageImage, placeHolderImage: K.packagePlaceHolderImage, isSponsored: package.isSponsored, listName: package.packageName, secondText: "\(package.duration) - \(package.countryName)", desc: package.shortDescription, actualPrice: package.costPerPerson, offerPrice: package.offerPrice, taxLabelText: "+ \(package.serviceCharge.attachCurrency)\n" + "taxes & fee per person".localized()))
             }
         case .activities:
             for activity in activities! {
@@ -144,7 +144,7 @@ struct ListingManager {
                         activityImage = activity.activityImages[0].imageURL
                     }
                 }
-                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activityImage, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, desc: activity.shortDescription, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(activity.serviceChargeValue ?? 0)\n" + "taxes & fee per person".localized()))
+                listingData?.append(ListingData(type: .activities, id: activity.activityID, listImage: activityImage, placeHolderImage: K.activityPlaceholderImage, isSponsored: activity.isSponsored, listName: activity.activityName, secondText: activity.activityLocation, desc: activity.shortDescription, actualPrice: activity.costPerPerson, offerPrice: activity.offerPrice, taxLabelText: "+ \(activity.serviceChargeValue?.attachCurrency ?? "")\n" + "taxes & fee per person".localized()))
             }
         case .meetups:
             for meetup in meetups! {
@@ -154,7 +154,7 @@ struct ListingManager {
                         meetupImage = meetup.meetupImages[0].imageURL
                     }
                 }
-                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetupImage, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", desc: meetup.shortDescription, actualPrice: meetup.costPerPerson, offerPrice: meetup.offerAmount, taxLabelText: "+ \(SessionManager.shared.getCurrency()) \(meetup.serviceCharge)\n" + "taxes & fee per person".localized()))
+                listingData?.append(ListingData(type: .meetups, id: meetup.meetupID, listImage: meetupImage, placeHolderImage: K.meetupPlaceholderImage, isSponsored: 0, listName: meetup.meetupName, secondText: "\(meetup.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "dd MMM yyyy") ?? "")", desc: meetup.shortDescription, actualPrice: meetup.costPerPerson, offerPrice: meetup.offerAmount, taxLabelText: "+ \(meetup.serviceCharge.attachCurrency)\n" + "taxes & fee per person".localized()))
             }
             break
         }

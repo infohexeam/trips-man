@@ -183,7 +183,7 @@ extension ActivityDetailsViewController: UICollectionViewDataSource {
                 cell.activityName.text = details.activityName + " - " + (Int(details.activityDuration)?.oneOrMany("Day") ?? "")
                 cell.activityCountry.text = details.activityLocation
                 cell.priceLabel.addPriceString(details.costPerPerson, details.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(details.serviceChargeValue) " + "taxes & fee per person".localized()
+                cell.taxLabel.text = "+ \(details.serviceChargeValue.attachCurrency) " + "taxes & fee per person".localized()
                 cell.detailsLabel.text = details.shortDescription
                 cell.dateLabel.text = activityFilters.activityDate?.stringValue(format: "dd MMM yyyy")
             }

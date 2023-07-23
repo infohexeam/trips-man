@@ -26,8 +26,12 @@ extension Double {
         formatter.maximumFractionDigits = 1
         
         return formatter.string(from: numb as NSNumber) ?? ""
-        
     }
+    
+    var attachCurrency: String {
+        return "\(SessionManager.shared.getCurrency()) \(self.clean)"
+    }
+    
 }
 
 //Percentage

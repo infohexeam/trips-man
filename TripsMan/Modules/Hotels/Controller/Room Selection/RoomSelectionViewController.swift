@@ -255,7 +255,7 @@ extension RoomSelectionViewController: UICollectionViewDataSource {
                 }
                 
                 cell.priceLabel.addPriceString(room.actualPrice, room.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(room.serviceChargeValue)\n" + "taxes & fee per night".localized()
+                cell.taxLabel.text = "+ \(room.serviceChargeValue.attachCurrency)\n" + "taxes & fee per night".localized()
             }
             return cell
             

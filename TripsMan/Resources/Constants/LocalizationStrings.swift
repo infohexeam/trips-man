@@ -40,7 +40,7 @@ struct L {
         if SessionManager.shared.getLanguage().code == "ar" {
             return ""
         } else {
-            return "Redeem \(percentage)% of your wallet points. Maximum redeem amount on this booking is \(SessionManager.shared.getCurrency()) \(maxAmount)"
+            return "Redeem \(percentage)% of your wallet points. Maximum redeem amount on this booking is \(maxAmount.attachCurrency)"
         }
     }
     
