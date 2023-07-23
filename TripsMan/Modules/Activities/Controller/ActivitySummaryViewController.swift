@@ -372,6 +372,7 @@ extension ActivitySummaryViewController: UICollectionViewDataSource {
         } else if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             if let amountDetails = activityManager?.getAmountDetails() {
+                cell.alignValueLabel()
                 cell.paymentButton.isHidden = true
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)

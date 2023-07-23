@@ -31,6 +31,9 @@ class ForgotPasswordViewController: UIViewController {
         
         //Disable
         submitButton.isEnabled = false
+        
+        //Align
+        emailField.alignForLanguage()
     }
     
     @IBAction func submitTapped(_ sender: UIButton) {

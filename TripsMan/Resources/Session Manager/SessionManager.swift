@@ -14,6 +14,7 @@ struct SessionKeys {
     static let selectedLanguage = "selectedLanguage"
     static let currency = "currency"
     static let fcmToken = "fcmToken"
+    static let appleLanguage = "AppleLanguage"  //Default Key by apple for language
 }
 
 class SessionManager {
@@ -40,7 +41,7 @@ class SessionManager {
     func logout() {
         let keys = defaults.dictionaryRepresentation()
         for each in keys {
-            if each.key != SessionKeys.fcmToken {
+            if each.key != SessionKeys.fcmToken && each.key != SessionKeys.appleLanguage {
                 defaults.removeObject(forKey: each.key)
             }
         }
@@ -50,7 +51,7 @@ class SessionManager {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(language) {
             defaults.set(encoded, forKey: SessionKeys.selectedLanguage)
-            defaults.set(language.code, forKey: "AppleLanguage")
+            defaults.set(language.code, forKey: SessionKeys.appleLanguage)
             
             if language.code == "ar" {
                 UIView.appearance().semanticContentAttribute = .forceRightToLeft
@@ -59,22 +60,13 @@ class SessionManager {
             }
             defaults.synchronize()
             
-//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//            appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
             guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
             let mainRootController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
             window.rootViewController = mainRootController
             window.makeKeyAndVisible()
-            print("------------aaa")
-//            if let mainWindow = appDelegate.window {
-                print("------------bbb")
             UIView.transition(with: window, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
-                }) { (finished) -> Void in
-                }
-//            }
-            ///
-            ///
-            
+            }) { (finished) -> Void in
+            }
         }
     }
     

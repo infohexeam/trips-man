@@ -136,7 +136,9 @@ class ProfileViewController: UIViewController {
         
         for each in textFields {
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+            each.alignForLanguage()
         }
+        customerCodeField.alignForLanguage()
         
         hideKeyboardOnTap()
 
@@ -170,7 +172,7 @@ class ProfileViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         
         
-        let genderItems = K.genders.map { UIAction(title: $0, handler: genderHandler) }
+        let genderItems = K.genders.map { UIAction(title: $0.localized(), handler: genderHandler) }
         genderButton.menu = UIMenu(title: "", children: genderItems)
         genderButton.showsMenuAsPrimaryAction = true
         
@@ -249,7 +251,8 @@ extension ProfileViewController {
     }
     
     func genderHandler(action: UIAction) {
-        selectedGender = action.title
+        //gender is passed as string to api, and it should be in english
+        selectedGender = K.genders.filter { $0.localized() == action.title }.last ?? ""
     }
     
     @IBAction func profilePictureDidTapped(_ sender: UIButton) {
@@ -370,7 +373,7 @@ extension ProfileViewController {
             params["pin"] = pincodeField.text!
         }
         if genderField.text != "" {
-            params["gender"] = genderField.text!
+            params["gender"] = selectedGender
         }
         if dobField.text != "" {
             params["dob"] = selectedDob!.stringValue(format: "yyyy-MM-dd")

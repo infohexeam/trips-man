@@ -152,19 +152,22 @@ extension RoomSelectionViewController {
     func createBooking() {
         showIndicator()
         
-        var room: [[String: Any]] = [["id": 0,
+        let room: [[String: Any]] = [["id": 0,
                                       "room_id": hotelFilters.roomDetails!.roomID,
                                       "room_count": hotelFilters.roomCount!]]
         var guests = [[String: Any]]()
         let primary = textFieldsTexts.filter { $0.key == [1,0] }
         
         
+        
         for each in textFieldsTexts {
+            //gender is passed as string to api, and it should be in english
+            let gender = K.genders.filter { $0.localized() == each.value.gender }.last ?? ""
             guests.append(["id": 0,
                            "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
-                           "gender": each.value.gender,
+                           "gender": gender,
                            "isPrimary": each.value == primary.first!.value ? 1 : 0,
                            "age": each.value.age.intValue(),
                            "status": 1])

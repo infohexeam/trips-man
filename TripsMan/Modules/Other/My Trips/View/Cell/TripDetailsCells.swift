@@ -34,6 +34,18 @@ class TripMoreDetailsCell: UICollectionViewCell {
     @IBOutlet weak var rightTitle: UILabel!
     @IBOutlet weak var rightText: UILabel!
     @IBOutlet weak var rightSubText: UILabel!
+    
+    func alignRightLabels() {
+        if SessionManager.shared.getLanguage().code == "ar" {
+            rightTitle.textAlignment = .left
+            rightText.textAlignment = .left
+            rightSubText.textAlignment = .left
+        } else {
+            rightTitle.textAlignment = .right
+            rightText.textAlignment = .right
+            rightSubText.textAlignment = .right
+        }
+    }
 }
 
 

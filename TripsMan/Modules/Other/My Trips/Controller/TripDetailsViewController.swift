@@ -332,7 +332,7 @@ extension TripDetailsViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             
             if let amountDetails = tripManager?.getAmountDetails()?[indexPath.row] {
-                
+                cell.alignValueLabel()
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 
@@ -350,6 +350,7 @@ extension TripDetailsViewController: UICollectionViewDataSource {
             for each in [cell.leftTitle, cell.leftText, cell.leftSubText, cell.rightTitle, cell.rightText, cell.rightSubText] {
                 each?.isHidden = true
             }
+            cell.alignRightLabels()
             
             if let moreDetails = tripManager?.getMoreDetails()?[indexPath.row] {
                 if let leftText = moreDetails.leftText {

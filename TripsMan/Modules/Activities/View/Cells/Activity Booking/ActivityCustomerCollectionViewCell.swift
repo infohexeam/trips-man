@@ -34,13 +34,14 @@ class ActivityCustomerCollectionViewCell: UICollectionViewCell, UITextFieldDeleg
         for each in textFields {
             each.delegate = self
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+            each.alignForLanguage()
         }
         
         for each in [nameValidationLabel, phoneValidationLabel, emailValidationLabel, genderValidationLabel, ageValidationLabel] {
             each?.isHidden = true
         }
         
-        let items = K.genders.map { UIAction(title: "\($0)", handler: genderHandler) }
+        let items = K.genders.map { UIAction(title: "\($0.localized())", handler: genderHandler) }
         genderButton.menu = UIMenu(title: "", children: items)
         genderButton.showsMenuAsPrimaryAction = true
         

@@ -26,7 +26,7 @@ struct K {
     static let couponToShow = 4
     static let readMoreContentLines = 5
     
-    static let genders = ["Male".localized(), "Female".localized(), "Prefer not to say".localized()]
+    static let genders = ["Male", "Female", "Prefer not to say"]
     
     static let countryCodes: [MobileCodes] = [MobileCodes(code: "+91", mobileLength: 10),
                                               MobileCodes(code: "+971", mobileLength: 9)]
@@ -36,8 +36,8 @@ struct K {
     //      - setting country w.r.t device's locale identifier (MainViewController)
     //      - Google Maps country filter (DefaultFilterViewController)
     //  countryCode uses in tripsman apis
-    static let countries = [CountrySelection(name: "India".localized(), icon: "country-india", countryCode: "IND", localeIdentifier: "IN", currency: "INR", id: 1),
-                            CountrySelection(name: "UAE".localized(), icon: "country-uae", countryCode: "UAE", localeIdentifier: "AE", currency: "AED", id: 2)]
+    static let countries = [CountrySelection(name: "India", icon: "country-india", countryCode: "IND", localeIdentifier: "IN", currency: "INR", id: 1),
+                            CountrySelection(name: "UAE", icon: "country-uae", countryCode: "UAE", localeIdentifier: "AE", currency: "AED", id: 2)]
     static let languages = [LanguageSelection(name: "English", id: 1, code: "en"), LanguageSelection(name: "عربي", id: 2, code: "ar")]
     
     static let hotelPlaceHolderImage = "hotel-default-img"

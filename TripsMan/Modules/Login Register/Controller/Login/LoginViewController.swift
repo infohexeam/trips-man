@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
         
         for each in textFields {
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+            each.alignForLanguage()
         }
     }
     
@@ -49,7 +50,12 @@ class LoginViewController: UIViewController {
         
         eyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         eyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
-        passwordField.setLeftPaddingPoints(30)
+        if SessionManager.shared.getLanguage().code == "ar" {
+            passwordField.paddingLeft = 35
+        } else {
+            passwordField.paddingRight = 35
+        }
+        
     }
     
     func clearFields() {

@@ -208,6 +208,7 @@ extension CheckoutViewController: UICollectionViewDataSource {
         if thisSection.type == .priceDetails {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             if let amount = checkoutManager?.getAmountDetails()?[indexPath.row] {
+                cell.alignValueLabel()
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 

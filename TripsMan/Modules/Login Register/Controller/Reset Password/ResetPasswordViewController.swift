@@ -44,6 +44,7 @@ class ResetPasswordViewController: UIViewController {
         
         for each in textFields {
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+            each.alignForLanguage()
         }
         
     }
@@ -73,9 +74,17 @@ class ResetPasswordViewController: UIViewController {
         newPwdEyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
         retypePwdEyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         retypePwdEyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
-        currentPassword.setLeftPaddingPoints(30)
-        newPasswordField.setLeftPaddingPoints(30)
-        confirmPasswordField.setLeftPaddingPoints(30)
+        
+        if SessionManager.shared.getLanguage().code == "ar" {
+            currentPassword.paddingLeft = 35
+            newPasswordField.paddingLeft = 35
+            confirmPasswordField.paddingLeft = 35
+        } else {
+            currentPassword.paddingRight = 35
+            newPasswordField.paddingRight = 35
+            confirmPasswordField.paddingRight = 35
+        }
+        
     }
     
     @IBAction func eyeButtonTapped(_ sender: UIButton) {

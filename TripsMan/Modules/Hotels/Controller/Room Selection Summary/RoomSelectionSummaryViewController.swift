@@ -351,6 +351,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .bottomView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             if let amountDetails = amountDetails {
+                cell.alignValueLabel()
                 cell.paymentButton.isHidden = true
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)
@@ -358,6 +359,7 @@ extension RoomSelectionSummaryViewController: UICollectionViewDataSource {
                 let amount = amountDetails[indexPath.row]
                 cell.keyLabel.text = amount.label
                 cell.valueLabel.text = "\(SessionManager.shared.getCurrency()) \(amount.amount)"
+                
                 
                 if amount.isTotalAmount == 1 {
                     cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 15)

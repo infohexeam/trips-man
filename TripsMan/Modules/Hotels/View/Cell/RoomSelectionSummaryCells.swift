@@ -50,6 +50,14 @@ class PriceDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var seperator: UIView!
+    
+    func alignValueLabel() {
+        if SessionManager.shared.getLanguage().code == "ar" {
+            valueLabel.textAlignment = .left
+        } else {
+            valueLabel.textAlignment = .right
+        }
+    }
 }
 
 class RewardPointCollectionViewCell: UICollectionViewCell {

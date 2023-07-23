@@ -59,7 +59,7 @@ class PrimaryFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate 
             each?.isHidden = true
         }
         
-        let items = K.genders.map { UIAction(title: "\($0)", handler: genderHandler) }
+        let items = K.genders.map { UIAction(title: "\($0.localized())", handler: genderHandler) }
         genderButton.menu = UIMenu(title: "", children: items)
         genderButton.showsMenuAsPrimaryAction = true
         
@@ -218,7 +218,7 @@ class GuestFieldCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
             each?.isHidden = true
         }
         
-        let items = K.genders.map { UIAction(title: "\($0)", handler: genderHandler) }
+        let items = K.genders.map { UIAction(title: "\($0.localized())", handler: genderHandler) }
         genderButton.menu = UIMenu(title: "", children: items)
         genderButton.showsMenuAsPrimaryAction = true
             

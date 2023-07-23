@@ -53,6 +53,8 @@ class OtpViewController: UIViewController {
         
         
         resendText.isHidden = true
+        
+        otpField.alignForLanguage()
     }
     
     func clearFields() {

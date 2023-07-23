@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="roboto.bold.ttf">
+        <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
         <array key="roboto.regular.ttf">
@@ -140,7 +140,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gYP-3m-L5N">
                                                     <rect key="frame" x="8" y="8" width="376" height="25"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-rX-NJ2">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5U-rX-NJ2">
                                                             <rect key="frame" x="0.0" y="0.0" width="86" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="Z5b-96-PmM"/>

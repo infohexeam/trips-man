@@ -41,6 +41,7 @@ class RegisterViewController: UIViewController {
         
         for each in textFields {
             each.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+            each.alignForLanguage()
         }
         
 //        containerView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
@@ -65,8 +66,15 @@ class RegisterViewController: UIViewController {
         passwordEyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
         confirmEyeButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         confirmEyeButton.setImage(UIImage(systemName: "eye.fill"), for: .selected)
-        passwordField.setLeftPaddingPoints(30)
-        retypePasswordField.setLeftPaddingPoints(30)
+        
+        if SessionManager.shared.getLanguage().code == "ar" {
+            passwordField.paddingLeft = 35
+            retypePasswordField.paddingLeft = 35
+        } else {
+            passwordField.paddingRight = 35
+            retypePasswordField.paddingRight = 35
+        }
+        
     }
     
     

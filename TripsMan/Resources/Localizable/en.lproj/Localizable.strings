@@ -50,7 +50,7 @@
 "Terms and Conditions" = "Terms and Conditions";
 "More" = "More";
 "taxes & fee per night" = "taxes & fee per night";
-"off" = "taxes & fee per night";
+"off" = "off";
 "Overall Rating" = "Overall Rating";
 "No ratings" = "No ratings";
 "Reviewed by" = "Reviewed by";
@@ -77,7 +77,7 @@
 "Package Booking" = "Package Booking";
 "Primary Traveller" = "Primary Traveller";
 "Other Travellers" = "Other Travellers";
-"taxes & fee per night" = "taxes & fee per night";
+"taxes & fee per person" = "taxes & fee per person";
 
 
 //Activities

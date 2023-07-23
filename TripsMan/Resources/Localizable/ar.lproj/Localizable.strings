@@ -50,7 +50,7 @@
 "Terms and Conditions" = "الأحكام والشروط";
 "More" = "أكثر";
 "taxes & fee per night" = "الضرائب والرسوم لكل ليلة";
-"off" = "الضرائب والرسوم لكل ليلة";
+"off" = "عن";
 "Overall Rating" = "تقييم عام";
 "No ratings" = "بدون تقييم";
 "Reviewed by" = "تمت مراجعته من قبل";
@@ -77,7 +77,7 @@
 "Package Booking" = "حجز الطرود";
 "Primary Traveller" = "المسافر الأساسي";
 "Other Travellers" = "المسافرون الآخرون";
-"taxes & fee per night" = "الضرائب والرسوم لكل ليلة";
+"taxes & fee per person" = "الضرائب والرسوم للفرد";
 
 
 //Activities

@@ -124,11 +124,13 @@ extension ActivityBookingViewController {
         
         
         for each in activityFieldTexts {
+            //gender is passed as string to api, and it should be in english
+            let gender = K.genders.filter { $0.localized() == each.value.gender }.last ?? ""
             guests.append(["id": 0,
                            "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
-                           "gender": each.value.gender,
+                           "gender": gender,
                            "isPrimary": each.value == primary.first?.value ? 1 : 0,
                            "age": each.value.age.intValue()])
         }
@@ -176,11 +178,13 @@ extension ActivityBookingViewController {
         
         
         for each in activityFieldTexts {
+            //gender is passed as string to api, and it should be in english
+            let gender = K.genders.filter { $0.localized() == each.value.gender }.last ?? ""
             guests.append(["id": 0,
                            "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
-                           "gender": each.value.gender,
+                           "gender": gender,
                            "isPrimary": each.value == primary.first?.value ? 1 : 0,
                            "age": each.value.age.intValue()])
         }
@@ -264,7 +268,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(activityDetails.costPerPerson, activityDetails.offerPrice, fontSize: fontSize!)
-                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(activityDetails.serviceChargeValue) " + "taxes and fee per person".localized()
+                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(activityDetails.serviceChargeValue) " + "taxes & fee per person".localized()
                 
                 cell.dateLabel.text = activityFilters.activityDate!.stringValue(format: "EEEE\ndd-MM-yyyy")
             }
@@ -280,7 +284,7 @@ extension ActivityBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.priceLabel.font.pointSize
                 }
                 cell.priceLabel.addPriceString(meetupDetails.costPerPerson, meetupDetails.offerAmount, fontSize: fontSize!)
-                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(meetupDetails.serviceCharge) " + "taxes and fee per person".localized()
+                cell.taxlabel.text = "+ \(SessionManager.shared.getCurrency()) \(meetupDetails.serviceCharge) " + "taxes & fee per person".localized()
                 
                 cell.dateLabel.text = meetupDetails.meetupDate.date("yyyy-MM-dd'T'HH:mm:ss")?.stringValue(format: "EEEE\ndd-MM-yyyy")
             }

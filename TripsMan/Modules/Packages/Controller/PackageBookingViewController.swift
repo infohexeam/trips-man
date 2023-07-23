@@ -123,11 +123,13 @@ extension PackageBookingViewController {
         
         
         for each in packageFieldTexts {
+            //gender is passed as string to api, and it should be in english
+            let gender = K.genders.filter { $0.localized() == each.value.gender }.last ?? ""
             guests.append(["id": 0,
                            "contactNo": each.value.countryCode + each.value.contactNumber,
                            "guestName": each.value.name,
                            "emailId": each.value.emailID,
-                           "gender": each.value.gender,
+                           "gender": gender,
                            "isPrimary": each.value == primary.first?.value ? 1 : 0,
                            "age": each.value.age.intValue()])
         }
@@ -187,6 +189,7 @@ extension PackageBookingViewController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "packageSummaryCell", for: indexPath) as! PackageSummaryCollectionViewCell
             
             if let packageDetails = packageManager?.getPackageDetails() {
+                cell.setupView()
                 let featuredImage = packageDetails.holidayImage.filter { $0.isFeatured == 1}
                 if featuredImage.count != 0 {
                     cell.packageImage.sd_setImage(with: URL(string: featuredImage[0].imageURL ?? ""), placeholderImage: UIImage(systemName: K.packagePlaceHolderImage))
@@ -197,7 +200,7 @@ extension PackageBookingViewController: UICollectionViewDataSource {
                     fontSize = cell.packagePrice.font.pointSize
                 }
                 cell.packagePrice.addPriceString(packageDetails.costPerPerson, packageDetails.offerPrice, fontSize: fontSize!)
-                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) " + "taxes and fee per person".localized()
+                cell.taxLabel.text = "+ \(SessionManager.shared.getCurrency()) \(packageDetails.serviceCharge) " + "taxes & fee per person".localized()
                 
                 cell.startDate.text = packageFilter.startDate?.stringValue(format: "dd-MM-yyyy")
             }

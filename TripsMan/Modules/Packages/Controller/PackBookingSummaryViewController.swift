@@ -254,6 +254,7 @@ extension PackBookingSummaryViewController: UICollectionViewDataSource {
         }  else if thisSection.type == .bottomView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "priceDetailsCell", for: indexPath) as! PriceDetailsCollectionViewCell
             if let amountDetails = packageManager?.getAmountDetails() {
+                cell.alignValueLabel()
                 cell.paymentButton.isHidden = true
                 cell.keyLabel.font = UIFont(name: "Roboto-Bold", size: 12)
                 cell.valueLabel.font = UIFont(name: "Roboto-Bold", size: 12)

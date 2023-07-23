@@ -15,4 +15,8 @@ class PackageSummaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var startDate: UITextField!
+    
+    func setupView() {
+        startDate.alignForLanguage()
+    }
 }

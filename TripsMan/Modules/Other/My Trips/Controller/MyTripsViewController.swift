@@ -13,6 +13,9 @@ class MyTripsViewController: UIViewController {
     @IBOutlet weak var sortByButton: UIButton!
     @IBOutlet weak var filterByButton: UIButton!
     @IBOutlet weak var noBookingsLabel: UILabel!
+    @IBOutlet weak var searchField: CustomTextField!
+    @IBOutlet weak var filterField: CustomTextField!
+    @IBOutlet weak var sortField: CustomTextField!
 
     var refreshControl = UIRefreshControl()
     
@@ -96,6 +99,9 @@ class MyTripsViewController: UIViewController {
         setupMenus()
         noBookingsLabel.isHidden = true
         
+        searchField.alignForLanguage()
+        filterField.alignForLanguage()
+        sortField.alignForLanguage()
     }
     
     func assignValues() {
@@ -171,10 +177,11 @@ class MyTripsViewController: UIViewController {
 extension MyTripsViewController {
     
     override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        textField.resignFirstResponder()
-        tripFilters.searchText = textField.text
-        getMyTrips()
+        if textField == searchField {
+            textField.resignFirstResponder()
+            tripFilters.searchText = textField.text
+            getMyTrips()
+        }
         return true
     }
     

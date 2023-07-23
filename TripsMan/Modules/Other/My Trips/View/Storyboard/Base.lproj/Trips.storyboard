@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="roboto.bold.ttf">
+        <array key="Roboto-Bold.ttf">
             <string>Roboto-Bold</string>
         </array>
         <array key="roboto.regular.ttf">
@@ -277,7 +277,7 @@
                                                                             <color key="textColor" name="primaryLabel"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec 1, 2022" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryi-cl-UMH">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec 1, 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryi-cl-UMH">
                                                                             <rect key="frame" x="0.0" y="58" width="237.33333333333334" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="GW3-7R-fNu"/>
@@ -318,7 +318,7 @@
                                                                                 <constraint firstAttribute="width" secondItem="XSe-Ny-ajR" secondAttribute="height" id="D4B-dG-b8A"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-2P-57k">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="oTL-2P-57k">
                                                                             <rect key="frame" x="16.999999999999979" y="0.0" width="111.66666666666669" height="15"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="15" id="6X8-78-UmX"/>
@@ -350,7 +350,7 @@
                                                                                 <constraint firstAttribute="width" secondItem="2EU-IM-Hw5" secondAttribute="height" id="MdJ-id-liL"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Room(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Owm-wG-mvP">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Room(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Owm-wG-mvP">
                                                                             <rect key="frame" x="16.999999999999979" y="0.0" width="111.66666666666669" height="15"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="15" id="KYa-gf-rrS"/>
@@ -445,10 +445,13 @@
                     <navigationItem key="navigationItem" id="7Pj-eQ-JAq"/>
                     <connections>
                         <outlet property="filterByButton" destination="Yoj-NG-3lT" id="gi8-vc-HOb"/>
+                        <outlet property="filterField" destination="fxG-uL-dpA" id="HUR-NX-qJg"/>
                         <outlet property="myTripsCollection" destination="vhd-Ag-I3f" id="3bN-ve-61C"/>
                         <outlet property="noBookingsLabel" destination="dMq-hN-P4G" id="rQd-cj-y2W"/>
+                        <outlet property="searchField" destination="sCQ-PC-LLh" id="UZq-aE-BTY"/>
                         <outlet property="segment" destination="osC-wX-iUG" id="3yy-m2-zvd"/>
                         <outlet property="sortByButton" destination="ho4-nx-gdL" id="uk5-Ug-wvG"/>
+                        <outlet property="sortField" destination="WpO-As-I4K" id="Toz-hf-MAp"/>
                         <segue destination="vAZ-1Q-jrm" kind="show" identifier="toTripDetails" id="2nY-bc-9eH"/>
                         <segue destination="VMU-Hv-X3K" kind="show" identifier="toLoginSS" id="0FR-D0-jpo"/>
                     </connections>
@@ -568,7 +571,7 @@
                                                                                     <color key="textColor" name="tertiaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your trip completed. We hope you had a pleasant day!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXf-w9-QKN">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your trip completed. We hope you had a pleasant day!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXf-w9-QKN">
                                                                                     <rect key="frame" x="0.0" y="69" width="374" height="335"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
@@ -669,7 +672,7 @@
                                                                                     <color key="textColor" name="primaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot No 9, opp ITC Rajputra Sheraton, Fateh Singh Market, Gopalbhari, Jaipur, Rajastan - 302006" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18b-5n-dNu">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot No 9, opp ITC Rajputra Sheraton, Fateh Singh Market, Gopalbhari, Jaipur, Rajastan - 302006" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18b-5n-dNu">
                                                                                     <rect key="frame" x="0.0" y="49.666666666666629" width="187" height="56.333333333333343"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
@@ -745,7 +748,7 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C7L-YT-4b0">
                                                                             <rect key="frame" x="0.0" y="0.0" width="181" height="257"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2i-jG-Ms5">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2i-jG-Ms5">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="181" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="Kw8-RH-zrW"/>
@@ -763,7 +766,7 @@ asdlakd</string>
                                                                                     <color key="textColor" name="primaryLabel"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After 2.00 pm" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-bt-S5b">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After 2.00 pm" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkX-bt-S5b">
                                                                                     <rect key="frame" x="0.0" y="73" width="181" height="12"/>
                                                                                     <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                                                     <color key="textColor" name="profileKeyLabel"/>
