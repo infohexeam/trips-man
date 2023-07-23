@@ -10,7 +10,7 @@ import Foundation
 struct L {
     static func reviewedByText(by customerName: String, on reviewDate: String) -> String {
         if SessionManager.shared.getLanguage().code == "ar" {
-            return "- تمت المراجعة بواسطة \(customerName) بتاريخ \(reviewDate)-"
+            return "- تمت المراجعة بواسطة \(customerName) بتاريخ \(reviewDate)"
         } else {
             return "- Reviewed by \(customerName) on \(reviewDate)"
         }
@@ -38,14 +38,19 @@ struct L {
     
     static func redeemRewardPointText(percentage: Double, maxAmount: Double) -> String {
         if SessionManager.shared.getLanguage().code == "ar" {
-            return ""
+            return "استبدل \(percentage)٪ من نقاط محفظتك. الحد الأقصى لمبلغ الاسترداد في هذا الحجز هو \(maxAmount.attachCurrency)"
         } else {
             return "Redeem \(percentage)% of your wallet points. Maximum redeem amount on this booking is \(maxAmount.attachCurrency)"
         }
     }
     
     static func bookingSuccessMessage(for module: String, with bookingNo: String) -> String {
-        return "Your \(K.getModuleText(of: module)) booking has been successfully confirmed. Enjoy your experience! Booking No: \(bookingNo)"
+        if SessionManager.shared.getLanguage().code == "ar" {
+            return "تم تأكيد حجزك \(K.getModuleText(of: module)) بنجاح. استمتع بتجربتك! رقم الحجز: \(bookingNo))"
+        } else {
+            return "Your \(K.getModuleText(of: module)) booking has been successfully confirmed. Enjoy your experience! Booking No: \(bookingNo)"
+        }
+        
     }
     
     static func paymentWaitingMessage(for module: String, with bookingNo: String) -> String {
