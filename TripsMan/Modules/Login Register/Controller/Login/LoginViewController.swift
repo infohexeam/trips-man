@@ -55,7 +55,6 @@ class LoginViewController: UIViewController {
         } else {
             passwordField.paddingRight = 35
         }
-        
     }
     
     func clearFields() {
@@ -78,18 +77,11 @@ class LoginViewController: UIViewController {
             guard error == nil else { return }
 
             print("Google Sign in success - \(String(describing: signInResult?.user))")
+            print("id token - \(String(describing: signInResult?.user.idToken?.tokenString))")
+            print("access token - \(String(describing: signInResult?.user.accessToken.tokenString))")
           }
     }
-    
-    private func saveUserInKeychain(_ userIdentifier: String) {
-        do {
-            try KeychainItem(service: K.bundleIdentifier, account: "userIdentifier").saveItem(userIdentifier)
-        } catch {
-            print("Unable to save userIdentifier to keychain.")
-        }
-    }
-    
- 
+
     //MARK: UIButton Actions
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "toForgotPassword", sender: nil)
@@ -101,9 +93,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupTapped(_ sender: UIButton) {
         if sender == signupAppleButton {
-//            signUpWithapple()
+            signUpWithapple()
         } else if sender == signupGoogleButton {
-//            signInWithGoogle()
+            signInWithGoogle()
         } else if sender == signupAccountButton {
             performSegue(withIdentifier: "toRegister", sender: nil)
         }
@@ -235,15 +227,27 @@ extension LoginViewController {
     }
 }
 
+//Sign-in using Apple
 extension LoginViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
         let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
         let email = appleIDCredential.email
-        print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))") }
-        
-        //TODO: -
+        print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+            
+            //Save user details in cache (to use in case of error in initial attempt to register) and remove it upon on successful registration.
+            if fullName == nil && email == nil {
+                let name = "\(String(describing: fullName?.givenName)) \(String(describing: fullName?.familyName)))"
+                let signinDetails = AppleSigninUserDetails(userId: userIdentifier, fullName: name, email: email ?? "")
+                SessionManager.shared.saveAppleSigninDetails(signinDetails)
+            }
+           
+            
+            
+            //TODO: - Apicall
+            
+        }
         
     }
     

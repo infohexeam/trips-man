@@ -15,6 +15,13 @@ struct SessionKeys {
     static let currency = "currency"
     static let fcmToken = "fcmToken"
     static let appleLanguage = "AppleLanguage"  //Default Key by apple for language
+    static let appleSignInDetails = "appleSignInDetails"
+}
+
+struct AppleSigninUserDetails: Codable {
+    var userId: String
+    var fullName: String
+    var email: String
 }
 
 class SessionManager {
@@ -120,5 +127,30 @@ class SessionManager {
             return token
         }
         return nil
+    }
+    
+    
+    //Sign-in with apple
+    //Save user details in cache (to use in case of error in initial attempt to register) and remove it upon on successful registration.
+    
+    func saveAppleSigninDetails(_ details: AppleSigninUserDetails) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(details) {
+            defaults.set(encoded, forKey: SessionKeys.appleSignInDetails)
+        }
+    }
+    
+    func getAppleSigninDetails() -> AppleSigninUserDetails? {
+        if let signinData = defaults.object(forKey: SessionKeys.appleSignInDetails) as? Data {
+            let decoder = JSONDecoder()
+            if let loginDetails = try? decoder.decode(AppleSigninUserDetails.self, from: signinData) {
+                return loginDetails
+            }
+        }
+        return nil
+    }
+    
+    func removeAppleSigninDetails() {
+        defaults.removeObject(forKey: SessionKeys.appleSignInDetails)
     }
 }
